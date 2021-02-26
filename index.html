@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R을 이용한 통계 분석 (개정판)</title>
+  <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R을 이용한 통계 분석 (개정판)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R을 이용한 통계 분석 (개정판)" />
+  
+  <meta name="twitter:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+<meta name="author" content="김길환" />
+
+
+<meta name="date" content="2021-02-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="ch-statisics.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R을 이용한 통계 분석</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>일러두기</a></li>
+<li class="part"><span><b>I 개요</b></span></li>
+<li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
+<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-statisics.html"><a href="ch-statisics.html#문제-정의"><i class="fa fa-check"></i><b>1.3.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-수집"><i class="fa fa-check"></i><b>1.3.2</b> 데이터 수집</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-전처리-및-탐색"><i class="fa fa-check"></i><b>1.3.3</b> 데이터 전처리 및 탐색</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ch-statisics.html"><a href="ch-statisics.html#통계-모형-수립"><i class="fa fa-check"></i><b>1.3.4</b> 통계 모형 수립</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ch-statisics.html"><a href="ch-statisics.html#결론-도출"><i class="fa fa-check"></i><b>1.3.5</b> 결론 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-statisics.html"><a href="ch-statisics.html#질적-변수"><i class="fa fa-check"></i><b>1.4.1</b> 질적 변수</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-statisics.html"><a href="ch-statisics.html#양적-변수"><i class="fa fa-check"></i><b>1.4.2</b> 양적 변수</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II R 기초</b></span></li>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>2.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>2.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>2.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#r의-기본적-데이터-형식-숫자-문자열-논리값"><i class="fa fa-check"></i><b>3.1.1</b> R의 기본적 데이터 형식: 숫자, 문자열, 논리값</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#vs-10"><i class="fa fa-check"></i><b>3.1.2</b> 10 vs “10”</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#사칙-연산"><i class="fa fa-check"></i><b>3.2.1</b> 사칙 연산</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#거듭-제곱-연산"><i class="fa fa-check"></i><b>3.2.2</b> 거듭 제곱 연산</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#몫과-나머지"><i class="fa fa-check"></i><b>3.2.3</b> 몫과 나머지</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#비교-연산-그리고-vs."><i class="fa fa-check"></i><b>3.2.4</b> 비교 연산 그리고 <code>==</code> vs. <code>=</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#논리값-연산"><i class="fa fa-check"></i><b>3.3</b> 논리값 연산</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-연산"><i class="fa fa-check"></i><b>3.4</b> 문자열 연산</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-결합-연산-paste"><i class="fa fa-check"></i><b>3.4.1</b> 문자열 결합 연산: <code>paste()</code></a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-분리-연산-strsplit"><i class="fa fa-check"></i><b>3.4.2</b> 문자열 분리 연산: <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수는-메모리-공간에-붙이는-레이블"><i class="fa fa-check"></i><b>3.5.1</b> 변수는 메모리 공간에 붙이는 레이블</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수명에-대한-규칙"><i class="fa fa-check"></i><b>3.5.2</b> 변수명에 대한 규칙</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-할당하기"><i class="fa fa-check"></i><b>3.5.3</b> 변수에 값 할당하기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당-연산자"><i class="fa fa-check"></i><b>3.5.4</b> 할당 연산자</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#연산에-변수-사용하기"><i class="fa fa-check"></i><b>3.5.5</b> 연산에 변수 사용하기</a></li>
+<li class="chapter" data-level="3.5.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-재할당하기"><i class="fa fa-check"></i><b>3.5.6</b> 변수에 값 재할당하기</a></li>
+<li class="chapter" data-level="3.5.7" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당문은-우변이-수행된-후-좌변으로-할당이-이루어진다."><i class="fa fa-check"></i><b>3.5.7</b> 할당문은 우변이 수행된 후 좌변으로 할당이 이루어진다.</a></li>
+<li class="chapter" data-level="3.5.8" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-제거하기-rm"><i class="fa fa-check"></i><b>3.5.8</b> 변수 제거하기: <code>rm()</code></a></li>
+<li class="chapter" data-level="3.5.9" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-목록-확인하기-ls"><i class="fa fa-check"></i><b>3.5.9</b> 변수 목록 확인하기: <code>ls()</code></a></li>
+<li class="chapter" data-level="3.5.10" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수를-할당하는-또-다른-방법-assign"><i class="fa fa-check"></i><b>3.5.10</b> 변수를 할당하는 또 다른 방법: <code>assign()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수-호출-하기"><i class="fa fa-check"></i><b>3.6.1</b> 함수 호출 하기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수"><i class="fa fa-check"></i><b>3.6.2</b> 실수를 정수로 변환하는 함수</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#순열과-조합-함수"><i class="fa fa-check"></i><b>3.6.3</b> 순열과 조합 함수</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터는-동일-형식-데이터의-나열"><i class="fa fa-check"></i><b>4.1.1</b> 벡터는 동일 형식 데이터의 나열</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터를-생성하는-법"><i class="fa fa-check"></i><b>4.1.2</b> 벡터를 생성하는 법</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터의-필터링인덱싱"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열은-다차원적-데이터-구조"><i class="fa fa-check"></i><b>4.2.1</b> 행렬과 배열은 다차원적 데이터 구조</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열의-필요성"><i class="fa fa-check"></i><b>4.2.2</b> 행렬과 배열의 필요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#리스트-이해의-중요성"><i class="fa fa-check"></i><b>4.3.1</b> 리스트 이해의 중요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-열변수은-벡터이다."><i class="fa fa-check"></i><b>4.4.1</b> 데이터 프레임의 열(변수)은 벡터이다.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-문법과-조작"><i class="fa fa-check"></i><b>4.4.2</b> 데이터 프레임의 문법과 조작</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#ggplot2-패키지-설치하기"><i class="fa fa-check"></i><b>5.1</b> ggplot2 패키지 설치하기</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-색상color-속성의-매핑"><i class="fa fa-check"></i><b>5.3.1</b> 범주형 변수와 색상(<code>color</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-모양shape-속성의-매핑"><i class="fa fa-check"></i><b>5.3.2</b> 범주형 변수와 모양(<code>shape</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#연속형-변수와-크기size-색상color-투명도alpha-속성의-매핑"><i class="fa fa-check"></i><b>5.3.3</b> 연속형 변수와 크기(<code>size</code>), 색상(<code>color</code>), 투명도(<code>alpha</code>) 속성의 매핑</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#geom-함수에서-속성-매핑하기"><i class="fa fa-check"></i><b>5.5.1</b> geom 함수에서 속성 매핑하기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap-visulaize.html"><a href="chap-visulaize.html#기타-ggplot2의-문법-요소"><i class="fa fa-check"></i><b>5.7</b> 기타 ggplot2의 문법 요소</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#labelsmodification"><i class="fa fa-check"></i><b>5.7.1</b> 그래프 레이블을 조정하기</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III R 기술통계 분석</b></span></li>
+<li class="chapter" data-level="6" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html"><i class="fa fa-check"></i><b>6</b> 기술통계 분석이란?</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html"><i class="fa fa-check"></i><b>7</b> 범주형 변수에 대한 R 기술통계</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec:freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>7.1.2</b> 범주형 변수 분포를 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-수치로-요약하기---교차표-만들기"><i class="fa fa-check"></i><b>7.2.1</b> 범주형 변수의 상관성을 수치로 요약하기 - 교차표 만들기</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-그래프로-요약하기"><i class="fa fa-check"></i><b>7.2.2</b> 범주형 변수의 상관성을 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>7.3.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec:BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#한-수치형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>8.1</b> 한 수치형 변수에 대한 분포 분석</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-수치로-요약하기"><i class="fa fa-check"></i><b>8.1.1</b> 수치형 변수 분포를 수치로 요약하기</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>8.1.2</b> 수치형 변수 분포를 그래프로 요약하기</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환"><i class="fa fa-check"></i><b>8.1.3</b> 수치형 변수의 변환</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#둘-이상의-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2</b> 둘 이상의 수치형 변수의 상관성 분석</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#상관계수"><i class="fa fa-check"></i><b>8.2.1</b> 상관계수</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#산점도"><i class="fa fa-check"></i><b>8.2.2</b> 산점도</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#추세선-그리기"><i class="fa fa-check"></i><b>8.2.3</b> 추세선 그리기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환-1"><i class="fa fa-check"></i><b>8.2.4</b> 수치형 변수의 변환</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성의 탐색</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2.6</b> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 이용한 통계 분석 (개정판)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R을 이용한 통계 분석 (개정판)</h1>
+<p class="author"><em>김길환</em></p>
+<p class="date"><em>2021-02-26</em></p>
+</div>
+<div id="일러두기" class="section level1 unnumbered">
+<h1>일러두기</h1>
+<p>이 책은 경영통계SW실습의 주교재로 사용하기 위해 제작되었습니다. 본 강의 이외의 목적으로 사용하시는 것은 <a href="mailto:sys4ppl@gmail.com">저자</a>의 허가가 필요합니다.</p>
+
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="ch-statisics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bizStatistics.pdf", "bizStatistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

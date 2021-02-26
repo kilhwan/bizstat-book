@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 범주형 변수에 대한 R 기술통계 | R을 이용한 통계 분석 (개정판)</title>
+  <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 범주형 변수에 대한 R 기술통계 | R을 이용한 통계 분석 (개정판)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 범주형 변수에 대한 R 기술통계 | R을 이용한 통계 분석 (개정판)" />
+  
+  <meta name="twitter:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+<meta name="author" content="김길환" />
+
+
+<meta name="date" content="2021-02-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-introDescStat.html"/>
+<link rel="next" href="ch-numericDescStat.html"/>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R을 이용한 통계 분석</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>일러두기</a></li>
+<li class="part"><span><b>I 개요</b></span></li>
+<li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
+<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-statisics.html"><a href="ch-statisics.html#문제-정의"><i class="fa fa-check"></i><b>1.3.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-수집"><i class="fa fa-check"></i><b>1.3.2</b> 데이터 수집</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-전처리-및-탐색"><i class="fa fa-check"></i><b>1.3.3</b> 데이터 전처리 및 탐색</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ch-statisics.html"><a href="ch-statisics.html#통계-모형-수립"><i class="fa fa-check"></i><b>1.3.4</b> 통계 모형 수립</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ch-statisics.html"><a href="ch-statisics.html#결론-도출"><i class="fa fa-check"></i><b>1.3.5</b> 결론 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-statisics.html"><a href="ch-statisics.html#질적-변수"><i class="fa fa-check"></i><b>1.4.1</b> 질적 변수</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-statisics.html"><a href="ch-statisics.html#양적-변수"><i class="fa fa-check"></i><b>1.4.2</b> 양적 변수</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II R 기초</b></span></li>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>2.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>2.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>2.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#r의-기본적-데이터-형식-숫자-문자열-논리값"><i class="fa fa-check"></i><b>3.1.1</b> R의 기본적 데이터 형식: 숫자, 문자열, 논리값</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#vs-10"><i class="fa fa-check"></i><b>3.1.2</b> 10 vs “10”</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#사칙-연산"><i class="fa fa-check"></i><b>3.2.1</b> 사칙 연산</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#거듭-제곱-연산"><i class="fa fa-check"></i><b>3.2.2</b> 거듭 제곱 연산</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#몫과-나머지"><i class="fa fa-check"></i><b>3.2.3</b> 몫과 나머지</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#비교-연산-그리고-vs."><i class="fa fa-check"></i><b>3.2.4</b> 비교 연산 그리고 <code>==</code> vs. <code>=</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#논리값-연산"><i class="fa fa-check"></i><b>3.3</b> 논리값 연산</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-연산"><i class="fa fa-check"></i><b>3.4</b> 문자열 연산</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-결합-연산-paste"><i class="fa fa-check"></i><b>3.4.1</b> 문자열 결합 연산: <code>paste()</code></a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-분리-연산-strsplit"><i class="fa fa-check"></i><b>3.4.2</b> 문자열 분리 연산: <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수는-메모리-공간에-붙이는-레이블"><i class="fa fa-check"></i><b>3.5.1</b> 변수는 메모리 공간에 붙이는 레이블</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수명에-대한-규칙"><i class="fa fa-check"></i><b>3.5.2</b> 변수명에 대한 규칙</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-할당하기"><i class="fa fa-check"></i><b>3.5.3</b> 변수에 값 할당하기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당-연산자"><i class="fa fa-check"></i><b>3.5.4</b> 할당 연산자</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#연산에-변수-사용하기"><i class="fa fa-check"></i><b>3.5.5</b> 연산에 변수 사용하기</a></li>
+<li class="chapter" data-level="3.5.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-재할당하기"><i class="fa fa-check"></i><b>3.5.6</b> 변수에 값 재할당하기</a></li>
+<li class="chapter" data-level="3.5.7" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당문은-우변이-수행된-후-좌변으로-할당이-이루어진다."><i class="fa fa-check"></i><b>3.5.7</b> 할당문은 우변이 수행된 후 좌변으로 할당이 이루어진다.</a></li>
+<li class="chapter" data-level="3.5.8" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-제거하기-rm"><i class="fa fa-check"></i><b>3.5.8</b> 변수 제거하기: <code>rm()</code></a></li>
+<li class="chapter" data-level="3.5.9" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-목록-확인하기-ls"><i class="fa fa-check"></i><b>3.5.9</b> 변수 목록 확인하기: <code>ls()</code></a></li>
+<li class="chapter" data-level="3.5.10" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수를-할당하는-또-다른-방법-assign"><i class="fa fa-check"></i><b>3.5.10</b> 변수를 할당하는 또 다른 방법: <code>assign()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수-호출-하기"><i class="fa fa-check"></i><b>3.6.1</b> 함수 호출 하기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수"><i class="fa fa-check"></i><b>3.6.2</b> 실수를 정수로 변환하는 함수</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#순열과-조합-함수"><i class="fa fa-check"></i><b>3.6.3</b> 순열과 조합 함수</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터는-동일-형식-데이터의-나열"><i class="fa fa-check"></i><b>4.1.1</b> 벡터는 동일 형식 데이터의 나열</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터를-생성하는-법"><i class="fa fa-check"></i><b>4.1.2</b> 벡터를 생성하는 법</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터의-필터링인덱싱"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열은-다차원적-데이터-구조"><i class="fa fa-check"></i><b>4.2.1</b> 행렬과 배열은 다차원적 데이터 구조</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열의-필요성"><i class="fa fa-check"></i><b>4.2.2</b> 행렬과 배열의 필요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#리스트-이해의-중요성"><i class="fa fa-check"></i><b>4.3.1</b> 리스트 이해의 중요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-열변수은-벡터이다."><i class="fa fa-check"></i><b>4.4.1</b> 데이터 프레임의 열(변수)은 벡터이다.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-문법과-조작"><i class="fa fa-check"></i><b>4.4.2</b> 데이터 프레임의 문법과 조작</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#ggplot2-패키지-설치하기"><i class="fa fa-check"></i><b>5.1</b> ggplot2 패키지 설치하기</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-색상color-속성의-매핑"><i class="fa fa-check"></i><b>5.3.1</b> 범주형 변수와 색상(<code>color</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-모양shape-속성의-매핑"><i class="fa fa-check"></i><b>5.3.2</b> 범주형 변수와 모양(<code>shape</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#연속형-변수와-크기size-색상color-투명도alpha-속성의-매핑"><i class="fa fa-check"></i><b>5.3.3</b> 연속형 변수와 크기(<code>size</code>), 색상(<code>color</code>), 투명도(<code>alpha</code>) 속성의 매핑</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#geom-함수에서-속성-매핑하기"><i class="fa fa-check"></i><b>5.5.1</b> geom 함수에서 속성 매핑하기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap-visulaize.html"><a href="chap-visulaize.html#기타-ggplot2의-문법-요소"><i class="fa fa-check"></i><b>5.7</b> 기타 ggplot2의 문법 요소</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#labelsmodification"><i class="fa fa-check"></i><b>5.7.1</b> 그래프 레이블을 조정하기</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III R 기술통계 분석</b></span></li>
+<li class="chapter" data-level="6" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html"><i class="fa fa-check"></i><b>6</b> 기술통계 분석이란?</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html"><i class="fa fa-check"></i><b>7</b> 범주형 변수에 대한 R 기술통계</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec:freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>7.1.2</b> 범주형 변수 분포를 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-수치로-요약하기---교차표-만들기"><i class="fa fa-check"></i><b>7.2.1</b> 범주형 변수의 상관성을 수치로 요약하기 - 교차표 만들기</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-그래프로-요약하기"><i class="fa fa-check"></i><b>7.2.2</b> 범주형 변수의 상관성을 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>7.3.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec:BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#한-수치형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>8.1</b> 한 수치형 변수에 대한 분포 분석</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-수치로-요약하기"><i class="fa fa-check"></i><b>8.1.1</b> 수치형 변수 분포를 수치로 요약하기</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>8.1.2</b> 수치형 변수 분포를 그래프로 요약하기</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환"><i class="fa fa-check"></i><b>8.1.3</b> 수치형 변수의 변환</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#둘-이상의-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2</b> 둘 이상의 수치형 변수의 상관성 분석</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#상관계수"><i class="fa fa-check"></i><b>8.2.1</b> 상관계수</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#산점도"><i class="fa fa-check"></i><b>8.2.2</b> 산점도</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#추세선-그리기"><i class="fa fa-check"></i><b>8.2.3</b> 추세선 그리기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환-1"><i class="fa fa-check"></i><b>8.2.4</b> 수치형 변수의 변환</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성의 탐색</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2.6</b> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 이용한 통계 분석 (개정판)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch:categoricalDescStat" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> 범주형 변수에 대한 R 기술통계</h1>
+<p><a href="ch-statisics.html#sec:statVariables">1.4</a> 절에서 살펴보았듯이 범주형 변수는 관측대상이 속하는 범주를 나타내는 데이터이다. <code>bizstatp</code> 패키지에 있는 <code>course</code> 데이터의 전공(<code>major</code>), 학년(<code>year</code>), 성별(<code>gender</code>), 분반(<code>class</code>) 열이 범주형 변수이다. 이런 변수들은 한 학생이 어떤 범주에 포함되는지를 나타낸다. 예를 들어 course 데이터의 첫 행을 보면 이 학생은 비 ME 전공, 4학년, 남성(M), 1분반의 범주에 속함을 알 수 있다.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="ch-categoricalDescStat.html#cb299-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(bizstatp)  </span>
+<span id="cb299-2"><a href="ch-categoricalDescStat.html#cb299-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">head</span>(course)</span></code></pre></div>
+<pre><code>   major year gender class mid final   hw score
+1 Others    4      M     1  62    66 83.6 73.47
+2 Others    3      F     1  46    37 88.7 61.50
+3     ME    2      M     1  94    82 87.9 89.18
+4     ME    2      M     1  73    71 88.7 78.47
+5     ME    2      M     1  96    93 90.6 93.88
+6     ME    2      M     1  54    43 84.3 64.39</code></pre>
+<p>범주형 변수에 대한 기술통계 분석은 범주별 빈도를 구하는 것이 주를 이룬다. <code>course</code> 데이터를 예로 들면 이 과목을 수강하는 남성과 여성의 빈도, 학년별 빈도, 전공별 빈도 등이 범주형 변수 분석의 일차적 관심사라 할 수 있다.
+또한 범주형 변수는 특히 사람들의 태도나 의견을 조사하는 사회과학이나 마케팅 조사분석에서 자주 사용되는 척도이다.</p>
+<p>이 장에서는 한 범주형 변수에 대한 분포를 분석하는 방법과 여러 개의 범주형 변수 간의 상관성을 분석하는 방법으로 나누어 R을 이용한 기술통계 방법을 설명한다.</p>
+<div id="한-범주형-변수에-대한-분포-분석" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> 한 범주형 변수에 대한 분포 분석</h2>
+<p>한 범주형 변수를 분석할 때 관심의 초점은 범주별 분포를 확인하는 것이다. 범주별 분포로부터 다음과 같은 통계적 질문에 대한 답을 탐구한다.</p>
+<ul>
+<li>어떤 범주가 가장 많은 빈도를 보이는가? 왜 이 범주가 많이 발생하였는가?</li>
+<li>빈도가 희소한 범주는 무엇이고 왜 발생이 적은가?</li>
+<li>범주별 발생 빈도의 분포가 분석자의 예상과 맞는가? 틀리다면 그 원인은 무엇인가?</li>
+</ul>
+<div id="sec:freqTables" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</h3>
+<p>범주별 분포를 수치로 요약할 때는 크게 다음 두 가지 방식 중 하나를 이용한다.</p>
+<ul>
+<li>절대 빈도표: 범주 별로 실제 관측된 횟수(빈도)를 표로 나타낸다.</li>
+<li>상대 빈도표: 전체 관측 횟수를 1로(100%)로 하였을 때 범주 별 상대적 빈도(비율 또는 백분율)을 표로 나타낸다.</li>
+</ul>
+<p>절대 빈도표는 실제 관측 빈도를 확인할 수 있어 더 정확한 방식이지만, 범주 별 빈도를 한눈에 파악하기 어려운 단점이 있다. 다음은 <code>course</code> 데이터의 학년 변수에 대한 절대 빈도표와 상대 빈도표를 <strong>R</strong>에서 구한 예이다.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-3">Table 7.1: </span>학년 변수의 절대 빈도표</caption>
+<thead>
+<tr class="header">
+<th align="left">year</th>
+<th align="right">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">32</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="right">3</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:unnamed-chunk-4">Table 7.2: </span>학년 변수의 상대 빈도표(%)</caption>
+<thead>
+<tr class="header">
+<th align="left">year</th>
+<th align="right">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1</td>
+<td align="right">2.22</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="right">71.11</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="right">20.00</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="right">6.67</td>
+</tr>
+</tbody>
+</table>
+<div id="절대-빈도표-만들기" class="section level4" number="7.1.1.1">
+<h4><span class="header-section-number">7.1.1.1</span> 절대 빈도표 만들기</h4>
+<p><strong>R</strong>에는 절대 빈도표를 만들기 위해 다음 명령어들을 사용할 수 있다.</p>
+<ul>
+<li>기본 <code>base</code> 패키지의 <code>table()</code> 함수 (별도의 패키지 적재 불필요 없음)</li>
+<li>기본 <code>stat</code> 패키지의 <code>xtabs()</code> 함수 (별도의 패키지 적재 불필요 없음)</li>
+<li><code>reshape2</code> 패키지의 <code>acast()</code> 또는 <code>dcast()</code> 함수 (<code>reshape2</code> 패키지 적재 필요)</li>
+<li><code>dplyr</code> 패키지의 <code>count()</code> 함수 (<code>dplyr</code> 패키지 적재 필요)</li>
+</ul>
+<p>이 책에서는 R의 기본 기능으로 제공하는 <code>table()</code>과 <code>xtabs()</code> 함수를 이용하는 방법을 설명한다. <code>table()</code>과 <code>xtabs()</code> 함수를 사용하는 방법은 문법과 빈도표를 표현하는 방식이 모두 단순하고 직관적이서 사용자가 이해하기 쉽고 사용하기 편리하다. 또한 만들어진 빈도표를 <strong>R</strong>의 기본 가설검정 함수에 바로 사용할 수 있는 장점도 있다. 다만 빈도표를 자유자재로 변형하기가 까다로운 단점이 있다. 그러므로 빈도표를 이용하여 다양한 후속 작업을 하는 경우에는 <code>dplyr</code> 패키지를 사용하여 빈도표를 구하는 것이 좋다. 아울러 <code>reshape2</code> 패키지는 빈도표 또는 분할표를 만들 때 행과 열을 다양한 형식으로 배열할 수 있는 장점이 있다. 만약 빈도표를 원하는 방식으로 변형하여 출력하기를 원하면 <code>reshape2</code> 패키지를 사용하는 것이 좋다.</p>
+<div id="table-함수로-절대-빈도표-만들기" class="section level5 unnumbered">
+<h5><code>table()</code> 함수로 절대 빈도표 만들기</h5>
+<p><code>table()</code> 함수로 한 변수의 절대 빈도표를 만드는 문법은 다음과 같다.</p>
+<pre><code>table(벡터)
+table(데이터프레임$열이름)</code></pre>
+<p><code>table()</code> 함수는 벡터를 인수로 받으므로, 데이터프레임의 열의 빈도를 구하기 위해서는 <code>$</code> 연산자를 이용하여 데이터 프레임의 열을 지정하여야 한다.
+다음은 <code>course</code> 데이터에서 학년, 전공, 성별, 분반별 절대 빈도표를 구한 결과이다. 해당 과목은 2학년이 주로 수강하였고, ME 전공이 주로, 남학생이 더 많이 수강하였음을 알 수 있다.</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="ch-categoricalDescStat.html#cb302-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>year)</span></code></pre></div>
+<pre><code>
+ 1  2  3  4 
+ 1 32  9  3 </code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="ch-categoricalDescStat.html#cb304-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>major)</span></code></pre></div>
+<pre><code>
+    ME Others 
+    40      5 </code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="ch-categoricalDescStat.html#cb306-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>gender)</span></code></pre></div>
+<pre><code>
+ F  M 
+18 27 </code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="ch-categoricalDescStat.html#cb308-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>class)</span></code></pre></div>
+<pre><code>
+ 1  2 
+22 23 </code></pre>
+</div>
+<div id="xtabs-함수로-절대-빈도표-만들기" class="section level5 unnumbered">
+<h5><code>xtabs()</code> 함수로 절대 빈도표 만들기</h5>
+<p>데이터 프레임에 있는 열을 <code>table()</code> 함수로 빈도표를 만드려면, <code>$</code> 연산자를 사용하여 데이터 프레임의 열을 지정해야 한다. 뒤에서 보겠지만 여러 열을 조합하여 분할표를 만드려면 매번 데이터 프레임의 열을 <code>$</code> 연산자로 지정하여야 한다. 이는 매우 번거롭고 오류 발생을 증가시킨다.</p>
+<p><code>xtabs()</code> 함수를 사용하면 <code>data</code> 인수에 데이터 프레임을 지정한 후 빈도표나 분할표를 만들 때 사용할 데이터 프레임의 열을 수식(formula)의 형식으로 지정할 수 있다. 다음은 <code>xtabs()</code>의 기본 문법이다.</p>
+<pre><code>xtabs(수식, data=데이터프레임)</code></pre>
+<p>수식은 데이터프레임의 열의 수학적 관계를 나타내는 <strong>R</strong> 객체로 다음처럼 <code>~</code>로 수식의 좌변과 우변에 표시될 열을 지정한다.</p>
+<pre><code>열이름1 + 열이름2 + ... ~ 열이름A + 열이름B + ...</code></pre>
+<p><code>xtabs()</code> 함수를 이용하여 한 범주형 변수의 절대 빈도표를 구하는 문법은 다음과 같다. 수식의 좌변은 비워둔 채로 빈도를 구할 변수를 우변에 기술한다. <code>xtabs()</code>의 첫 인수는 반드시 수식이어야 하므로 <code>~</code>가 생략되면 안된다.</p>
+<pre><code>xtabs(~ 열이름, data = 데이터프레임)</code></pre>
+<p>다음은 <code>xtabs()</code>를 사용하여 <code>course</code>의 학년 변수의 절대 빈도표를 구한 예이다.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="ch-categoricalDescStat.html#cb313-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>year, <span class="dt">data =</span> course)</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 32  9  3 </code></pre>
+<p><code>table()</code>과 동일한 결과와 형식인데 다른 점은 빈도표로 요약되는 열의 이름이 함께 출력되는 점이다.</p>
+<p><code>xtabs()</code>는 한 변수의 모든 관측치에 대한 절대 빈도표를 구할 수 있을 뿐 아니라 <code>subset</code> 인수를 사용하면 특정 조건에 부합되는 관측치만 뽑아 절대 빈도표를 구할 수 있다. <code>subset</code> 인수에는 논리값 벡터가 설정되어야 하고 논리값 벡터의 TRUE 위치의 요소만 필터링되어 빈도표가 구해진다.</p>
+<pre><code>xtabs(~ 열이름, data = 데이터프레임, subset = 논리값벡터)</code></pre>
+<p>다음은 <a href="ch-R-Data-Structure.html#sec:logicalVectorFromComparisons">4.1.2.3</a> 절에서 설명한 비교 연산을 사용하여 남학생의 학년별 절대 빈도표와 2분반의 학년별 절대 빈도표를 구한 예이다.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="ch-categoricalDescStat.html#cb316-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>year, <span class="dt">data =</span> course, <span class="dt">subset =</span> gender <span class="op">==</span><span class="st"> &quot;M&quot;</span>)</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 18  6  2 </code></pre>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="ch-categoricalDescStat.html#cb318-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>year, <span class="dt">data =</span> course, <span class="dt">subset =</span> class <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 14  6  2 </code></pre>
+<p><code>xtabs()</code>는 <code>subset</code> 외에도 다양한 조건을 지정하여 빈도표를 만들 수 있다. 관심있는 독자는 <code>xtabs()</code> 함수의 도움말을 참조하기 바란다.</p>
+<p>마지막으로 뒤에 상대 빈도표를 만들 때 사용하기 위하여 학년, 전공, 성별, 분반별 절대 빈도표를 변수에 할당하도록 한다.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="ch-categoricalDescStat.html#cb320-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqYear &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>year, <span class="dt">data =</span> course); freqYear</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 32  9  3 </code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="ch-categoricalDescStat.html#cb322-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqMajor &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>major, <span class="dt">data =</span> course); freqMajor</span></code></pre></div>
+<pre><code>major
+    ME Others 
+    40      5 </code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="ch-categoricalDescStat.html#cb324-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqGender &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course); freqGender</span></code></pre></div>
+<pre><code>gender
+ F  M 
+18 27 </code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="ch-categoricalDescStat.html#cb326-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqClass &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course); freqClass</span></code></pre></div>
+<pre><code>class
+ 1  2 
+22 23 </code></pre>
+</div>
+</div>
+<div id="상대-빈도표-만들기" class="section level4" number="7.1.1.2">
+<h4><span class="header-section-number">7.1.1.2</span> 상대 빈도표 만들기</h4>
+<p><strong>R</strong> 기본 패키지에서 상대 빈도표는 절대 빈도표를 이용하여 만들어진다. 상대 빈도표를 만드는 명령어는 <code>proportions()</code>와 <code>prop.table()</code>이 있는데, 두 함수는 같은 기능을 한다. <code>prop.table()</code>은 이전 버전의 <strong>R</strong>에서 사용되던 이름인데 하위 버전과의 호환성을 위해서 제공되는 함수이다. 그러므로 이 책에서는 <code>proportions()</code>을 사용하여 상대 빈도표를 구한다.</p>
+<p><code>proportions()</code>을 이용하여 상대 빈도표를 구하는 문법은 다음과 같다.</p>
+<pre><code>proportions(절대빈도표)</code></pre>
+<p>다음은 학년과 성별에 대한 상대 빈도표를 구한 예이다. 상대 빈도표는 전체를 1로 하여 각 범주의 상대적 빈도(비율)을 계산한다.</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="ch-categoricalDescStat.html#cb329-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqYear)</span></code></pre></div>
+<pre><code>year
+         1          2          3          4 
+0.02222222 0.71111111 0.20000000 0.06666667 </code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="ch-categoricalDescStat.html#cb331-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGender)</span></code></pre></div>
+<pre><code>gender
+  F   M 
+0.4 0.6 </code></pre>
+<p>상대 빈도표를 백분율로 표현하고 싶으면, 비율로 나오는 상대 빈도표에 100을 곱하면 된다. 그러면 @ref(#sec:vectorOperation) 절에서 설명한 벡터 연산에서의 요소의 재활용과 같은 원리로 모든 요소에 100이 곱해져서 전체가 100으로 표현된 백분율로 값이 표현된다. 즉, 2학년의 비율은 71.11 %이었다.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="ch-categoricalDescStat.html#cb333-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqYear) <span class="op">*</span><span class="st"> </span><span class="dv">100</span></span></code></pre></div>
+<pre><code>year
+        1         2         3         4 
+ 2.222222 71.111111 20.000000  6.666667 </code></pre>
+<p>만약 백분율 표시를 반올림하여 표시하고자 하면 <code>round()</code> 함수를 사용한다다. 다음은 <code>round()</code> 함수의 사용 예와 <code>round()</code> 함수를 사용하여 백분율로 표현된 상대 빈도표를 소수 둘째 자리로 반올림 한 결과이다.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="ch-categoricalDescStat.html#cb335-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">round</span>(<span class="fl">1.2345</span>, <span class="dt">digits=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>[1] 1.23</code></pre>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="ch-categoricalDescStat.html#cb337-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">round</span>(<span class="kw">proportions</span>(freqYear) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">digits=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>year
+    1     2     3     4 
+ 2.22 71.11 20.00  6.67 </code></pre>
+</div>
+</div>
+<div id="범주형-변수-분포를-그래프로-요약하기" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> 범주형 변수 분포를 그래프로 요약하기</h3>
+<div id="막대-그래프-그리기" class="section level4" number="7.1.2.1">
+<h4><span class="header-section-number">7.1.2.1</span> 막대 그래프 그리기</h4>
+<p>빈도표를 가지고도 범주 별로 발생 빈도를 확인할 수 있지만, 그래프로 표현하는 것이 이해하기 쉽다. 범주별 발생 빈도를 그래프로 표현하는 대표적 방법이 막대 그래프이다. 막대 그래프는 범주 별로 발생 빈도에 따라 막대의 길이를 다르게 하여 범주별 차이를 파악하기 쉽게 해준다. 이 절에서는 <code>ggplot2</code> 패키지를 이용하여 막대 그래프를 그리는 방법을 알아본다.</p>
+<div id="절대-빈도로-막대-그래프-그리기" class="section level5 unnumbered">
+<h5>절대 빈도로 막대 그래프 그리기</h5>
+<p><code>ggplot2</code> 패키지의 <code>geom_bar()</code> 함수를 이용하면 <code>x</code> 속성에 매핑된 범주형 변수에 대하여 범주별 절대 빈도(관측 도수)에 따라 막대 그래프를 그려준다. 다음은 <code>geom_bar()</code> 함수를 사용하여 절대 빈도로 막대 그래프를 그리는 문법이다.</p>
+<pre><code>ggplot(데이터, aes(x = 범주형변수)) + geom_bar()</code></pre>
+<p>다음은 <code>course</code> 데이터의 학년(<code>year</code>) 범주형 변수에 대해 절대 빈도로 막대 그래프를 그린 예이다. 범주형 변수의 범주를 가로축으로, 각 범주의 절대 빈도(<code>count</code>)를 세로축으로 하여 막대 그래프가 그려지는 것을 볼 수 있다.</p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="ch-categoricalDescStat.html#cb340-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(ggplot2)    <span class="co"># R 세션을 다시 시작하였으면 ggplot2를 먼저 적재한다.  </span></span>
+<span id="cb340-2"><a href="ch-categoricalDescStat.html#cb340-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> year)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>막대 그래프의 막대의 채우기 색상을 변경하려면 <code>geom_bar()</code>의 <code>fill</code> 인수에 색을 지정해 주면 된다. (지정할 수 있는 색상 이름을 확인하려면 <code>colors()</code> 명령을 콘솔에서 실행해 보라. 그러면 색상의 이름이 657 개의 색상 이름이 출력될 것이다.) 여기서 주의할 점은 나중에 보게 될 <code>aes()</code> 안에 기술하게 되는 <code>fill</code> 속성과 이 <code>fill</code> 인수는 둘 다 막대의 채우기 색상을 지정하지만, 문법적으로 차이가 있다는 것이다. 이 두 방식의 차이에 대한 자세한 설명은 R 프로그래밍의 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#%EB%8F%84%ED%98%95%EC%9D%98-%EC%86%8D%EC%84%B1%EC%97%90-%EB%8C%80%EC%9D%91%EC%8B%9C%ED%82%A4%EA%B8%B0-vs.-%EB%8F%84%ED%98%95%EC%9D%98-%EC%86%8D%EC%84%B1-%EC%9D%B8%EC%88%98%EB%A5%BC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">도형의 속성에 대응시키기 vs. 도형의 속성 인수를 설정하기</a> 절을 참고하기 바란다.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="ch-categoricalDescStat.html#cb341-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> gender)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">fill=</span><span class="st">&quot;orange&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="상대-빈도로-막대-그래프-그리기" class="section level5 unnumbered">
+<h5>상대 빈도로 막대 그래프 그리기</h5>
+<p>절대 빈도뿐만 아니라 상대 빈도로 빈도표를 표현할 수 있는 것 같이 막대 그래프도 상대 빈도를 세로축으로 하여 그릴 수 있다.
+상대 빈도로 막대 그래프를 그리는 문법은 다음과 같다.</p>
+<pre><code>ggplot(데이터, aes(x = 범주형변수, y = ..prop.., group = 1)) + geom_bar()</code></pre>
+<p>상대 빈도로 막대 그래프를 그리는 함수도 <code>geom_bar()</code> 함수이다. <code>x</code> 속성에 범주형 변수를 매핑하는 것은 동일하나, 세로축이 절대 빈도가 아니라 상대 빈도라는 것을 지정하기 위해 <code>y</code>속성을 <code>..prop..</code>이라는 열에 매핑한다. <code>..prop..</code> 원 데이터에 있는 열이 아니라 <code>geom_bar()</code> 함수가 범주형 변수를 절대 빈도와 상대 빈도로 요약한 내부 데이터의 열 이름이다. 그리고 <code>group</code> 속성에 1을 매핑한다.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> 상대 빈도는 <code>group</code> 별로 전체가 1이 되도록 상대 빈도를 계산하는데, 전체 관측치를 대상으로 상대 빈도를 구하려면 모든 데이터가 동일한 그룹에 속해야 한다. 그래서 모든 관측치가 <code>group = 1</code>이라는 동일한 그룹이 되도록 설정하였다. 좀 더 자세한 설명을 원하는 독자는 R 프로그래밍의 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#subsec:statCategorical">범주형 변수의 통계 요약</a> 절과 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#group-%EC%86%8D%EC%84%B1">group 속성</a> 절을 참조하라.</p>
+<p>다음은 <code>course</code> 데이터의 학년 열에 대한 상대 빈도 막대 그래프를 그린 예이다. 그래프의 모양은 절대 빈도로 막대 그래프를 그린 것과 동일하지만, 세로축의 척도가 상대 빈도로 변하였고, 세로축의 이름도 비율(proportion)을 나타내는 prop이라는 이름으로 바뀐 것을 볼 수 있다. 상대 빈도로 막대 그래프를 그리자 3 학년 학생의 비율이 약 20%였음을 쉽게 확인할 수 있다. 절대 빈도로 그린 막대 그래프에서는 이를 바로 확인하기는 어렵다.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="ch-categoricalDescStat.html#cb343-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y=</span>..prop.., <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="막대-그래프의-좌표축-반전시키기" class="section level5 unnumbered">
+<h5>막대 그래프의 좌표축 반전시키기</h5>
+<p>범주형 변수의 범주의 수가 많아지면 막대 그래프에 표시되어야 할 막대의 수도 많아진다. 이러한 경우 가로축과 세로축을 반전시켜 막대를 가로로 표현하는 것이 보기 좋을 때가 많다. <code>ggplot2</code>에서는 <code>coord_flip()</code> 함수를 사용하면 간단히 좌표축이 서로 반전되어 표현된다.</p>
+<p>다음은 <code>mpg</code> 데이터의 자동차 종류(<code>class</code>) 열에 대한 막대 그래프를 원래의 좌표축으로, 그리고 반전된 좌표축으로 그린 예이다.</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="ch-categoricalDescStat.html#cb344-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> class)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>() </span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="ch-categoricalDescStat.html#cb345-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> class)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-15-2.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="빈도-순으로-막대-그리기" class="section level5 unnumbered">
+<h5>빈도 순으로 막대 그리기</h5>
+<p>범주가 매우 많은 경우에는 가장 빈번히 발생하는 범주를 쉽게 파악하기 위해서는 빈도 순으로 막대가 나타나도록 범주의 순서를 정렬하는 것이 좋다.</p>
+<p>범주형 변수의 나열 순서를 빈도 순으로 바꾸고 싶으면 다음처럼 <code>reorder()</code> 함수를 사용하여 범주가 나타나는 순서를 바꾼 다음에 <code>x</code> 속성에 매핑한다.</p>
+<pre><code>ggplot(데이터, aes(x = reorder(범주형변수, 범주형변수, length)) + geom_bar()</code></pre>
+<p>다음은 <code>mpg</code> 데이터의 자동차 종류(<code>class</code>) 열에 대한 막대 그래프를 빈도 순으로 정렬하여 그린 예이다. 좌표축도 반전을 시켜보았다.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="ch-categoricalDescStat.html#cb347-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(class, class, length))) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb347-2"><a href="ch-categoricalDescStat.html#cb347-2" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;자동차 종류&quot;</span>) </span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="파이-차트-그리기" class="section level4" number="7.1.2.2">
+<h4><span class="header-section-number">7.1.2.2</span> 파이 차트 그리기</h4>
+<p>TV 뉴스나 신문 기사를 보면 상대적 빈도를 그래프로 표현할 때 막대그래프 외에도 파이 차트를 이용하는 경우가 많다.
+기술 통계학에서는 파이 차트보다는 막대 그래프로 빈도를 표현하는 것을 권장한다. 왜냐하면 사람은 길이의 차이는 민감하게 파악하지만 넓이의 차이는 쉽게 구별하지 못하기 때문이다. 그러나 파이 차트는 매우 대중적으로 사용되므로 어떻게 그리는지 알아본다.</p>
+<p><code>ggplot2</code>에서 막대 그래프를 파이 차트로 바꾸는 것은 조금 어렵다. 그래프 문법에 따라 좌표축의 형태를 직교좌표계에서 극좌표계로 바꾸어주면 파이 차트를 그릴 수 있으나 절차가 복잡하여 <code>ggplot2</code>에서 파이 차트를 그리는 방법은 생략하도록 한다.
+대신 R의 기본 <code>graphics</code> 패키지의 <code>pie()</code> 함수를 사용하여 파이 차트를 그려본다. <code>pie()</code> 함수의 기본 문법은 다음과 같다. 빈도표는 <a href="ch-categoricalDescStat.html#sec:freqTables">7.1.1</a> 절에서 설명한 방식으로 구한 빈도표를 의미한다.</p>
+<pre><code>pie(빈도표)</code></pre>
+<p>다음은 앞서서 만들어 둔 학년 변수의 빈도표 <code>freqYear</code>을 사용하여 파이 그래프를 그린 예이다. <code>main</code>이라는 인수를 사용하여 그래프의 제목도 달아 보았다.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="ch-categoricalDescStat.html#cb349-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">pie</span>(freqYear, <span class="dt">main =</span> <span class="st">&quot;학년별 수강생 비율&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>위 예에서 범주의 이름과 함께 원모양의 파이가 빈도에 따라 분할되어 그려짐을 볼 수 있다. 그런데 막대그래프는 세로축의 눈금으로 각 범주의 절대 또는 상대 빈도를 알 수 있지만 파이 차트은 분할된 영역의 빈도가 얼마를 나타내는지 파악하기가 힘들다. 따라서 보통 파이 차트는 분할된 영역에 상대 빈도의 값을 표현할 때가 많다.
+<code>pie()</code> 함수의 <code>label</code> 인수를 사용하면 범주 별로 표시될 레이블을 지정할 수 있다.
+다음 예의 첫째 줄은 범주 별 레이블을 생성하는 명령문이다. 이에 대한 자세한 문법적 설명을 생략하도록 한다.
+둘째 줄은 <code>pie()</code> 함수의 <code>label</code> 인수에 첫째 줄에서 생성한 레이블을 입력하여 파이 차트를 그리는 명령문이다.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="ch-categoricalDescStat.html#cb350-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>yearLabels &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="kw">names</span>(freqYear), <span class="st">&quot;학년: &quot;</span>, <span class="kw">round</span>(<span class="kw">proportions</span>(freqYear) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">digits=</span><span class="dv">2</span>),<span class="st">&quot;%&quot;</span>)</span>
+<span id="cb350-2"><a href="ch-categoricalDescStat.html#cb350-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">pie</span>(freqYear, <span class="dt">label =</span> yearLabels, <span class="dt">main =</span> <span class="st">&quot;학년별 수강생 비율&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="둘-이상의-범주형-변수의-상관성-분석" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> 둘 이상의 범주형 변수의 상관성 분석</h2>
+<p>범주형 변수 하나하나의 분포를 확인하였으면, 여러 범주형 변수 사이의 상관성을 확인해 보아야 한다. 범주형 변수 사이의 상관성 분석을 통해 다음과 같은 통계적 질문들에 대한 답을 탐구한다.</p>
+<ul>
+<li>한 범주형 변수의 값에 따라 다른 한 범주형 변수의 발생 빈도가 영향을 받는가? 예를 들어 다음과 같은 질문에 대해 탐구할 수 있다. 성별에 따라 마케팅 프로그램의 반응 빈도가 달라지는가? 코로나 백신 접종자와 미접종자에 따라 코로나 감염 빈도에 차이가 있는가?</li>
+<li>다른 한 범주형 변수에 의해 다른 범주형 변수의 발생 빈도가 달라진다면 그 차이는 어느 정도인가?</li>
+</ul>
+<p>기술통계 분석에서 두 범주형 변수의 상관성이 관측되었다면 추론통계 분석을 통해 이러한 상관성이 통계적으로 유의미한지 가설검정해 보거나, 이 관계를 이용하여 한 범주형 변수의 값이 알려져 있을 때 다른 범주형 변수의 값을 예측하는 모형을 개발할 수 있다.</p>
+<div id="범주형-변수의-상관성을-수치로-요약하기---교차표-만들기" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> 범주형 변수의 상관성을 수치로 요약하기 - 교차표 만들기</h3>
+<div id="절대-빈도로-교차표-만들기" class="section level4" number="7.2.1.1">
+<h4><span class="header-section-number">7.2.1.1</span> 절대 빈도로 교차표 만들기</h4>
+<p>앞에서 <code>course</code> 데이터에서 성별, 학년별로, 각각 하나의 범주형 변수에 대한여 빈도표를 만들어 보았다. 만약 성별에 따른 학년별 분포가 차이가 있는지, 반대로 학년별로 성별 분포의 차이가 있는지를 파악해 보고자 한다면, 남자-1학년, 여자-1학년 등등 성별-학년의 모든 가능한 값의 조합에 대해 발생 빈도를 확인해 보아야 한다.
+이렇게 두 개의 범주형 변수 간의 상관성을 파악하기 위해 한 변수의 범주를 행으로, 다른 한 변수의 범주를 열로 하여, 두 변수의 범주가 교차하는 칸마다 관측 빈도를 행렬 형태로 요약한 표를 교차표(cross tables) 또는 분할표(contingency tables)라고 한다. 표 <a href="ch-categoricalDescStat.html#tab:crossTabExample">7.3</a>은 <code>course</code> 데이터에서 성별을 행으로, 학년을 열로 한 교차표를 보여준다.</p>
+<table>
+<caption><span id="tab:crossTabExample">Table 7.3: </span>성별-학년 교차표</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">0</td>
+<td align="right">14</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">M</td>
+<td align="right">1</td>
+<td align="right">18</td>
+<td align="right">6</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>빈도표와 마찬가지로 <strong>R</strong>에서 교차표를 만드는 방법은 다음 네 가지 방법이 있다.</p>
+<ul>
+<li>기본 <code>base</code> 패키지의 <code>table()</code> 함수 (별도의 패키지 적재 불필요 없음)</li>
+<li>기본 <code>stat</code> 패키지의 <code>xtabs()</code> 함수 (별도의 패키지 적재 불필요 없음)</li>
+<li><code>reshape2</code> 패키지의 <code>acast()</code> 또는 <code>dcast()</code> 함수 (<code>reshape2</code> 패키지 적재 필요)</li>
+<li><code>dplyr</code> 패키지의 <code>count()</code> 함수 (<code>dplyr</code> 패키지 적재 필요)</li>
+</ul>
+<p>이 책에서는 R의 기본 기능으로 제공하는 <code>table()</code>과 <code>xtabs()</code> 함수를 이용하여 교차표를 만드는 방법을 설명한다.</p>
+<div id="table-함수로-교차표-만들기" class="section level5 unnumbered">
+<h5><code>table()</code> 함수로 교차표 만들기</h5>
+<p><code>table()</code> 함수를 사용하면 빈도표와 동일한 문법으로 두 개 이상의 범주형 변수에 대한 교차표를 구할 수 있다. 다만 인수가 하나가 아니라 두 개 또는 여러 개의 범주형 변수를 인수로 나열해 주면 된다.</p>
+<pre><code>table(벡터1. 벡터2, ...)
+table(데이터프레임$열이름1, 데이터프레임$열이름2, ...)</code></pre>
+<p>다음은 <code>course</code> 데이터에서 성별과 학년의 교차표를 <code>table()</code> 함수로 구한 예이다. 첫째 인수로 기술된 변수의 범주가 행으로, 둘째 인수로 기술된 변수의 범주가 열로 표현되어 교차표가 구해지는 것을 볼 수 있다.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="ch-categoricalDescStat.html#cb352-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>gender, course<span class="op">$</span>year)</span></code></pre></div>
+<pre><code>   
+     1  2  3  4
+  F  0 14  3  1
+  M  1 18  6  2</code></pre>
+<p>만약 학년을 행으로, 성별을 열로 하여 교차표를 구하고 싶다면 다음처럼 두 인수의 위치를 바꾸어 주면 된다.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="ch-categoricalDescStat.html#cb354-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>year, course<span class="op">$</span>gender)</span></code></pre></div>
+<pre><code>   
+     F  M
+  1  0  1
+  2 14 18
+  3  3  6
+  4  1  2</code></pre>
+<p>만약 세 범주형 변수의 교차표를 구하려면, 세 변수를 차례로 기술한다. 그러면 첫 번째, 두 번째, 세 번째로 기술된 변수가 각각 교차표의 행, 열, 층(layer)이 되어 3차원의 교차표가 만들어 진다.
+다음은 성별을 행으로, 학년을 열로, 분반을 층으로 하여 교차표를 구한 예이다. 2차원인 컴퓨터 화면 상에서 3차원 데이터를 표현할 수 없으므로 층 별로 나누어 교차표가 나타났다. 첫 번째 행렬이 1분반의 성별-학년 교차표이고, 두 번째 행렬이 2분반의 성별-학년 교차표이다.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="ch-categoricalDescStat.html#cb356-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">table</span>(course<span class="op">$</span>gender, course<span class="op">$</span>year, course<span class="op">$</span>class)</span></code></pre></div>
+<pre><code>, ,  = 1
+
+   
+     1  2  3  4
+  F  0  8  2  0
+  M  0 10  1  1
+
+, ,  = 2
+
+   
+     1  2  3  4
+  F  0  6  1  1
+  M  1  8  5  1</code></pre>
+</div>
+<div id="xtabs-함수로-교차표-만들기" class="section level5 unnumbered">
+<h5><code>xtabs()</code> 함수로 교차표 만들기</h5>
+<p>빈도표와 마찬가지로 <code>xtabs()</code> 함수를 사용하면 <code>data</code> 인수에 데이터 프레임의 열을 <code>$</code> 연산자로 사용하지 않고도 지정할 수 있기 때문에 데이터에서 여러 개의 열을 지정해야 하는 교차표를 만들 때 <code>xtabs()</code>는 매우 편리하다.
+범주형 변수가 하나일 때와 달라진 점은 수식의 우변에 교차표에 사용될 범주형 변수를 <code>+</code>로 연결하여 표현한다는 것이다.</p>
+<pre><code>xtabs(~ 열이름1 + 열이름2 + ..., data = 데이터프레임)</code></pre>
+<p>수식의 우변에 첫 번째 기술되는 변수가 행, 두 번째 기술되는 변수가 열, 세 번째 기술되는 변수가 층이 되어 교차표가 만들어 진다. 두 변수만 기술되면 행렬 형식의 교차표가 만들어 진다.
+다음은 <code>course</code> 데이터에서 성별-학년 2차원 교차표, 성별-분반 2차원 교차표, 그리고 성별-학년-분반의 3차원 교차표를 <code>xtabs()</code> 함수로 구한 예이다.</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="ch-categoricalDescStat.html#cb359-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqGenderYear &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>year, <span class="dt">data=</span>course); freqGenderYear</span></code></pre></div>
+<pre><code>      year
+gender  1  2  3  4
+     F  0 14  3  1
+     M  1 18  6  2</code></pre>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="ch-categoricalDescStat.html#cb361-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqGenderClass &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>class, <span class="dt">data=</span>course); freqGenderClass</span></code></pre></div>
+<pre><code>      class
+gender  1  2
+     F 10  8
+     M 12 15</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="ch-categoricalDescStat.html#cb363-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>freqGenderYearClass &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>year <span class="op">+</span><span class="st"> </span>class, <span class="dt">data=</span>course); freqGenderYearClass</span></code></pre></div>
+<pre><code>, , class = 1
+
+      year
+gender  1  2  3  4
+     F  0  8  2  0
+     M  0 10  1  1
+
+, , class = 2
+
+      year
+gender  1  2  3  4
+     F  0  6  1  1
+     M  1  8  5  1</code></pre>
+<p>한 범주형 변수의 빈도표를 만들 때 설명한 것처럼 <code>xtabs()</code> 함수의 장점은 열 이름을 <code>table()</code> 함수보다 편리하게 지정할 수 있다는 점뿐만 아니라, 특정 조건의 데이터만 선택하여 교차표를 만들 수 있다는 점이다. 만약 총점(<code>score</code>)가 80점 이상인 학생과 미만인 학생의 성별-학년별 상관성을 나누어 분석한다고 하자. 다음처럼 <code>subset</code> 인수에 해당 조건인 관측만 <code>TRUE</code>가 되도록 논리값 벡터를 지정해 주면 해당 조건의 관측만으로 교차표를 생성한다.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="ch-categoricalDescStat.html#cb365-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>year, <span class="dt">data=</span>course, <span class="dt">subset =</span> score <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span>)</span></code></pre></div>
+<pre><code>      year
+gender 1 2 3 4
+     F 0 4 1 1
+     M 0 3 3 1</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="ch-categoricalDescStat.html#cb367-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>year, <span class="dt">data=</span>course, <span class="dt">subset =</span> score <span class="op">&lt;</span><span class="st"> </span><span class="dv">80</span>)</span></code></pre></div>
+<pre><code>      year
+gender  1  2  3  4
+     F  0 10  2  0
+     M  1 15  3  1</code></pre>
+</div>
+<div id="교차표에서-빈도표-구하기" class="section level5 unnumbered">
+<h5>교차표에서 빈도표 구하기</h5>
+<p>원 데이터에서 빈도표를 직접 구할 수도 있지만, 교차표에서 각 범주형 변수의 빈도표를 구할 수도 있다. 표 <a href="ch-categoricalDescStat.html#tab:crossTabExample">7.3</a>처럼 <code>course</code> 데이터에서 성별을 행으로, 학년을 열로 한 교차표가 있으면, 행으로 교차표의 빈도를 합산하면 성별 빈도표가 만들어지고, 열로 교차표의 빈도를 합산하면 학년 빈도표가 만들어지는 것을 알 수 있다.</p>
+<p><code>marginSums()</code> 또는 <code>margin.table()</code> 함수를 이용하면 교차표를 행별 또는 열별로 합산하면 빈도표를 구할 수 있다. <code>margin</code>은 교차표를 어느 방향으로 합산하여 빈도표를 만들지를 지정한다. 1이면 행으로, 2이면 열로 합산을 한다. <code>margin</code> 인수에 값을 주지 않으면 교차표의 모든 빈도를 합하여 총 빈도를 구한다.</p>
+<pre><code>marginSums(교차표)               # 총 빈도 합산
+marginSums(교차표, margin = 1)   # 행으로 빈도 합산
+marginSums(교차표, margin = 2)   # 열로 빈도 합산</code></pre>
+<p>다음은 성별-학년 2차원 교차표에서 전체, 성별, 학년별 관측빈도의 합을 구한 예이다. <code>marginSums()</code> 함수 호출 시 <code>margin</code> 인수를 기술하지 않으면 교차표의 총 빈도가, <code>margin</code> 인수가 1이면 교차표의 행별 합이, <code>margin</code> 인수가 2이면 교차표의 열별 합이 결과로 주어진다.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="ch-categoricalDescStat.html#cb370-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYear)</span></code></pre></div>
+<pre><code>[1] 45</code></pre>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="ch-categoricalDescStat.html#cb372-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYear, <span class="dt">margin=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>gender
+ F  M 
+18 27 </code></pre>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="ch-categoricalDescStat.html#cb374-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYear, <span class="dt">margin=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 32  9  3 </code></pre>
+<p>만약 교차표에 행별, 열별 합을 포함하여 출력하고 싶으면 <code>addmargins()</code> 함수를 이용한다.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="ch-categoricalDescStat.html#cb376-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">addmargins</span>(freqGenderYear)</span></code></pre></div>
+<pre><code>      year
+gender  1  2  3  4 Sum
+   F    0 14  3  1  18
+   M    1 18  6  2  27
+   Sum  1 32  9  3  45</code></pre>
+<p>3차원 교차표에서도 <code>marginSums()</code>를 이용하여 빈도표를 만들 수 있다. 3차원 교차표에서는 <code>margin</code> 인수에 3을 부여하면 층별로 합산이 이루어 진다. 다음은 성별-학년-분반 교차표에서 전체 총 빈도, 성별 빈도, 학년 빈도, 분반별 빈도를 구한 예이다.</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="ch-categoricalDescStat.html#cb378-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass)</span></code></pre></div>
+<pre><code>[1] 45</code></pre>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="ch-categoricalDescStat.html#cb380-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass, <span class="dt">margin=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>gender
+ F  M 
+18 27 </code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="ch-categoricalDescStat.html#cb382-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass, <span class="dt">margin=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>year
+ 1  2  3  4 
+ 1 32  9  3 </code></pre>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="ch-categoricalDescStat.html#cb384-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass, <span class="dt">margin=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>class
+ 1  2 
+22 23 </code></pre>
+<p>3차원 교차표에서는 <code>marginSums()</code>를 이용하여 2차원 교차표도 만들 수 있다. 예를 들어 성별-학년-분반 교차표에서 행과 열을 기준으로 합산을 하면 층은 사라지고 성별-학년 교차표가 된다. 또는 행과 층을 기준으로 합산하면 성별-분반 교차표가 된다.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="ch-categoricalDescStat.html#cb386-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass, <span class="dt">margin=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>      year
+gender  1  2  3  4
+     F  0 14  3  1
+     M  1 18  6  2</code></pre>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="ch-categoricalDescStat.html#cb388-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">marginSums</span>(freqGenderYearClass, <span class="dt">margin=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span></code></pre></div>
+<pre><code>      class
+gender  1  2
+     F 10  8
+     M 12 15</code></pre>
+</div>
+</div>
+<div id="상대-빈도로-교차표-구하기" class="section level4" number="7.2.1.2">
+<h4><span class="header-section-number">7.2.1.2</span> 상대 빈도로 교차표 구하기</h4>
+<p>절대 빈도로 표시된 성별-학년 교차표는 각 범주 조합이 몇 번 관측되었는지를 파악할 수 있으나, 전체 관측에서 차지하는 비중이 얼마인지 파악하기 힘들다. 예를 들어 남자와 여자의 학년별 비율이 차이가 있는지를 살펴보려면 상대 빈도로 교차표를 이용하는 것이 좋다.</p>
+<p>상대 빈도로 빈도표를 만들 때와 마찬가지로 <code>proportions()</code>나 <code>prop.table()</code> 함수를 이용하면 절대 빈도 교차표에서 상대 빈도 교차표를 구할 수 있다. 2차원 절대 빈도 교차표에서 상대 빈도 교차표를 만드는 방법은 다음 세 가지 방법이 있다.</p>
+<ul>
+<li>전체 관측 도수를 1로 하여 각 범주 조합의 상대적 비율을 나타낸다.</li>
+<li>절대 빈도 교차표의 각 행의 빈도 합을 1로 하여 행별로 상대적 비율을 나타낸다.</li>
+<li>절대 빈도 교차표의 각 열의 빈도 합을 1로 하여 열별로 상대적 비율을 나타낸다.</li>
+</ul>
+<p><code>propotions()</code> 함수의 문법은 다음과 같다.</p>
+<pre><code>propotions(절대빈도교차표)                # 총 관측 도수 대비 상대 빈도 
+propotions(절대빈도교차표, margin = 1)    # 행별 상대 빈도 
+propotions(절대빈도교차표, margin = 2)    # 열별 상대 빈도</code></pre>
+<p>다음은 성별-학년 절대빈도 교차표에서 전체 관측 도수를 1로 하여 상대 빈도를 구한 예이다. 전체 45명 학생에 대한 관측 중 남자이면서 2학년인 학생이 40%를 차지함을 볼 수 있다. 전체 합이 1이 되는 것을 확인하라.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="ch-categoricalDescStat.html#cb391-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYear)</span></code></pre></div>
+<pre><code>      year
+gender          1          2          3          4
+     F 0.00000000 0.31111111 0.06666667 0.02222222
+     M 0.02222222 0.40000000 0.13333333 0.04444444</code></pre>
+<p>전체 관측도수 대비 상대적 빈도뿐 아니라 교차표의 행별, 열별 상대 빈도를 구할 수도 있다. 다음 중 첫 번째 예는 행별 상대 빈도, 즉 성별로 학년 비율을 구한 것이다. 여자 학생 중 2학년 학생은 77.8%를 차지하고 있다. 행의 합은 1이 되는 것을 확인하라. 두 번재 예는 열별 상대 빈도, 즉 학년별로 성별 비율을 구한 것이다. 3학년 학생 중 여학생은 33.3%임을 알 수 있다. 열의 합이 1이 되는 것을 확인하라. 이렇듯 어떤 범주형 변수의 값에 따라(조건) 나머지 범주형 변수의 비율(상대 빈도)을 확인하고 싶으면, 조건이 되는 범주형 변수의 값에 따라 상대 빈도를 구하여 주면 된다.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="ch-categoricalDescStat.html#cb393-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYear, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>      year
+gender          1          2          3          4
+     F 0.00000000 0.77777778 0.16666667 0.05555556
+     M 0.03703704 0.66666667 0.22222222 0.07407407</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="ch-categoricalDescStat.html#cb395-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYear, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>      year
+gender         1         2         3         4
+     F 0.0000000 0.4375000 0.3333333 0.3333333
+     M 1.0000000 0.5625000 0.6666667 0.6666667</code></pre>
+<p>3차원 이상의 절대빈도 교차표에 대해서도 <code>proportions()</code> 함수를 이용하면 상대 빈도표를 구할 수 있다. <code>proportions()</code>의 <code>margin</code> 인수를 설정하는 방식은 <code>marginSums()</code> 함수를 3차원 교차표에 적용할 때와 동일한 방식으로 하면 된다. <code>margin</code>은 1, 2, 3으로 주면 행, 열, 층별 합이 1이 되도록 상대 빈도표를 구한다. 두 개 이상의 차원을 <code>margin</code>에 지정하면 두 차원이 교차되는 셀들의 합이 1이 되도록 상대 빈도표를 구한다. 다음은 성별-학년-분반 교차표에서 행, 열, 층별 상대 빈도와, 행-열 조합을 1로 하였을 때의 상대 빈도표를 구한 예이다.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="ch-categoricalDescStat.html#cb397-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYearClass, <span class="dt">margin =</span> <span class="dv">1</span>)        <span class="co"># 두 층으로 이루어진 한 행의 합은 1</span></span></code></pre></div>
+<pre><code>, , class = 1
+
+      year
+gender          1          2          3          4
+     F 0.00000000 0.44444444 0.11111111 0.00000000
+     M 0.00000000 0.37037037 0.03703704 0.03703704
+
+, , class = 2
+
+      year
+gender          1          2          3          4
+     F 0.00000000 0.33333333 0.05555556 0.05555556
+     M 0.03703704 0.29629630 0.18518519 0.03703704</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="ch-categoricalDescStat.html#cb399-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYearClass, <span class="dt">margin =</span> <span class="dv">2</span>)        <span class="co"># 두 층으로 이루어진 한 열의 합은 1</span></span></code></pre></div>
+<pre><code>, , class = 1
+
+      year
+gender         1         2         3         4
+     F 0.0000000 0.2500000 0.2222222 0.0000000
+     M 0.0000000 0.3125000 0.1111111 0.3333333
+
+, , class = 2
+
+      year
+gender         1         2         3         4
+     F 0.0000000 0.1875000 0.1111111 0.3333333
+     M 1.0000000 0.2500000 0.5555556 0.3333333</code></pre>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="ch-categoricalDescStat.html#cb401-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYearClass, <span class="dt">margin =</span> <span class="dv">3</span>)        <span class="co"># 한 층의 합은 1</span></span></code></pre></div>
+<pre><code>, , class = 1
+
+      year
+gender          1          2          3          4
+     F 0.00000000 0.36363636 0.09090909 0.00000000
+     M 0.00000000 0.45454545 0.04545455 0.04545455
+
+, , class = 2
+
+      year
+gender          1          2          3          4
+     F 0.00000000 0.26086957 0.04347826 0.04347826
+     M 0.04347826 0.34782609 0.21739130 0.04347826</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="ch-categoricalDescStat.html#cb403-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(freqGenderYearClass, <span class="dt">margin =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># 같은 행-열에 위치한 셀의 합은 1</span></span></code></pre></div>
+<pre><code>, , class = 1
+
+      year
+gender         1         2         3         4
+     F           0.5714286 0.6666667 0.0000000
+     M 0.0000000 0.5555556 0.1666667 0.5000000
+
+, , class = 2
+
+      year
+gender         1         2         3         4
+     F           0.4285714 0.3333333 1.0000000
+     M 1.0000000 0.4444444 0.8333333 0.5000000</code></pre>
+</div>
+</div>
+<div id="범주형-변수의-상관성을-그래프로-요약하기" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> 범주형 변수의 상관성을 그래프로 요약하기</h3>
+<p>교차표를 가지고 두 범주형 변수의 관계를 확인할 수 있지만, 그래프로 표현하는 것이 한 눈에 파악하기 좋다. 두 범주형 변수의 상관성을 나타내는 방법으로는 주로 막대 그래프와 모자이크 그래프가 자주 사용된다.</p>
+<div id="두-범주형-변수의-막대-그래프-그리기" class="section level4" number="7.2.2.1">
+<h4><span class="header-section-number">7.2.2.1</span> 두 범주형 변수의 막대 그래프 그리기</h4>
+<div id="쌓은-막대-그래프-그리기" class="section level5 unnumbered">
+<h5>쌓은 막대 그래프 그리기</h5>
+<p>두 범주형 변수의 관계를 막대 그래프로 나타내는 방법은, 두 범주형 변수 중 한 변수를 가로축(<code>x</code>)으로, 다른 범주형 변수를 막대의 채우기 색상(<code>fill</code>)으로 달리 표시하여 관측 도수를 표현한다.
+다음은 <code>ggplot2</code> 패키지에서는 <code>geom_bar()</code> 함수를 이용하여 두 범주형 변수의 막대 그래프를 그리는 문법이다.</p>
+<pre><code>ggplot(데이터, aes(x = 범주형변수1, fill = 범주형변수2)) + geom_bar()</code></pre>
+<p>다음은 <code>geom_bar()</code> 함수를 이용하여 학년-성별 분포를 막대 그래프로 표현한 것이다. 학년을 가로축에, 성별에 따라 막대의 채우기 색상이 달라지도록 매핑하였다.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="ch-categoricalDescStat.html#cb406-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">fill =</span> gender)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-32-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>위의 그래프처럼 한 범주를 기준으로 막대를 쌓아서 그리는 그래프를 쌓은 막대 그래프라고 한다. 쌓은 막대 그래프는 중심이 되는 변수-여기서는 학년-에 대한 분포가 막대의 크기로 표현되어 있어서 중심이 되는 범주형 변수의 분포를 확인할 수 있는 동시에, 중심이 되는 변수의 값이 정해져 있을 때 나머지 변수의 분포의 차이를 비교하기 좋다. 위의 쌓은 막대 그래프에서 2학년이 가장 빈도가 많으며, 2 학년이 남/녀 성별 비율이 가장 균형을 이루고 있다는 것을 확인할 수 있다.</p>
+</div>
+<div id="나란한-막대-그래프-그리기" class="section level5 unnumbered">
+<h5>나란한 막대 그래프 그리기</h5>
+<p>쌓은 막대 그래프는 중심이 되는 변수-가로축에 매핑되는 변수-의 절대 빈도를 파악하기 쉬운 장점이 있으나, 두 범주형 변수의 범주 값의 조합 중 가장 빈도가 높은 조합이 무엇인지 한 눈에 파악하기 어렵다. 그리고 한 범주형 변수의 값이 정해져 있을 때 다른 범주형 변수의 분포의 차이를 파악하기도 어렵다. 나란한 막대 그래프는 채우기 색상(<code>fill</code>)에 매핑된 범주형 변수의 값에 따라 나타나는 막대를 쌓아 표현하는 것이 아니라 나란히 표시하여 각 범주 조합의 절대 빈도를 파악할 수 있다.</p>
+<p>다음은 <code>geom_bar()</code> 함수를 이용하여 나란한 막대 그래프를 그리는 문법이다. 쌓은 막대 그래프의 문법과 동일한데, 다만 <code>geom_bar()</code> 함수의 <code>position</code> 인수를 <code>"dodge"</code>로 설정하는 것만 다르다.(따옴표가 있다는 것에 주의.) <code>ggplot2</code> 패키지에서 <code>position</code> 문법의 의미를 자세히 알고자 하는 독자는 R 프로그래밍의 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#sec:position">ggplot2의 위치 조정</a> 절을 참조하기 바란다.</p>
+<pre><code>ggplot(데이터, aes(x = 변수1, fill = 변수2)) + geom_bar(position = &quot;dodge&quot;)</code></pre>
+<p>다음은 앞에서 그린 학년과 성별 변수에 대하여 쌓은 막대 그래프를 나란한 막대 그래프를 그린 것이다. 절대 빈도가 가장 큰 조합은 2학년-남(M)학생 조합임을 알 수 있다. 학년 별로 성별 분포를 확인할 수 있는데, 다른 색상으로 표현된 막대의 크기에서 모두 학년에서 남자가 많았음을 확인할 수 있다. 1학년은 남학생밖에 없기 때문에 하나의 막대만 표시되었다.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="ch-categoricalDescStat.html#cb408-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">fill =</span> gender)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-33-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><code>x</code>와 <code>fill</code>의 매핑을 서로 바꾸면, 성별로 학년 분포(절대 빈도)를 확인할 수 있다. 남, 녀 모두 2학년이 가장 많았고, 그 다음 3학년, 4학년 순으로 수강하고 있음을 볼 수 있다.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="ch-categoricalDescStat.html#cb409-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> gender, <span class="dt">fill =</span> year)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-34-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="상대-빈도로-막대-그래프-그리기-1" class="section level5 unnumbered">
+<h5>상대 빈도로 막대 그래프 그리기</h5>
+<p>그런데 학년별로 성별 비율의 상대적 차이를 분석하고자 한다면, 절대 빈도로 그래프를 그려주는 쌓은 막대 그리프나, 나란한 막대 그래프보다는 상대 빈도로 막대 그래프를 그리는 것이 좋다.
+상대 빈도로 그리는 막대 그래프는 가로축의 범주별 관측 도수를 1이라고 할 때 색상으로 매핑된 범주의 상대 빈도를 막대의 크기로 표현한다.
+다음은 <code>geom_bar()</code> 함수를 이용하여 상대 빈도로 막대 그래프를 그리는 문법이다. 나란한 막대 그래프의 문법과 동일한데, 다만 <code>geom_bar()</code> 함수의 <code>position</code> 인수를 <code>"fill"</code>로 설정하는 것만 다르다.(따옴표가 있으며, 막대의 채우기 색상을 매핑할 때 사용하는 <code>fill</code>과는 다른 의미이다. 막대의 크기를 모두 1로 채운다는 의미로 이해하면 된다.)</p>
+<pre><code>ggplot(데이터, aes(x = 변수1, fill = 변수2)) + geom_bar(position = &quot;fill&quot;)</code></pre>
+<p>다음은 각 학년의 데이터를 100%로 하여 성별로 상대 빈도를 막대 그래프로 그려본 것이다. 이 과목의 경우 2학년보다는 3, 4학년에서 남자 학생의 비율이 더 많았음을 볼 수 있다. 이러한 차이가 우연히 발생한 것인지 통계적으로 유의미한 차이인지는 가설 검정을 해보아야 알 수 있을 것이다.</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="ch-categoricalDescStat.html#cb411-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(course, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">fill =</span> gender)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-35-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="범주형-변수의-상관성을-모자이크-그래프로-그리기" class="section level4" number="7.2.2.2">
+<h4><span class="header-section-number">7.2.2.2</span> 범주형 변수의 상관성을 모자이크 그래프로 그리기</h4>
+<p>앞서 살펴본 상대 빈도로 막대 그래프를 그리는 방법은 한 변수의 값에 따라 다른 범주형 변수의 상대적 비율을 파악하기 쉬운 장점이 있으나, 전체 데이터에서 각 범주 조합의 비중을 파악할 수는 없어서 보는 사람들에게 왜곡된 정보를 줄 수도 있다. 반면 쌓은 막대 그래프나 나란한 막대 그래프는 절대 빈도로 막대를 그리므로 이러한 왜곡을 막을 수 있으나 상대 빈도를 비교하기 어렵다.</p>
+<p>예를 들어 앞의 상대 빈도로 그린 막대 그래프에서 1학년 학생은 100%가 남자인 것을 볼 수 있다. 만약 이 그래프만 보고 판단하면 1학년에서 남자 학생의 비율이 매우 큰 것이 의아하게 생각될 수 있다. 그러나 사실 1학년 학생은 전체 학생 중 한 명밖에 없었고, 그 한 명이 남자였기 때문에 1학년의 성별 비율이 100% 남자로 표시된 것이다. 이 경우 1 학년 학생의 데이터가 매우 적다는 것을 표현하면 좋다.</p>
+<p>모자이크 그래프는 한 범주형 변수의 값에 따라 다른 범주형 변수의 상대 빈도를 비교하기 좋게 표시하면서도 각 범주 조합의 비중의 크기를 파악할 수 있게 해준다.
+모자이크 그래프는 가로축에 매핑되는 범주형 변수의 값의 빈도에 따라 막대의 폭을 다르게 표시한다.</p>
+<p>모자이크 그래프는 <code>ggplot2</code>를 기반으로 하는 <code>ggmosiac</code> 패키지로 모자이크 그래프를 그릴 수 있지만, 여기서는 <code>vcd</code> 패키지의 <code>mosaic()</code> 함수를 사용하면 모자이크 그래프를 그리도록 한다. <code>vcd</code> 패키지가 설치되어 있지 않으면 다음 명령이나 RStudio의 [Packages] 탭을 사용하여 설치를 하도록 한다.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="ch-categoricalDescStat.html#cb412-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;vcd&quot;</span>)</span></code></pre></div>
+<p><code>mosaic()</code> 함수의 문법은 다음과 같다.</p>
+<pre><code>mosaic(범주형변수2 ~ 범주형변수1, data = 데이터, direction = &quot;v)</code></pre>
+<p>다음은 학년-성별 모자이크 그래프를 그린 예이다. 각 학년의 성별 비율을 파악할 수 있을뿐 아니라 2학년, 3학년, 4학년 순으로 빈도가 높음을 확인할 수 있으며, 1학년은 매우 데이터가 적다는 것을 파악할 수 있다.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="ch-categoricalDescStat.html#cb414-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(vcd)   <span class="co"># vcd 패키지를 먼저 적재한다. </span></span>
+<span id="cb414-2"><a href="ch-categoricalDescStat.html#cb414-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">mosaic</span>(gender <span class="op">~</span><span class="st"> </span>year, <span class="dt">data =</span> course, <span class="dt">direction =</span> <span class="st">&quot;v&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-37-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="범주형-변수의-분석-사례" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> 범주형 변수의 분석 사례</h2>
+<div id="관절염-치료-임상시험-데이터-분석" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> 관절염 치료 임상시험 데이터 분석</h3>
+<p>지금까지 범주형 변수의 분석과 관련하여 배운 내용을 이용하여 관절염 치료법에 대한 임상시험 데이터를 분석해 보자. 이 데이터는 Koch and Edwards(1988)가 새로운 관절염 치료법의 효과를 측정한 데이터이다. 이 데이터는 <code>vcd</code>라는 패키지에 <code>Arthritis</code>라는 이름으로 포함되어 있고 여기서는 교육의 목적으로 <code>bizstatp</code> 패키지에 같은 이름으로 재수록 하였다.</p>
+<p><code>bizstatp</code> 패키지가 적재되어 있지 않으면 먼저 적재한 후 다음 명령으로 <code>Arthritis</code> 데이터를 살펴보자.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="ch-categoricalDescStat.html#cb415-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(bizstatp)  <span class="co"># bizstatp 패키지를 적재한다.</span></span>
+<span id="cb415-2"><a href="ch-categoricalDescStat.html#cb415-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>Arthritis</span></code></pre></div>
+<pre><code>   ID Treatment    Sex Age Improved
+1  57   Treated   Male  27     Some
+2  46   Treated   Male  29     None
+3  77   Treated   Male  30     None
+4  17   Treated   Male  32   Marked
+5  36   Treated   Male  46   Marked
+6  23   Treated   Male  58   Marked
+7  75   Treated   Male  59     None
+8  39   Treated   Male  59   Marked
+9  33   Treated   Male  63     None
+......</code></pre>
+<p>이 데이터를 분석하여 다음과 같은 질문에 답을 해보자.</p>
+<ul>
+<li>새로운 치료법은 아무 치료도 하지 않는 것보다 효과가 있는가?</li>
+<li>새로운 치료법의 효과는 성별로 차이가 있는가?</li>
+</ul>
+<p>본격적으로 질문에 답하기에 전에 <code>summary()</code> 함수로 전체 데이터에 대한 통계 요약을 해보자. 아래 결과를 보면, 이 임상시험에서 새로운 치료법을 받은(Treated) 환자와 플라시보(Placebo) 치료를 받은 환자의 수가 거의 비슷하였다. 또한 여자 환자의 수가 남자 환자의 수보다 2배 이상 많았고, 환자의 연령대는 23세부터 74세까지 있었다. 치료(플라시보 치료 포함) 후에 차도가 거의 없었던(None) 환자의 수와 약간(Some) 또는 확실히(Marked) 효과가 있었던 환자를 합친 수가 같았다.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="ch-categoricalDescStat.html#cb417-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(Arthritis)</span></code></pre></div>
+<pre><code>       ID          Treatment      Sex          Age          Improved 
+ Min.   : 1.00   Placebo:43   Female:59   Min.   :23.00   None  :42  
+ 1st Qu.:21.75   Treated:41   Male  :25   1st Qu.:46.00   Some  :14  
+ Median :42.50                            Median :57.00   Marked:28  
+ Mean   :42.50                            Mean   :53.36              
+ 3rd Qu.:63.25                            3rd Qu.:63.00              
+ Max.   :84.00                            Max.   :74.00              </code></pre>
+<p>그럼 이런 기본 정보를 바탕으로 새로운 치료법이 증상의 개선에 뚜렷이 도움이 되었는지 확인해 보자. 치료법(<code>Treatment</code>)과 증상 개선 여부(<code>Improved</code>)에 대한 교차표를 구해보니 뚜렷한 증상 개선(Marked)이 된 환자 중에는 새로운 치료법을 받은 환자(Treated)가 많았다.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="ch-categoricalDescStat.html#cb419-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tti &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Treatment <span class="op">+</span><span class="st"> </span>Improved, <span class="dt">data =</span> Arthritis)</span>
+<span id="cb419-2"><a href="ch-categoricalDescStat.html#cb419-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tti</span></code></pre></div>
+<pre><code>         Improved
+Treatment None Some Marked
+  Placebo   29    7      7
+  Treated   13    7     21</code></pre>
+<p>이를 좀더 정확히 살펴보기 위해 치료법에 따른 증상 개선의 상대적 비율(%)을 구해보자. 결과에서 플라시보 치료를 받은 환자의 67%가 증상의 개선이 없었는데, 새로운 치료법을 받은 환자는 31%만 개선이 없었고, 51%의 환자는 확실한 증상 개선이 있었다.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="ch-categoricalDescStat.html#cb421-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">round</span>(<span class="kw">prop.table</span>(tti, <span class="dt">margin =</span> <span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">digits=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>         Improved
+Treatment  None  Some Marked
+  Placebo 67.44 16.28  16.28
+  Treated 31.71 17.07  51.22</code></pre>
+<p>물론 이러한 차이가 통계적으로 유의미한지는 다시 가설검정을 해보아야 한다. 가설 검정 방법에 대해서는 뒤에 자세히 살펴보도록 하고, 가설검정 결과만 살펴보면 치료법에 따른 증상 개선 효과의 차이는 없다는 귀무 가설에 대한 검정에서 p-값이 매우 작게 나와서 치료법에 따라 증상 개선 효과가 차이가 있었다는 대립 가설을 채택하게 해 준다.</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="ch-categoricalDescStat.html#cb423-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">chisq.test</span>(tti)</span></code></pre></div>
+<pre><code>
+	Pearson&#39;s Chi-squared test
+
+data:  tti
+X-squared = 13.055, df = 2, p-value = 0.001463</code></pre>
+<p>지금까지 분석한 내용을 다른 사람들에게 전달하기 좋도록 그래프로 나타내 보자.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="ch-categoricalDescStat.html#cb425-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(Arthritis, <span class="kw">aes</span>(<span class="dt">x =</span> Treatment, <span class="dt">fill =</span> Improved)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-43-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="ch-categoricalDescStat.html#cb426-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(Arthritis, <span class="kw">aes</span>(<span class="dt">x =</span> Treatment, <span class="dt">fill =</span> Improved)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-43-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>그러면 증상 개선 효과(<code>Improved</code>)의 성별(<code>gender</code>) 차이가 있었는지를 어떻게 분석할 수 있을까? 먼저 플라시보 치료를 받은 환자에 대하여 증상 개선 효과와 환자 성별로 교차표를 구해보자. 남자에 비해 여성 환자의 확실한(Marked) 증상 개선 사례가 많아 보인다.</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="ch-categoricalDescStat.html#cb427-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tsi_placebo &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Improved, <span class="dt">data =</span> Arthritis, <span class="dt">subset =</span> Treatment <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>)</span>
+<span id="cb427-2"><a href="ch-categoricalDescStat.html#cb427-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tsi_placebo</span></code></pre></div>
+<pre><code>        Improved
+Sex      None Some Marked
+  Female   19    7      6
+  Male     10    0      1</code></pre>
+<p>플라시보 치료를 받은 환자에 대하여 실제 성별로 증상 개선 효과의 상대적 비율이 다른지 확인해 보자. 플라시보 치료의 경우 남자 환자의 90%가 증상 개선이 없었던 반면, 여성 환자의 40% 가량은 증상의 개선이 조금 또는 확연히 있었다.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="ch-categoricalDescStat.html#cb429-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(tsi_placebo, <span class="dt">margin =</span> <span class="dv">1</span>) </span></code></pre></div>
+<pre><code>        Improved
+Sex            None       Some     Marked
+  Female 0.59375000 0.21875000 0.18750000
+  Male   0.90909091 0.00000000 0.09090909</code></pre>
+<p>물론 이러한 수치가 관측 도수가 작아서 우연히 발생한 것일 수 있다. 그러므로 플라시보 치료자의 증상 개선 효과에 대한 성별 차이가 있었는지에 대하여 가설검정을 해보자. 관측 도수가 매우 낮은 셀이 있어서 Fisher 정확 검증으로 가설검정을 수행하였다. 결과에서 p-값이 크게 나왔으므로 성별 차이는 우연히 발생한 것이라는 귀무가설을 기각하지 못한다.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="ch-categoricalDescStat.html#cb431-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">fisher.test</span>(tsi_placebo)</span></code></pre></div>
+<pre><code>
+	Fisher&#39;s Exact Test for Count Data
+
+data:  tsi_placebo
+p-value = 0.1706
+alternative hypothesis: two.sided</code></pre>
+<p>그러면 새로운 치료법에서는 성별로 증상 개선 효과의 차이가 있었을까? 새로운 치료법을 받은 환자에 대해 성별-증상 개선 효과의 교차표를 구하여, 성별로 증상 개선의 상대적 비율을 구해보았다. 이 경우에도 여성의 증상 개선 효과가 남자보다 크게 나타난 것으로 확인할 수 있다. 그러나 플라시보 치료자와 마찬가지로 이 차이가 통계적으로 유의미한 차이라고 보기는 어렵다.</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="ch-categoricalDescStat.html#cb433-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tsi_treated &lt;-<span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Improved, <span class="dt">data =</span> Arthritis, <span class="dt">subset =</span> Treatment <span class="op">==</span><span class="st"> &quot;Treated&quot;</span>) </span>
+<span id="cb433-2"><a href="ch-categoricalDescStat.html#cb433-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">prop.table</span>(tsi_treated, <span class="dt">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>        Improved
+Sex           None      Some    Marked
+  Female 0.2222222 0.1851852 0.5925926
+  Male   0.5000000 0.1428571 0.3571429</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="ch-categoricalDescStat.html#cb435-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">fisher.test</span>(tsi_treated)</span></code></pre></div>
+<pre><code>
+	Fisher&#39;s Exact Test for Count Data
+
+data:  tsi_treated
+p-value = 0.2204
+alternative hypothesis: two.sided</code></pre>
+<p>지금까지 분석한 내용을 다른 사람들에게 전달하기 좋도록 그래프로 나타내 보자. 성별 변수로 측면으로 나누어 막대 그래프를 그리기 위해 <code>facet_wrap()</code> 함수를 이용하여 성별로 측면 그래프를 그렸다.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="ch-categoricalDescStat.html#cb437-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(Arthritis, <span class="kw">aes</span>(<span class="dt">x =</span> Treatment, <span class="dt">fill =</span> Improved)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb437-2"><a href="ch-categoricalDescStat.html#cb437-2" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></span>
+<span id="cb437-3"><a href="ch-categoricalDescStat.html#cb437-3" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Sex)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-48-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="ch-categoricalDescStat.html#cb438-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(Arthritis, <span class="kw">aes</span>(<span class="dt">x =</span> Treatment, <span class="dt">fill =</span> Improved)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb438-2"><a href="ch-categoricalDescStat.html#cb438-2" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>)<span class="op">+</span><span class="st"> </span></span>
+<span id="cb438-3"><a href="ch-categoricalDescStat.html#cb438-3" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Sex)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-48-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>막대 그래프에서 새로운 치료법을 적용하든 플라시보 치료법이든 여성이 남성에 비해 관절염의 증상 개선 효과가 더 좋은 경향을 보인다는 것을 볼 수 있다. 그러나 이 차이는 통계적으로 유의미한 확실한 차이는 아니었다.</p>
+</div>
+<div id="subsec:BrokenMarriage" class="section level3" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> 이혼에 대한 사회조사 데이터 분석</h3>
+<p><code>bizstatp</code> 패키지의 <code>BrokenMarriage</code> 데이터는 덴마크 사회 조사국에서 수행한 성별 및 사회적 계급에 따른 이혼 또는 영구적 남녀 관계가 깨진 빈도를 측정한 데이터이다. 이 데이터는 <code>vcd</code>라는 패키지에 <code>BrokenMarriage</code>라는 이름으로 포함되어 있고 여기서는 교육의 목적으로 같은 이름으로 재수록 하였다.
+<code>bizstatp</code> 패키지를 메모리에 적재하였다면 다음 명령으로 데이터를 확인할 수 있다.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="ch-categoricalDescStat.html#cb439-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>BrokenMarriage</span></code></pre></div>
+<pre><code>   Freq gender rank broken
+1    14   male    I    yes
+2   102   male    I     no
+3    39   male   II    yes
+4   151   male   II     no
+5    42   male  III    yes
+6   292   male  III     no
+7    79   male   IV    yes
+8   293   male   IV     no
+9    66   male    V    yes
+10  261   male    V     no
+11   12 female    I    yes
+12   25 female    I     no
+13   23 female   II    yes
+14   79 female   II     no
+15   37 female  III    yes
+16  151 female  III     no
+17  102 female   IV    yes
+18  557 female   IV     no
+19   58 female    V    yes
+20  321 female    V     no</code></pre>
+<p>이 데이터의 특징은 조사된 원 데이터-조사된 사람 한 명에 대한 관측이 행을 이루는 원래 데이터-가 아니라 이미 그룹별로 빈도가 요약된 데이터라는 것이다. 첫 번째 행은 남성이면서 1-계급에 속하는 사람이 이혼 또는 영구적 남녀 관계가 깨졌는지에 대한 물음에 그렇다고 응답(yes)한 빈도수(<code>Freq</code>)를 보여준다.</p>
+<p>이렇게 이미 그룹으로 요약된 데이터를 다룰 때는 이미 요약된 빈도수가 후속 분석에서 제대로 반영되도록 주의해야 한다. 예를 들어 성별로 이혼 빈도에 대한 교차표를 구할 때, 원 데이터를 가지고 있을 때와 마찬가지로 행 하나를 관측으로 간주하여 빈도를 세면 정확한 결과를 얻을 수 없다.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="ch-categoricalDescStat.html#cb441-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>broken, <span class="dt">data =</span> BrokenMarriage)</span></code></pre></div>
+<pre><code>        broken
+gender   yes no
+  male     5  5
+  female   5  5</code></pre>
+<p><code>BrokenMarriage</code> 데이터처럼 이미 빈도로 요약된 데이터를 가지고 <code>xtabs()</code> 함수로 빈도표나 교차표를 만드려면 다음처럼 수식의 좌변에 이미 요약된 빈도를 가진 열을 기술해야 한다.</p>
+<pre><code>xtabs(빈도변수 ~ 범주형변수1 + ..., data = 데이터)</code></pre>
+<p>다음은 성별-이혼 여부 변수에 대한 교차표를 구한 예이다. 수식의 좌변에 빈도수를 가지고 있는 열 <code>Freq</code>을 지정해 주어야 단순히 행의 개수를 세는 것이 아니라 빈도수 더하여 교차표를 만들어 준다.</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="ch-categoricalDescStat.html#cb444-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tgb &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>broken, <span class="dt">data =</span> BrokenMarriage)</span>
+<span id="cb444-2"><a href="ch-categoricalDescStat.html#cb444-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tgb</span></code></pre></div>
+<pre><code>        broken
+gender    yes   no
+  male    240 1099
+  female  232 1133</code></pre>
+<p>성별로 이혼률에 차이가 있는지 확인해 보자. 상대 빈도도 거의 차이가 나지 않고, 그 차이도 통계적으로 유의미하지 않음을 볼 수 있다.</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="ch-categoricalDescStat.html#cb446-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(tgb, <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>        broken
+gender         yes        no
+  male   0.1792382 0.8207618
+  female 0.1699634 0.8300366</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="ch-categoricalDescStat.html#cb448-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">chisq.test</span>(tgb)</span></code></pre></div>
+<pre><code>
+	Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+
+data:  tgb
+X-squared = 0.34175, df = 1, p-value = 0.5588</code></pre>
+<p>그러면 사회 계급별로 이혼률에 차이가 있는지 확인해 보자. 사회 계급별로도 유의미한 차이를 보이지 않았다.</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="ch-categoricalDescStat.html#cb450-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>trb &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>broken <span class="op">+</span><span class="st"> </span>rank, <span class="dt">data =</span> BrokenMarriage)</span>
+<span id="cb450-2"><a href="ch-categoricalDescStat.html#cb450-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">proportions</span>(trb, <span class="dt">margin =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>      rank
+broken         I        II       III        IV         V
+   yes 0.1699346 0.2123288 0.1513410 0.1755577 0.1756374
+   no  0.8300654 0.7876712 0.8486590 0.8244423 0.8243626</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="ch-categoricalDescStat.html#cb452-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">chisq.test</span>(trb)</span></code></pre></div>
+<pre><code>
+	Pearson&#39;s Chi-squared test
+
+data:  trb
+X-squared = 4.8795, df = 4, p-value = 0.2999</code></pre>
+<p>성별로 사회계급에 따른 이혼률의 차이가 있는지를 살펴보기 위해서 성별로 측면으로 나누어 막대 그래프를 그려보자. 이미 빈도로 요약된 데이터에 대한 막대 그래프는 <code>geom_bar()</code>가 아니라 <code>geom_col()</code> 함수로 막대 그래프를 그린다.
+두 함수에 대한 자세한 차이는 R 프로그래밍의 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#subsec:statCategorical">ggplot2 범주형 변수의 통계 요약</a> 절을 참조 바란다.
+<code>geom_col()</code>으로 이미 빈도로 요약된 데이터에서 막대 그래프를 그리는 문법은 다음과 같다. <code>x</code>뿐 아니라 <code>y</code>에 빈도를 가진 영를 매핑하여 막대 그래프를 그린다.</p>
+<pre><code>ggplot(데이터, aes(x = 범주형변수, y = 빈도변수)) + geom_col()
+ggplot(데이터, aes(x = 범주형변수1, y = 빈도변수, fill = 범주형변수2)) + geom_col()
+ggplot(데이터, aes(x = 범주형변수1, y = 빈도변수, fill = 범주형변수2)) + 
+  geom_col(position = &quot;dodge&quot; or &quot;fill&quot;)</code></pre>
+<p>성별로 사회 계급에 따른 이혼 빈도를 절대 빈도와 상대 빈도로 막대 그래프를 그려보면 다음과 같다.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="ch-categoricalDescStat.html#cb455-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(BrokenMarriage, <span class="kw">aes</span>(<span class="dt">x =</span> rank, <span class="dt">y =</span> Freq, <span class="dt">fill =</span> broken)) <span class="op">+</span></span>
+<span id="cb455-2"><a href="ch-categoricalDescStat.html#cb455-2" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>gender)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-54-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="ch-categoricalDescStat.html#cb456-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(BrokenMarriage, <span class="kw">aes</span>(<span class="dt">x =</span> rank, <span class="dt">y =</span> Freq, <span class="dt">fill =</span> broken)) <span class="op">+</span></span>
+<span id="cb456-2"><a href="ch-categoricalDescStat.html#cb456-2" aria-hidden="true"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>gender)</span></code></pre></div>
+<p><img src="descriptiveStat-categoric_files/figure-html/unnamed-chunk-54-2.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>절대 빈도를 보여주는 그래프에서 남성에 비해 여성의 계급이 4등급에 집중되어 있다는 것을 볼 수 있다. 그리고 상대 빈도를 보여주는 그래프에서 남성에 비해 여성이 사회적 등급이 높아질수록 이혼률이 약간은 증가하는 경향을 볼 수 있다. 남성과 여성으로 나누어 보았을 때 사회계급의 차이가 이혼률에 영향을 미치는지를 살펴보기 위해 성별로 이혼 여부-사회계급의 교차표를 계산해 보자. 그리고 성별로 사회계급에 따라 이혼률이 달라지는지 확인해 보자.</p>
+<p>다음 결과에서 남자의 이혼율은 2, 4, 5 등급에서 20% 정도이고, 1, 3 등급에서 12% 정도였는데, 이러한 차이는 통계적으로 유의미한 차이로 분석되었다.</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="ch-categoricalDescStat.html#cb457-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tbr_male &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>broken <span class="op">+</span><span class="st"> </span>rank, <span class="dt">data =</span> BrokenMarriage, <span class="dt">subset =</span> gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>)</span>
+<span id="cb457-2"><a href="ch-categoricalDescStat.html#cb457-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">prop.table</span>(tbr_male, <span class="dt">margin =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>      rank
+broken         I        II       III        IV         V
+   yes 0.1206897 0.2052632 0.1257485 0.2123656 0.2018349
+   no  0.8793103 0.7947368 0.8742515 0.7876344 0.7981651</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="ch-categoricalDescStat.html#cb459-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">chisq.test</span>(tbr_male)</span></code></pre></div>
+<pre><code>
+	Pearson&#39;s Chi-squared test
+
+data:  tbr_male
+X-squared = 13.984, df = 4, p-value = 0.007347</code></pre>
+<p>다음 결과에서 여자의 이혼율은 사회 등급이 높아질수록 이혼률이 증가하는 경향을 보였는데, 이러한 차이도 통계적으로 유의미한 차이로 분석되었다.</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="ch-categoricalDescStat.html#cb461-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span>tbr_female &lt;-<span class="st"> </span><span class="kw">xtabs</span>(Freq <span class="op">~</span><span class="st"> </span>broken <span class="op">+</span><span class="st"> </span>rank, <span class="dt">data =</span> BrokenMarriage, <span class="dt">subset =</span> gender <span class="op">==</span><span class="st"> &quot;female&quot;</span>)</span>
+<span id="cb461-2"><a href="ch-categoricalDescStat.html#cb461-2" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">prop.table</span>(tbr_female, <span class="dt">margin =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>      rank
+broken         I        II       III        IV         V
+   yes 0.3243243 0.2254902 0.1968085 0.1547800 0.1530343
+   no  0.6756757 0.7745098 0.8031915 0.8452200 0.8469657</code></pre>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="ch-categoricalDescStat.html#cb463-1" aria-hidden="true"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">chisq.test</span>(tbr_female)</span></code></pre></div>
+<pre><code>
+	Pearson&#39;s Chi-squared test
+
+data:  tbr_female
+X-squared = 11.286, df = 4, p-value = 0.02353</code></pre>
+<p>남녀 합쳐서 분석할 때는 사회계급에 따른 이혼률의 차이가 유의미 하지 않았지만, 성별로 나누어 분석해 보면 남성과 여성 모두에서 사회계급과 이혼 여부가 통계적으로 유의미한 상관성을 확인할 수 있다. 이는 남성일수록 상위 계급(1, 3 등급)의 이혼률이 낮아지는데, 여성일수록 상위 계급(1, 2)의 이혼률이 높아져서, 합쳐진 데이터에서는 이러한 경향이 중화되어 나타나지 않았음을 볼 수 있다.
+이 에에서 보듯이 한 변수가 다른 변수에 미치는 영향은 두 변수만 한정하여 살펴보는 것뿐만 아니라, 제 삼의 변수의 조건에 따라 두 변수의 상관성이 영향을 받는지 살펴볼 필요가 있다. 이러한 것을 살펴보기 위해서는 여러 측면으로 나누어 기술통계 분석을 실시해 보아야 하고, 분석하는 문제에 대한 충분한 배경 지식을 갖고 있어야 한다.</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p><code>group</code> 속성에는 상수 값이면 아무 값이나 매핑해도 된다. 여기서는 편의상 1을 매핑하였다.<a href="ch-categoricalDescStat.html#fnref5" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-introDescStat.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-numericDescStat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bizStatistics.pdf", "bizStatistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
