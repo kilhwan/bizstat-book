@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="ch-intro.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,20 +50,31 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BTR0YQD3G1');
+</script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +94,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,67 +145,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>일러두기</a></li>
 <li class="part"><span><b>I 개요</b></span></li>
-<li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a><ul>
 <li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
 <li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
-<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a>
-<ul>
+<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a><ul>
 <li class="chapter" data-level="1.3.1" data-path="ch-statisics.html"><a href="ch-statisics.html#문제-정의"><i class="fa fa-check"></i><b>1.3.1</b> 문제 정의</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-수집"><i class="fa fa-check"></i><b>1.3.2</b> 데이터 수집</a></li>
 <li class="chapter" data-level="1.3.3" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-전처리-및-탐색"><i class="fa fa-check"></i><b>1.3.3</b> 데이터 전처리 및 탐색</a></li>
 <li class="chapter" data-level="1.3.4" data-path="ch-statisics.html"><a href="ch-statisics.html#통계-모형-수립"><i class="fa fa-check"></i><b>1.3.4</b> 통계 모형 수립</a></li>
 <li class="chapter" data-level="1.3.5" data-path="ch-statisics.html"><a href="ch-statisics.html#결론-도출"><i class="fa fa-check"></i><b>1.3.5</b> 결론 도출</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a>
-<ul>
+<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="ch-statisics.html"><a href="ch-statisics.html#질적-변수"><i class="fa fa-check"></i><b>1.4.1</b> 질적 변수</a></li>
 <li class="chapter" data-level="1.4.2" data-path="ch-statisics.html"><a href="ch-statisics.html#양적-변수"><i class="fa fa-check"></i><b>1.4.2</b> 양적 변수</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II R 기초</b></span></li>
-<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
-<ul>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a><ul>
 <li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
 <li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>2.4.1</b> R 콘솔과 프롬프트</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>2.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
 <li class="chapter" data-level="2.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>2.4.3</b> R 스크립트 파일 만들기</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a>
-<ul>
+<li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#r의-기본적-데이터-형식-숫자-문자열-논리값"><i class="fa fa-check"></i><b>3.1.1</b> R의 기본적 데이터 형식: 숫자, 문자열, 논리값</a></li>
 <li class="chapter" data-level="3.1.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#vs-10"><i class="fa fa-check"></i><b>3.1.2</b> 10 vs “10”</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#사칙-연산"><i class="fa fa-check"></i><b>3.2.1</b> 사칙 연산</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#거듭-제곱-연산"><i class="fa fa-check"></i><b>3.2.2</b> 거듭 제곱 연산</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#몫과-나머지"><i class="fa fa-check"></i><b>3.2.3</b> 몫과 나머지</a></li>
 <li class="chapter" data-level="3.2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#비교-연산-그리고-vs."><i class="fa fa-check"></i><b>3.2.4</b> 비교 연산 그리고 <code>==</code> vs. <code>=</code></a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#논리값-연산"><i class="fa fa-check"></i><b>3.3</b> 논리값 연산</a></li>
-<li class="chapter" data-level="3.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-연산"><i class="fa fa-check"></i><b>3.4</b> 문자열 연산</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-연산"><i class="fa fa-check"></i><b>3.4</b> 문자열 연산</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-결합-연산-paste"><i class="fa fa-check"></i><b>3.4.1</b> 문자열 결합 연산: <code>paste()</code></a></li>
 <li class="chapter" data-level="3.4.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-분리-연산-strsplit"><i class="fa fa-check"></i><b>3.4.2</b> 문자열 분리 연산: <code>strsplit()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a><ul>
 <li class="chapter" data-level="3.5.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수는-메모리-공간에-붙이는-레이블"><i class="fa fa-check"></i><b>3.5.1</b> 변수는 메모리 공간에 붙이는 레이블</a></li>
 <li class="chapter" data-level="3.5.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수명에-대한-규칙"><i class="fa fa-check"></i><b>3.5.2</b> 변수명에 대한 규칙</a></li>
 <li class="chapter" data-level="3.5.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-할당하기"><i class="fa fa-check"></i><b>3.5.3</b> 변수에 값 할당하기</a></li>
@@ -207,116 +205,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.9" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-목록-확인하기-ls"><i class="fa fa-check"></i><b>3.5.9</b> 변수 목록 확인하기: <code>ls()</code></a></li>
 <li class="chapter" data-level="3.5.10" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수를-할당하는-또-다른-방법-assign"><i class="fa fa-check"></i><b>3.5.10</b> 변수를 할당하는 또 다른 방법: <code>assign()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a>
-<ul>
+<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a><ul>
 <li class="chapter" data-level="3.6.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수-호출-하기"><i class="fa fa-check"></i><b>3.6.1</b> 함수 호출 하기</a></li>
 <li class="chapter" data-level="3.6.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수"><i class="fa fa-check"></i><b>3.6.2</b> 실수를 정수로 변환하는 함수</a></li>
 <li class="chapter" data-level="3.6.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#순열과-조합-함수"><i class="fa fa-check"></i><b>3.6.3</b> 순열과 조합 함수</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a>
-<ul>
+<li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터는-동일-형식-데이터의-나열"><i class="fa fa-check"></i><b>4.1.1</b> 벡터는 동일 형식 데이터의 나열</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터를-생성하는-법"><i class="fa fa-check"></i><b>4.1.2</b> 벡터를 생성하는 법</a></li>
 <li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
 <li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터의-필터링인덱싱"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열은-다차원적-데이터-구조"><i class="fa fa-check"></i><b>4.2.1</b> 행렬과 배열은 다차원적 데이터 구조</a></li>
 <li class="chapter" data-level="4.2.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열의-필요성"><i class="fa fa-check"></i><b>4.2.2</b> 행렬과 배열의 필요성</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#리스트-이해의-중요성"><i class="fa fa-check"></i><b>4.3.1</b> 리스트 이해의 중요성</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-열변수은-벡터이다."><i class="fa fa-check"></i><b>4.4.1</b> 데이터 프레임의 열(변수)은 벡터이다.</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-문법과-조작"><i class="fa fa-check"></i><b>4.4.2</b> 데이터 프레임의 문법과 조작</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a>
-<ul>
+<li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a><ul>
 <li class="chapter" data-level="5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#ggplot2-패키지-설치하기"><i class="fa fa-check"></i><b>5.1</b> ggplot2 패키지 설치하기</a></li>
-<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-색상color-속성의-매핑"><i class="fa fa-check"></i><b>5.3.1</b> 범주형 변수와 색상(<code>color</code>) 속성의 매핑</a></li>
 <li class="chapter" data-level="5.3.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-모양shape-속성의-매핑"><i class="fa fa-check"></i><b>5.3.2</b> 범주형 변수와 모양(<code>shape</code>) 속성의 매핑</a></li>
 <li class="chapter" data-level="5.3.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#연속형-변수와-크기size-색상color-투명도alpha-속성의-매핑"><i class="fa fa-check"></i><b>5.3.3</b> 연속형 변수와 크기(<code>size</code>), 색상(<code>color</code>), 투명도(<code>alpha</code>) 속성의 매핑</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
-<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#geom-함수에서-속성-매핑하기"><i class="fa fa-check"></i><b>5.5.1</b> geom 함수에서 속성 매핑하기</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
 <li class="chapter" data-level="5.6.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="chap-visulaize.html"><a href="chap-visulaize.html#기타-ggplot2의-문법-요소"><i class="fa fa-check"></i><b>5.7</b> 기타 ggplot2의 문법 요소</a>
-<ul>
+<li class="chapter" data-level="5.7" data-path="chap-visulaize.html"><a href="chap-visulaize.html#기타-ggplot2의-문법-요소"><i class="fa fa-check"></i><b>5.7</b> 기타 ggplot2의 문법 요소</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#labelsmodification"><i class="fa fa-check"></i><b>5.7.1</b> 그래프 레이블을 조정하기</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III R 기술통계 분석</b></span></li>
-<li class="chapter" data-level="6" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html"><i class="fa fa-check"></i><b>6</b> 기술통계 분석이란?</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html"><i class="fa fa-check"></i><b>6</b> 기술통계 분석이란?</a><ul>
 <li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
-<ul>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a><ul>
 <li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a>
-<ul>
+<li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html"><i class="fa fa-check"></i><b>7</b> 범주형 변수에 대한 R 기술통계</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a>
-<ul>
+<li class="chapter" data-level="7" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html"><i class="fa fa-check"></i><b>7</b> 범주형 변수에 대한 R 기술통계</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec:freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>7.1.2</b> 범주형 변수 분포를 그래프로 요약하기</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-수치로-요약하기---교차표-만들기"><i class="fa fa-check"></i><b>7.2.1</b> 범주형 변수의 상관성을 수치로 요약하기 - 교차표 만들기</a></li>
 <li class="chapter" data-level="7.2.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-그래프로-요약하기"><i class="fa fa-check"></i><b>7.2.2</b> 범주형 변수의 상관성을 그래프로 요약하기</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a>
-<ul>
+<li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>7.3.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
 <li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec:BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#한-수치형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>8.1</b> 한 수치형 변수에 대한 분포 분석</a>
-<ul>
+<li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#한-수치형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>8.1</b> 한 수치형 변수에 대한 분포 분석</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-수치로-요약하기"><i class="fa fa-check"></i><b>8.1.1</b> 수치형 변수 분포를 수치로 요약하기</a></li>
 <li class="chapter" data-level="8.1.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>8.1.2</b> 수치형 변수 분포를 그래프로 요약하기</a></li>
 <li class="chapter" data-level="8.1.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환"><i class="fa fa-check"></i><b>8.1.3</b> 수치형 변수의 변환</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#둘-이상의-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2</b> 둘 이상의 수치형 변수의 상관성 분석</a>
-<ul>
+<li class="chapter" data-level="8.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#둘-이상의-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2</b> 둘 이상의 수치형 변수의 상관성 분석</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#상관계수"><i class="fa fa-check"></i><b>8.2.1</b> 상관계수</a></li>
 <li class="chapter" data-level="8.2.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#산점도"><i class="fa fa-check"></i><b>8.2.2</b> 산점도</a></li>
 <li class="chapter" data-level="8.2.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#추세선-그리기"><i class="fa fa-check"></i><b>8.2.3</b> 추세선 그리기</a></li>
 <li class="chapter" data-level="8.2.4" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환-1"><i class="fa fa-check"></i><b>8.2.4</b> 수치형 변수의 변환</a></li>
-<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성의 탐색</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색</a></li>
 <li class="chapter" data-level="8.2.6" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2.6</b> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석</a></li>
+<li class="chapter" data-level="8.2.7" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#ggpairs를-이용한-수치형-변수를-한-번에-분석하기"><i class="fa fa-check"></i><b>8.2.7</b> <code>ggpairs()</code>를 이용한 수치형 변수를 한 번에 분석하기</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html"><i class="fa fa-check"></i><b>9</b> 범주형 변수와 수치형 변수의 관계 분석</a><ul>
+<li class="chapter" data-level="9.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별로-수치형-변수에-대해-통계-요약하기"><i class="fa fa-check"></i><b>9.1</b> 범주별로 수치형 변수에 대해 통계 요약하기</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#한-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.1</b> 한 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#여러-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.2</b> 여러 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별-수치-변수의-분포-그래프"><i class="fa fa-check"></i><b>9.2</b> 범주별 수치 변수의 분포 그래프</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#상자-그래프"><i class="fa fa-check"></i><b>9.2.1</b> 상자 그래프</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별로-수치형-변수의-분포-모양을-비교하기"><i class="fa fa-check"></i><b>9.2.2</b> 범주별로 수치형 변수의 분포 모양을 비교하기</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV R 추론통계 분석</b></span></li>
+<li class="chapter" data-level="10" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html"><i class="fa fa-check"></i><b>10</b> 가설검정이란?</a><ul>
+<li class="chapter" data-level="10.1" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#가설의-설정"><i class="fa fa-check"></i><b>10.1</b> 가설의 설정</a></li>
+<li class="chapter" data-level="10.2" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#검정통계량과-표본-분포"><i class="fa fa-check"></i><b>10.2</b> 검정통계량과 표본 분포</a></li>
+<li class="chapter" data-level="10.3" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#기각역과-유의수준"><i class="fa fa-check"></i><b>10.3</b> 기각역과 유의수준</a></li>
+<li class="chapter" data-level="10.4" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#유의확률-p-값p-value"><i class="fa fa-check"></i><b>10.4</b> 유의확률 p-값(p-value)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -338,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:statisics" class="section level1" number="1">
+<div id="ch:statisics" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> 통계 분석이란?</h1>
 <p>오늘날을 지식정보화 시대라고 자주 일컫는다. 지식정보화 시대는 다음과 같은 특징을 가진다.</p>
 <ul>
@@ -586,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div id="sec:descStat" class="section level2" number="1.1">
+<div id="sec:descStat" class="section level2">
 <h2><span class="header-section-number">1.1</span> 기술통계 분석</h2>
 <p>기술통계(descriptive statistics) 분석은 <strong>모집단</strong>의 특성을 분석자가 한눈에 파악할 수 있도록 데이터를 정리하고 표현하는 방법이다.
 표 <a href="ch-statisics.html#tab:classDataIntro">1.1</a>처럼 한 강의를 수강하고 있는 20명의 학생의 명단이 있다고 하자. 이 명단을 훑어보는 것만으로 20명의 학생들의 특성을 파악하기는 어렵다. 만약 20명의 학생들의 남녀 분포에 대한 표가 주어져 있고 (표 <a href="ch-statisics.html#tab:classGenderDist">1.2</a>), 학년별 분포 및 전공 분포에 대한 막대그래프가 그려져 있다면 (그림 <a href="ch-statisics.html#fig:classDist">1.1</a>), 강의를 듣는 학생의 특성을 좀 더 쉽게 파악할 수 있을 것이다.</p>
@@ -619,7 +613,7 @@ Figure 1.1: 수강생 학년 및 전공 분포
 우리는 실생활에서 많은 기술통계 분석 자료를 접할 수 있다. 물가지표, 실업률, GDP 등의 경제통계치, 여론 조사 결과를 그래프나 표 등으로 표현하는 것이 기술통계 분석의 대표적인 예라고 할 수 있다.</p>
 <p>기술통계 분석에서 주의할 점은 수많은 데이터를 몇 개의 통계치로 요약하는 과정에서 단순화에 따른 정보의 손실이 발생할 수 밖에 없으며, 분석자의 관심에 따라 데이터를 요약하는 방식이 달라질 수 밖에 없다는 것이다. 그러므로 모든 기술통계 분석에는 어느 정도의 정보의 편향과 한계가 내재한다. 그러므로 기술통계 분석을 하거나 기술통계 분석 자료를 이용할 때는 기술통계량의 특성과 한계를 잘 이해하고 있어야 한다. 그래야만 통계에 근거한 올바른 의사결정을 할 수 있다.</p>
 </div>
-<div id="sec:inferStat" class="section level2" number="1.2">
+<div id="sec:inferStat" class="section level2">
 <h2><span class="header-section-number">1.2</span> 추론통계 분석</h2>
 <p>추론통계(inferential statistics) 분석은 관심의 대상이 되는 전체집단(모집단)에 대한 조사가 불가능하거나 비효율적일 때 모집단의 일부(표본)만을 관측하여 모집단의 특성을 어림짐작(추측)하는 분석 방법이다. 조사된 표본을 이용하여 모집단에 대해 추측을 하는 것이므로 추측통계라고도 한다.</p>
 <p>다음은 추론통계 분석이 사용되는 대표적인 사례이다.</p>
@@ -634,7 +628,7 @@ Figure 1.1: 수강생 학년 및 전공 분포
 Figure 1.2: 추론통계 개념도
 </p>
 </div>
-<p>그림 <a href="ch-statisics.html#fig:statistics">1.2</a>는 모집단과 표본, 그리고 추론통계와 기술통계의 역할이 무엇인지 보여준다. 추론통계 분석에서는 모집단의 일부만을 관측하므로 관측된 표본의 통계치(여론 조사에서 국정 지지도)가 모집단의 실제 통계치(국민의 실제 국정 지지도)와 똑같을 수는 없으며 어느 정도 차이가 발생한다. 따라서 추측 통계치를 기반으로 의사결정을 하려면 이러한 추측 통계량의 신뢰성에 대한 판단이 필요하다. 즉, 추측한 값과 실제 값이 어느 정도 차이가 날 수 있는지에 대한 판단이 필요한다. 이를 판단하기 위해서는 모집단에서 표본을 뽑는 경우에 따라 표본 통계량이 확률적으로 어떻게 분포하는지에 대한 탐구가 필요하다. 그렇기 때문에 추론통계 분석은 확률 이론을 기반으로 하고 있다.</p>
+<p>그림 <a href="ch-statisics.html#fig:statistics">1.2</a>는 모집단과 표본, 그리고 추론통계와 기술통계의 역할이 무엇인지 보여준다. 추론통계 분석에서는 모집단의 일부만을 관측하므로 관측된 표본의 통계치(여론 조사에서 국정 지지도)가 모집단의 실제 통계치(국민의 실제 국정 지지도)와 똑같을 수는 없으며 어느 정도 차이가 발생한다. 따라서 추측통계치를 기반으로 의사결정을 하려면 이러한 추측 통계량의 신뢰성에 대한 판단이 필요하다. 즉, 추측한 값과 실제 값이 어느 정도 차이가 날 수 있는지에 대한 판단이 필요한다. 이를 판단하기 위해서는 모집단에서 표본을 뽑는 경우에 따라 표본 통계량이 확률적으로 어떻게 분포하는지에 대한 탐구가 필요하다. 그렇기 때문에 추론통계 분석은 확률 이론을 기반으로 하고 있다.</p>
 <div class="figure" style="text-align: center"><span id="fig:statistics-types"></span>
 <img src="img/statistics-types.png" alt="통계분석의 분분류" width="60%" />
 <p class="caption">
@@ -643,7 +637,7 @@ Figure 1.3: 통계분석의 분분류
 </div>
 <p>그림 <a href="ch-statisics.html#fig:statistics-types">1.3</a>은은 지금까지 설명한 기술통계 분석과 추론통계 분석의 분류를 보여준다. 기술통계는 주로 모집단의 정보를 표, 그래프, 통계치로 요약하고, 추론통계는 모집단에 대한 가설을 통계적으로 검정하거나, 모집단의 통계치를 추정한다.</p>
 </div>
-<div id="sec:statAnalysis" class="section level2" number="1.3">
+<div id="sec:statAnalysis" class="section level2">
 <h2><span class="header-section-number">1.3</span> 통계 분석의 절차</h2>
 <p>통계 분석에서는 그림 <a href="ch-statisics.html#fig:statisticsAnalysis">1.4</a>와 같이 여러 단계를 거쳐 작업이 수행된다.</p>
 <div class="figure" style="text-align: center"><span id="fig:statisticsAnalysis"></span>
@@ -652,7 +646,7 @@ Figure 1.3: 통계분석의 분분류
 Figure 1.4: 통계 분석의 단계
 </p>
 </div>
-<div id="문제-정의" class="section level3" number="1.3.1">
+<div id="문제-정의" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> 문제 정의</h3>
 <p>모든 통계 분석은 해결하고자 하는 문제의 정의로부터 시작된다.</p>
 <ul>
@@ -660,7 +654,7 @@ Figure 1.4: 통계 분석의 단계
 </ul>
 <p>이 단계가 무시되거나 제대로 수행되지 않으면, 실제적인 의미가 없는 분석 결과가 도출된다.</p>
 </div>
-<div id="데이터-수집" class="section level3" number="1.3.2">
+<div id="데이터-수집" class="section level3">
 <h3><span class="header-section-number">1.3.2</span> 데이터 수집</h3>
 <p>분석하고자 하는 문제가 잘 정의되었으면 분석에 필요한 데이터의 수집이 필요하다. 데이터의 수집 단계에서는 다음 작업이 수행된다.</p>
 <ul>
@@ -669,7 +663,7 @@ Figure 1.4: 통계 분석의 단계
 <li>데이터 수집 실행: 데이터 수집 계획에 따라 데이터 수집을 수행한다.</li>
 </ul>
 </div>
-<div id="데이터-전처리-및-탐색" class="section level3" number="1.3.3">
+<div id="데이터-전처리-및-탐색" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> 데이터 전처리 및 탐색</h3>
 <p>데이터가 수집되었으면 데이터를 전처리(pre-processing)하고 탐색한다. 데이터 전처리란 데이터를 분석에 맞도록 데이터를 변환하거나 데이터의 문제를 수정(정제)하는 작업을 의미한다.</p>
 <ul>
@@ -685,7 +679,7 @@ Figure 1.5: 동일한 데이터에 대한 세 가지 통계 모형
 </div>
 <p>데이터에 대한 전처리 및 탐색은 순차적으로 한 번에 완료되기 보다는 순환적으로 여러 번 반복되는 과정이다. 데이터 전처리와 탐색 과정에서 얻어진 관찰과 통찰에 의해 데이터를 다시 수집하거나 데이터를 변형하는 작업이 반복될 수 있다. 또한 통계 모형 수립 단계에서 얻어진 통찰에 의해 다시 데이터를 수집과 전처리 및 탐색 과정이 반복될 수도 있다.</p>
 </div>
-<div id="통계-모형-수립" class="section level3" number="1.3.4">
+<div id="통계-모형-수립" class="section level3">
 <h3><span class="header-section-number">1.3.4</span> 통계 모형 수립</h3>
 <p>단순한 문제들은 데이터에 한두 개의 변수만 있지만, 복잡한 문제의 경우 데이터에 수십에서 수십만 개의 변수가 존재한다. 한두 개의 변수만 가진 문제는 데이터 탐색만으로도 변수들 사이의 관계를 쉽게 확인할 수 있지만, 변수가 많아지면 변수들 사이의 관계를 체계적으로 파악할 수 있는 방법이 필요하다. 또한 변수의 수가 한두 개더라도 변수들 간의 상관성의 정도를 수치화하거나 상관성의 신뢰도를 추정하려고 한다면 이를 파악할 수 있는 방법도 필요하다.</p>
 <p>통계 모형(statistical models)은 분석의 목적이 되는 변수와 다른 변수들의 관계를 수학적으로 모형화함으로써 목적 변수의 변화를 설명하거나 예측한다. 예를 들어 코로나19의 치사율이 높은 사람과 그렇지 않은 사람을 예측하여 치사 가능성 높은 사람에게 별도의 처방을 한다고 해보자. 이 문제에서 우리가 분석하고자 하는 목적이 되는 변수는 치사율이다. 만약에 치사율에 영향을 주는 다른 변수로 환자의 나이 하나만을 고려한다고 해 보자. 그러면 환자의 나이와 치사율의 관계의 유무는 산점도라는 그래프를 그려보면 쉽게 확인해 볼 수 있다. 그러나 환자의 나이가 치사율에 영향을 주는 정도를 수치화하거나 이 관계의 신뢰도를 확인하려고 한다면 두 변수의 관계를 수학적으로 정의한 통계적 모형이 필요하다. 아울러 치사율을 예측하기 위하여 환자의 나이뿐 아니라, 성별, 체중, 당뇨병 유무, 기관지 질환 여부, 유전적 특징 등도 함께 조사하였다고 하자. 목적 변수인 치사율과 관계된 변수들이 많고 이 변수들 간의 양의 음의 시너지 효과까지 같이 고려한다면, 이 변수들과 목적 변수의 관계를 그래프만으로 파악하는 것은 매우 어려워진다. 이러한 경우에 사용할 수 있는 것이 통계 모형이다.</p>
@@ -704,7 +698,7 @@ Figure 1.6: 동일한 데이터에 대한 세 가지 통계 모형
 <li>모형 평가: 적합된 모형이 얼마나 데이터를 잘 설명하는지 또는 예측하는지 평가해 본다. 정량적인 평가 척도를 가지고 모형의 적합성을 평가하는 것뿐만 아니라, 모형과 실제 데이터의 차이를 탐색하여 모형의 핵심 가정이 만족되는지 등을 살펴보아야 한다. 모형이 데이터를 잘 적합하지 못하면 오차의 이유를 탐색하고 오차를 줄이기 위해 모형에 반영되어야 하는 요소가 무엇인지를 판단하여 새로운 모형을 정의하여 앞의 과정을 반복해 나간다.</li>
 </ul>
 </div>
-<div id="결론-도출" class="section level3" number="1.3.5">
+<div id="결론-도출" class="section level3">
 <h3><span class="header-section-number">1.3.5</span> 결론 도출</h3>
 <p>데이터에 대한 탐색적 분석과 통계 모형 수립에서 획득된 결과를 이용하여 문제에 대한 결론을 내린다.</p>
 <ul>
@@ -717,7 +711,7 @@ Figure 1.6: 동일한 데이터에 대한 세 가지 통계 모형
 그러므로 이 책에서는 데이터에 대한 수집과 전처리가 잘 수행되어서 통계 분석에 적합한 형태로 이미 준비되었다는 가정 하에 데이터를 통계적으로 탐색하고 통계 모형을 수립하는 방법에 대해서 다루고자 한다.</p>
 </div>
 </div>
-<div id="sec:statVariables" class="section level2" number="1.4">
+<div id="sec:statVariables" class="section level2">
 <h2><span class="header-section-number">1.4</span> 통계 데이터에서 변수의 종류</h2>
 <p>통계 데이터는 일반적으로 표 표 <a href="ch-statisics.html#tab:classDataIntro">1.1</a>나 그림 <a href="ch-statisics.html#fig:tidyData">1.7</a>과 같이 행과 열로 구성된 행렬 형식으로 구성된다.</p>
 <div class="figure" style="text-align: center"><span id="fig:tidyData"></span>
@@ -738,7 +732,7 @@ Figure 1.7: 일반적인 통계 데이터 형식
 Figure 1.8: 변수의 종류
 </p>
 </div>
-<div id="질적-변수" class="section level3" number="1.4.1">
+<div id="질적-변수" class="section level3">
 <h3><span class="header-section-number">1.4.1</span> 질적 변수</h3>
 <p>질적 변수(qualititive variables)는 학생들의 성별, 출신지역, 학년, 전공 등과 같이 관측치가 어떤 범주에 속하는지를 나타내는 변수를 말한다. 질적 변수는 값에 따라 서로 다른 질적 특성을 가지고 있는 사례로 구분되지만 수량적 의미를 가지지 않으므로 사칙연산 등의 수량적 조작을 할 수 없다.</p>
 <p>질적 변수는 명목형(nominal)과 순서형(ordinal) 변수로 구분된다.</p>
@@ -749,7 +743,7 @@ Figure 1.8: 변수의 종류
 <p>질적 변수는 범주형 변수(categorical variables)라고도 한다. 이름이 나타내듯이 범주형 변수는 범주 별로 발생 빈도가 얼마인지가 주요한 관심의 대상이 된다. 한 강의의 수강생에서 남성과 여성의 비율, 정당별 지지율 등이 그 예라고 할 수 있다.
 데이터에 범주형 변수가 여러 개 있을 때, 두 범주형 변수의 관계를 빈도수를 교차하여 분석하기도 한다. A와 B 정당을 지지하는 비율이 남성과 여성별로 차이가 있는가에 대한 분석이 그 예라고 할 수 있다. 이 경우 범주형 변수가 순서형 변수이면 순서적인 의미를 가지는 분석도 할 수 있다. 예를 들어 학년이 올라갈수록 A정당 지지율이 높아지는가 등을 분석할 수도 있다.</p>
 </div>
-<div id="양적-변수" class="section level3" number="1.4.2">
+<div id="양적-변수" class="section level3">
 <h3><span class="header-section-number">1.4.2</span> 양적 변수</h3>
 <p>양적 변수는 한 강의에 참석하는 학생들의 신장, 체중 등 수량적인 의미를 가지는 수치로 된 변수를 말한다. 양적 변수는 수치적 의미를 가지므로 사칙연산 등이 가능하다.</p>
 <p>양적 변수는 다시 비율형(ratio)과 구간형(interval) 변수로 구분된다.</p>
@@ -759,7 +753,7 @@ Figure 1.8: 변수의 종류
 </ul>
 <p>양적 변수의 분석에서는 수치들의 중심값, 퍼진 정도 등이 관심의 대상이 된다. 여러 개의 양적 변수가 존재하면 변수 간의 상관성도 분석할 수 있다. 신장이 커지면 체중이 커지는가, 신장이 2배 커지면 체중은 평균적으로 몇 배 커지는가 등이 그 예라고 할 수 있다.</p>
 <p>아울러 양적 변수와 질적 변수의 상관성에 대한 분석도 가능하다. 신장의 차이는 여성보다 남성이 큰지를 분석한다면 신장이란 양적 변수와 성별이란 질적 변수를 연관지어 분석하는 것이라 할 수 있다.</p>
-<p>앞으로 우리는 기술통계 분석과 추론 통계 분석에서 변수가 질적 변수인가 양적 변수인가에 따라 분석의 방식이 조금씩 달라지는 것을 보게 될 것이다.</p>
+<p>앞으로 우리는 기술통계 분석과 추론통계 분석에서 변수가 질적 변수인가 양적 변수인가에 따라 분석의 방식이 조금씩 달라지는 것을 보게 될 것이다.</p>
 
 </div>
 </div>
