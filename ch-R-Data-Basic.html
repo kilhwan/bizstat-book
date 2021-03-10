@@ -554,7 +554,8 @@ TV.5.sales</code></pre>
 </div>
 <div id="변수-제거하기-rm" class="section level3">
 <h3><span class="header-section-number">3.5.8</span> 변수 제거하기: <code>rm()</code></h3>
-<p>여러 가지 이유로 변수를 제거하고 싶을 때가 있다. 사용하던 변수를 제거하려면 <code>rm()</code> 함수를 이용하면 된다. 제거할 변수를 <code>rm()</code> 함수 내에 기술하면 이 변수가 사라지게 된다.</p>
+<p>변수를 생성하면, 그 변수는 <strong>R</strong> 세션이 종료될 때까지 유지된다. 만약 <strong>RStudio</strong>를 종료하여 수행하던 <strong>R</strong> 세션이 종료되면 변수에 저장하였던 데이터는 사라진다. 만약 변수에 저장된 데이터를 다음에도 사용하려면 별도의 파일에 데이터를 저장하여야 한다.</p>
+<p>그런데 여러 가지 이유로 <strong>R</strong> 세션 종료 전에 변수를 제거하고 싶을 때가 있다. 사용하던 변수를 제거하려면 <code>rm()</code> 함수를 이용하면 된다. 제거할 변수를 <code>rm()</code> 함수 내에 기술하면 이 변수가 사라지게 된다.</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="ch-R-Data-Basic.html#cb116-1"></a><span class="op">&gt;</span><span class="st"> </span>x; y</span></code></pre></div>
 <pre><code>[1] 400</code></pre>
 <pre><code>[1] 800</code></pre>
