@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)</title>
+  <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)" />
+  
+  <meta name="twitter:description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
+  
+
+<meta name="author" content="김길환" />
+
+
+<meta name="date" content="2021-03-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-categoricalTest.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BTR0YQD3G1');
+</script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R을 이용한 통계 분석</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>일러두기</a></li>
+<li class="part"><span><b>I 개요</b></span></li>
+<li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a><ul>
+<li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
+<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="ch-statisics.html"><a href="ch-statisics.html#문제-정의"><i class="fa fa-check"></i><b>1.3.1</b> 문제 정의</a></li>
+<li class="chapter" data-level="1.3.2" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-수집"><i class="fa fa-check"></i><b>1.3.2</b> 데이터 수집</a></li>
+<li class="chapter" data-level="1.3.3" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-전처리-및-탐색"><i class="fa fa-check"></i><b>1.3.3</b> 데이터 전처리 및 탐색</a></li>
+<li class="chapter" data-level="1.3.4" data-path="ch-statisics.html"><a href="ch-statisics.html#통계-모형-수립"><i class="fa fa-check"></i><b>1.3.4</b> 통계 모형 수립</a></li>
+<li class="chapter" data-level="1.3.5" data-path="ch-statisics.html"><a href="ch-statisics.html#결론-도출"><i class="fa fa-check"></i><b>1.3.5</b> 결론 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="ch-statisics.html"><a href="ch-statisics.html#질적-변수"><i class="fa fa-check"></i><b>1.4.1</b> 질적 변수</a></li>
+<li class="chapter" data-level="1.4.2" data-path="ch-statisics.html"><a href="ch-statisics.html#양적-변수"><i class="fa fa-check"></i><b>1.4.2</b> 양적 변수</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II R 기초</b></span></li>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a><ul>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>2.4.1</b> R 콘솔과 프롬프트</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>2.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
+<li class="chapter" data-level="2.4.3" data-path="ch-intro.html"><a href="ch-intro.html#r-스크립트-파일-만들기"><i class="fa fa-check"></i><b>2.4.3</b> R 스크립트 파일 만들기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a><ul>
+<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#r의-기본적-데이터-형식-숫자-문자열-논리값"><i class="fa fa-check"></i><b>3.1.1</b> R의 기본적 데이터 형식: 숫자, 문자열, 논리값</a></li>
+<li class="chapter" data-level="3.1.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#vs-10"><i class="fa fa-check"></i><b>3.1.2</b> 10 vs “10”</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#사칙-연산"><i class="fa fa-check"></i><b>3.2.1</b> 사칙 연산</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#거듭-제곱-연산"><i class="fa fa-check"></i><b>3.2.2</b> 거듭 제곱 연산</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#몫과-나머지"><i class="fa fa-check"></i><b>3.2.3</b> 몫과 나머지</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#비교-연산-그리고-vs."><i class="fa fa-check"></i><b>3.2.4</b> 비교 연산 그리고 <code>==</code> vs. <code>=</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#논리값-연산"><i class="fa fa-check"></i><b>3.3</b> 논리값 연산</a></li>
+<li class="chapter" data-level="3.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-연산"><i class="fa fa-check"></i><b>3.4</b> 문자열 연산</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-결합-연산-paste"><i class="fa fa-check"></i><b>3.4.1</b> 문자열 결합 연산: <code>paste()</code></a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-분리-연산-strsplit"><i class="fa fa-check"></i><b>3.4.2</b> 문자열 분리 연산: <code>strsplit()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수는-메모리-공간에-붙이는-레이블"><i class="fa fa-check"></i><b>3.5.1</b> 변수는 메모리 공간에 붙이는 레이블</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수명에-대한-규칙"><i class="fa fa-check"></i><b>3.5.2</b> 변수명에 대한 규칙</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-할당하기"><i class="fa fa-check"></i><b>3.5.3</b> 변수에 값 할당하기</a></li>
+<li class="chapter" data-level="3.5.4" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당-연산자"><i class="fa fa-check"></i><b>3.5.4</b> 할당 연산자</a></li>
+<li class="chapter" data-level="3.5.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#연산에-변수-사용하기"><i class="fa fa-check"></i><b>3.5.5</b> 연산에 변수 사용하기</a></li>
+<li class="chapter" data-level="3.5.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수에-값-재할당하기"><i class="fa fa-check"></i><b>3.5.6</b> 변수에 값 재할당하기</a></li>
+<li class="chapter" data-level="3.5.7" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#할당문은-우변이-수행된-후-좌변으로-할당이-이루어진다."><i class="fa fa-check"></i><b>3.5.7</b> 할당문은 우변이 수행된 후 좌변으로 할당이 이루어진다.</a></li>
+<li class="chapter" data-level="3.5.8" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-제거하기-rm"><i class="fa fa-check"></i><b>3.5.8</b> 변수 제거하기: <code>rm()</code></a></li>
+<li class="chapter" data-level="3.5.9" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-목록-확인하기-ls"><i class="fa fa-check"></i><b>3.5.9</b> 변수 목록 확인하기: <code>ls()</code></a></li>
+<li class="chapter" data-level="3.5.10" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수를-할당하는-또-다른-방법-assign"><i class="fa fa-check"></i><b>3.5.10</b> 변수를 할당하는 또 다른 방법: <code>assign()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수-호출-하기"><i class="fa fa-check"></i><b>3.6.1</b> 함수 호출 하기</a></li>
+<li class="chapter" data-level="3.6.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수"><i class="fa fa-check"></i><b>3.6.2</b> 실수를 정수로 변환하는 함수</a></li>
+<li class="chapter" data-level="3.6.3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#순열과-조합-함수"><i class="fa fa-check"></i><b>3.6.3</b> 순열과 조합 함수</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a><ul>
+<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터는-동일-형식-데이터의-나열"><i class="fa fa-check"></i><b>4.1.1</b> 벡터는 동일 형식 데이터의 나열</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터를-생성하는-법"><i class="fa fa-check"></i><b>4.1.2</b> 벡터를 생성하는 법</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vecFiltering"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열은-다차원적-데이터-구조"><i class="fa fa-check"></i><b>4.2.1</b> 행렬과 배열은 다차원적 데이터 구조</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열의-필요성"><i class="fa fa-check"></i><b>4.2.2</b> 행렬과 배열의 필요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#리스트-이해의-중요성"><i class="fa fa-check"></i><b>4.3.1</b> 리스트 이해의 중요성</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-열변수은-벡터이다."><i class="fa fa-check"></i><b>4.4.1</b> 데이터 프레임의 열(변수)은 벡터이다.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-문법과-조작"><i class="fa fa-check"></i><b>4.4.2</b> 데이터 프레임의 문법과 조작</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#ggplot2-패키지-설치하기"><i class="fa fa-check"></i><b>5.1</b> ggplot2 패키지 설치하기</a></li>
+<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-색상color-속성의-매핑"><i class="fa fa-check"></i><b>5.3.1</b> 범주형 변수와 색상(<code>color</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-모양shape-속성의-매핑"><i class="fa fa-check"></i><b>5.3.2</b> 범주형 변수와 모양(<code>shape</code>) 속성의 매핑</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#연속형-변수와-크기size-색상color-투명도alpha-속성의-매핑"><i class="fa fa-check"></i><b>5.3.3</b> 연속형 변수와 크기(<code>size</code>), 색상(<code>color</code>), 투명도(<code>alpha</code>) 속성의 매핑</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#geom-함수에서-속성-매핑하기"><i class="fa fa-check"></i><b>5.5.1</b> geom 함수에서 속성 매핑하기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap-visulaize.html"><a href="chap-visulaize.html#기타-ggplot2의-문법-요소"><i class="fa fa-check"></i><b>5.7</b> 기타 ggplot2의 문법 요소</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#labelsmodification"><i class="fa fa-check"></i><b>5.7.1</b> 그래프 레이블을 조정하기</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III R 기술통계 분석</b></span></li>
+<li class="chapter" data-level="6" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html"><i class="fa fa-check"></i><b>6</b> 기술통계 분석이란?</a><ul>
+<li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html"><i class="fa fa-check"></i><b>7</b> 범주형 변수에 대한 R 기술통계</a><ul>
+<li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec:freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
+<li class="chapter" data-level="7.1.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>7.1.2</b> 범주형 변수 분포를 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-수치로-요약하기---교차표-만들기"><i class="fa fa-check"></i><b>7.2.1</b> 범주형 변수의 상관성을 수치로 요약하기 - 교차표 만들기</a></li>
+<li class="chapter" data-level="7.2.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-상관성을-그래프로-요약하기"><i class="fa fa-check"></i><b>7.2.2</b> 범주형 변수의 상관성을 그래프로 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>7.3.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec:BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a><ul>
+<li class="chapter" data-level="8.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#한-수치형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>8.1</b> 한 수치형 변수에 대한 분포 분석</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-수치로-요약하기"><i class="fa fa-check"></i><b>8.1.1</b> 수치형 변수 분포를 수치로 요약하기</a></li>
+<li class="chapter" data-level="8.1.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>8.1.2</b> 수치형 변수 분포를 그래프로 요약하기</a></li>
+<li class="chapter" data-level="8.1.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환"><i class="fa fa-check"></i><b>8.1.3</b> 수치형 변수의 변환</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#둘-이상의-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2</b> 둘 이상의 수치형 변수의 상관성 분석</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#상관계수"><i class="fa fa-check"></i><b>8.2.1</b> 상관계수</a></li>
+<li class="chapter" data-level="8.2.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#산점도"><i class="fa fa-check"></i><b>8.2.2</b> 산점도</a></li>
+<li class="chapter" data-level="8.2.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#추세선-그리기"><i class="fa fa-check"></i><b>8.2.3</b> 추세선 그리기</a></li>
+<li class="chapter" data-level="8.2.4" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환-1"><i class="fa fa-check"></i><b>8.2.4</b> 수치형 변수의 변환</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색</a></li>
+<li class="chapter" data-level="8.2.6" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2.6</b> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석</a></li>
+<li class="chapter" data-level="8.2.7" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#ggpairs를-이용한-수치형-변수를-한-번에-분석하기"><i class="fa fa-check"></i><b>8.2.7</b> <code>ggpairs()</code>를 이용한 수치형 변수를 한 번에 분석하기</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html"><i class="fa fa-check"></i><b>9</b> 범주형 변수와 수치형 변수의 관계 분석</a><ul>
+<li class="chapter" data-level="9.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별로-수치형-변수에-대해-통계-요약하기"><i class="fa fa-check"></i><b>9.1</b> 범주별로 수치형 변수에 대해 통계 요약하기</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#한-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.1</b> 한 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#여러-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.2</b> 여러 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별-수치-변수의-분포-그래프"><i class="fa fa-check"></i><b>9.2</b> 범주별 수치 변수의 분포 그래프</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#상자-그래프"><i class="fa fa-check"></i><b>9.2.1</b> 상자 그래프</a></li>
+<li class="chapter" data-level="9.2.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별로-수치형-변수의-분포-모양을-비교하기"><i class="fa fa-check"></i><b>9.2.2</b> 범주별로 수치형 변수의 분포 모양을 비교하기</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV R 추론통계 분석</b></span></li>
+<li class="chapter" data-level="10" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html"><i class="fa fa-check"></i><b>10</b> 가설검정이란?</a><ul>
+<li class="chapter" data-level="10.1" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#가설의-설정"><i class="fa fa-check"></i><b>10.1</b> 가설의 설정</a></li>
+<li class="chapter" data-level="10.2" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#검정통계량과-표본-분포"><i class="fa fa-check"></i><b>10.2</b> 검정통계량과 표본 분포</a></li>
+<li class="chapter" data-level="10.3" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#기각역과-유의수준"><i class="fa fa-check"></i><b>10.3</b> 기각역과 유의수준</a></li>
+<li class="chapter" data-level="10.4" data-path="ch-hypoTest.html"><a href="ch-hypoTest.html#유의확률-p-값p-value"><i class="fa fa-check"></i><b>10.4</b> 유의확률 p-값(p-value)</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html"><i class="fa fa-check"></i><b>11</b> 범주형 변수에 대한 가설검정</a><ul>
+<li class="chapter" data-level="11.1" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#단일-모집단의-모비율에-대한-가설검정"><i class="fa fa-check"></i><b>11.1</b> 단일 모집단의 모비율에 대한 가설검정</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#binom.test로-단일-모집단-모비율-검정하기"><i class="fa fa-check"></i><b>11.1.1</b> <code>binom.test()</code>로 단일 모집단 모비율 검정하기</a></li>
+<li class="chapter" data-level="11.1.2" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#빈도표를-입력변수로-전달하기"><i class="fa fa-check"></i><b>11.1.2</b> 빈도표를 입력변수로 전달하기</a></li>
+<li class="chapter" data-level="11.1.3" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#prop.test로-단일-모집단-모비율-검정하기"><i class="fa fa-check"></i><b>11.1.3</b> <code>prop.test()</code>로 단일 모집단 모비율 검정하기</a></li>
+<li class="chapter" data-level="11.1.4" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#정규분포를-이용한-비율-검정에서-연속성-수정"><i class="fa fa-check"></i><b>11.1.4</b> 정규분포를 이용한 비율 검정에서 연속성 수정</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#여러-모집단의-모비율의-차이에-대한-가설검정"><i class="fa fa-check"></i><b>11.2</b> 여러 모집단의 모비율의 차이에 대한 가설검정</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#prop.test를-이용한-두-모집단의-모비율의-차이-검정"><i class="fa fa-check"></i><b>11.2.1</b> <code>prop.test()</code>를 이용한 두 모집단의 모비율의 차이 검정</a></li>
+<li class="chapter" data-level="11.2.2" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#교차표를-이용하여-여러-모집단의-모비율-차이를-검정하기"><i class="fa fa-check"></i><b>11.2.2</b> 교차표를 이용하여 여러 모집단의 모비율 차이를 검정하기</a></li>
+<li class="chapter" data-level="11.2.3" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#fisher의-exact-test"><i class="fa fa-check"></i><b>11.2.3</b> Fisher의 Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#적합성-검정"><i class="fa fa-check"></i><b>11.3</b> 적합성 검정</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#빈도표를-이용한-적합성-검정"><i class="fa fa-check"></i><b>11.3.1</b> 빈도표를 이용한 적합성 검정</a></li>
+<li class="chapter" data-level="11.3.2" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#몬테-카를로-시뮬레이션을-이용한-적합도-가설검정"><i class="fa fa-check"></i><b>11.3.2</b> 몬테 카를로 시뮬레이션을 이용한 적합도 가설검정</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#독립성-검정"><i class="fa fa-check"></i><b>11.4</b> 독립성 검정</a></li>
+<li class="chapter" data-level="11.5" data-path="ch-categoricalTest.html"><a href="ch-categoricalTest.html#범주형-변수의-가설검정에-대한-정리"><i class="fa fa-check"></i><b>11.5</b> 범주형 변수의 가설검정에 대한 정리</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="ch-numericTest.html"><a href="ch-numericTest.html"><i class="fa fa-check"></i><b>12</b> 수치형 변수에 대한 가설검정</a><ul>
+<li class="chapter" data-level="12.1" data-path="ch-numericTest.html"><a href="ch-numericTest.html#단일-모집단에서의-모평균에-대한-검정"><i class="fa fa-check"></i><b>12.1</b> 단일 모집단에서의 모평균에 대한 검정</a></li>
+<li class="chapter" data-level="12.2" data-path="ch-numericTest.html"><a href="ch-numericTest.html#두-모집단에서의-모평균-차이에-대한-검정"><i class="fa fa-check"></i><b>12.2</b> 두 모집단에서의 모평균 차이에 대한 검정</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="ch-numericTest.html"><a href="ch-numericTest.html#등분산이-가정되는-경우의-모평균-차이-검정"><i class="fa fa-check"></i><b>12.2.1</b> 등분산이 가정되는 경우의 모평균 차이 검정</a></li>
+<li class="chapter" data-level="12.2.2" data-path="ch-numericTest.html"><a href="ch-numericTest.html#등분산이-가정될-수-없는-경우의-모평균의-차이-검정"><i class="fa fa-check"></i><b>12.2.2</b> 등분산이 가정될 수 없는 경우의 모평균의 차이 검정</a></li>
+<li class="chapter" data-level="12.2.3" data-path="ch-numericTest.html"><a href="ch-numericTest.html#데이터프레임에서-모평균-차이-검정"><i class="fa fa-check"></i><b>12.2.3</b> 데이터프레임에서 모평균 차이 검정</a></li>
+<li class="chapter" data-level="12.2.4" data-path="ch-numericTest.html"><a href="ch-numericTest.html#짝진-표본에서의-모평균-차이에-대한-가설검정"><i class="fa fa-check"></i><b>12.2.4</b> 짝진 표본에서의 모평균 차이에 대한 가설검정</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="ch-numericTest.html"><a href="ch-numericTest.html#셋-이상의-모집단에서의-모평균-차이에-대한-검정"><i class="fa fa-check"></i><b>12.3</b> 셋 이상의 모집단에서의 모평균 차이에 대한 검정</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 이용한 통계 분석 (개정판)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch:numericTest" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> 수치형 변수에 대한 가설검정</h1>
+<p>수치형 변수에 대한 가설검정은 수치형 변수가 정규분포를 따르는 경우와 그렇지 않은 경우에 따라 가설검정 방법에서 차이가 있다.
+그러므로 수치형 변수에 대한 가설검정을 수행하기 앞서 수치형 변수가 정규분포를 따르는지에 대해 검토해 보아야 한다.
+수치형 변수의 정규성을 검토하는 방법은 <a href="ch-numericDescStat.html#subsubsec:qqplot">8.1.2.3</a> 절에서 설명한 Q-Q 그림을 그려보는 것과 <code>shaprio.test()</code>를 이용하여 정규성을 만족하는지에 대해 가설검정을 하는 것이 있다.
+만약 수치형 변수가 정규성을 만족하지 않으면 분포를 가정하지 않는 비모수적 방법으로 가설검정을 수행하여야 한다.
+본 장에서는 다양한 가설검정 상황에서 수치형 변수가 정규분포를 따른다는 가정하고 모수적으로 가설검정하는 방법만을 다루도록 한다.</p>
+<div id="단일-모집단에서의-모평균에-대한-검정" class="section level2">
+<h2><span class="header-section-number">12.1</span> 단일 모집단에서의 모평균에 대한 검정</h2>
+<p>단일 모집단의 모평균 <span class="math inline">\(\mu\)</span>에 대한 검정은 모집단의 분포가 평균 <span class="math inline">\(\mu\)</span>와 분산 <span class="math inline">\(\sigma^2\)</span>를 갖는 정규분포 <span class="math inline">\(N(\mu, \sigma^2)\)</span>을 따른다고 가정한다. 모집단에 추출한 <span class="math inline">\(n\)</span> 개의 데이터로 이루어진 표본을 <span class="math inline">\((x_1, x_2, \ldots, x_n)\)</span>이라고 하자.
+그러면 표본평균 <span class="math inline">\(\bar{x}\)</span>와 표본분산 <span class="math inline">\(s^2\)</span>은 각각 다음과 같이 정의된다.</p>
+<p><span class="math display">\[\begin{align}
+\bar{x} =&amp; \frac{1}{n} \sum_{i=1}^{n} x_i \\
+s^2 =&amp; \frac{1}{n-1} \sum_{i=1}^{n} \left( x_i- \bar{x} \right)^2 
+\end{align}\]</span></p>
+<p>단일 모집단의 모평균의 검정에서는 귀무가설은 <code>모평균 $\mu$가 특정값 $\mu_0$이다</code>로 수립되고, 대립가설은 <code>모평균 $\mu$가 $\mu_0$가 아니다</code>, ‘더 크다’, ‘더 작다’ 중 하나로 수립된다. 단일 모집단의 모평균의 가설검정은 모분산이 알려져 있는 경우와 그렇지 않은 경우에 따라 검정통계량과 검정통계량의 분포가 달라진다. 모분산이 알려져 있는 경우에는 정규분포로 모분산이 알려져 있지 않은 경우에는 t-분포로 가설검정을 한다.
+대부분의 경우 모평균을 모르기 때문에 가설검정을 하는 경우에는 모분산에 대한 정보도 알려져 있지 않은 경우가 많다. 그렇기 때문에 여기서는 모분산 <span class="math inline">\(\sigma^2\)</span>이 알려져 있지 않은 경우만을 다루도록 한다.</p>
+<p>모분산 <span class="math inline">\(\sigma^2\)</span>이 알려져 있지 않은 경우에 다음과 같이 정의되는 검정통계량 <span class="math inline">\(T\)</span>는 자유도(degree of freedom)가 <span class="math inline">\((n-1)\)</span>인 t-분포를 따른다.</p>
+<p><span class="math display">\[
+T = \frac{\bar{x} - \mu_0}{ s / \sqrt{n}} \, \sim \, t(n-1)
+\]</span></p>
+<p>대립가설에 따라 유의수준 <span class="math inline">\(\alpha\)</span>에 대해 기각역은 다음 표와 같다. 왜냐하면 대립가설이 <span class="math inline">\(\mu &lt; \mu_0\)</span>이면, 대립가설이 채택되는 경우는 표본평균 <span class="math inline">\(\bar{x}\)</span>가 <span class="math inline">\(\mu_0\)</span>보다 예외적으로 작게 나올 때이므로 기각역은 분포의 왼쪽에 놓이게 된다. 반대로 대립가설이 <span class="math inline">\(\mu &gt; \mu_0\)</span>이면, 대립가설이 채택되는 경우는 표본평균 <span class="math inline">\(\bar{x}\)</span>가 <span class="math inline">\(\mu_0\)</span>보다 예외적으로 작게 나올 때이므로 기각역은 분포의 오른쪽에 놓이게 된다. 대립가설이 <span class="math inline">\(\mu \neq \mu_0\)</span>이면, 표본평균이 귀무가설의 평균보다 배우 크거나 작게 나오는 두 영역이 기각역으로 설정된다.</p>
+<table>
+<colgroup>
+<col width="45%" />
+<col width="27%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">귀무가설 (<span class="math inline">\(H_0\)</span>)</th>
+<th align="center">대립가설 (<span class="math inline">\(H_1\)</span>)</th>
+<th align="center">기각역</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu = \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu \neq \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha/2}(n-1), T \le -t_{\alpha/2}(n-1)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu = \mu_0 \, (\mu \ge \mu_0)\)</span></td>
+<td align="center"><span class="math inline">\(\mu &lt; \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(T \le -t_{\alpha}(n-1)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu = \mu_0 \, (\mu \le \mu_0)\)</span></td>
+<td align="center"><span class="math inline">\(\mu &gt; \mu_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha}(n-1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong>의 기본 패키지인 <code>stat</code> 패키지의 <code>t.test()</code> 함수는 t-분포를 사용하여 모평균에 대한 가설검정을 수행한다. 다음은 <code>t.test()</code> 함수를 이용하여 단일 모집단의 모평균에 대하여 가설검정하는 문법이다.</p>
+<pre><code>t.test(x = 표본, mu = 귀무가설_모평균, alternative = &quot;대립가설_종류&quot;)
+t.test(x = 표본, mu = 귀무가설_모평균, 
+    alternative = &quot;대립가설_종류&quot;, conf.level = 신뢰수준) # 신뢰구간의 신뢰수준을 조정</code></pre>
+<p><code>t.test()</code> 함수의 인수로는 <code>stat</code> 패키지의 가설검정 함수들에 공통적으로 사용되는 인수와 모평균 검정과 관련된 인수가 있다. <code>t.test()</code>의 다음 인수는 단일 모집단의 모평균 검정과 관련된 인수이다.</p>
+<ul>
+<li><code>x</code>: 가설검정을 위한 표본 데이터</li>
+<li><code>mu</code>: 귀무가설의 모평균 값</li>
+</ul>
+<p>뒤에서 살펴보겠지만 두 모집단에 대한 모평균에 대한 가설검정에 사용되는 <code>paired</code>와 <code>var.equal</code> 등의 인수들도 있다.</p>
+<p>다음의 두 인수는 범주형 변수의 가설검정에서 설명했던 <code>stat</code> 패키지의 가설 검정 함수들에 공통적으로 사용되는 인수이다.</p>
+<ul>
+<li><code>alternative</code>: 대립가설의 형식. <span class="math inline">\(\mu \neq \mu_0\)</span> 형식이면 <code>"two.sided"</code>로, <span class="math inline">\(\mu &lt; \mu_0\)</span> 형식이면 <code>"less"</code>로, <span class="math inline">\(\mu &gt; \mu_0\)</span> 형식이면 <code>"greater"</code>로 값을 입력한다.</li>
+<li><code>conf.level</code>: 대부분의 가설검정 함수가 신뢰구간도 함께 알려주는데 이 인수는 신뢰구간의 신뢰수준을 지정한다. 기본값은 0.95로 95% 신뢰구간을 알려준다.</li>
+</ul>
+
+<div class="example">
+<p><span id="exm:t-test1" class="example"><strong>Example 12.1  </strong></span>2010년도 초등학교 4학년의 평균 키가 142cm이었고 표준편차는 알려져 있지 않다. 2020년에 8명의 초등학교 4학년의 키를 측정하여 다음과 같은 데이터를 얻었다.</p>
+<p>142.5 138.9 139.6 148.2 152.9 129.6 143.5 151.3</p>
+<p>10년 동안 초등학교 4학년 학생들의 평균 키가 더 커졌다고 할 수 있는가? 유의수준 5%에서 가설검정하시오.</p>
+</div>
+
+<p>Example <a href="ch-numericTest.html#exm:t-test1">12.1</a>의 가설검정은 키가 커졌는지를 검정하고자 하는 것이므로 <span class="math inline">\(\mu\)</span>를 2020년의 초등학교 4학년의 평균 키라고 하면 귀무가설과 대립가설은 다음과 같이 설정한다.</p>
+<p><span class="math display">\[
+\begin{align}
+H_0: &amp; \quad \mu = 142 \\
+H_1: &amp; \quad \mu &gt; 142 
+\end{align}
+\]</span></p>
+<p>위의 가설을 t-분포로 가설검정하려면 초등학생의 키가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
+<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="ch-numericTest.html#cb937-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
+<span id="cb937-2"><a href="ch-numericTest.html#cb937-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqnorm</span>(x)</span>
+<span id="cb937-3"><a href="ch-numericTest.html#cb937-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqline</span>(x, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="hypothesisTest-numeric_files/figure-html/unnamed-chunk-2-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="ch-numericTest.html#cb938-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.95489, p-value = 0.7603</code></pre>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 모평균에 대하여 가설검정을 하면 다음과 같은 결과를 얻는다.</p>
+<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="ch-numericTest.html#cb940-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x, <span class="dt">mu =</span> <span class="dv">142</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<pre><code>
+	One Sample t-test
+
+data:  x
+t = 0.49012, df = 7, p-value = 0.3195
+alternative hypothesis: true mean is greater than 142
+95 percent confidence interval:
+ 138.239     Inf
+sample estimates:
+mean of x 
+ 143.3125 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본 평균 <span class="math inline">\(\bar{x}\)</span>는 143.3125이다.</li>
+<li>p-값은 0.3195181로 유의수준 0.05에서 귀무가설을 채택한다. (대립가설을 기각한다.)</li>
+</ul>
+</div>
+<div id="두-모집단에서의-모평균-차이에-대한-검정" class="section level2">
+<h2><span class="header-section-number">12.2</span> 두 모집단에서의 모평균 차이에 대한 검정</h2>
+<p>두 모집단의 모평균에 대한 검정은 두 모집단의 분포가 각각 정규분포 <span class="math inline">\(N(\mu_1, \sigma_1^2)\)</span>과 <span class="math inline">\(N(\mu_2, \sigma_2^2)\)</span>을 따른다고 가정한다. 가설검정을 위해 각 모집단에서 <span class="math inline">\(n_1\)</span> 개와 <span class="math inline">\(n_2\)</span> 개의 크기의 표본 <span class="math inline">\((x_{1,1}, x_{1,2}, \ldots, x_{1,n_1})\)</span>과 <span class="math inline">\((x_{2,1}, x_{2,2}, \ldots, x_{2,n_2})\)</span>을 추출하였다고 하자. 그러면 두 표본의 표본평균 <span class="math inline">\(\bar{x}_1\)</span>과 <span class="math inline">\(\bar{x}_2\)</span>, 표본분산 <span class="math inline">\(s_1^2\)</span>과 <span class="math inline">\(s_2^2\)</span>은 각각 다음과 같이 정의된다.</p>
+<p><span class="math display">\[\begin{align}
+\bar{x}_i =&amp; \frac{1}{n_i} \sum_{j=1}^{n_i} x_{i, j} \\
+s_i^2 =&amp; \frac{1}{n_i - 1} \sum_{j=1}^{n_i} \left( x_{i, j} - \bar{x}_i \right)^2 
+\end{align}\]</span></p>
+<p>단, <span class="math inline">\(i=1,2\)</span>.</p>
+<p>두 모집단의 모평균 차이에 대한 가설검정에서는 귀무가설은 ‘모평균의 차이 <span class="math inline">\((\mu_1 - \mu_2)\)</span>가 어떤 값 <span class="math inline">\(\delta_0\)</span>이다’로 수립되고, 대립가설은 ’모평균의 차이가 <span class="math inline">\(\delta_0\)</span>가 아니다’, ‘더 큰다’, ‘더 작다’ 중 하나로 수립된다.
+그런데 두 모집단의 모평균 차이에 대한 가설검정은 두 모집단의 모분산이 알려져 있는 경우와 그렇지 않은 경우에 따라 검정통계량과 검정통계량의 분포가 달라진다. 모분산이 알려져 있는 경우에는 정규분포로, 모분산이 알려져 있지 않은 경우에는 t-분포를 이용하여 가설검정을 한다.
+일반적으로 모분산은 알려져 있지 않은 경우가 많으므로 여기서는 모분산이 알려져 있지 않은 경우만을 다루기로 한다.</p>
+<div id="등분산이-가정되는-경우의-모평균-차이-검정" class="section level3">
+<h3><span class="header-section-number">12.2.1</span> 등분산이 가정되는 경우의 모평균 차이 검정</h3>
+<p>모분산이 알려져 있지 않은 경우에도 모분산에 대한 다음의 두 가정에 따라 검정통계량이 달라진다. 먼저 모분산은 알려져 있지 않지만 두 모집단의 분산이 같다(<span class="math inline">\(\sigma_1^2 = \sigma_2^2\)</span>)고 가정되는 경우이다. 이 경우에는 두 모집단의 공통분산 <span class="math inline">\(\sigma^2\)</span>에 대한 합동추정량 <span class="math inline">\(s_p^2\)</span>를 다음과 같이 정의할 수 있다.</p>
+<p><span class="math display">\[
+s_p^2 = \frac{(n_1 -1 ) \, s_1^2 + (n_2 -1) \, s_2^2}{n_1 + n_2 - 2}.
+\]</span></p>
+<p>그러면 다음과 같은 검정통계량 <span class="math inline">\(T\)</span>는 자유도가 <span class="math inline">\((n_1 + n_2 -2)\)</span> 인 t-분포를 따른다.</p>
+<p><span class="math display">\[
+T = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{ s_p  \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \, \sim \, t(n_1 + n_2 -2)
+\]</span></p>
+<p>대립가설에 따라 유의수준 <span class="math inline">\(\alpha\)</span>에 대해 기각역은 다음 표와 같다.</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">귀무가설 (<span class="math inline">\(H_0\)</span>)</th>
+<th align="center">대립가설 (<span class="math inline">\(H_1\)</span>)</th>
+<th align="center">기각역</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 \neq \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha/2}(n_1 + n_2-2), T \le -t_{\alpha/2}(n_1 + n_2-2)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 &lt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \le -t_{\alpha}(n_1 + n_2-2)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 &gt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha}(n_1 + n_2-2)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong>에서 두 모집단의 분산이 같다고 가정될 때의 모평균의 차이 검정은 <code>t.test()</code> 함수를 이용한 다음과 같은 문법으로 수행된다.</p>
+<pre><code>t.test(표본1, 표본2, alternative = &quot;대립가설 종류&quot;, var.equal = TRUE)</code></pre>
+<p>일반적으로 두 모집단이 등분산인지 아닌지에 대한 판단은 이론적인 근거나 과거의 연구결과를 참조하여 결정하기도 하지만, 표본의 분산을 사용하여 두 모집단의 등분산성에 대하여 직접 가설검정을 할 수도 있다. 두 모집단에서 추출된 표본의 크기가 각각 <span class="math inline">\(n_1\)</span>과 <span class="math inline">\(n_2\)</span>이고 표본분산이 <span class="math inline">\(s_1^2\)</span>과 <span class="math inline">\(s_2^2\)</span>라고 하면, 두 모집단의 분산이 같다는 귀무가설이 참이라면 다음과 같은 <span class="math inline">\(F\)</span> 검정통계량은 자유도가 <span class="math inline">\((n_1 -1, n_2 -1)\)</span>인 F 분포를 따른다.</p>
+<p><span class="math display">\[
+F = \frac{S_1^2}{S_2^2} \sim F(n_1-1, n_2-1).
+\]</span></p>
+<p><strong>R</strong>에서는 <code>var.test()</code> 함수를 사용하여 다음처럼 두 모집단의 등분산성을 검정한다.</p>
+<pre><code>var.test(표본1, 표본2)</code></pre>
+
+<div class="example">
+<span id="exm:t-test2" class="example"><strong>Example 12.2  </strong></span>2010년도와 2020년도에 각각 초등학교 4학년 8명에 대하여 키를 측정하였다. 초등학교 4학년 키의 분산은 알려져 있지 않다.
+2010년과 2020년 초동학교 4학년 학생의 평균키에 차이가 있는지를 유의수준 5%에서 가설검정하시오.
+</div>
+
+<pre><code>2010년	139.4 139.8 137.2 149.2 151.2 131.8 141.5 152.3	
+2020년	142.5 138.9 139.6 148.2 152.9 129.6 143.5 151.3</code></pre>
+<p>Example <a href="ch-numericTest.html#exm:t-test2">12.2</a>의 가설검정에서 2010년도 키의 평균을 <span class="math inline">\(\mu_1\)</span>, 2020년도 키의 평균을 <span class="math inline">\(\mu_2\)</span>라고 할 때 평균 키가 같은지 다른지를 가설검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{align}
+H_0: &amp; \quad \mu_1 - \mu_2 = 0 \\
+H_1: &amp; \quad \mu_1 - \mu_2 \neq 0 
+\end{align}
+\]</span>
+위의 가설을 t-분포로 가설검정하려면 초등학생의 키가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="ch-numericTest.html#cb945-1"></a><span class="op">&gt;</span><span class="st"> </span>x2010 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">139.4</span>, <span class="fl">139.8</span>, <span class="fl">137.2</span>, <span class="fl">149.2</span>, <span class="fl">151.2</span>, <span class="fl">131.8</span>, <span class="fl">141.5</span>, <span class="fl">152.3</span>)</span>
+<span id="cb945-2"><a href="ch-numericTest.html#cb945-2"></a><span class="op">&gt;</span><span class="st"> </span>x2020 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
+<span id="cb945-3"><a href="ch-numericTest.html#cb945-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2010)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  x2010
+W = 0.92354, p-value = 0.4592</code></pre>
+<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="ch-numericTest.html#cb947-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2020)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  x2020
+W = 0.95489, p-value = 0.7603</code></pre>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 두 수치형 변수 모두 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p>두 모집단의 모평균을 가설검정하려면 등분산을 가정할 수 있는지 아닌지를 확인해 보아야 한다. 수치형 변수가 정규분포를 따를 때 두 집단의 분산의 동일성 여부는 F-검정으로 알아본다. <strong>R</strong>에서는 <code>var.test()</code> 함수가 두 모집단의 분산의 차이를 가설검정해 준다. 검정 결과 p-값이 크게 나와 두 집단의 분산이 같다는 귀무가설이 채택된다.</p>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="ch-numericTest.html#cb949-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x2010, x2020)</span></code></pre></div>
+<pre><code>
+	F test to compare two variances
+
+data:  x2010 and x2020
+F = 0.93723, num df = 7, denom df = 7, p-value = 0.934
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.1876365 4.6813660
+sample estimates:
+ratio of variances 
+         0.9372274 </code></pre>
+<p>분포의 정규성과 등분산성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 모평균 차이에 대하여 다음과 같이 가설검정을 할 수 있다.
+<code>t.test()</code>에서 두 모집단의 모평균 차이를 가설검정할 때는 <code>var.equal</code> 인수를 사용하여 분산을 같다고 가정하는지 아닌지를 설정할 수 있다.</p>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="ch-numericTest.html#cb951-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x2010, x2020, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>
+	Two Sample t-test
+
+data:  x2010 and x2020
+t = -0.1375, df = 14, p-value = 0.8926
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -8.506629  7.481629
+sample estimates:
+mean of x mean of y 
+ 142.8000  143.3125 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본 평균 <span class="math inline">\(\bar{x}_1\)</span>과 <span class="math inline">\(\bar{x}_2\)</span>는 각각 142.8, 143.3125이다.</li>
+<li>p-값은 0.8925925로 유의수준 0.05에서 귀무가설을 채택한다. (대립가설을 기각한다.)</li>
+</ul>
+</div>
+<div id="등분산이-가정될-수-없는-경우의-모평균의-차이-검정" class="section level3">
+<h3><span class="header-section-number">12.2.2</span> 등분산이 가정될 수 없는 경우의 모평균의 차이 검정</h3>
+<p>모분산이 알려져 있지 않고 두 모집단의 분산이 서로 다르다(<span class="math inline">\(\sigma_1^2 \neq \sigma_2^2\)</span>)고 가정되는 경우에는 검정통계량 <span class="math inline">\(T\)</span>는 다음과 같이 정의되고 자유도가 <span class="math inline">\(\nu\)</span>인 t-분포를 근사적으로 따른다.</p>
+<p><span class="math display">\[
+T = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{ \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \, \sim \, t(\nu)
+\]</span>
+단,</p>
+<p><span class="math display">\[
+\nu = \frac{\left( s_1^2 / n_1 + s_2^2 / n_2 \right)^2}{\frac{(s_1^2/n_1)^2}{n_1 -1} + \frac{(s_2^2/n_2)^2}{n_2 - 1}}.
+\]</span></p>
+<p>대립가설에 따라 유의수준 <span class="math inline">\(\alpha\)</span>에 대해 기각역은 다음 표와 같다.</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="41%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">귀무가설 (<span class="math inline">\(H_0\)</span>)</th>
+<th align="center">대립가설 (<span class="math inline">\(H_1\)</span>)</th>
+<th align="center">기각역</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 \neq \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha/2}(\nu), T \le -t_{\alpha/2}(\nu)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 &lt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \le -t_{\alpha}(\nu)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_1 - \mu_2 &gt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha}(\nu)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong>에서 두 모집단의 분산이 다르다고 가정될 때의 모평균의 차이 검정은 <code>t.test()</code> 함수를 이용한 다음과 같은 문법으로 수행된다.</p>
+<pre><code>t.test(표본1, 표본2, alternative = &quot;대립가설 종류&quot;, var.equal = FALSE)</code></pre>
+
+<div class="example">
+<span id="exm:t-test3" class="example"><strong>Example 12.3  </strong></span>기존 공정과 새 공정에서 생산되는 제품의 지름을 측정하여 아래와 같은 데이터를 얻었다.
+기존 공정보다 새 공정에서 생산한 제품의 지름이 작다고 할 수 있는지 유의수준 5%로 검정하시오.
+</div>
+
+<pre><code>기존공정	5.2 4.7 5.0 5.3 4.9 4.5 5.6 5.0 5.1 4.8 5.5 4.1	
+새 공정		4.6 4.4 4.6 4.7 4.5 4.3 4.1 4.7 4.5 4.2</code></pre>
+<p>Example <a href="ch-numericTest.html#exm:t-test3">12.3</a>의 가설검정에서 기존 공정 제품의 평균 지름을 <span class="math inline">\(\mu_1\)</span>, 새 공정의 평균 지름을 <span class="math inline">\(\mu_2\)</span>라고 할 때 새 공정의 평균 지름이 더 작다는 것을 가설검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{align}
+H_0: &amp; \quad \mu_1 - \mu_2 = 0 \\
+H_1: &amp; \quad \mu_1 - \mu_2 &gt; 0 
+\end{align}
+\]</span></p>
+<p>위의 가설을 t-분포로 가설검정하려면 제품 지름이 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
+<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="ch-numericTest.html#cb955-1"></a><span class="op">&gt;</span><span class="st"> </span>x_old &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">5.2</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>, <span class="fl">5.3</span>, <span class="fl">4.9</span>, <span class="fl">4.5</span>, <span class="fl">5.6</span>, <span class="fl">5.0</span>, <span class="fl">5.1</span>, <span class="fl">4.8</span>, <span class="fl">5.5</span>, <span class="fl">4.1</span>)</span>
+<span id="cb955-2"><a href="ch-numericTest.html#cb955-2"></a><span class="op">&gt;</span><span class="st"> </span>x_new &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.6</span>, <span class="fl">4.4</span>, <span class="fl">4.6</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.3</span>, <span class="fl">4.1</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb955-3"><a href="ch-numericTest.html#cb955-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_old)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  x_old
+W = 0.97539, p-value = 0.9583</code></pre>
+<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="ch-numericTest.html#cb957-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_new)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  x_new
+W = 0.92994, p-value = 0.4473</code></pre>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p>두 모집단의 모평균을 가설검정하려면 등분산을 가정할 수 있는지 아닌지를 확인해 보아야 한다. 검정 결과 p-값이 0.05보다도 작게 나와 두 집단의 분산이 같다는 귀무가설이 유의수준 5%에서 기각된다.</p>
+<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="ch-numericTest.html#cb959-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x_old, x_new)</span></code></pre></div>
+<pre><code>
+	F test to compare two variances
+
+data:  x_old and x_new
+F = 4.1388, num df = 11, denom df = 9, p-value = 0.04186
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+  1.057968 14.849772
+sample estimates:
+ratio of variances 
+          4.138849 </code></pre>
+<p>분포의 정규성은 가정되지만 등분산은 가정할 수 없으므로 <code>t.test()</code>을 사용하여 모평균 차이에 대하여 다음과 같이 가설검정을 하는데, <code>var.equal = FALSE</code>로 가설검정하여야 한다. 그리고 대립가설은 “greater”로 설정된다.</p>
+<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="ch-numericTest.html#cb961-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_old, x_new, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  x_old and x_new
+t = 3.7379, df = 16.598, p-value = 0.0008483
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ 0.2749873       Inf
+sample estimates:
+mean of x mean of y 
+    4.975     4.460 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본 평균 <span class="math inline">\(\bar{x}_1\)</span>과 <span class="math inline">\(\bar{x}_2\)</span>는 각각 4.975, 4.46이다.</li>
+<li>p-값은 0.0008483222로 유의수준 0.05에서 귀무가설을 기각한다. (대립가설을 채택한다.)</li>
+</ul>
+<p>즉, 가설검정 결과 신규공정의 지름이 더 작아졌다는 유의미한 통계적 증거가 있다고 판단한다.</p>
+</div>
+<div id="데이터프레임에서-모평균-차이-검정" class="section level3">
+<h3><span class="header-section-number">12.2.3</span> 데이터프레임에서 모평균 차이 검정</h3>
+
+<div class="example">
+<p><span id="exm:t-test-course" class="example"><strong>Example 12.4  </strong></span><code>course</code> 데이터는 어떤 과목의 수강생에 대한 정보이다.
+이 과목은 최종점수(score)의 평균에 성별(gender) 차이가 있는지에 대해 유의수준 5%에서 가설검정하시오.</p>
+</div>
+
+<p>Example <a href="ch-numericTest.html#exm:t-test-course">12.4</a>처럼 모평군의 차이에 대한 가설 검정은 데이터프레임의 수치형 변수(score)를 범주형 변수(gender)의 값에 따라 두 집단으로 나누어 평균의 차이를 검정하는 경우가 많다.
+이러한 경우 다음처럼 <a href="ch-R-Data-Structure.html#sec:vecFiltering">4.1.4</a> 절에서 배운 벡터의 필터을 사용하여 수치형 변수를 범주형 변수의 값에 따라 두 벡터로 나누어 지금까지 사용한 <code>t.test()</code>와 <code>var.test()</code>를 이용하여 가설검정을 수행할 수 있다.</p>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="ch-numericTest.html#cb963-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(bizstatp)</span>
+<span id="cb963-2"><a href="ch-numericTest.html#cb963-2"></a><span class="op">&gt;</span><span class="st"> </span>score_F &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>]</span>
+<span id="cb963-3"><a href="ch-numericTest.html#cb963-3"></a><span class="op">&gt;</span><span class="st"> </span>score_M &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;M&quot;</span>]</span>
+<span id="cb963-4"><a href="ch-numericTest.html#cb963-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score_F, score_M)</span></code></pre></div>
+<pre><code>
+	F test to compare two variances
+
+data:  score_F and score_M
+F = 0.36437, num df = 17, denom df = 26, p-value = 0.0343
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.1560132 0.9246962
+sample estimates:
+ratio of variances 
+         0.3643656 </code></pre>
+<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="ch-numericTest.html#cb965-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score_F, score_M, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  score_F and score_M
+t = 0.20677, df = 42.686, p-value = 0.8372
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -7.518363  9.235770
+sample estimates:
+mean of x mean of y 
+ 71.97611  71.11741 </code></pre>
+<p>그러나 매번 범주의 값에 따라 수치형 변수의 데이터를 나누는 일은 번거로운 일이기 때문에 <code>var.test()</code>와 <code>t.test()</code> 모두 첫번째 인수로 수식을 사용하여 범주형 변수의 값에 따라 수치형 변수의 값을 나누어 가설검정하도록 지정할 수 있다. 수식의 왼편에는 검정할 수치형 변수가, 오른편에는 수치형 변수를 나눌 범주형 변수가 지정된다. 그리고 <code>data</code> 인수에 사용할 데이터 프레임이 지정된다.</p>
+<pre><code>var.test(수치형_변수 ~ 범주형_변수, data = 데이터)
+t.test(수치형_변수 ~ 범주형_변수, data = 데이터, alternative, var.equal)</code></pre>
+<p>성별로 최종점수(score)에 차이가 있었는지를 가설검정하기 위해서는 먼저 성별 최종점수가 각각 정규분포를 따르는지 확인해 보자. 다음 문법을 사용하면 수치형 변수를 범주형 변수로 나누어 정규성 검정을 수행할 수 있다.</p>
+<pre><code>tapply(데이터$수치형_변수, 데이터$범주형_변수, shaprio.test)</code></pre>
+<p>다음은 성별 최종점수의 정규성을 검정한 결과이다.</p>
+<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="ch-numericTest.html#cb969-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course<span class="op">$</span>score, course<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
+<pre><code>$F
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.93595, p-value = 0.2467
+
+
+$M
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.87635, p-value = 0.004011</code></pre>
+<p>남학생의 최종점수가 정규분포를 따르지 않는 것으로 나온다. 중간과 기말고사를 안 본 학생 때문에 발생한 문제일 수 있으므로 이 학생을 제외하고 정규성 검정을 다시해 보자.</p>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="ch-numericTest.html#cb971-1"></a><span class="op">&gt;</span><span class="st"> </span>course_omitted &lt;-<span class="st"> </span><span class="kw">na.omit</span>(course)</span>
+<span id="cb971-2"><a href="ch-numericTest.html#cb971-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
+<pre><code>$F
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.93595, p-value = 0.2467
+
+
+$M
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.94984, p-value = 0.23</code></pre>
+<p>예외적인 데이터를 제외하니 남자와 여자 모두 최종점수의 정규성 가정을 기각할 만한 통계적 증거를 가지고 있지 않다.</p>
+<p>성별 최종점수의 평균 차이를 가설검정을 하려면 등분산을 가정할 수 있는지를 확인해 보아야 한다.</p>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="ch-numericTest.html#cb973-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
+<pre><code>
+	F test to compare two variances
+
+data:  score by gender
+F = 0.69443, num df = 17, denom df = 25, p-value = 0.4409
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.2942656 1.7696899
+sample estimates:
+ratio of variances 
+         0.6944266 </code></pre>
+<p>등분산 검정 결과에서 p-값이 큰 값이 나왔으므로 남녀 간의 최종성적의 분산은 같다는 귀무가설을 채택한다.
+따라서 등분산으로 남녀의 최종성적의 평균의 차이에 대해 가설검정을 한다.</p>
+<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="ch-numericTest.html#cb975-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted, </span>
+<span id="cb975-2"><a href="ch-numericTest.html#cb975-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>
+	Two Sample t-test
+
+data:  score by gender
+t = -0.41353, df = 42, p-value = 0.6813
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -8.772914  5.788982
+sample estimates:
+mean in group F mean in group M 
+       71.97611        73.46808 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본 평균 <span class="math inline">\(\bar{x}_1\)</span>과 <span class="math inline">\(\bar{x}_2\)</span>는 각각 71.9761111, 73.4680769이다.</li>
+<li>p-값은 0.6813205로 유의수준 0.05에서 귀무가설을 채택한다. (대립가설을 기각한다.)</li>
+</ul>
+<p>즉, 남녀의 최종성적의 평균 차이가 있다는 유의미한 통계적 증거를 찾지 못했다.</p>
+<p>마찬가지로 다음은 분반별 최종성적의 차이에 대해 가설검정한 결과이다. 분반으로 최종점수를 나누어도 정규성과 등분산성이 만족되었고, 최종점수의 평균에 대해 통계적으로 유의미한 차이는 없었다.</p>
+<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="ch-numericTest.html#cb977-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>class, shapiro.test)</span></code></pre></div>
+<pre><code>$`1`
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.94064, p-value = 0.2041
+
+
+$`2`
+
+	Shapiro-Wilk normality test
+
+data:  X[[i]]
+W = 0.95717, p-value = 0.4343</code></pre>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="ch-numericTest.html#cb979-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
+<pre><code>
+	F test to compare two variances
+
+data:  score by class
+F = 1.0552, num df = 21, denom df = 21, p-value = 0.9032
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.4381008 2.5415554
+sample estimates:
+ratio of variances 
+          1.055205 </code></pre>
+<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="ch-numericTest.html#cb981-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted, </span>
+<span id="cb981-2"><a href="ch-numericTest.html#cb981-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>
+	Two Sample t-test
+
+data:  score by class
+t = -1.7005, df = 42, p-value = 0.09643
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -12.786513   1.091967
+sample estimates:
+mean in group 1 mean in group 2 
+       69.93409        75.78136 </code></pre>
+</div>
+<div id="짝진-표본에서의-모평균-차이에-대한-가설검정" class="section level3">
+<h3><span class="header-section-number">12.2.4</span> 짝진 표본에서의 모평균 차이에 대한 가설검정</h3>
+<p>지금까지 설명한 두 모집단의 모평균 차이에 대한 가설검정은 두 표본이 서로 다른 모집단에서 독립적으로 추출되는 경우에 사용하는 가설검정이다. 그런데 어떤 경우에는 두 표본이 서로 대응되어 추출되는 것이 더 좋은 경우가 있다. 이렇게 두 표본이 서로 짝지어져 추출된 표본을 <strong>짝진 표본</strong> 또는 <strong>대응 표본</strong>이라고 한다.</p>
+<p>두 모집단의 모평균 차이에 대한 가설검정을 할 때, 두 모집단에서 추출된 표본은 동질적이어야만 정확한 가설검정을 할 수 있다.
+예를 들어 두 종류의 타이어의 마모성 차이에 대한 가설검정을 하기위해 실험에 참여한 자동차를 두 그룹으로 나누어 각기 다른 종류의 타이어를 장착한 후 동일한 거리를 운행한 뒤 타이어가 마모된 정도의 평균을 측정하였다고 하자.
+이러한 실험이 정확하기 위해서는 두 표본 사이에 자동차의 종류가 고르게 분포되어야 할 것이다. 예를 들어 한 표본에는 중형차가 매우 많이 분포되어 있고 다른 한 표본에는 경차가 많이 분포되어 있다면 자동차의 중량의 차이 때문에 타이어 종류에 따른 마모성을 정확히 판단하기 어렵다.
+또한 운전자의 운전 습관이 두 표본 사이에서 차이가 크다면 이 또한 타이어 마모 차이에 대한 공정한 결과를 얻기 힘들다.</p>
+<p>이러한 문제점을 해결하는 방법 중 하나가 찍진 표본을 구성하여 실험을 수행하는 것이다. 실험단위를 동질적인 쌍으로 묶어 실험을 하면 실험에서 확인하고자 하는 요인을 제외한 다른 요인들은 동일하게 통제되므로 실험하고자 하는 요인에 의한 평균의 차이만 검정할 수 있다. 예를 들어 두 종류의 타이어를 동일한 차의 오른쪽과 왼쪽에 장착하여 마모 정도를 테스트하면, 자동차의 종류나 운전자의 운전습관이 모두 동일하므로 타이어 종류에 따른 마모 효과만 측정할 수 있다. 이 경우 타이어가 차의 오른쪽과 왼쪽 어디에 장착되는가가 마모에 영향을 미칠수도 있으므로 동일한 종류의 타이어가 왼쪽과 오른쪽에 균등하게 분배되도록 실험을 설계하여야 한다.</p>
+<p>정규모집단으로부터 <span class="math inline">\(n\)</span> 개의 짝지은 데이터 <span class="math inline">\((x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\)</span>을 표본으로 관측하였다고 하자. 짝진 표본의 관측치의 차이를 <span class="math inline">\(d_i = x_i - y_i\)</span> 라고 할 때 두 모집단의 모평균 <span class="math inline">\(\mu_x\)</span>와 <span class="math inline">\(\mu_y\)</span>의 차이 <span class="math inline">\(\mu_d = \mu_x - \mu_y\)</span>에 대한 검정은 다음과 같이 수행한다.
+귀무가설은 ‘두 모집단의 모평균의 차이 <span class="math inline">\(\mu_d\)</span> 가 특정 값 <span class="math inline">\(\delta_0\)</span>이다’이고 대립가설은’<span class="math inline">\(\mu_d\)</span>가 특정 값 <span class="math inline">\(\delta_0\)</span>가 아니다’, ‘더 크다’, ’더 작다’이다.
+짝진 표본의 관측값의 차이에 대한 평균 <span class="math inline">\(\bar{d}\)</span>와 분산 <span class="math inline">\(s_d^2\)</span>이 다음과 같이 정의한다.</p>
+<p><span class="math display">\[\begin{align}
+\bar{d} =&amp; \frac{1}{n} \sum_{i=1}^{n} d_i \\
+s_d^2 =&amp; \frac{1}{n-1} \sum_{i=1}^{n} \left( d_i- \bar{d} \right)^2 
+\end{align}\]</span></p>
+<p>그러면 짝진 표본의 모평균 차이에 대한 검정통계량 <span class="math inline">\(T\)</span>는 다음과 같고 자유도가 <span class="math inline">\((n-1)\)</span>인 t-분포를 따른다.</p>
+<p><span class="math display">\[
+T = \frac{\bar{d} - \delta_0}{ s_d / \sqrt{n}} \, \sim \, t(n-1)
+\]</span></p>
+<p>대립가설에 따라 유의수준 <span class="math inline">\(\alpha\)</span>에 대해 기각역은 다음 표와 같다.</p>
+<table>
+<colgroup>
+<col width="48%" />
+<col width="28%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">귀무가설 (<span class="math inline">\(H_0\)</span>)</th>
+<th align="center">대립가설 (<span class="math inline">\(H_1\)</span>)</th>
+<th align="center">기각역</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_d = \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(\mu_d \neq \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha/2}(n-1), T \le -t_{\alpha/2}(n-1)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\mu_d = \delta_0 \, (\mu_d \ge \delta_0)\)</span></td>
+<td align="center"><span class="math inline">\(\mu_d &lt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \le -t_{\alpha}(n-1)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\mu_d = \delta_0 \, (\mu_d \le \delta_0)\)</span></td>
+<td align="center"><span class="math inline">\(\mu_d &gt; \delta_0\)</span></td>
+<td align="center"><span class="math inline">\(T \ge t_{\alpha}(n-1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>R</strong>에서 짝진 표본의 검정은 <code>t.test()</code>를 사용하여 다음과 같이 수행한다. <code>표본1</code>과 <code>표본2</code>는 서로 짝진 순서대로 기술되어야 한다.</p>
+<pre><code>t.test(짝진_표본1, 짝진_표본2, alternative = &quot;대립가설_종류&quot;, paired = TRUE)</code></pre>
+
+<div class="example">
+<span id="exm:paired-t-test1" class="example"><strong>Example 12.5  </strong></span>10명의 학생에게 영어 학습을 시킨 후 학습 전후의 영어 시험 점수가 다음과 같이 주어졌다.
+유의수준 5% 하에 학습 후에 점수가 향상되었는지를 가설검정하시오.
+</div>
+
+<pre><code>학생번호   1  2  3  4  5  6  7  8  9  10 
+----------------------------------------------
+학습 전    74 66 64 60 58 72 67 78 77 79
+학습 후    89 80 76 65 54 66 84 76 86 79</code></pre>
+<p>Example <a href="ch-numericTest.html#exm:paired-t-test1">12.5</a>는 동일한 학생에 대하여 학습 전과 후의 점수를 측정한 것이므로 짝진 표본 문제이다.
+<span class="math inline">\(\mu_x\)</span>를 학습 전 시험 점수의 평균, <span class="math inline">\(\mu_y\)</span>를 학습 후 시험 점수의 평균이라고 하고, <span class="math inline">\(\mu_d = \mu_x - \mu_y\)</span>라고 하자.
+학습의 효과가 있는가를 검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{align}
+H_0: &amp; \quad \mu_d = 0 \\
+H_1: &amp; \quad \mu_d &lt; 0 
+\end{align}
+\]</span></p>
+<p>위의 가설을 t-분포로 가설검정하려면 점수의 차이가 정규분포를 따르는지 먼저 확인해 보아야 한다. 이 때 주의할 점은 짝진 표본의 정규성은 표본 각각에 대해서 검정하는 것이 아니라 짝진 표본의 차이 <span class="math inline">\((d_1, d_2, \dots, d_n)\)</span>이 정규분포를 따르는지를 검정한다.</p>
+<pre><code>shapito.test(짝진_표본1 - 짝진_표본2)</code></pre>
+<p>다음은 학습 전과 학습 후의 점수 차이의 정규성에 대하여 가설검정한 예이다.</p>
+<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="ch-numericTest.html#cb986-1"></a><span class="op">&gt;</span><span class="st"> </span>x_before &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">66</span>, <span class="dv">64</span>, <span class="dv">60</span>, <span class="dv">58</span>, <span class="dv">72</span>, <span class="dv">67</span>, <span class="dv">78</span>, <span class="dv">77</span>, <span class="dv">79</span>)</span>
+<span id="cb986-2"><a href="ch-numericTest.html#cb986-2"></a><span class="op">&gt;</span><span class="st"> </span>x_after &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">89</span>, <span class="dv">80</span>, <span class="dv">76</span>, <span class="dv">65</span>, <span class="dv">54</span>, <span class="dv">66</span>, <span class="dv">84</span>, <span class="dv">76</span>, <span class="dv">86</span>, <span class="dv">79</span>)</span>
+<span id="cb986-3"><a href="ch-numericTest.html#cb986-3"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>x_before <span class="op">-</span><span class="st"> </span>x_after</span>
+<span id="cb986-4"><a href="ch-numericTest.html#cb986-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  d
+W = 0.91571, p-value = 0.3226</code></pre>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 짝진 표본의 모평균 차이에 대한 가설검정을 수행할 수 있다. <code>t.test()</code> 함수에서 <code>paired = TRUE</code>로 설정하면 된다.</p>
+<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="ch-numericTest.html#cb988-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_before, x_after, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>
+	Paired t-test
+
+data:  x_before and x_after
+t = -2.2224, df = 9, p-value = 0.02668
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+      -Inf -1.050972
+sample estimates:
+mean of the differences 
+                     -6 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본에서 학습 전 후의 차이의 평균 <span class="math inline">\(\bar{d}\)</span> -6이다.</li>
+<li>p-값은 0.0266777로 유의수준 0.05에서 귀무가설을 기각한다. (대립가설을 채택한다.)</li>
+</ul>
+<p>즉, 학습 전후로 6점 정도의 평균 상승이 있었고, 이러한 상승은 유의수준 5%에서 ’학습이 성적 향상에 통계적으로 유의미한 효과가 있었다’고 판단 될 수 있다.</p>
+
+<div class="example">
+<p><span id="exm:paired-t-test-course" class="example"><strong>Example 12.6  </strong></span><code>course</code> 데이터는 어떤 과목의 수강생에 대한 정보이다. 중간고사와 기말고사의 난이도에 차이가 있어서 점수 차이가 발생하였는지를 확인하고자 한다.
+이 과목의 중간고사 점수에 비해 기말고사의 평균 점수에 차이가 있는지에 대해 유의수준 5%에서 가설검정하시오.</p>
+</div>
+
+<p>Example <a href="ch-numericTest.html#exm:paired-t-test-course">12.6</a>는 동일한 학생에 대하여 중간과 기말고사 점수를 측정한 것이므로 짝진 표본 문제이다.
+<span class="math inline">\(\mu_x\)</span>를 중간고사 점수의 평균, <span class="math inline">\(\mu_y\)</span>를 기말고사 점수의 평균이라고 하고, <span class="math inline">\(\mu_d = \mu_x - \mu_y\)</span>라고 하자.
+점수에 변화가 있었는지를 검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
+<p><span class="math display">\[
+\begin{align}
+H_0: &amp; \quad \mu_d = 0 \\
+H_1: &amp; \quad \mu_d \neq 0 
+\end{align}
+\]</span></p>
+<p>위의 가설을 t-분포로 가설검정하려면 점수의 차이가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
+<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="ch-numericTest.html#cb990-1"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>course<span class="op">$</span>mid <span class="op">-</span><span class="st"> </span>course<span class="op">$</span>final</span>
+<span id="cb990-2"><a href="ch-numericTest.html#cb990-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
+<pre><code>
+	Shapiro-Wilk normality test
+
+data:  d
+W = 0.98863, p-value = 0.9378</code></pre>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 짝진 표본의 모평균 차이에 대하여 가설검정을 할 수 있다. <code>t.test()</code> 함수에서 <code>paired = TRUE</code>로 설정하면 된다.</p>
+<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="ch-numericTest.html#cb992-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(course<span class="op">$</span>mid, course<span class="op">$</span>final, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<pre><code>
+	Paired t-test
+
+data:  course$mid and course$final
+t = -0.90422, df = 43, p-value = 0.3709
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -4.992287  1.901378
+sample estimates:
+mean of the differences 
+              -1.545455 </code></pre>
+<p>t-검정을 통해 우리는 다음 사실을 알 수 있다.</p>
+<ul>
+<li>표본에서 점수 차이의 평균 <span class="math inline">\(\bar{d}\)</span> -1.5454545이다.</li>
+<li>p-값은 0.3709153로 유의수준 0.05에서 귀무가설을 채택한다. (대립가설을 기각한다.)</li>
+</ul>
+<p>즉, 기말 고사에서 1.5454545점 정도의 평균 상승이 있었으나, 이러한 상승이 통계적으로 유의미하지는 않은 것으로 판단된다.</p>
+</div>
+</div>
+<div id="셋-이상의-모집단에서의-모평균-차이에-대한-검정" class="section level2">
+<h2><span class="header-section-number">12.3</span> 셋 이상의 모집단에서의 모평균 차이에 대한 검정</h2>
+<p>모집단이 세 개 이상이 되면 모평균의 차이에 대한 가설검정을 t-분포를 이용하여 더 이상 할 수 없게 된다. 이 경우에는 <a href="#ch:anova"><strong>??</strong></a> 장에서 설명하는 분산분석을 사용하여 가설검정을 수행하여야 한다. 분산분석은 여러 모집단의 모평균의 차이 검정뿐 아니라 더 넓은 분야에서 사용되기 때문에 별도의 장에서 설명하도록 한다.</p>
+
+<div id="refs" class="references">
+<div>
+<p>Chapman, Chris, and Elea McDonnell Feit. 2015. <em>R for Marketing Research and Analytics</em>. 2nd ed. Springer.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-categoricalTest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bizStatistics.pdf", "bizStatistics.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
