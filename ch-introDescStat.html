@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 기술통계 분석이란? | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 기술통계 분석이란? | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용하여-변수-별로-통계-요약하기"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용하여 변수 별로 통계 요약하기</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
 </ul></li>
 </ul></li>
@@ -365,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 6</span> 기술통계 분석이란?</h1>
 <div id="기술통계-기법의-중요성" class="section level2">
 <h2><span class="header-section-number">6.1</span> 기술통계 기법의 중요성</h2>
-<p>통계 데이터 분석에서 가장 쉽게 빠지는 오류 중에 하나가 데이터 자체에 대한 깊은 탐구 이전에 추론통 계 기법을 성급히 적용하는 것이다. 추론통계 기법은 확률적 원리를 기반으로 하고 있는 강력한 데이터 분석 방법이긴 하지만, 추론통계 분석에서 사용되는 모형들은 데이터의 분포에 대한 많은 가정을 수반한다. 실제 데이터가 그러한 가정에 부합되지 않으면 추론통계 분석의 결과는 올바른 결과가 될 수 없다. 그러므로 추론통계 기법을 사용하기 전에 그러한 기법의 사용이 타당한지 데이터의 실제 분포에 대한 확인이 필요하다.</p>
+<p>통계 데이터 분석에서 가장 쉽게 빠지는 오류 중에 하나가 데이터 자체에 대한 깊은 탐구 이전에 추론통계 기법을 성급히 적용하는 것이다. 추론통계 기법은 확률적 원리를 기반으로 하고 있는 강력한 데이터 분석 방법이긴 하지만, 추론통계 분석에서 사용되는 모형들은 데이터의 분포에 대한 많은 가정을 수반한다. 실제 데이터가 그러한 가정에 부합되지 않으면 추론통계 분석의 결과는 올바른 결과가 될 수 없다. 그러므로 추론통계 기법을 사용하기 전에 그러한 기법의 사용이 타당한지 데이터의 실제 분포에 대한 확인이 필요하다.</p>
 <p>그러므로 통계 데이터 분석의 첫 단계이면서 가장 중요한 작업은 데이터 자체를 찬찬히 들여다 보는 것이다. 데이터가 들려주는 현상의 이면에 대하여 마음을 열고 경청하는 것이다.</p>
 <p>앞서 설명하였듯이 통계 데이터는 방대하다. 그냥 찬찬히 들여다 보는 것만으로는 데이터의 이면을 파악하기 힘들다. 기술통계 분석 기법은 데이터의 다양한 측면을 일목요연 하게 파악할 수 있도록 도와준다. 따라서 추론통계 기법을 사용하기 이전에 우리는 다양한 관점에서 데이터를 요약해 보아야 한다. 그러기 위해서는 기술통계 분석 기법에 숙달되어야 한다.</p>
 <p>기술통계 분석은 분석의 시작 단계로서의 중요성 뿐만 아니라, 다른 사람들에게 통계 데이터에 대한 요약된 정보를 제공하기 위해서도 필요하다. 실제 기업의 실무에서는 현상에 대한 소통을 위해 기술통계 분석이 추론통계 분석보다 빈번하게 이용된다.</p>
@@ -423,10 +423,10 @@ Figure 6.1: 기술통계 기법의 분류
 </div>
 <div id="데이터-전체에-대한-요약-정보-파악하기" class="section level2">
 <h2><span class="header-section-number">6.4</span> 데이터 전체에 대한 요약 정보 파악하기</h2>
-<p>변수 하나하나, 변수 사이의 관계 하나하나를 분석하기 앞서 데이터의 전체적인 모습을 먼저 파악하는 것이 좋다. 그래야 어떤 변수를 더 중점적으로 분석할지 판단할 수 있고 데이터에 문제가 없는지 분석 전에 파악할 수 있기 때문이다.</p>
-<div id="summary-함수를-이용한-변수-별로-통계-요약" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</h3>
-<p>데이터의 각 변수들을 자세히 살펴보기 전에 데이터의 모든 열에 대한 수치 요약 정보를 보고 싶으면 <code>summary()</code> 함수를 사용한다.</p>
+<p>변수 하나하나를 분석하기에 앞서 데이터의 전체적인 모습을 먼저 파악하는 것이 좋다. 그래야 어떤 변수를 더 중점적으로 분석할지 판단할 수 있고 데이터에 문제가 없는지 분석 전에 파악할 수 있기 때문이다.</p>
+<div id="summary-함수를-이용하여-변수-별로-통계-요약하기" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> <code>summary()</code> 함수를 이용하여 변수 별로 통계 요약하기</h3>
+<p>데이터의 모든 열에 대하여 수치적으로 요약해 보고 싶으면 <code>summary()</code> 함수를 사용한다.</p>
 <div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="ch-introDescStat.html#cb295-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(course)</span></code></pre></div>
 <pre><code>    major    year   gender class       mid            final      
  ME    :40   1: 1   F:18   1:22   Min.   :27.00   Min.   :23.00  
@@ -453,7 +453,7 @@ Figure 6.1: 기술통계 기법의 분류
 </div>
 <div id="plot-함수를-이용한-변수-사이의-상관성-파악" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</h3>
-<p>변수들 간의 상관성을 빠르게 검토하고 싶으면 R의 기본 <code>graphics</code> 패키지의 <code>plot()</code> 함수를 사용한다. <code>plot()</code> 함수를 데이터 프레임에 적용하면 데이터 프레임의 모든 두 변수 조합에 대해 산점도를 행렬 형태로 보여준다.</p>
+<p>변수들 사이의 상관성을 빠르게 검토하고 싶으면 R의 기본 <code>graphics</code> 패키지의 <code>plot()</code> 함수를 사용한다. <code>plot()</code> 함수를 데이터 프레임에 적용하면 데이터 프레임의 모든 두 변수 조합에 대한 산점도를 행렬 형태로 보여준다.</p>
 <div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="ch-introDescStat.html#cb297-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">plot</span>(course)</span></code></pre></div>
 <p><img src="descriptiveStat-intro_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p><code>course</code> 데이터의 수치형 변수들 간의 산점도만 파악하려면 5 번째에서 8 번째 변수가 수치형 변수이므로 다음처럼 <code>course</code> 데이터의 열을 필터링하면 수치형 변수 사이의 산점도를 확인할 수 있다.</p>

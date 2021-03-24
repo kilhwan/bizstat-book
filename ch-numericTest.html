@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용하여-변수-별로-통계-요약하기"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용하여 변수 별로 통계 요약하기</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
 </ul></li>
 </ul></li>
@@ -444,21 +444,21 @@ H_1: &amp; \quad \mu &gt; 142
 \end{align}
 \]</span></p>
 <p>위의 가설을 t-분포로 가설검정하려면 초등학생의 키가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
-<div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="ch-numericTest.html#cb937-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
-<span id="cb937-2"><a href="ch-numericTest.html#cb937-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqnorm</span>(x)</span>
-<span id="cb937-3"><a href="ch-numericTest.html#cb937-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqline</span>(x, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb935"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb935-1"><a href="ch-numericTest.html#cb935-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
+<span id="cb935-2"><a href="ch-numericTest.html#cb935-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqnorm</span>(x)</span>
+<span id="cb935-3"><a href="ch-numericTest.html#cb935-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">qqline</span>(x, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="hypothesisTest-numeric_files/figure-html/unnamed-chunk-2-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="ch-numericTest.html#cb938-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="ch-numericTest.html#cb936-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  x
 W = 0.95489, p-value = 0.7603</code></pre>
 <p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
 <p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 모평균에 대하여 가설검정을 하면 다음과 같은 결과를 얻는다.</p>
-<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="ch-numericTest.html#cb940-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x, <span class="dt">mu =</span> <span class="dv">142</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="ch-numericTest.html#cb938-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x, <span class="dt">mu =</span> <span class="dv">142</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>
-	One Sample t-test
+    One Sample t-test
 
 data:  x
 t = 0.49012, df = 7, p-value = 0.3195
@@ -541,8 +541,8 @@ F = \frac{S_1^2}{S_2^2} \sim F(n_1-1, n_2-1).
 2010년과 2020년 초동학교 4학년 학생의 평균키에 차이가 있는지를 유의수준 5%에서 가설검정하시오.
 </div>
 
-<pre><code>2010년	139.4 139.8 137.2 149.2 151.2 131.8 141.5 152.3	
-2020년	142.5 138.9 139.6 148.2 152.9 129.6 143.5 151.3</code></pre>
+<pre><code>2010년   139.4 139.8 137.2 149.2 151.2 131.8 141.5 152.3 
+2020년   142.5 138.9 139.6 148.2 152.9 129.6 143.5 151.3</code></pre>
 <p>Example <a href="ch-numericTest.html#exm:t-test2">12.2</a>의 가설검정에서 2010년도 키의 평균을 <span class="math inline">\(\mu_1\)</span>, 2020년도 키의 평균을 <span class="math inline">\(\mu_2\)</span>라고 할 때 평균 키가 같은지 다른지를 가설검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
 <p><span class="math display">\[
 \begin{align}
@@ -551,25 +551,25 @@ H_1: &amp; \quad \mu_1 - \mu_2 \neq 0
 \end{align}
 \]</span>
 위의 가설을 t-분포로 가설검정하려면 초등학생의 키가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
-<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="ch-numericTest.html#cb945-1"></a><span class="op">&gt;</span><span class="st"> </span>x2010 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">139.4</span>, <span class="fl">139.8</span>, <span class="fl">137.2</span>, <span class="fl">149.2</span>, <span class="fl">151.2</span>, <span class="fl">131.8</span>, <span class="fl">141.5</span>, <span class="fl">152.3</span>)</span>
-<span id="cb945-2"><a href="ch-numericTest.html#cb945-2"></a><span class="op">&gt;</span><span class="st"> </span>x2020 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
-<span id="cb945-3"><a href="ch-numericTest.html#cb945-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2010)</span></code></pre></div>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="ch-numericTest.html#cb943-1"></a><span class="op">&gt;</span><span class="st"> </span>x2010 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">139.4</span>, <span class="fl">139.8</span>, <span class="fl">137.2</span>, <span class="fl">149.2</span>, <span class="fl">151.2</span>, <span class="fl">131.8</span>, <span class="fl">141.5</span>, <span class="fl">152.3</span>)</span>
+<span id="cb943-2"><a href="ch-numericTest.html#cb943-2"></a><span class="op">&gt;</span><span class="st"> </span>x2020 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">142.5</span>, <span class="fl">138.9</span>, <span class="fl">139.6</span>, <span class="fl">148.2</span>, <span class="fl">152.9</span>, <span class="fl">129.6</span>, <span class="fl">143.5</span>, <span class="fl">151.3</span>)</span>
+<span id="cb943-3"><a href="ch-numericTest.html#cb943-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2010)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  x2010
 W = 0.92354, p-value = 0.4592</code></pre>
-<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="ch-numericTest.html#cb947-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2020)</span></code></pre></div>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="ch-numericTest.html#cb945-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x2020)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  x2020
 W = 0.95489, p-value = 0.7603</code></pre>
 <p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 두 수치형 변수 모두 정규분포를 따른다는 귀무가설을 채택한다.</p>
 <p>두 모집단의 모평균을 가설검정하려면 등분산을 가정할 수 있는지 아닌지를 확인해 보아야 한다. 수치형 변수가 정규분포를 따를 때 두 집단의 분산의 동일성 여부는 F-검정으로 알아본다. <strong>R</strong>에서는 <code>var.test()</code> 함수가 두 모집단의 분산의 차이를 가설검정해 준다. 검정 결과 p-값이 크게 나와 두 집단의 분산이 같다는 귀무가설이 채택된다.</p>
-<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="ch-numericTest.html#cb949-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x2010, x2020)</span></code></pre></div>
+<div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb947-1"><a href="ch-numericTest.html#cb947-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x2010, x2020)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  x2010 and x2020
 F = 0.93723, num df = 7, denom df = 7, p-value = 0.934
@@ -581,9 +581,9 @@ ratio of variances
          0.9372274 </code></pre>
 <p>분포의 정규성과 등분산성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 모평균 차이에 대하여 다음과 같이 가설검정을 할 수 있다.
 <code>t.test()</code>에서 두 모집단의 모평균 차이를 가설검정할 때는 <code>var.equal</code> 인수를 사용하여 분산을 같다고 가정하는지 아닌지를 설정할 수 있다.</p>
-<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="ch-numericTest.html#cb951-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x2010, x2020, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb949-1"><a href="ch-numericTest.html#cb949-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x2010, x2020, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>
-	Two Sample t-test
+    Two Sample t-test
 
 data:  x2010 and x2020
 t = -0.1375, df = 14, p-value = 0.8926
@@ -649,8 +649,8 @@ T = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{ \sqrt{\frac{s_1^2}{n_1} + 
 기존 공정보다 새 공정에서 생산한 제품의 지름이 작다고 할 수 있는지 유의수준 5%로 검정하시오.
 </div>
 
-<pre><code>기존공정	5.2 4.7 5.0 5.3 4.9 4.5 5.6 5.0 5.1 4.8 5.5 4.1	
-새 공정		4.6 4.4 4.6 4.7 4.5 4.3 4.1 4.7 4.5 4.2</code></pre>
+<pre><code>기존공정    5.2 4.7 5.0 5.3 4.9 4.5 5.6 5.0 5.1 4.8 5.5 4.1 
+새 공정        4.6 4.4 4.6 4.7 4.5 4.3 4.1 4.7 4.5 4.2</code></pre>
 <p>Example <a href="ch-numericTest.html#exm:t-test3">12.3</a>의 가설검정에서 기존 공정 제품의 평균 지름을 <span class="math inline">\(\mu_1\)</span>, 새 공정의 평균 지름을 <span class="math inline">\(\mu_2\)</span>라고 할 때 새 공정의 평균 지름이 더 작다는 것을 가설검정하는 것이므로 귀무가설과 대립가설은 다음과 같다.</p>
 <p><span class="math display">\[
 \begin{align}
@@ -659,25 +659,25 @@ H_1: &amp; \quad \mu_1 - \mu_2 &gt; 0
 \end{align}
 \]</span></p>
 <p>위의 가설을 t-분포로 가설검정하려면 제품 지름이 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
-<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="ch-numericTest.html#cb955-1"></a><span class="op">&gt;</span><span class="st"> </span>x_old &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">5.2</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>, <span class="fl">5.3</span>, <span class="fl">4.9</span>, <span class="fl">4.5</span>, <span class="fl">5.6</span>, <span class="fl">5.0</span>, <span class="fl">5.1</span>, <span class="fl">4.8</span>, <span class="fl">5.5</span>, <span class="fl">4.1</span>)</span>
-<span id="cb955-2"><a href="ch-numericTest.html#cb955-2"></a><span class="op">&gt;</span><span class="st"> </span>x_new &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.6</span>, <span class="fl">4.4</span>, <span class="fl">4.6</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.3</span>, <span class="fl">4.1</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.2</span>)</span>
-<span id="cb955-3"><a href="ch-numericTest.html#cb955-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_old)</span></code></pre></div>
+<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="ch-numericTest.html#cb953-1"></a><span class="op">&gt;</span><span class="st"> </span>x_old &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">5.2</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>, <span class="fl">5.3</span>, <span class="fl">4.9</span>, <span class="fl">4.5</span>, <span class="fl">5.6</span>, <span class="fl">5.0</span>, <span class="fl">5.1</span>, <span class="fl">4.8</span>, <span class="fl">5.5</span>, <span class="fl">4.1</span>)</span>
+<span id="cb953-2"><a href="ch-numericTest.html#cb953-2"></a><span class="op">&gt;</span><span class="st"> </span>x_new &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.6</span>, <span class="fl">4.4</span>, <span class="fl">4.6</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.3</span>, <span class="fl">4.1</span>, <span class="fl">4.7</span>, <span class="fl">4.5</span>, <span class="fl">4.2</span>)</span>
+<span id="cb953-3"><a href="ch-numericTest.html#cb953-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_old)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  x_old
 W = 0.97539, p-value = 0.9583</code></pre>
-<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="ch-numericTest.html#cb957-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_new)</span></code></pre></div>
+<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="ch-numericTest.html#cb955-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(x_new)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  x_new
 W = 0.92994, p-value = 0.4473</code></pre>
 <p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
 <p>두 모집단의 모평균을 가설검정하려면 등분산을 가정할 수 있는지 아닌지를 확인해 보아야 한다. 검정 결과 p-값이 0.05보다도 작게 나와 두 집단의 분산이 같다는 귀무가설이 유의수준 5%에서 기각된다.</p>
-<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="ch-numericTest.html#cb959-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x_old, x_new)</span></code></pre></div>
+<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="ch-numericTest.html#cb957-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(x_old, x_new)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  x_old and x_new
 F = 4.1388, num df = 11, denom df = 9, p-value = 0.04186
@@ -688,9 +688,9 @@ sample estimates:
 ratio of variances 
           4.138849 </code></pre>
 <p>분포의 정규성은 가정되지만 등분산은 가정할 수 없으므로 <code>t.test()</code>을 사용하여 모평균 차이에 대하여 다음과 같이 가설검정을 하는데, <code>var.equal = FALSE</code>로 가설검정하여야 한다. 그리고 대립가설은 “greater”로 설정된다.</p>
-<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="ch-numericTest.html#cb961-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_old, x_new, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="ch-numericTest.html#cb959-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_old, x_new, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>
-	Welch Two Sample t-test
+    Welch Two Sample t-test
 
 data:  x_old and x_new
 t = 3.7379, df = 16.598, p-value = 0.0008483
@@ -717,12 +717,12 @@ mean of x mean of y
 
 <p>Example <a href="ch-numericTest.html#exm:t-test-course">12.4</a>처럼 모평군의 차이에 대한 가설 검정은 데이터프레임의 수치형 변수(score)를 범주형 변수(gender)의 값에 따라 두 집단으로 나누어 평균의 차이를 검정하는 경우가 많다.
 이러한 경우 다음처럼 <a href="ch-R-Data-Structure.html#sec:vecFiltering">4.1.4</a> 절에서 배운 벡터의 필터을 사용하여 수치형 변수를 범주형 변수의 값에 따라 두 벡터로 나누어 지금까지 사용한 <code>t.test()</code>와 <code>var.test()</code>를 이용하여 가설검정을 수행할 수 있다.</p>
-<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="ch-numericTest.html#cb963-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(bizstatp)</span>
-<span id="cb963-2"><a href="ch-numericTest.html#cb963-2"></a><span class="op">&gt;</span><span class="st"> </span>score_F &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>]</span>
-<span id="cb963-3"><a href="ch-numericTest.html#cb963-3"></a><span class="op">&gt;</span><span class="st"> </span>score_M &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;M&quot;</span>]</span>
-<span id="cb963-4"><a href="ch-numericTest.html#cb963-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score_F, score_M)</span></code></pre></div>
+<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="ch-numericTest.html#cb961-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(bizstatp)</span>
+<span id="cb961-2"><a href="ch-numericTest.html#cb961-2"></a><span class="op">&gt;</span><span class="st"> </span>score_F &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;F&quot;</span>]</span>
+<span id="cb961-3"><a href="ch-numericTest.html#cb961-3"></a><span class="op">&gt;</span><span class="st"> </span>score_M &lt;-<span class="st"> </span>course<span class="op">$</span>score[course<span class="op">$</span>gender <span class="op">==</span><span class="st"> &quot;M&quot;</span>]</span>
+<span id="cb961-4"><a href="ch-numericTest.html#cb961-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score_F, score_M)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  score_F and score_M
 F = 0.36437, num df = 17, denom df = 26, p-value = 0.0343
@@ -732,9 +732,9 @@ alternative hypothesis: true ratio of variances is not equal to 1
 sample estimates:
 ratio of variances 
          0.3643656 </code></pre>
-<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="ch-numericTest.html#cb965-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score_F, score_M, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="ch-numericTest.html#cb963-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score_F, score_M, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>
-	Welch Two Sample t-test
+    Welch Two Sample t-test
 
 data:  score_F and score_M
 t = 0.20677, df = 42.686, p-value = 0.8372
@@ -750,10 +750,10 @@ t.test(수치형_변수 ~ 범주형_변수, data = 데이터, alternative, var.e
 <p>성별로 최종점수(score)에 차이가 있었는지를 가설검정하기 위해서는 먼저 성별 최종점수가 각각 정규분포를 따르는지 확인해 보자. 다음 문법을 사용하면 수치형 변수를 범주형 변수로 나누어 정규성 검정을 수행할 수 있다.</p>
 <pre><code>tapply(데이터$수치형_변수, 데이터$범주형_변수, shaprio.test)</code></pre>
 <p>다음은 성별 최종점수의 정규성을 검정한 결과이다.</p>
-<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="ch-numericTest.html#cb969-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course<span class="op">$</span>score, course<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
+<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb967-1"><a href="ch-numericTest.html#cb967-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course<span class="op">$</span>score, course<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
 <pre><code>$F
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.93595, p-value = 0.2467
@@ -761,16 +761,16 @@ W = 0.93595, p-value = 0.2467
 
 $M
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.87635, p-value = 0.004011</code></pre>
 <p>남학생의 최종점수가 정규분포를 따르지 않는 것으로 나온다. 중간과 기말고사를 안 본 학생 때문에 발생한 문제일 수 있으므로 이 학생을 제외하고 정규성 검정을 다시해 보자.</p>
-<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="ch-numericTest.html#cb971-1"></a><span class="op">&gt;</span><span class="st"> </span>course_omitted &lt;-<span class="st"> </span><span class="kw">na.omit</span>(course)</span>
-<span id="cb971-2"><a href="ch-numericTest.html#cb971-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
+<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="ch-numericTest.html#cb969-1"></a><span class="op">&gt;</span><span class="st"> </span>course_omitted &lt;-<span class="st"> </span><span class="kw">na.omit</span>(course)</span>
+<span id="cb969-2"><a href="ch-numericTest.html#cb969-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>gender, shapiro.test)</span></code></pre></div>
 <pre><code>$F
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.93595, p-value = 0.2467
@@ -778,15 +778,15 @@ W = 0.93595, p-value = 0.2467
 
 $M
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.94984, p-value = 0.23</code></pre>
 <p>예외적인 데이터를 제외하니 남자와 여자 모두 최종점수의 정규성 가정을 기각할 만한 통계적 증거를 가지고 있지 않다.</p>
 <p>성별 최종점수의 평균 차이를 가설검정을 하려면 등분산을 가정할 수 있는지를 확인해 보아야 한다.</p>
-<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="ch-numericTest.html#cb973-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="ch-numericTest.html#cb971-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  score by gender
 F = 0.69443, num df = 17, denom df = 25, p-value = 0.4409
@@ -798,10 +798,10 @@ ratio of variances
          0.6944266 </code></pre>
 <p>등분산 검정 결과에서 p-값이 큰 값이 나왔으므로 남녀 간의 최종성적의 분산은 같다는 귀무가설을 채택한다.
 따라서 등분산으로 남녀의 최종성적의 평균의 차이에 대해 가설검정을 한다.</p>
-<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="ch-numericTest.html#cb975-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted, </span>
-<span id="cb975-2"><a href="ch-numericTest.html#cb975-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb973"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb973-1"><a href="ch-numericTest.html#cb973-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted, </span>
+<span id="cb973-2"><a href="ch-numericTest.html#cb973-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>
-	Two Sample t-test
+    Two Sample t-test
 
 data:  score by gender
 t = -0.41353, df = 42, p-value = 0.6813
@@ -818,10 +818,10 @@ mean in group F mean in group M
 </ul>
 <p>즉, 남녀의 최종성적의 평균 차이가 있다는 유의미한 통계적 증거를 찾지 못했다.</p>
 <p>마찬가지로 다음은 분반별 최종성적의 차이에 대해 가설검정한 결과이다. 분반으로 최종점수를 나누어도 정규성과 등분산성이 만족되었고, 최종점수의 평균에 대해 통계적으로 유의미한 차이는 없었다.</p>
-<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="ch-numericTest.html#cb977-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>class, shapiro.test)</span></code></pre></div>
+<div class="sourceCode" id="cb975"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb975-1"><a href="ch-numericTest.html#cb975-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">tapply</span>(course_omitted<span class="op">$</span>score, course_omitted<span class="op">$</span>class, shapiro.test)</span></code></pre></div>
 <pre><code>$`1`
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.94064, p-value = 0.2041
@@ -829,13 +829,13 @@ W = 0.94064, p-value = 0.2041
 
 $`2`
 
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  X[[i]]
 W = 0.95717, p-value = 0.4343</code></pre>
-<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="ch-numericTest.html#cb979-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
+<div class="sourceCode" id="cb977"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb977-1"><a href="ch-numericTest.html#cb977-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  score by class
 F = 1.0552, num df = 21, denom df = 21, p-value = 0.9032
@@ -845,10 +845,10 @@ alternative hypothesis: true ratio of variances is not equal to 1
 sample estimates:
 ratio of variances 
           1.055205 </code></pre>
-<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb981-1"><a href="ch-numericTest.html#cb981-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted, </span>
-<span id="cb981-2"><a href="ch-numericTest.html#cb981-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb979"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb979-1"><a href="ch-numericTest.html#cb979-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted, </span>
+<span id="cb979-2"><a href="ch-numericTest.html#cb979-2"></a><span class="op">+</span><span class="st">        </span><span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>
-	Two Sample t-test
+    Two Sample t-test
 
 data:  score by class
 t = -1.7005, df = 42, p-value = 0.09643
@@ -934,20 +934,20 @@ H_1: &amp; \quad \mu_d &lt; 0
 <p>위의 가설을 t-분포로 가설검정하려면 점수의 차이가 정규분포를 따르는지 먼저 확인해 보아야 한다. 이 때 주의할 점은 짝진 표본의 정규성은 표본 각각에 대해서 검정하는 것이 아니라 짝진 표본의 차이 <span class="math inline">\((d_1, d_2, \dots, d_n)\)</span>이 정규분포를 따르는지를 검정한다.</p>
 <pre><code>shapito.test(짝진_표본1 - 짝진_표본2)</code></pre>
 <p>다음은 학습 전과 학습 후의 점수 차이의 정규성에 대하여 가설검정한 예이다.</p>
-<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="ch-numericTest.html#cb986-1"></a><span class="op">&gt;</span><span class="st"> </span>x_before &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">66</span>, <span class="dv">64</span>, <span class="dv">60</span>, <span class="dv">58</span>, <span class="dv">72</span>, <span class="dv">67</span>, <span class="dv">78</span>, <span class="dv">77</span>, <span class="dv">79</span>)</span>
-<span id="cb986-2"><a href="ch-numericTest.html#cb986-2"></a><span class="op">&gt;</span><span class="st"> </span>x_after &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">89</span>, <span class="dv">80</span>, <span class="dv">76</span>, <span class="dv">65</span>, <span class="dv">54</span>, <span class="dv">66</span>, <span class="dv">84</span>, <span class="dv">76</span>, <span class="dv">86</span>, <span class="dv">79</span>)</span>
-<span id="cb986-3"><a href="ch-numericTest.html#cb986-3"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>x_before <span class="op">-</span><span class="st"> </span>x_after</span>
-<span id="cb986-4"><a href="ch-numericTest.html#cb986-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb984"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb984-1"><a href="ch-numericTest.html#cb984-1"></a><span class="op">&gt;</span><span class="st"> </span>x_before &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">74</span>, <span class="dv">66</span>, <span class="dv">64</span>, <span class="dv">60</span>, <span class="dv">58</span>, <span class="dv">72</span>, <span class="dv">67</span>, <span class="dv">78</span>, <span class="dv">77</span>, <span class="dv">79</span>)</span>
+<span id="cb984-2"><a href="ch-numericTest.html#cb984-2"></a><span class="op">&gt;</span><span class="st"> </span>x_after &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">89</span>, <span class="dv">80</span>, <span class="dv">76</span>, <span class="dv">65</span>, <span class="dv">54</span>, <span class="dv">66</span>, <span class="dv">84</span>, <span class="dv">76</span>, <span class="dv">86</span>, <span class="dv">79</span>)</span>
+<span id="cb984-3"><a href="ch-numericTest.html#cb984-3"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>x_before <span class="op">-</span><span class="st"> </span>x_after</span>
+<span id="cb984-4"><a href="ch-numericTest.html#cb984-4"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  d
 W = 0.91571, p-value = 0.3226</code></pre>
 <p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
 <p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 짝진 표본의 모평균 차이에 대한 가설검정을 수행할 수 있다. <code>t.test()</code> 함수에서 <code>paired = TRUE</code>로 설정하면 된다.</p>
-<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="ch-numericTest.html#cb988-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_before, x_after, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="ch-numericTest.html#cb986-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(x_before, x_after, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>
-	Paired t-test
+    Paired t-test
 
 data:  x_before and x_after
 t = -2.2224, df = 9, p-value = 0.02668
@@ -979,18 +979,18 @@ H_1: &amp; \quad \mu_d \neq 0
 \end{align}
 \]</span></p>
 <p>위의 가설을 t-분포로 가설검정하려면 점수의 차이가 정규분포를 따르는지 먼저 확인해 보아야 한다.</p>
-<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="ch-numericTest.html#cb990-1"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>course<span class="op">$</span>mid <span class="op">-</span><span class="st"> </span>course<span class="op">$</span>final</span>
-<span id="cb990-2"><a href="ch-numericTest.html#cb990-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb988"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb988-1"><a href="ch-numericTest.html#cb988-1"></a><span class="op">&gt;</span><span class="st"> </span>d &lt;-<span class="st"> </span>course<span class="op">$</span>mid <span class="op">-</span><span class="st"> </span>course<span class="op">$</span>final</span>
+<span id="cb988-2"><a href="ch-numericTest.html#cb988-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">shapiro.test</span>(d)</span></code></pre></div>
 <pre><code>
-	Shapiro-Wilk normality test
+    Shapiro-Wilk normality test
 
 data:  d
 W = 0.98863, p-value = 0.9378</code></pre>
 <p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
 <p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 짝진 표본의 모평균 차이에 대하여 가설검정을 할 수 있다. <code>t.test()</code> 함수에서 <code>paired = TRUE</code>로 설정하면 된다.</p>
-<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb992-1"><a href="ch-numericTest.html#cb992-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(course<span class="op">$</span>mid, course<span class="op">$</span>final, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb990"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb990-1"><a href="ch-numericTest.html#cb990-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(course<span class="op">$</span>mid, course<span class="op">$</span>final, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>
-	Paired t-test
+    Paired t-test
 
 data:  course$mid and course$final
 t = -0.90422, df = 43, p-value = 0.3709

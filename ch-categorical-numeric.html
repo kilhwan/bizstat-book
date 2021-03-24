@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 범주형 변수와 수치형 변수의 관계 분석 | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="이 책은 경영통계SW실습의 주교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 범주형 변수와 수치형 변수의 관계 분석 | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-03-17" />
+<meta name="date" content="2021-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#데이터-전체에-대한-요약-정보-파악하기"><i class="fa fa-check"></i><b>6.4</b> 데이터 전체에 대한 요약 정보 파악하기</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용한-변수-별로-통계-요약"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용한 변수 별로 통계 요약</a></li>
+<li class="chapter" data-level="6.4.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#summary-함수를-이용하여-변수-별로-통계-요약하기"><i class="fa fa-check"></i><b>6.4.1</b> <code>summary()</code> 함수를 이용하여 변수 별로 통계 요약하기</a></li>
 <li class="chapter" data-level="6.4.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#plot-함수를-이용한-변수-사이의-상관성-파악"><i class="fa fa-check"></i><b>6.4.2</b> <code>plot()</code> 함수를 이용한 변수 사이의 상관성 파악</a></li>
 </ul></li>
 </ul></li>
@@ -422,7 +422,7 @@ aggregate(수치형변수 ~ 범주형변수,
 <p>이상치를 제외하고 살펴보니 남학생의 표준 편차가 감소하였지만 여학생보다 조금 크고 평균도 여학생보다 크게 나왔다. 성별에 따른 평균의 차이는 크지 않았다. 이러한 평균과 표준편차(분산)의 차이가 통계적으로 유의미한지를 가설검정해 볼 수 있다. 가설검정에서 배울 예정인 <code>t.test()</code>와 <code>var.test()</code> 함수를 사용하면 두 집단의 평균과 분산의 차이에 대한 가설검정을 할 수 있다. 가설 검정 결과 p-값이 크게 나와서 남자와 여자의 평균과 분산의 차이는 통계적으로 유의미하지 않음을 볼 수 있다.</p>
 <div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="ch-categorical-numeric.html#cb762-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>gender, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
-	Welch Two Sample t-test
+    Welch Two Sample t-test
 
 data:  score by gender
 t = -0.42764, df = 40.453, p-value = 0.6712
@@ -434,7 +434,7 @@ mean in group F mean in group M
        71.97611        73.46808 </code></pre>
 <div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="ch-categorical-numeric.html#cb764-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">var.test</span>(score <span class="op">~</span><span class="st"> </span>gender,<span class="dt">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
-	F test to compare two variances
+    F test to compare two variances
 
 data:  score by gender
 F = 0.69443, num df = 17, denom df = 25, p-value = 0.4409
@@ -470,7 +470,7 @@ Residuals 41 5552.5  135.43               </code></pre>
 2     2 22.00000   75.78136     74.98500 11.25011  11.96458</code></pre>
 <div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb772-1"><a href="ch-categorical-numeric.html#cb772-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">t.test</span>(score <span class="op">~</span><span class="st"> </span>class, <span class="dt">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
-	Welch Two Sample t-test
+    Welch Two Sample t-test
 
 data:  score by class
 t = -1.7005, df = 41.97, p-value = 0.09643
@@ -621,7 +621,7 @@ notch went outside hinges. Try setting notch=FALSE.</code></pre>
 <span id="cb800-3"><a href="ch-categorical-numeric.html#cb800-3"></a><span class="op">+</span><span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>class)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-23-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="확률-밀도-그래프" class="section level4 unnumbered">
+<div id="확률-밀도-그래프-1" class="section level4 unnumbered">
 <h4>확률 밀도 그래프</h4>
 <p>히스토그램과 freqpoly()는 실제 관측치로 데이터를 확인할 수 있는 장점이 있지만 어떻게 구간을 나눌지에 따라 모양이 크게 변한다. 따라서 확률 밀도 함수를 추정하여 밀도 함수에 대해 그래프를 그려보는 것이 범주별 차이를 파악하기 쉬울 수 있다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수, color = 범주형변수, linetype = 범주형변수)) +
@@ -636,9 +636,8 @@ notch went outside hinges. Try setting notch=FALSE.</code></pre>
 <h4>산점도로 범주형 변수와 수치형 변수의 상관성 분석하기*</h4>
 <p>산점도는 두 수치형 변수의 관계를 나타낼 때 주로 사용되지만 범주형 변수의 범주가 2개일 때는 범주형 변수와 수치형 변수의 관계를 살펴보기 위해서도 사용될 수 있다.</p>
 <p>댜음은 <code>ISLR</code> 패키지의 <code>default</code> 데이터이다. <code>bizstatp</code> 패키지를 설치하였다면 이미 설치가 되어 있을 것이다.</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="ch-categorical-numeric.html#cb803-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(ISLR)</span></code></pre></div>
-<pre><code>Warning: 패키지 &#39;ISLR&#39;는 R 버전 4.0.3에서 작성되었습니다</code></pre>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="ch-categorical-numeric.html#cb805-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">head</span>(Default)</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="ch-categorical-numeric.html#cb803-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(ISLR)</span>
+<span id="cb803-2"><a href="ch-categorical-numeric.html#cb803-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">head</span>(Default)</span></code></pre></div>
 <pre><code>  default student   balance    income
 1      No      No  729.5265 44361.625
 2      No     Yes  817.1804 12106.135
@@ -647,15 +646,15 @@ notch went outside hinges. Try setting notch=FALSE.</code></pre>
 5      No      No  785.6559 38463.496
 6      No     Yes  919.5885  7491.559</code></pre>
 <p>다음은 신용 잔고(<code>balance</code>)에 따른 채무불이행(<code>default</code>)을 산점도로 표시한 것이다. 채무불이행이 범주형 변수여서 동일한 위치에 데이터가 중복되어서 찍히는 것을 방지하기 위해서 <code>geom_jitter()</code>를 사용하여 데이터를 위아래로 0.2 범위 정도로 임의로 흩뿌렸다. 그리고 <code>geom_smooth()</code> 함수로 로지스틱 회귀 적합선을 그렸다. 신용 잔고가 1,500 달러보다 올라가면 채무 불이행의 확률이 크게 증가함을 볼 수 있다.</p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="ch-categorical-numeric.html#cb807-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(ISLR<span class="op">::</span>Default, <span class="kw">aes</span>(balance, <span class="kw">as.numeric</span>(default) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb807-2"><a href="ch-categorical-numeric.html#cb807-2"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_jitter</span>(<span class="dt">height =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb807-3"><a href="ch-categorical-numeric.html#cb807-3"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="ch-categorical-numeric.html#cb805-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(ISLR<span class="op">::</span>Default, <span class="kw">aes</span>(balance, <span class="kw">as.numeric</span>(default) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb805-2"><a href="ch-categorical-numeric.html#cb805-2"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_jitter</span>(<span class="dt">height =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb805-3"><a href="ch-categorical-numeric.html#cb805-3"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-26-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>다음은 학생 여부에 따라 신용잔고가 채무불이행에 어떤 영향을 주는지를 살펴본 그래프이다. 학생이 아닌 경우에 신용 잔고 상승이 채무불이행을 초래할 확률을 더 높이는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="ch-categorical-numeric.html#cb809-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(ISLR<span class="op">::</span>Default, <span class="kw">aes</span>(balance, <span class="kw">as.numeric</span>(default) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">color =</span> student)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb809-2"><a href="ch-categorical-numeric.html#cb809-2"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_jitter</span>(<span class="dt">height =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb809-3"><a href="ch-categorical-numeric.html#cb809-3"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="ch-categorical-numeric.html#cb807-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">ggplot</span>(ISLR<span class="op">::</span>Default, <span class="kw">aes</span>(balance, <span class="kw">as.numeric</span>(default) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">color =</span> student)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb807-2"><a href="ch-categorical-numeric.html#cb807-2"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_jitter</span>(<span class="dt">height =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb807-3"><a href="ch-categorical-numeric.html#cb807-3"></a><span class="op">+</span><span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="dt">method.args =</span> <span class="kw">list</span>(<span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
