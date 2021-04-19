@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-03-24" />
+<meta name="date" content="2021-04-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -297,8 +297,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html"><i class="fa fa-check"></i><b>9</b> 범주형 변수와 수치형 변수의 관계 분석</a><ul>
 <li class="chapter" data-level="9.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별로-수치형-변수에-대해-통계-요약하기"><i class="fa fa-check"></i><b>9.1</b> 범주별로 수치형 변수에 대해 통계 요약하기</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#한-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.1</b> 한 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
-<li class="chapter" data-level="9.1.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#여러-범주형-변수에-대해-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.2</b> 여러 범주형 변수에 대해 수치형 변수를 통계 요약하기</a></li>
+<li class="chapter" data-level="9.1.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#한-범주형-변수를-조건으로-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.1</b> 한 범주형 변수를 조건으로 수치형 변수를 통계 요약하기</a></li>
+<li class="chapter" data-level="9.1.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#여러-범주형-변수를-조건으로-수치형-변수를-통계-요약하기"><i class="fa fa-check"></i><b>9.1.2</b> 여러 범주형 변수를 조건으로 수치형 변수를 통계 요약하기</a></li>
 </ul></li>
 <li class="chapter" data-level="9.2" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#범주별-수치-변수의-분포-그래프"><i class="fa fa-check"></i><b>9.2</b> 범주별 수치 변수의 분포 그래프</a><ul>
 <li class="chapter" data-level="9.2.1" data-path="ch-categorical-numeric.html"><a href="ch-categorical-numeric.html#상자-그래프"><i class="fa fa-check"></i><b>9.2.1</b> 상자 그래프</a></li>
@@ -518,7 +518,7 @@ Figure 10.1: 가설검정의 절차
 \text{p-value} = P(N \ge 2) = 0.9892578
 \]</span></p>
 <p>실제 가설검정에서 그러한 결과가 나오는지 <code>binom.test()</code> 함수를 사용하여 확인해 보자. 결과에서 p-value로 표시된 값이 앞에서 계산한 확률값에 수렴하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="ch-hypoTest.html#cb809-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="ch-hypoTest.html#cb812-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -530,7 +530,7 @@ alternative hypothesis: true probability of success is not equal to 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="ch-hypoTest.html#cb811-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="ch-hypoTest.html#cb814-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -542,7 +542,7 @@ alternative hypothesis: true probability of success is less than 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="ch-hypoTest.html#cb813-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="ch-hypoTest.html#cb816-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">binom.test</span>(<span class="dv">2</span>, <span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">p =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
