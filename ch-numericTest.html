@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2021-04-19" />
+<meta name="date" content="2021-04-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="ch-categoricalTest.html"/>
-
+<link rel="next" href="ch-anova.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -340,6 +340,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.2.4" data-path="ch-numericTest.html"><a href="ch-numericTest.html#짝진-표본에서의-모평균-차이에-대한-가설검정"><i class="fa fa-check"></i><b>12.2.4</b> 짝진 표본에서의 모평균 차이에 대한 가설검정</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="ch-numericTest.html"><a href="ch-numericTest.html#셋-이상의-모집단에서의-모평균-차이에-대한-검정"><i class="fa fa-check"></i><b>12.3</b> 셋 이상의 모집단에서의 모평균 차이에 대한 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="ch-anova.html"><a href="ch-anova.html"><i class="fa fa-check"></i><b>13</b> 분산 분석</a><ul>
+<li class="chapter" data-level="13.1" data-path="ch-anova.html"><a href="ch-anova.html#일원분류-분산-분석"><i class="fa fa-check"></i><b>13.1</b> 일원분류 분산 분석</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="ch-anova.html"><a href="ch-anova.html#개념"><i class="fa fa-check"></i><b>13.1.1</b> 개념</a></li>
+<li class="chapter" data-level="13.1.2" data-path="ch-anova.html"><a href="ch-anova.html#aov-함수"><i class="fa fa-check"></i><b>13.1.2</b> <code>aov()</code> 함수</a></li>
+<li class="chapter" data-level="13.1.3" data-path="ch-anova.html"><a href="ch-anova.html#다중-비교"><i class="fa fa-check"></i><b>13.1.3</b> 다중 비교</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="ch-anova.html"><a href="ch-anova.html#이원분류-분산-분석"><i class="fa fa-check"></i><b>13.2</b> 이원분류 분산 분석</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="ch-anova.html"><a href="ch-anova.html#교호작용이-없는-이원분류-분산-분석"><i class="fa fa-check"></i><b>13.2.1</b> 교호작용이 없는 이원분류 분산 분석</a></li>
+<li class="chapter" data-level="13.2.2" data-path="ch-anova.html"><a href="ch-anova.html#교호작용이-있는-이원분류-분산-분석"><i class="fa fa-check"></i><b>13.2.2</b> 교호작용이 있는 이원분류 분산 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="ch-anova.html"><a href="ch-anova.html#공분산-분석"><i class="fa fa-check"></i><b>13.3</b> 공분산 분석</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1011,38 +1023,17 @@ mean of the differences
 </div>
 <div id="셋-이상의-모집단에서의-모평균-차이에-대한-검정" class="section level2">
 <h2><span class="header-section-number">12.3</span> 셋 이상의 모집단에서의 모평균 차이에 대한 검정</h2>
-<p>모집단이 세 개 이상이 되면 모평균의 차이에 대한 가설검정을 t-분포를 이용하여 더 이상 할 수 없게 된다. 이 경우에는 <a href="#ch:anova"><strong>??</strong></a> 장에서 설명하는 분산분석을 사용하여 가설검정을 수행하여야 한다. 분산분석은 여러 모집단의 모평균의 차이 검정뿐 아니라 더 넓은 분야에서 사용되기 때문에 별도의 장에서 설명하도록 한다.</p>
+<p>모집단이 세 개 이상이 되면 모평균의 차이에 대한 가설검정을 t-분포를 이용하여 더 이상 할 수 없게 된다. 이 경우에는 <a href="ch-anova.html#ch:anova">13</a> 장에서 설명하는 분산분석을 사용하여 가설검정을 수행하여야 한다. 분산분석은 여러 모집단의 모평균의 차이 검정뿐 아니라 더 넓은 분야에서 사용되기 때문에 별도의 장에서 설명하도록 한다.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Chapman, Chris, and Elea McDonnell Feit. 2015. <em>R for Marketing Research and Analytics</em>. 2nd ed. Springer.</p>
-</div>
-<div>
-<p>Reshef, David N, Yakir A Reshef, Hilary K Finucane, Sharon R Grossman, Gilean McVean, Peter J Turnbaugh, Eric S Lander, Michael Mitzenmacher, and Pardis C Sabeti. 2011. “Detecting Novel Associations in Large Data Sets.” <em>Science</em> 334 (6062): 1518–24.</p>
 </div>
 </div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch-categoricalTest.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ch-categoricalTest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

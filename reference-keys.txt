@@ -40,6 +40,11 @@ exm:t-test3
 exm:t-test-course
 exm:paired-t-test1
 exm:paired-t-test-course
+exm:aov-course
+exm:aov-cholesterol
+exm:aov-toothgrowth
+exm:aov-toothgrowth2
+exm:ancova-diamonds
 ch:statisics
 sec:descStat
 sec:inferStat
@@ -212,3 +217,12 @@ ch:numericTest
 데이터프레임에서-모평균-차이-검정
 짝진-표본에서의-모평균-차이에-대한-가설검정
 셋-이상의-모집단에서의-모평균-차이에-대한-검정
+ch:anova
+일원분류-분산-분석
+개념
+aov-함수
+다중-비교
+이원분류-분산-분석
+교호작용이-없는-이원분류-분산-분석
+교호작용이-있는-이원분류-분산-분석
+공분산-분석
