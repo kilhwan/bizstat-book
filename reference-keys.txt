@@ -40,6 +40,7 @@ exm:t-test3
 exm:t-test-course
 exm:paired-t-test1
 exm:paired-t-test-course
+exm:hw-test-course
 exm:aov-course
 exm:aov-cholesterol
 exm:aov-toothgrowth
@@ -113,6 +114,7 @@ sec:lists
 리스트-이해의-중요성
 sec:dataFrames
 데이터-프레임의-열변수은-벡터이다.
+데이터프레임을-행렬-형식으로-필터링
 데이터-프레임의-문법과-조작
 chap:visulaize
 ggplot2-패키지-설치하기
@@ -172,13 +174,13 @@ ch:numericDescStat
 확률-밀도-그래프
 subsubsec:qqplot
 subsubsec:boxplot
-수치형-변수의-변환
+subsection:transformNumerice
 box-cox-변환
 둘-이상의-수치형-변수의-상관성-분석
 상관계수
 산점도
 추세선-그리기
-수치형-변수의-변환-1
+수치형-변수의-변환
 subsubsection:categorynum
 수치형-변수를-조건으로-두-수치형-변수의-상관성-분석
 ggpairs를-이용한-수치형-변수를-한-번에-분석하기
@@ -217,6 +219,10 @@ ch:numericTest
 데이터프레임에서-모평균-차이-검정
 짝진-표본에서의-모평균-차이에-대한-가설검정
 셋-이상의-모집단에서의-모평균-차이에-대한-검정
+정규성을-따르지-않을-때의-가설검정
+두-모집단의-중위수에-대한-비모수적-가설검정
+짝진표본에-대한-검정
+순열-검정
 ch:anova
 일원분류-분산-분석
 개념
