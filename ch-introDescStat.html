@@ -24,7 +24,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2022-03-17" />
+<meta name="date" content="2022-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -548,7 +548,7 @@ Figure 6.1: 기술통계 기법의 분류
 <div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="ch-introDescStat.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(course)</span></code></pre></div>
 <p><img src="descriptiveStat-intro_files/figure-html/unnamed-chunk-6-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p><code>course</code> 데이터의 수치형 변수들 간의 산점도만 파악하려면 5 번째에서 8 번째 변수가 수치형 변수이므로 다음처럼 <code>course</code> 데이터의 열을 필터링하면 수치형 변수 사이의 산점도를 확인할 수 있다.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="ch-introDescStat.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="ch-introDescStat.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(course[, <span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
 <p><img src="descriptiveStat-intro_files/figure-html/unnamed-chunk-7-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>중간고사(<code>mid</code>), 기말고사(<code>final</code>), 총점(<code>score</code>) 사이의 강한 양의 상관성이 보이나, 숙제 점수(<code>hw</code>)과 다른 변수의 상관성을 약함을 확인할 수 있다.</p>
 

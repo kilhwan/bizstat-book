@@ -17,6 +17,7 @@ tab:unnamed-chunk-4
 tab:crossTabExample
 tab:scoreMeanByYear
 fig:boxplot-desc
+fig:unnamed-chunk-63
 fig:hypotest
 exm:fairCoin
 exm:unnamed-chunk-2
