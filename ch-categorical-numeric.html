@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 범주형 변수와 수치형 변수의 관계 분석 | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="경영통계분석실습의 교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 범주형 변수와 수치형 변수의 관계 분석 | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="경영통계분석실습의 교재를 위해 제작되었습니다." />
   
@@ -24,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2022-04-11" />
+<meta name="date" content="2023-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +32,8 @@
   
 <link rel="prev" href="ch-numericDescStat.html"/>
 <link rel="next" href="ch-hypoTest.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +49,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
 <script>
@@ -102,7 +101,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +114,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -172,9 +171,9 @@ div.csl-indent {
 <li class="part"><span><b>I 개요</b></span></li>
 <li class="chapter" data-level="1" data-path="ch-statisics.html"><a href="ch-statisics.html"><i class="fa fa-check"></i><b>1</b> 통계 분석이란?</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
-<li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
-<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a>
+<li class="chapter" data-level="1.1" data-path="ch-statisics.html"><a href="ch-statisics.html#sec-descStat"><i class="fa fa-check"></i><b>1.1</b> 기술통계 분석</a></li>
+<li class="chapter" data-level="1.2" data-path="ch-statisics.html"><a href="ch-statisics.html#sec-inferStat"><i class="fa fa-check"></i><b>1.2</b> 추론통계 분석</a></li>
+<li class="chapter" data-level="1.3" data-path="ch-statisics.html"><a href="ch-statisics.html#sec-statAnalysis"><i class="fa fa-check"></i><b>1.3</b> 통계 분석의 절차</a>
 <ul>
 <li class="chapter" data-level="1.3.1" data-path="ch-statisics.html"><a href="ch-statisics.html#문제-정의"><i class="fa fa-check"></i><b>1.3.1</b> 문제 정의</a></li>
 <li class="chapter" data-level="1.3.2" data-path="ch-statisics.html"><a href="ch-statisics.html#데이터-수집"><i class="fa fa-check"></i><b>1.3.2</b> 데이터 수집</a></li>
@@ -182,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.3.4" data-path="ch-statisics.html"><a href="ch-statisics.html#통계-모형-수립"><i class="fa fa-check"></i><b>1.3.4</b> 통계 모형 수립</a></li>
 <li class="chapter" data-level="1.3.5" data-path="ch-statisics.html"><a href="ch-statisics.html#결론-도출"><i class="fa fa-check"></i><b>1.3.5</b> 결론 도출</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec:statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a>
+<li class="chapter" data-level="1.4" data-path="ch-statisics.html"><a href="ch-statisics.html#sec-statVariables"><i class="fa fa-check"></i><b>1.4</b> 통계 데이터에서 변수의 종류</a>
 <ul>
 <li class="chapter" data-level="1.4.1" data-path="ch-statisics.html"><a href="ch-statisics.html#질적-변수"><i class="fa fa-check"></i><b>1.4.1</b> 질적 변수</a></li>
 <li class="chapter" data-level="1.4.2" data-path="ch-statisics.html"><a href="ch-statisics.html#양적-변수"><i class="fa fa-check"></i><b>1.4.2</b> 양적 변수</a></li>
@@ -191,18 +190,18 @@ div.csl-indent {
 <li class="part"><span><b>II R 기초</b></span></li>
 <li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec:Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec:installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
 <li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec:RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
+<li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:R_start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
+<li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔과-프롬프트"><i class="fa fa-check"></i><b>2.4.1</b> R 콘솔과 프롬프트</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch-intro.html"><a href="ch-intro.html#r-콘솔-사용과-관련된-몇-가지-팁"><i class="fa fa-check"></i><b>2.4.2</b> R 콘솔 사용과 관련된 몇 가지 팁</a></li>
@@ -211,12 +210,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="3" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html"><i class="fa fa-check"></i><b>3</b> R 데이터 형식과 변수</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a>
+<li class="chapter" data-level="3.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec-simpleDataType"><i class="fa fa-check"></i><b>3.1</b> 단순한 데이터 형식</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#r의-기본적-데이터-형식-숫자-문자열-논리값"><i class="fa fa-check"></i><b>3.1.1</b> R의 기본적 데이터 형식: 숫자, 문자열, 논리값</a></li>
 <li class="chapter" data-level="3.1.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#vs-10"><i class="fa fa-check"></i><b>3.1.2</b> 10 vs “10”</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a>
+<li class="chapter" data-level="3.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec-simpleOperation"><i class="fa fa-check"></i><b>3.2</b> 숫자 연산</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#사칙-연산"><i class="fa fa-check"></i><b>3.2.1</b> 사칙 연산</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#거듭-제곱-연산"><i class="fa fa-check"></i><b>3.2.2</b> 거듭 제곱 연산</a></li>
@@ -229,7 +228,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.4.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-결합-연산-paste"><i class="fa fa-check"></i><b>3.4.1</b> 문자열 결합 연산: <code>paste()</code></a></li>
 <li class="chapter" data-level="3.4.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#문자열-분리-연산-strsplit"><i class="fa fa-check"></i><b>3.4.2</b> 문자열 분리 연산: <code>strsplit()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a>
+<li class="chapter" data-level="3.5" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec-variable"><i class="fa fa-check"></i><b>3.5</b> 변수와 할당</a>
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수는-메모리-공간에-붙이는-레이블"><i class="fa fa-check"></i><b>3.5.1</b> 변수는 메모리 공간에 붙이는 레이블</a></li>
 <li class="chapter" data-level="3.5.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수명에-대한-규칙"><i class="fa fa-check"></i><b>3.5.2</b> 변수명에 대한 규칙</a></li>
@@ -242,7 +241,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5.9" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수-목록-확인하기-ls"><i class="fa fa-check"></i><b>3.5.9</b> 변수 목록 확인하기: <code>ls()</code></a></li>
 <li class="chapter" data-level="3.5.10" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#변수를-할당하는-또-다른-방법-assign"><i class="fa fa-check"></i><b>3.5.10</b> 변수를 할당하는 또 다른 방법: <code>assign()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec:useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a>
+<li class="chapter" data-level="3.6" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#sec-useFunctions"><i class="fa fa-check"></i><b>3.6</b> 함수를 이용한 연산</a>
 <ul>
 <li class="chapter" data-level="3.6.1" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#함수-호출-하기"><i class="fa fa-check"></i><b>3.6.1</b> 함수 호출 하기</a></li>
 <li class="chapter" data-level="3.6.2" data-path="ch-R-Data-Basic.html"><a href="ch-R-Data-Basic.html#실수를-정수로-변환하는-함수"><i class="fa fa-check"></i><b>3.6.2</b> 실수를 정수로 변환하는 함수</a></li>
@@ -251,23 +250,23 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html"><i class="fa fa-check"></i><b>4</b> R 데이터 구조</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a>
+<li class="chapter" data-level="4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-vectors"><i class="fa fa-check"></i><b>4.1</b> 벡터</a>
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터는-동일-형식-데이터의-나열"><i class="fa fa-check"></i><b>4.1.1</b> 벡터는 동일 형식 데이터의 나열</a></li>
 <li class="chapter" data-level="4.1.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#벡터를-생성하는-법"><i class="fa fa-check"></i><b>4.1.2</b> 벡터를 생성하는 법</a></li>
-<li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
-<li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:vecFiltering"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-vectorOperation"><i class="fa fa-check"></i><b>4.1.3</b> 벡터의 연산</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-vecFiltering"><i class="fa fa-check"></i><b>4.1.4</b> 벡터의 필터링/인덱싱</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a>
+<li class="chapter" data-level="4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-matrices"><i class="fa fa-check"></i><b>4.2</b> 행렬과 배열</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열은-다차원적-데이터-구조"><i class="fa fa-check"></i><b>4.2.1</b> 행렬과 배열은 다차원적 데이터 구조</a></li>
 <li class="chapter" data-level="4.2.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#행렬과-배열의-필요성"><i class="fa fa-check"></i><b>4.2.2</b> 행렬과 배열의 필요성</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a>
+<li class="chapter" data-level="4.3" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-lists"><i class="fa fa-check"></i><b>4.3</b> 리스트</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#리스트-이해의-중요성"><i class="fa fa-check"></i><b>4.3.1</b> 리스트 이해의 중요성</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec:dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a>
+<li class="chapter" data-level="4.4" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#sec-dataFrames"><i class="fa fa-check"></i><b>4.4</b> 데이터 프레임</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터-프레임의-열변수은-벡터이다."><i class="fa fa-check"></i><b>4.4.1</b> 데이터 프레임의 열(변수)은 벡터이다.</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ch-R-Data-Structure.html"><a href="ch-R-Data-Structure.html#데이터프레임을-행렬-형식으로-필터링"><i class="fa fa-check"></i><b>4.4.2</b> 데이터프레임을 행렬 형식으로 필터링</a></li>
@@ -277,22 +276,22 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="chap-visulaize.html"><a href="chap-visulaize.html"><i class="fa fa-check"></i><b>5</b> R 데이터 시각화 기초</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#ggplot2-패키지-설치하기"><i class="fa fa-check"></i><b>5.1</b> ggplot2 패키지 설치하기</a></li>
-<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a>
+<li class="chapter" data-level="5.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec-getStarted-ggplot2"><i class="fa fa-check"></i><b>5.2</b> ggplot2 시작하기</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec:tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
+<li class="chapter" data-level="5.2.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#subsec-tryGgplot"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 그래프의 기본 문법</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a>
+<li class="chapter" data-level="5.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec-aesMapping"><i class="fa fa-check"></i><b>5.3</b> 그래프 속성과 데이터 열 매핑하기 (aesthetic mapping)</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-색상color-속성의-매핑"><i class="fa fa-check"></i><b>5.3.1</b> 범주형 변수와 색상(<code>color</code>) 속성의 매핑</a></li>
 <li class="chapter" data-level="5.3.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#범주형-변수와-모양shape-속성의-매핑"><i class="fa fa-check"></i><b>5.3.2</b> 범주형 변수와 모양(<code>shape</code>) 속성의 매핑</a></li>
 <li class="chapter" data-level="5.3.3" data-path="chap-visulaize.html"><a href="chap-visulaize.html#연속형-변수와-크기size-색상color-투명도alpha-속성의-매핑"><i class="fa fa-check"></i><b>5.3.3</b> 연속형 변수와 크기(<code>size</code>), 색상(<code>color</code>), 투명도(<code>alpha</code>) 속성의 매핑</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
-<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a>
+<li class="chapter" data-level="5.4" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec-commonProblems"><i class="fa fa-check"></i><b>5.4</b> ggplot 명령문을 입력할 때 자주 발생하는 문제들</a></li>
+<li class="chapter" data-level="5.5" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec-layerAndGeom"><i class="fa fa-check"></i><b>5.5</b> geom 함수와 그래프 계층</a>
 <ul>
 <li class="chapter" data-level="5.5.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#geom-함수에서-속성-매핑하기"><i class="fa fa-check"></i><b>5.5.1</b> geom 함수에서 속성 매핑하기</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec:facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a>
+<li class="chapter" data-level="5.6" data-path="chap-visulaize.html"><a href="chap-visulaize.html#sec-facets"><i class="fa fa-check"></i><b>5.6</b> 측면(facets)으로 나누어 그리기</a>
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_wrap로-일차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.1</b> <code>facet_wrap()</code>로 일차원 측면 그래프 그리기</a></li>
 <li class="chapter" data-level="5.6.2" data-path="chap-visulaize.html"><a href="chap-visulaize.html#facet_grid로-이차원-측면-그래프-그리기"><i class="fa fa-check"></i><b>5.6.2</b> <code>facet_grid()</code>로 이차원 측면 그래프 그리기</a></li>
@@ -322,7 +321,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#한-범주형-변수에-대한-분포-분석"><i class="fa fa-check"></i><b>7.1</b> 한 범주형 변수에 대한 분포 분석</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec:freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
+<li class="chapter" data-level="7.1.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#sec-freqTables"><i class="fa fa-check"></i><b>7.1.1</b> 범주형 변수 분포를 수치로 요약하기 - 빈도표 구하기</a></li>
 <li class="chapter" data-level="7.1.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수-분포를-그래프로-요약하기"><i class="fa fa-check"></i><b>7.1.2</b> 범주형 변수 분포를 그래프로 요약하기</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#둘-이상의-범주형-변수의-상관성-분석"><i class="fa fa-check"></i><b>7.2</b> 둘 이상의 범주형 변수의 상관성 분석</a>
@@ -333,7 +332,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.3" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#범주형-변수의-분석-사례"><i class="fa fa-check"></i><b>7.3</b> 범주형 변수의 분석 사례</a>
 <ul>
 <li class="chapter" data-level="7.3.1" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#관절염-치료-임상시험-데이터-분석"><i class="fa fa-check"></i><b>7.3.1</b> 관절염 치료 임상시험 데이터 분석</a></li>
-<li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec:BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
+<li class="chapter" data-level="7.3.2" data-path="ch-categoricalDescStat.html"><a href="ch-categoricalDescStat.html#subsec-BrokenMarriage"><i class="fa fa-check"></i><b>7.3.2</b> 이혼에 대한 사회조사 데이터 분석</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html"><i class="fa fa-check"></i><b>8</b> 수치형 변수에 대한 R 기술통계</a>
@@ -350,7 +349,7 @@ div.csl-indent {
 <li class="chapter" data-level="8.2.2" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#산점도"><i class="fa fa-check"></i><b>8.2.2</b> 산점도</a></li>
 <li class="chapter" data-level="8.2.3" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#추세선-그리기"><i class="fa fa-check"></i><b>8.2.3</b> 추세선 그리기</a></li>
 <li class="chapter" data-level="8.2.4" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수의-변환"><i class="fa fa-check"></i><b>8.2.4</b> 수치형 변수의 변환</a></li>
-<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsection:categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색</a></li>
+<li class="chapter" data-level="8.2.5" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#subsubsec-categorynum"><i class="fa fa-check"></i><b>8.2.5</b> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색</a></li>
 <li class="chapter" data-level="8.2.6" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석"><i class="fa fa-check"></i><b>8.2.6</b> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석</a></li>
 <li class="chapter" data-level="8.2.7" data-path="ch-numericDescStat.html"><a href="ch-numericDescStat.html#ggpairs를-이용한-수치형-변수를-한-번에-분석하기"><i class="fa fa-check"></i><b>8.2.7</b> <code>ggpairs()</code>를 이용한 수치형 변수를 한 번에 분석하기</a></li>
 </ul></li>
@@ -452,67 +451,67 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:categorical-numeric" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> 범주형 변수와 수치형 변수의 관계 분석</h1>
+<div id="ch-categorical-numeric" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> 범주형 변수와 수치형 변수의 관계 분석<a href="ch-categorical-numeric.html#ch-categorical-numeric" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>통계 데이터 분석을 할 때 <code>course</code> 데이터처럼 범주형 변수와 수치 변수가 같이 있는 경우가 많다. 이러한 경우에 범주형 변수의 값에 따라 수치 변수의 분포가 다른지가 관심 사항일 수 있다. 예를 들어 성별에 따라 총점의 분포에 차이가 있는지, 학년별에 따라 총점의 분포에 차이가 있는지 등이 <code>course</code> 데이터에서는 분석의 대상이 될 수 있다.</p>
-<div id="범주별로-수치형-변수에-대해-통계-요약하기" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> 범주별로 수치형 변수에 대해 통계 요약하기</h2>
-<div id="한-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="section level3" number="9.1.1">
-<h3><span class="header-section-number">9.1.1</span> 한 범주형 변수를 조건으로 수치형 변수를 통계 요약하기</h3>
-<div id="tapply와-aggregate의-기본-문법" class="section level4 unnumbered">
-<h4><code>tapply()</code>와 <code>aggregate()</code>의 기본 문법</h4>
+<div id="범주별로-수치형-변수에-대해-통계-요약하기" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> 범주별로 수치형 변수에 대해 통계 요약하기<a href="ch-categorical-numeric.html#범주별로-수치형-변수에-대해-통계-요약하기" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="한-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> 한 범주형 변수를 조건으로 수치형 변수를 통계 요약하기<a href="ch-categorical-numeric.html#한-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tapply와-aggregate의-기본-문법" class="section level4 unnumbered hasAnchor">
+<h4><code>tapply()</code>와 <code>aggregate()</code>의 기본 문법<a href="ch-categorical-numeric.html#tapply와-aggregate의-기본-문법" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>범주형 변수와 수치형 변수의 관계를 파악하는 방법 중의 하나가 범주형 변수의 범주별로 수치 변수의 통계량을 비교해 보는 것이다. 이를 수행하는 <strong>R</strong> 함수의 문법은 다음과 같다.</p>
 <pre><code>tapply(데이터$수치형변수, 데이터$범주형변수, 통계함수)
 aggregate(수치형변수 ~ 범주형변수, data = 데이터, 통계함수)</code></pre>
 <p>다음은 <code>tapply()</code>와 <code>aggregate()</code> 함수를 이용하여 <code>course</code> 데이터에서 성별 총점의 평균을 비교한 결과이다. <code>tapply()</code>는 테이블 형식으로 결과를 주는데 반해, <code>aggregate()</code>는 데이터프레임 형식으로 결과를 반환한다.</p>
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="ch-categorical-numeric.html#cb777-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)</span>
-<span id="cb777-2"><a href="ch-categorical-numeric.html#cb777-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tapply</span>(course<span class="sc">$</span>score, course<span class="sc">$</span>gender, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="ch-categorical-numeric.html#cb780-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)</span>
+<span id="cb780-2"><a href="ch-categorical-numeric.html#cb780-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tapply</span>(course<span class="sc">$</span>score, course<span class="sc">$</span>gender, mean)</span></code></pre></div>
 <pre><code>       F        M 
 71.97611 71.11741 </code></pre>
-<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="ch-categorical-numeric.html#cb779-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="ch-categorical-numeric.html#cb782-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, mean)</span></code></pre></div>
 <pre><code>  gender    score
 1      F 71.97611
 2      M 71.11741</code></pre>
 <p>마찬가지 방법으로 성별로 총점의 중위수, 표준편차, 중앙값 절대편차를 구해보자.</p>
-<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="ch-categorical-numeric.html#cb781-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, median)</span></code></pre></div>
+<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="ch-categorical-numeric.html#cb784-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, median)</span></code></pre></div>
 <pre><code>  gender  score
 1      F 72.665
 2      M 72.600</code></pre>
-<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="ch-categorical-numeric.html#cb783-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="ch-categorical-numeric.html#cb786-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, sd)</span></code></pre></div>
 <pre><code>  gender    score
 1      F 10.47439
 2      M 17.35242</code></pre>
-<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="ch-categorical-numeric.html#cb785-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, mad)</span></code></pre></div>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="ch-categorical-numeric.html#cb788-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, mad)</span></code></pre></div>
 <pre><code>  gender    score
 1      F 14.24779
 2      M 12.60210</code></pre>
 </div>
-<div id="사용자-함수로-여러-통계량으로-한-번에-요약하기" class="section level4 unnumbered">
-<h4>사용자 함수로 여러 통계량으로 한 번에 요약하기</h4>
+<div id="사용자-함수로-여러-통계량으로-한-번에-요약하기" class="section level4 unnumbered hasAnchor">
+<h4>사용자 함수로 여러 통계량으로 한 번에 요약하기<a href="ch-categorical-numeric.html#사용자-함수로-여러-통계량으로-한-번에-요약하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>여러 개의 통계량을 범주별로 구할 때는 다음처럼 사용자 함수를 정의하여 통계량이 같이 출력되도록 하는 것이 좋다.</p>
 <pre><code>tapply(데이터$수치형변수, 데이터$범주형변수, 
   function(x) c(이름1 = 통계함수1(x), 이름2 = 통계함수2(x), ....) )
 aggregate(수치형변수 ~ 범주형변수, 
   function(x) c(이름1 = 통계함수1(x), 이름2 = 통계함수2(x), ....) )</code></pre>
 <p>다음은 <code>aggregate()</code> 함수를 이용하여 성별로 사용자 정의 함수를 사용하여 총점 데이터 수, 평균, 중위수, 표준편자, 중앙값 절대편차를 한 번에 보여주는 예이다.</p>
-<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb788-1"><a href="ch-categorical-numeric.html#cb788-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, <span class="cf">function</span>(x) </span>
-<span id="cb788-2"><a href="ch-categorical-numeric.html#cb788-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
-<span id="cb788-3"><a href="ch-categorical-numeric.html#cb788-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="ch-categorical-numeric.html#cb791-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course, <span class="cf">function</span>(x) </span>
+<span id="cb791-2"><a href="ch-categorical-numeric.html#cb791-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
+<span id="cb791-3"><a href="ch-categorical-numeric.html#cb791-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
 <pre><code>  gender  score.n score.mean score.median score.sd score.mad
 1      F 18.00000   71.97611     72.66500 10.47439  14.24779
 2      M 27.00000   71.11741     72.60000 17.35242  12.60210</code></pre>
 <p>여학생과 남학생의 평균과 중위수의 차이는 거의 없었지만 남학생의 표준편차가 여학생에 비해 크게 나타난 것을 볼 수 있다. 이는 남학생 성적의 변동성이 컸다는 것을 의미한다. 그러나 예외적인 값에 영향을 잘 받지 않는 중앙값 절대 편차를 보면 오히려 여학생의 점수가 좀 더 펴져 있는 것으로 나타난다. 혹시 시험을 안 본 학생에 의해 남학생의 표준편차가 커진 것은 아닌지를 파악하기 위해 이 학생을 제외하고 성별 비교를 다시해 보자. 예외적인 값에 의해 영향을 받았던 남학생의 평균과 표준편차의 값이 크게 바뀐 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="ch-categorical-numeric.html#cb790-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
-<span id="cb790-2"><a href="ch-categorical-numeric.html#cb790-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
-<span id="cb790-3"><a href="ch-categorical-numeric.html#cb790-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="ch-categorical-numeric.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
+<span id="cb793-2"><a href="ch-categorical-numeric.html#cb793-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
+<span id="cb793-3"><a href="ch-categorical-numeric.html#cb793-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
 <pre><code>  gender  score.n score.mean score.median score.sd score.mad
 1      F 18.00000   71.97611     72.66500 10.47439  14.24779
 2      M 26.00000   73.46808     72.98500 12.56943  12.66140</code></pre>
 </div>
-<div id="수치형-변수의-통계량의-범주별-차이에-대한-가설검정" class="section level4 unnumbered">
-<h4>수치형 변수의 통계량의 범주별 차이에 대한 가설검정</h4>
+<div id="수치형-변수의-통계량의-범주별-차이에-대한-가설검정" class="section level4 unnumbered hasAnchor">
+<h4>수치형 변수의 통계량의 범주별 차이에 대한 가설검정<a href="ch-categorical-numeric.html#수치형-변수의-통계량의-범주별-차이에-대한-가설검정" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>이상치를 제외하고 살펴보니 남학생의 표준 편차가 감소하였지만 여학생보다 조금 크고 평균도 여학생보다 크게 나왔다. 성별에 따른 평균의 차이는 크지 않았다. 이러한 평균과 표준편차(분산)의 차이가 통계적으로 유의미한지를 가설검정해 볼 수 있다. 가설검정에서 배울 예정인 <code>t.test()</code>와 <code>var.test()</code> 함수를 사용하면 두 집단의 평균과 분산의 차이에 대한 가설검정을 할 수 있다. 가설 검정 결과 p-값이 크게 나와서 남자와 여자의 평균과 분산의 차이는 통계적으로 유의미하지 않음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb792-1"><a href="ch-categorical-numeric.html#cb792-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t.test</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course_omitted)</span></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="ch-categorical-numeric.html#cb795-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t.test</span>(score <span class="sc">~</span> gender, <span class="at">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
     Welch Two Sample t-test
 
@@ -524,7 +523,7 @@ alternative hypothesis: true difference in means between group F and group M is 
 sample estimates:
 mean in group F mean in group M 
        71.97611        73.46808 </code></pre>
-<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="ch-categorical-numeric.html#cb794-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">var.test</span>(score <span class="sc">~</span> gender,<span class="at">data =</span> course_omitted)</span></code></pre></div>
+<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="ch-categorical-numeric.html#cb797-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">var.test</span>(score <span class="sc">~</span> gender,<span class="at">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
     F test to compare two variances
 
@@ -537,18 +536,18 @@ sample estimates:
 ratio of variances 
          0.6944266 </code></pre>
 <p>학년별 총점도 같은 방식으로 분석해 보자. 학년이 올라갈수록 평균과 중위수가 증가하는 경향을 보인다. 표준편차와 중앙값 절대 편차는 3학년이 가장 컸고, 2학년, 4학년 순으로 감소하였다.</p>
-<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="ch-categorical-numeric.html#cb796-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
-<span id="cb796-2"><a href="ch-categorical-numeric.html#cb796-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
-<span id="cb796-3"><a href="ch-categorical-numeric.html#cb796-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
-<span id="cb796-4"><a href="ch-categorical-numeric.html#cb796-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="ch-categorical-numeric.html#cb799-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
+<span id="cb799-2"><a href="ch-categorical-numeric.html#cb799-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
+<span id="cb799-3"><a href="ch-categorical-numeric.html#cb799-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
+<span id="cb799-4"><a href="ch-categorical-numeric.html#cb799-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
 <pre><code>  year   score.n score.mean score.median  score.sd score.mad
 1    2 32.000000  71.447812    70.865000 11.284044 13.899375
 2    3  9.000000  75.406667    73.370000 13.738011 17.598462
 3    4  3.000000  80.250000    80.000000  6.908393  9.681378</code></pre>
 <p>그러나 4학년 학생의 관측수가 3으로 이러한 차이는 우연하게 발생한 것일 수 있다. 세 집단 이상의 평균의 차이에 대해 가설검정을 하려면 분산분석을 해야 한다. 분산분석은 <code>aov()</code> 함수를 사용한다. 분산분석에 대한 자세한 설명은 가설검정 부분을 참조하기 바란다.
 분산분석을 한 결과 학년에 대해 총점이 통계적으로 유의미한 차이를 보이지 않았다.</p>
-<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="ch-categorical-numeric.html#cb798-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted)</span>
-<span id="cb798-2"><a href="ch-categorical-numeric.html#cb798-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(aov_result)</span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="ch-categorical-numeric.html#cb801-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted)</span>
+<span id="cb801-2"><a href="ch-categorical-numeric.html#cb801-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(aov_result)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: score
@@ -556,13 +555,13 @@ Response: score
 year       2  286.0  143.01   1.056 0.3571
 Residuals 41 5552.5  135.43               </code></pre>
 <p>분반에 따른 성적 차이가 있는지도 살펴보자. 2분반이 1분반 보다 평균과 중위수가 모두 높았지만 통계적으로 유의미한 차이까지는 아니었다.</p>
-<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="ch-categorical-numeric.html#cb800-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> class, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
-<span id="cb800-2"><a href="ch-categorical-numeric.html#cb800-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
-<span id="cb800-3"><a href="ch-categorical-numeric.html#cb800-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="ch-categorical-numeric.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> class, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
+<span id="cb803-2"><a href="ch-categorical-numeric.html#cb803-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
+<span id="cb803-3"><a href="ch-categorical-numeric.html#cb803-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
 <pre><code>  class  score.n score.mean score.median score.sd score.mad
 1     1 22.00000   69.93409     68.05000 11.55647  11.72737
 2     2 22.00000   75.78136     74.98500 11.25011  11.96458</code></pre>
-<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="ch-categorical-numeric.html#cb802-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t.test</span>(score <span class="sc">~</span> class, <span class="at">data =</span> course_omitted)</span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="ch-categorical-numeric.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t.test</span>(score <span class="sc">~</span> class, <span class="at">data =</span> course_omitted)</span></code></pre></div>
 <pre><code>
     Welch Two Sample t-test
 
@@ -576,34 +575,34 @@ mean in group 1 mean in group 2
        69.93409        75.78136 </code></pre>
 </div>
 </div>
-<div id="여러-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="section level3" number="9.1.2">
-<h3><span class="header-section-number">9.1.2</span> 여러 범주형 변수를 조건으로 수치형 변수를 통계 요약하기</h3>
+<div id="여러-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> 여러 범주형 변수를 조건으로 수치형 변수를 통계 요약하기<a href="ch-categorical-numeric.html#여러-범주형-변수를-조건으로-수치형-변수를-통계-요약하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>만약 분반에 따라 성별이 총점에 미치는 차이가 있었는지를 확인해 보려면 어떻게 해야 할까? 먼저 성별-분반별로 총점과 관련된 통계량을 확인해 보아야 한다. 이렇게 여러 범주형 변수에 대해 수치형 변수를 통계 요약하려면 다음과 같은 문법을 사용한다.</p>
 <pre><code>tapply(데이터$수치형변수, list(데이터$범주형변수1, 데이터$범주형변수), 통계함수)
 aggregate(수치형변수 ~ 범주형변수1 + 범주형변수2 + ..., data = 데이터, 통계함수)</code></pre>
 <p>다음은 성별-분반별로 총점에 대하여 평균을 구한 예이다. <code>tapply()</code> 함수는 범주형 변수별로 행과 열로 나누어 결과를 주는 반면, <code>aggregate()</code> 함수는 각 성별-분반 조합에 대한 결과를 한 행으로 결과를 주는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="ch-categorical-numeric.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tapply</span>(course_omitted<span class="sc">$</span>score, </span>
-<span id="cb805-2"><a href="ch-categorical-numeric.html#cb805-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">list</span>(course_omitted<span class="sc">$</span>gender, course_omitted<span class="sc">$</span>class), mean)</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="ch-categorical-numeric.html#cb808-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tapply</span>(course_omitted<span class="sc">$</span>score, </span>
+<span id="cb808-2"><a href="ch-categorical-numeric.html#cb808-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="fu">list</span>(course_omitted<span class="sc">$</span>gender, course_omitted<span class="sc">$</span>class), mean)</span></code></pre></div>
 <pre><code>         1        2
 F 68.08100 76.84500
 M 71.47833 75.17357</code></pre>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="ch-categorical-numeric.html#cb807-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender <span class="sc">+</span> class, <span class="at">data =</span> course_omitted, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="ch-categorical-numeric.html#cb810-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender <span class="sc">+</span> class, <span class="at">data =</span> course_omitted, mean)</span></code></pre></div>
 <pre><code>  gender class    score
 1      F     1 68.08100
 2      M     1 71.47833
 3      F     2 76.84500
 4      M     2 75.17357</code></pre>
 <p>한 범주형 변수를 기준으로 요약할 때와 마찬가지로 사용자 함수를 사용하여 여러 통계량을 한 번에 출력할 수 있다. 여학생의 분반별 점수 차이가 남학생보다 더 큰 것을 볼 수 있다. 그러나 이러한 차이가 통계적으로 유의미 하지는 않은 것으로 보인다.</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="ch-categorical-numeric.html#cb809-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender <span class="sc">+</span> class, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
-<span id="cb809-2"><a href="ch-categorical-numeric.html#cb809-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
-<span id="cb809-3"><a href="ch-categorical-numeric.html#cb809-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="ch-categorical-numeric.html#cb812-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(score <span class="sc">~</span> gender <span class="sc">+</span> class, <span class="at">data =</span> course_omitted, <span class="cf">function</span>(x) </span>
+<span id="cb812-2"><a href="ch-categorical-numeric.html#cb812-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">median =</span> <span class="fu">median</span>(x), </span>
+<span id="cb812-3"><a href="ch-categorical-numeric.html#cb812-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="at">sd =</span> <span class="fu">sd</span>(x), <span class="at">mad =</span> <span class="fu">mad</span>(x)))</span></code></pre></div>
 <pre><code>  gender class   score.n score.mean score.median  score.sd score.mad
 1      F     1 10.000000  68.081000    64.390000 10.624309  7.568673
 2      M     1 12.000000  71.478333    71.595000 12.525445 11.564280
 3      F     2  8.000000  76.845000    77.440000  8.517770  4.744320
 4      M     2 14.000000  75.173571    74.230000 12.817588 16.886814</code></pre>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="ch-categorical-numeric.html#cb811-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> gender <span class="sc">*</span> class, <span class="at">data =</span> course_omitted) </span>
-<span id="cb811-2"><a href="ch-categorical-numeric.html#cb811-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(aov_result)</span></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="ch-categorical-numeric.html#cb814-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> gender <span class="sc">*</span> class, <span class="at">data =</span> course_omitted) </span>
+<span id="cb814-2"><a href="ch-categorical-numeric.html#cb814-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(aov_result)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: score
@@ -614,20 +613,20 @@ gender:class  1   67.7   67.65  0.5025 0.4825
 Residuals    40 5385.3  134.63               </code></pre>
 </div>
 </div>
-<div id="범주별-수치-변수의-분포-그래프" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> 범주별 수치 변수의 분포 그래프</h2>
+<div id="범주별-수치-변수의-분포-그래프" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> 범주별 수치 변수의 분포 그래프<a href="ch-categorical-numeric.html#범주별-수치-변수의-분포-그래프" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>지금까지 범주별로 수치 변수를 기술통계량으로 용약하는 방법을 설명하였다. 그러나 많은 경우에 범주별로 수치 변수의 분포를 그래프로 표현하는 것이 범주형 변수가 수치 변수에 주는 영향을 파악하기에 더 수월하다.</p>
-<div id="상자-그래프" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> 상자 그래프</h3>
-<div id="한-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="section level4 unnumbered">
-<h4>한 범주형 변수에 대해 수치형 변수의 상자 그래프 그리기</h4>
+<div id="상자-그래프" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> 상자 그래프<a href="ch-categorical-numeric.html#상자-그래프" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="한-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="section level4 unnumbered hasAnchor">
+<h4>한 범주형 변수에 대해 수치형 변수의 상자 그래프 그리기<a href="ch-categorical-numeric.html#한-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>범주별로 수치형 변수의 분포를 확인하는 가장 대표적인 방법은 상자 그래프를 그리는 것이다. <code>ggplot2</code>의 <code>geom_boxplot()</code> 함수는 수치형 변수에 대한 상자 그래프를 그려주는데, 범주형 변수의 범주 별로 수치형 변수의 상자 그래프를 그릴려면 다음 문법을 사용한다.</p>
 <pre><code>ggplot(데이터, aes(x = 범주형변수, y = 수치형변수)) + geom_boxplot()</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점 변수를 성별로 나누어 상자 그래프를 그린 예이다.</p>
-<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="ch-categorical-numeric.html#cb814-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
-<span id="cb814-2"><a href="ch-categorical-numeric.html#cb814-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="ch-categorical-numeric.html#cb817-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
+<span id="cb817-2"><a href="ch-categorical-numeric.html#cb817-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-12-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><a href="ch-numericDescStat.html#subsubsec:boxplot">8.1.2.4</a> 절의 그림 <a href="ch-numericDescStat.html#fig:boxplot-desc">8.1</a>에서 설명한 바와 같이 상자 그래프는 다음과 같은 정보를 나타낸다.</p>
+<p><a href="ch-numericDescStat.html#subsubsec-boxplot">8.1.2.4</a> 절의 그림 <a href="ch-numericDescStat.html#fig:boxplot-desc">8.1</a>에서 설명한 바와 같이 상자 그래프는 다음과 같은 정보를 나타낸다.</p>
 <ul>
 <li>상자의 상단이 3분위수, 하단이 1분위수, 상자의 가운데 있는 줄이 중위수를 나타낸다. 따라서 상자의 길이가 IQR을 나타낸다.<br />
 </li>
@@ -635,105 +634,109 @@ Residuals    40 5385.3  134.63               </code></pre>
 <li>상자에서 <span class="math inline">\(1.5 \times IQR\)</span>보다 더 떨어진 관측값은 수치 변수가 정규분포를 따른다고 가정할 때 매우 예외적인 값이다. 이러한 값은 별도의 점으로 나타낸다.</li>
 </ul>
 </div>
-<div id="중위수의-신뢰구간을-표시하기" class="section level4 unnumbered">
-<h4>중위수의 신뢰구간을 표시하기</h4>
+<div id="중위수의-신뢰구간을-표시하기" class="section level4 unnumbered hasAnchor">
+<h4>중위수의 신뢰구간을 표시하기<a href="ch-categorical-numeric.html#중위수의-신뢰구간을-표시하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>상자 그래프는 사분위수를 나타내 주므로 분포가 대칭인지 아닌지도 확인할 수 있다. 분포가 대칭이면 상자의 중심선으로부터 위와 아래가 대칭적인 길이로 표현된다.</p>
 <p><code>geom_boxplot()</code> 함수 <code>notch = TRUE</code>로 설정하면 중위수의 95% 신뢰구간을 표시한다.
 분반별 총점 분포를 상자그림으로 비교해 보면 분포가 대체로 대칭적이고 중위수의 신뢰구간이 겹쳐 있음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="ch-categorical-numeric.html#cb815-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="ch-categorical-numeric.html#cb818-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-13-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="두-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="section level4 unnumbered">
-<h4>두 범주형 변수에 대해 수치형 변수의 상자 그래프 그리기</h4>
+<div id="두-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="section level4 unnumbered hasAnchor">
+<h4>두 범주형 변수에 대해 수치형 변수의 상자 그래프 그리기<a href="ch-categorical-numeric.html#두-범주형-변수에-대해-수치형-변수의-상자-그래프-그리기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>두 범주형 변수의 범주 조합에 대해 수치형 변수의 분포를 그리고 싶으면 다음처럼 상자의 채우기 속성(<code>fill</code>)을 또 다른 범주형 변수로 지정을 하면 된다.</p>
 <pre><code>ggplot(데이터, aes(x = 범주형변수1, y = 수치형변수, fill = 범주형변수2)) + 
   geom_boxplot()</code></pre>
 <p>그러면 <code>fill</code>로 매핑한 범주형 변수 값에 따라 다른 채우기 색상으로 상자 그래프가 나란히 표시된다. 다음은 <code>course</code> 데이터의 총점 변수의 상자 그래프를 분반-성별 범주 조합에 따라 상자 그래프를 그린 예이다. 분반별로 성별 총점의 중위수는 차이를 보이지만 신뢰구간의 많은 부분이 겹쳐져 있어서 통계적으로 유의미한 차이로 보이지 않는다.</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="ch-categorical-numeric.html#cb817-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> score, <span class="at">fill=</span>gender)) <span class="sc">+</span> </span>
-<span id="cb817-2"><a href="ch-categorical-numeric.html#cb817-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<pre><code>notch went outside hinges. Try setting notch=FALSE.
-notch went outside hinges. Try setting notch=FALSE.</code></pre>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="ch-categorical-numeric.html#cb820-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> score, <span class="at">fill=</span>gender)) <span class="sc">+</span> </span>
+<span id="cb820-2"><a href="ch-categorical-numeric.html#cb820-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>Notch went outside hinges
+ℹ Do you want `notch = FALSE`?
+Notch went outside hinges
+ℹ Do you want `notch = FALSE`?</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-14-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="두-변수의-관계를-살펴볼-때의-주의할-점---혼동-효과" class="section level4 unnumbered">
-<h4>두 변수의 관계를 살펴볼 때의 주의할 점 - 혼동 효과</h4>
+<div id="두-변수의-관계를-살펴볼-때의-주의할-점---혼동-효과" class="section level4 unnumbered hasAnchor">
+<h4>두 변수의 관계를 살펴볼 때의 주의할 점 - 혼동 효과<a href="ch-categorical-numeric.html#두-변수의-관계를-살펴볼-때의-주의할-점---혼동-효과" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>다음은 다이아몬드의 투명도에 따라 가격의 분포가 어떻게 달라지는지를 상자 그래프로 그린 예이다. 주목할 점은 다이아몬드의 투명도가 올라갈수록 다이몬드 가격이 오히려 내려가는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="ch-categorical-numeric.html#cb819-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> price)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="ch-categorical-numeric.html#cb822-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> price)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-15-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>위의 상자 그래프가 보여주는 데이터 경향은 다이아몬드 투명도가 좋아질수록 가격이 오를거라는 직관에 부합되지 않는다. 그렇다면 이러한 경향이 나타나는 이유는 무엇일까? 두 변수만으로 상관성을 분석할 때 주의해야 할 것은 두 변수를 제외한 제 삼의 변수에 의한 혼동 효과(confounding effects)이다. 혼동 효과란 두 변수는 사실 상관성이 없는데, 다른 제 삼의 변수의 영향으로 그래프나 통계량에 마치 두 변수에 상관성이 있는 것처럼 나타나는 효과를 의미한다. 또는 오히려 반대 방향의 상관성이 있는 것처럼 나타나기도 한다.</p>
 <p>위의 상자 그래프에서 투명도에 따라 오히려 가격이 하락하는 경향이 나타난 이유는 제 삼의 변수인 다이아몬드 중량(<code>carat</code>)에 의한 혼동 효과가 있기 때문이다. 다이아몬드 가격은 중량에 크게 영향을 받는다. 그런데 투명도가 큰 다이아몬드들은 대부분 중량이 작았기 때문에 투명도보다 가격에 더 큰 영향을 미치는 중량이라는 변수 때문에 마치 투명도가 높으면 가격이 낮은 것처럼 혼동되는 효과를 보인 것인다. 다음처럼 다이아몬드 중량과 투명도의 관계에 대한 상자 그래프를 그려보면 투명도가 높은 다이아몬드는 중량이 낮게 분포되어 있음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="ch-categorical-numeric.html#cb820-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> carat)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="ch-categorical-numeric.html#cb823-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, <span class="at">y =</span> carat)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-16-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>따라서 두 변수만의 나타난 관계로 두 변수의 상관성을 속단해서는 안된다. 만약 직관에 부합되지 않는 경향이 보인다면 왜 그런 경향을 보이는지, 혼동 효과가 있는 것은 아닌지에 대한 후속 분석이 필요하다.</p>
 <p>그러면 다이아몬드 가격에서 중량의 혼동 효과를 빼고 투명도가 가격에 미치는 영향만 확인해 보려면 어떻게 해야 할까? 다음처럼 가격을 중량에 회귀 분석한 후 남은 잔차를 대상으로 상자 그래프를 그려보면 된다. 그러면 가격 변수에서 중량 변수가 설명한 부분을 제외한 가격의 변동성이 잔차로 남게 되고, 이 변동성이 투명도와 상관성이 있는지 확인할 수 있다.</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="ch-categorical-numeric.html#cb821-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lmfit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(carat), <span class="at">data =</span> diamonds)</span>
-<span id="cb821-2"><a href="ch-categorical-numeric.html#cb821-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, lmfit<span class="sc">$</span>residuals)) <span class="sc">+</span> </span>
-<span id="cb821-3"><a href="ch-categorical-numeric.html#cb821-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb824-1"><a href="ch-categorical-numeric.html#cb824-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lmfit <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(carat), <span class="at">data =</span> diamonds)</span>
+<span id="cb824-2"><a href="ch-categorical-numeric.html#cb824-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> clarity, lmfit<span class="sc">$</span>residuals)) <span class="sc">+</span> </span>
+<span id="cb824-3"><a href="ch-categorical-numeric.html#cb824-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> T)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-17-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="범주별로-수치형-변수의-분포-모양을-비교하기" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> 범주별로 수치형 변수의 분포 모양을 비교하기</h3>
+<div id="범주별로-수치형-변수의-분포-모양을-비교하기" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> 범주별로 수치형 변수의 분포 모양을 비교하기<a href="ch-categorical-numeric.html#범주별로-수치형-변수의-분포-모양을-비교하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>상자 그래프는 사분위수와 이상치의 유무를 범주별로 쉽게 비교할 수 있는 장점이 있지만 수치형 변수의 자세한 분포를 확인하는데는 한계를 가진다. 범주별로 자세한 분포를 확인할 때는 여러 가지 그래프를 사용할 수 있다. 각각의 그래프는 자신만의 장단점이 존재한다. 그러므로 데이터에 따라, 분석가가 분석하고자 하는 목적에 따라서 다음에 설명하는 그래프 중 일부를 취사선택하여 사용한다.</p>
-<div id="바이올린-차트로-비교하기" class="section level4 unnumbered">
-<h4>바이올린 차트로 비교하기</h4>
+<div id="바이올린-차트로-비교하기" class="section level4 unnumbered hasAnchor">
+<h4>바이올린 차트로 비교하기<a href="ch-categorical-numeric.html#바이올린-차트로-비교하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>상자 그림과 비슷한데 범주별 수치형 변수의 확률 밀도를 보여주기 때문에 분포의 차이를 좀 더 자세히 확인할 수 있다. 바이올린 차트를 그리는 문법은 상자 그래프와 동일한데 <code>geom_boxplot()</code> 함수 대신 <code>geom_violine()</code> 함수를 사용하는 점만 다르다.</p>
 <p>다음은 <code>course</code> 데이터에서 총점의 성별 차이를 바이올린 차트로 표현한 예이다. 여학생의 점수가 좀더 평평한 형태로 분포되어 있는 것을 확인할 수 있다. 그리고 여학생의 총점 분포에 두 개의 봉우리가 보인다.</p>
-<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb822-1"><a href="ch-categorical-numeric.html#cb822-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="ch-categorical-numeric.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-18-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>앞의 그래프에 분반 변수를 추가하여 성별-분반별 총점 분포를 더 자세히 살펴보자. 남학생의 분포는 예외적으로 점수가 낮은 학생을 제외하면 1, 2 분반이 비슷한 반면 여학생은 1분반과 2분반의 봉우리가 서로 달라서 여학생 전체 분포에 두 개 이상의 봉우리를 만들었음을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="ch-categorical-numeric.html#cb823-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score, <span class="at">fill =</span> class)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="ch-categorical-numeric.html#cb826-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> score, <span class="at">fill =</span> class)) <span class="sc">+</span> <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-19-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="히스토그램으로-비교하기" class="section level4 unnumbered">
-<h4>히스토그램으로 비교하기</h4>
+<div id="히스토그램으로-비교하기" class="section level4 unnumbered hasAnchor">
+<h4>히스토그램으로 비교하기<a href="ch-categorical-numeric.html#히스토그램으로-비교하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>범주별 수치 변수의 분포의 차이는 히스토그램으로도 확인해 볼 수 있다. 범주형 변수에 따라 측면으로 나누어 히스토그램을 그리는 문법은 다음과 같다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수)) + geom_histrogram() +
   facet_wrap(~ 범주형변수)</code></pre>
 <p>다음은 성별로 총점의 히스토그램을 측면으로 나누어 그래프를 그린 예이다.</p>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="ch-categorical-numeric.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span> </span>
-<span id="cb825-2"><a href="ch-categorical-numeric.html#cb825-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> gender)</span></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="ch-categorical-numeric.html#cb828-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span> </span>
+<span id="cb828-2"><a href="ch-categorical-numeric.html#cb828-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> gender)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-20-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>그런데 이렇게 측면으로 나누어 그리면 분포의 차이를 비교하기가 어려울 수 있다.
 만약 두 히스토그램을 한 그래프에 겹쳐 그려서 범주별 차이를 비교하고자 한다면, <code>geom_histogram()</code>의 채우기 색상(<code>fill</code>)에 범주형 변수를 매핑한 후 position<code>인수를</code>“dodge”`로 설정하면 된다. 그런데 범주별로 절대 빈도수가 서로 다르므로 비교하기 어렵기 때문에 히스토그램을 확률밀도 형태로 그리는 것이 좋다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수, y = ..density, fill = 범주형변수)) +
   geom_histrogram() </code></pre>
 <p>다음은 성별 차이를 보기 위해서 확률 밀도로 총점의 히스토그램을 겹쳐 표현한 예이다.</p>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="ch-categorical-numeric.html#cb827-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">y =</span> ..density.., <span class="at">fill =</span> gender)) <span class="sc">+</span> </span>
-<span id="cb827-2"><a href="ch-categorical-numeric.html#cb827-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="ch-categorical-numeric.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score, <span class="at">y =</span> ..density.., <span class="at">fill =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb830-2"><a href="ch-categorical-numeric.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>, <span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>Warning: The dot-dot notation (`..density..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(density)` instead.</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-21-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="freqpoly-그래프로-비교하기" class="section level4 unnumbered">
-<h4>Freqpoly 그래프로 비교하기</h4>
+<div id="freqpoly-그래프로-비교하기" class="section level4 unnumbered hasAnchor">
+<h4>Freqpoly 그래프로 비교하기<a href="ch-categorical-numeric.html#freqpoly-그래프로-비교하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>그런데, 히스토그램을 겹쳐 그리면 범주별로 분포를 보기가 조금 어렵다. 이런 경우 freqpoly 그래프를 그리는 것이 분포를 겹쳐서 살펴보기 좋다. freqpoly 그래프는 히스토그램과 같은 문법으로 데이터를 그래프로 표현하는데 다른 점은 막대가 아니라 선으로 분포를 표현한다는 것이다. 그렇기 때문에 범주형 변수를 <code>fill</code> 속성이 아니라 선의 색상인 <code>color</code>에 매핑을 한다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수, y = ..density, color = 범주형변수)) +
   geom_freqpoly() </code></pre>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="ch-categorical-numeric.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, ..density.., <span class="at">color =</span> gender)) <span class="sc">+</span> </span>
-<span id="cb829-2"><a href="ch-categorical-numeric.html#cb829-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_freqpoly</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="ch-categorical-numeric.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, ..density.., <span class="at">color =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb833-2"><a href="ch-categorical-numeric.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_freqpoly</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-22-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>다음은 앞의 그래프를 분반 변수를 기준으로 측면으로 나누어 Freqpoly 그래프를 그려본 것이다. 2분반은 남여의 분포의 위치가 비슷한 곳에 있는데 1분반은 여학생의 점수 분포가 남학생의 분포보다 조금은 아래에 있음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb830-1"><a href="ch-categorical-numeric.html#cb830-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, ..density.., <span class="at">color =</span> gender)) <span class="sc">+</span> </span>
-<span id="cb830-2"><a href="ch-categorical-numeric.html#cb830-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_freqpoly</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span> </span>
-<span id="cb830-3"><a href="ch-categorical-numeric.html#cb830-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> class)</span></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="ch-categorical-numeric.html#cb834-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, ..density.., <span class="at">color =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb834-2"><a href="ch-categorical-numeric.html#cb834-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_freqpoly</span>(<span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span> </span>
+<span id="cb834-3"><a href="ch-categorical-numeric.html#cb834-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> class)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-23-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="확률-밀도-그래프-1" class="section level4 unnumbered">
-<h4>확률 밀도 그래프</h4>
+<div id="확률-밀도-그래프-1" class="section level4 unnumbered hasAnchor">
+<h4>확률 밀도 그래프<a href="ch-categorical-numeric.html#확률-밀도-그래프-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>히스토그램과 freqpoly()는 실제 관측치로 데이터를 확인할 수 있는 장점이 있지만 어떻게 구간을 나눌지에 따라 모양이 크게 변한다. 따라서 확률 밀도 함수를 추정하여 밀도 함수에 대해 그래프를 그려보는 것이 범주별 차이를 파악하기 쉬울 수 있다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수, color = 범주형변수, linetype = 범주형변수)) +
   geom_density() </code></pre>
 <p>다음은 앞서 그린 분반을 기준으로 측면으로 나누어 성별로 총점에 대해 Freqpoly 그래프를 확률 밀도 그래프로 다시 그린 예이다. 남학생의 분포는 분반별 차이가 크지 않은데 여학생은 1분반은 왼쪽으로, 2분반은 오른쪽으로 분포가 치우쳐 있음을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb832-1"><a href="ch-categorical-numeric.html#cb832-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, <span class="at">color =</span> gender, <span class="at">linetype =</span> gender)) <span class="sc">+</span> </span>
-<span id="cb832-2"><a href="ch-categorical-numeric.html#cb832-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span> </span>
-<span id="cb832-3"><a href="ch-categorical-numeric.html#cb832-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> class)</span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="ch-categorical-numeric.html#cb836-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score, <span class="at">color =</span> gender, <span class="at">linetype =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb836-2"><a href="ch-categorical-numeric.html#cb836-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span> </span>
+<span id="cb836-3"><a href="ch-categorical-numeric.html#cb836-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> class)</span></code></pre></div>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-24-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="산점도로-범주형-변수와-수치형-변수의-상관성-분석하기" class="section level4 unnumbered">
-<h4>산점도로 범주형 변수와 수치형 변수의 상관성 분석하기*</h4>
+<div id="산점도로-범주형-변수와-수치형-변수의-상관성-분석하기" class="section level4 unnumbered hasAnchor">
+<h4>산점도로 범주형 변수와 수치형 변수의 상관성 분석하기*<a href="ch-categorical-numeric.html#산점도로-범주형-변수와-수치형-변수의-상관성-분석하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>산점도는 두 수치형 변수의 관계를 나타낼 때 주로 사용되지만 범주형 변수의 범주가 2개일 때는 범주형 변수와 수치형 변수의 관계를 살펴보기 위해서도 사용될 수 있다.</p>
 <p>댜음은 <code>ISLR</code> 패키지의 <code>default</code> 데이터이다. <code>bizstatp</code> 패키지를 설치하였다면 이미 설치가 되어 있을 것이다.</p>
-<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="ch-categorical-numeric.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ISLR)</span>
-<span id="cb833-2"><a href="ch-categorical-numeric.html#cb833-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(Default)</span></code></pre></div>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="ch-categorical-numeric.html#cb837-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ISLR)</span>
+<span id="cb837-2"><a href="ch-categorical-numeric.html#cb837-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(Default)</span></code></pre></div>
 <pre><code>  default student   balance    income
 1      No      No  729.5265 44361.625
 2      No     Yes  817.1804 12106.135
@@ -742,16 +745,16 @@ notch went outside hinges. Try setting notch=FALSE.</code></pre>
 5      No      No  785.6559 38463.496
 6      No     Yes  919.5885  7491.559</code></pre>
 <p>다음은 신용 잔고(<code>balance</code>)에 따른 채무불이행(<code>default</code>)을 산점도로 표시한 것이다. 채무불이행이 범주형 변수여서 동일한 위치에 데이터가 중복되어서 찍히는 것을 방지하기 위해서 <code>geom_jitter()</code>를 사용하여 데이터를 위아래로 0.2 범위 정도로 임의로 흩뿌렸다. 그리고 <code>geom_smooth()</code> 함수로 로지스틱 회귀 적합선을 그렸다. 신용 잔고가 1,500 달러보다 올라가면 채무 불이행의 확률이 크게 증가함을 볼 수 있다.</p>
-<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="ch-categorical-numeric.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(ISLR<span class="sc">::</span>Default, <span class="fu">aes</span>(balance, <span class="fu">as.numeric</span>(default) <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb835-2"><a href="ch-categorical-numeric.html#cb835-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb835-3"><a href="ch-categorical-numeric.html#cb835-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
-<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="ch-categorical-numeric.html#cb839-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(ISLR<span class="sc">::</span>Default, <span class="fu">aes</span>(balance, <span class="fu">as.numeric</span>(default) <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb839-2"><a href="ch-categorical-numeric.html#cb839-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb839-3"><a href="ch-categorical-numeric.html#cb839-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
+<pre><code>`geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-26-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>다음은 학생 여부에 따라 신용잔고가 채무불이행에 어떤 영향을 주는지를 살펴본 그래프이다. 학생이 아닌 경우에 신용 잔고 상승이 채무불이행을 초래할 확률을 더 높이는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="ch-categorical-numeric.html#cb837-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(ISLR<span class="sc">::</span>Default, <span class="fu">aes</span>(balance, <span class="fu">as.numeric</span>(default) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">color =</span> student)) <span class="sc">+</span> </span>
-<span id="cb837-2"><a href="ch-categorical-numeric.html#cb837-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
-<span id="cb837-3"><a href="ch-categorical-numeric.html#cb837-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
-<pre><code>`geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="ch-categorical-numeric.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(ISLR<span class="sc">::</span>Default, <span class="fu">aes</span>(balance, <span class="fu">as.numeric</span>(default) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">color =</span> student)) <span class="sc">+</span> </span>
+<span id="cb841-2"><a href="ch-categorical-numeric.html#cb841-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_jitter</span>(<span class="at">height =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb841-3"><a href="ch-categorical-numeric.html#cb841-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;glm&quot;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>))</span></code></pre></div>
+<pre><code>`geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="descriptiveStat-cat-num_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /></p>
 
 </div>
@@ -772,7 +775,6 @@ notch went outside hinges. Try setting notch=FALSE.</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -812,6 +814,10 @@ gitbook.start({
 "text": null
 },
 "download": ["bizStatistics.pdf", "bizStatistics.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
@@ -825,7 +831,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
