@@ -35,6 +35,7 @@ exm:goodness-course
 exm:independence-Arthritis
 exm:independence-course
 fig:categorical-test
+fig:num-test
 exm:t-test1
 exm:t-test2
 exm:t-test3

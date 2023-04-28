@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="경영통계분석실습의 교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 수치형 변수에 대한 가설검정 | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-04-06" />
+<meta name="date" content="2023-04-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
 <script>
@@ -457,7 +459,14 @@ div.csl-indent {
 그러므로 수치형 변수에 대한 가설검정을 수행하기 앞서 수치형 변수가 정규분포를 따르는지에 대해 검토해 보아야 한다.
 수치형 변수의 정규성을 검토하는 방법은 <a href="ch-numericDescStat.html#subsubsec-qqplot">8.1.2.3</a> 절에서 설명한 Q-Q 그림을 그려보는 것과 <code>shapiro.test()</code>를 이용하여 정규성을 만족하는지에 대해 가설검정을 하는 것이 있다.
 만약 수치형 변수가 정규성을 만족하지 않으면 분포를 가정하지 않는 비모수적 방법으로 가설검정을 수행하여야 한다.
-본 장에서는 다양한 가설검정 상황에서 수치형 변수가 정규분포를 따른다는 가정하고 모수적으로 가설검정하는 방법만을 다루도록 한다.</p>
+Figure @(fig:num-test)는 수치형 변수에 대한 가설검정의 종류와 관련된 가설검정 방법을 요약하여 보여준다.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:num-test"></span>
+<img src="img/num-test.png" alt="수치형 변수에 대한 가설검정" width="100%" />
+<p class="caption">
+Figure 12.1: 수치형 변수에 대한 가설검정
+</p>
+</div>
+<p>본 장에서는 다양한 가설검정 상황에서 수치형 변수가 정규분포를 따른다는 가정하고 모수적으로 가설검정하는 방법을 주로 다루도록 한다.</p>
 <div id="단일-모집단에서의-모평균에-대한-검정" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> 단일 모집단에서의 모평균에 대한 검정<a href="ch-numericTest.html#단일-모집단에서의-모평균에-대한-검정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>단일 모집단의 모평균 <span class="math inline">\(\mu\)</span>에 대한 검정은 모집단의 분포가 평균 <span class="math inline">\(\mu\)</span>와 분산 <span class="math inline">\(\sigma^2\)</span>를 갖는 정규분포 <span class="math inline">\(N(\mu, \sigma^2)\)</span>을 따른다고 가정한다. 모집단에 추출한 <span class="math inline">\(n\)</span> 개의 데이터로 이루어진 표본을 <span class="math inline">\((x_1, x_2, \ldots, x_n)\)</span>이라고 하자.
@@ -543,7 +552,10 @@ H_1: &amp; \quad \mu &gt; 142
 
 data:  x
 W = 0.95489, p-value = 0.7603</code></pre>
-<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.</p>
+<p><code>shapiro.test()</code>로 분포의 정규성에 대하여 가설검정을 한 결과 p-값이 크게 나왔으므로 분포가 정규분포를 따른다는 귀무가설을 채택한다.
+그런데 Shapiro 검정을 할 때 주의할 점은 Shapiro 검정은 표본의 크기 <span class="math inline">\(n\)</span>이 커질수록 p-값이 작아지는 경향이 있다. 그래서 <span class="math inline">\(n\)</span>이 작을 때는 정규분포와의 차이에 대해서 둔감해지고, <span class="math inline">\(n\)</span>이 커지면 민감해지는 경향이 있다.
+그러므로 표본의 크기가 커지면 Shapiro 검정에서 p-값이 어느 정도 크게 나오더라도 정규성을 기각하는 데에는 신중하여야 한다.
+그리고 표본이 매우 커지면 중심극한정리에 의해 표본의 평균은 정규분포에 가까워지고, <span class="math inline">\(T\)</span> 검정통계량도 표준정규분포에 근접하므로, 정규성 검정에 너무 연연하지 않아도 된다.</p>
 <p>분포의 정규성을 가정할 수 있으므로 <code>t.test()</code>을 사용하여 모평균에 대하여 가설검정을 하면 다음과 같은 결과를 얻는다.</p>
 <div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb970-1"><a href="ch-numericTest.html#cb970-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">t.test</span>(x, <span class="at">mu =</span> <span class="dv">142</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>
@@ -562,6 +574,102 @@ mean of x
 <li>표본 평균 <span class="math inline">\(\bar{x}\)</span>는 143.3125이다.</li>
 <li>p-값은 0.3195181로 유의수준 0.05에서 귀무가설을 채택한다. (대립가설을 기각한다.)</li>
 </ul>
+<p>표본이 귀무가설의 모평균 값에 얼만큼 차이가 나야지 귀무가설을 기각하는지를 살펴보기 위하여 Example <a href="ch-numericTest.html#exm:t-test1">12.1</a>의 표본 데이터와 표본 평균을 가지고 귀무가설의 <span class="math inline">\(\mu\)</span>를 다양한 값으로 변화시키며 가설검정을 수행해 보자.
+아래 그래프는 표본 데이터와 표본의 평균을 그래프에 표시하고, 가설검정을 수행할 귀무가설의 모평균의 다양한 값을 그래프에 표시한 것이다.
+점은 표본의 데이터를, 실선의 수직선은 표본의 평균 <span class="math inline">\(\bar{X}\)</span>를, 실선의 수평선은 표준 오차 <span class="math inline">\(S/\sqrt{n}\)</span>을, 파선의 수직선은 가설검정을 수행할 귀무가설의 모평균 <span class="math inline">\(\mu\)</span> 값을 보여준다.</p>
+<p><img src="hypothesisTest-numeric_files/figure-html/unnamed-chunk-5-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>앞의 가설검정에서 <span class="math inline">\(\mu=142\)</span>의 귀무가설은 채택되었다.
+다음 표는 나머지 <span class="math inline">\(\mu\)</span>에 대해서도 동일한 가설검정을 수행해본 결과이다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+mu
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+p.value
+</th>
+<th style="text-align:left;">
+decision
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+142
+</td>
+<td style="text-align:right;">
+0.4901201
+</td>
+<td style="text-align:right;">
+0.3195181
+</td>
+<td style="text-align:left;">
+채택
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+1.2369699
+</td>
+<td style="text-align:right;">
+0.1279918
+</td>
+<td style="text-align:left;">
+채택
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+1.9838196
+</td>
+<td style="text-align:right;">
+0.0438433
+</td>
+<td style="text-align:left;">
+기각
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+2.7306694
+</td>
+<td style="text-align:right;">
+0.0146552
+</td>
+<td style="text-align:left;">
+기각
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+3.4775191
+</td>
+<td style="text-align:right;">
+0.0051504
+</td>
+<td style="text-align:left;">
+기각
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="두-모집단에서의-모평균-차이에-대한-검정" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> 두 모집단에서의 모평균 차이에 대한 검정<a href="ch-numericTest.html#두-모집단에서의-모평균-차이에-대한-검정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -1131,7 +1239,7 @@ W = 0.92743, p-value = 0.06732</code></pre>
 84.8 84.3 </code></pre>
 <div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="ch-numericTest.html#cb1028-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course_omitted, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> hw)) <span class="sc">+</span> </span>
 <span id="cb1028-2"><a href="ch-numericTest.html#cb1028-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="hypothesisTest-numeric_files/figure-html/unnamed-chunk-27-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="hypothesisTest-numeric_files/figure-html/unnamed-chunk-29-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>두 모집단의 중위수의 동일성에 대하여 가설검정을 하려면 <code>stat</code> 패키지의 <code>wilcox.test()</code> 함수를 사용한다. 이 함수의 인수는 <code>t.test()</code>와 거의 동일하다.</p>
 <div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="ch-numericTest.html#cb1029-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">wilcox.test</span>(hw <span class="sc">~</span> gender, <span class="at">data =</span> course_omitted, </span>
 <span id="cb1029-2"><a href="ch-numericTest.html#cb1029-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>             <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
