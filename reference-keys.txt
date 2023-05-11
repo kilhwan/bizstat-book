@@ -43,6 +43,8 @@ exm:t-test-course
 exm:paired-t-test1
 exm:paired-t-test-course
 exm:hw-test-course
+fig:unnamed-chunk-2
+fig:unnamed-chunk-3
 exm:aov-course
 exm:aov-cholesterol
 exm:aov-toothgrowth
@@ -234,3 +236,4 @@ aov-함수
 교호작용이-없는-이원분류-분산-분석
 교호작용이-있는-이원분류-분산-분석
 공분산-분석
+분산분석의-가정이-위배될-때
