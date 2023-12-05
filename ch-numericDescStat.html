@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-05-11" />
+<meta name="date" content="2023-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1418,7 +1418,7 @@ sample estimates:
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-81-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="ch-numericDescStat.html#cb761-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(diamonds_sample<span class="sc">$</span>carat, diamonds_sample<span class="sc">$</span>price)</span></code></pre></div>
-<pre><code>[1] 0.9209211</code></pre>
+<pre><code>[1] 0.9253496</code></pre>
 <p>두 변수 모두 로그 변환을 하여 산점도를 다시 그려보자. 마지막 몇 데이터를 제외하고는 중량과 가격은 거의 선형에 가까운 관계를 보인다. 이는 로그 변환 후에 상관계수를 구해보면 확실히 알 수 있다. 따라서 다이아몬드의 가격은 중량에 의해 많은 부분을 설명하고 예측할 수 있을 것이라는 것을 예상할 수 있다.</p>
 <div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="ch-numericDescStat.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
 <span id="cb763-2"><a href="ch-numericDescStat.html#cb763-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
@@ -1426,7 +1426,7 @@ sample estimates:
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-82-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="ch-numericDescStat.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>carat), <span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>price))</span></code></pre></div>
-<pre><code>[1] 0.9656863</code></pre>
+<pre><code>[1] 0.965769</code></pre>
 </div>
 <div id="subsubsec-categorynum" class="section level3 hasAnchor" number="8.2.6">
 <h3><span class="header-section-number">8.2.6</span> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색<a href="ch-numericDescStat.html#subsubsec-categorynum" class="anchor-section" aria-label="Anchor link to header"></a></h3>

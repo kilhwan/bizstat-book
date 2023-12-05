@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-05-11" />
+<meta name="date" content="2023-12-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -593,9 +593,11 @@ H_0: &amp; \quad \mu_2 = \mu_3 = \mu_4 \\
 2    3 75.40667
 3    4 80.25000</code></pre>
 <p>이 정도의 학년별 평균의 차이가 학년별 학업 성취의 뚜렷한 차이를 의미하는지 가설검정해 보자.
-다음은 각 학년의 최종점수가 동일한 분산의 정규분포를 따른다는 가정 하에 <code>aov()</code>을 사용하여 분산 분석을 수행한 결과이다. <code>aov()</code> 함수는 기본적으로 요인과 잔차에 대한 제곱합과 자유도만 출력한다.</p>
-<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="ch-anova.html#cb1036-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted)</span>
-<span id="cb1036-2"><a href="ch-anova.html#cb1036-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result</span></code></pre></div>
+다음은 각 학년의 최종점수가 동일한 분산의 정규분포를 따른다는 가정 하에 <code>aov()</code>을 사용하여 분산 분석을 수행한 결과이다. <code>aov()</code> 함수는 기본적으로 요인과 잔차에 대한 제곱합과 자유도만 출력한다.
+현재 year 열이 순서형 범주로 코딩되어 있어서 명목형 범주로 변환하여 ANOVA 분석을 수행하였다.</p>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="ch-anova.html#cb1036-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">factor</span>(course_omitted<span class="sc">$</span>year, <span class="at">ordered=</span>F)</span>
+<span id="cb1036-2"><a href="ch-anova.html#cb1036-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result <span class="ot">&lt;-</span> <span class="fu">aov</span>(score <span class="sc">~</span> year, <span class="at">data =</span> course_omitted)</span>
+<span id="cb1036-3"><a href="ch-anova.html#cb1036-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result</span></code></pre></div>
 <pre><code>Call:
    aov(formula = score ~ year, data = course_omitted)
 
@@ -622,10 +624,10 @@ Residuals 41 5552.5  135.43               </code></pre>
 즉, 학년별 성적의 차이가 있었다는 통계적 증거는 찾지 못하였다.</p>
 <p>아울러 <code>aov()</code> 함수의 결과는 여러 하위 요소를 가지고 있다. 이 요소 중 <code>coefficients</code>를 확인하면 각 수준별 평균을 확인할 수 있다.</p>
 <div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1042-1"><a href="ch-anova.html#cb1042-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result<span class="sc">$</span>coefficients</span></code></pre></div>
-<pre><code>(Intercept)      year.L      year.Q 
- 75.7014931   6.2240865   0.3610871 </code></pre>
+<pre><code>(Intercept)       year3       year4 
+  71.447813    3.958854    8.802188 </code></pre>
 <p><code>(Intercept)</code>라고 표현한 항이 <code>year</code> 열의 기준이 되는 첫번째 수준의 평균이다. 현재 2학년이 첫번째 수준으로 정의되어 있으므로 2학년의 최종점수의 평균이다.<br />
-<code>year3</code>과 <code>year4</code>는 기준이 되는 2학년 평균에서 3학년과 4학년 학생의 평균의 차이를 나타낸다. 따라서 3학년과 4학년 학생의 평균은 각각 81.9255795와 76.0625802이다.</p>
+<code>year3</code>과 <code>year4</code>는 기준이 되는 2학년 평균에서 3학년과 4학년 학생의 평균의 차이를 나타낸다. 따라서 3학년과 4학년 학생의 평균은 각각 75.4066667와 80.25이다.</p>
 <p>전체 평균에서 각 수준의 평균의 차이 <span class="math inline">\(\alpha_i\)</span>를 확인하려면 <code>model.tables()</code> 함수를 사용한다. 각 수준의 평균과 전체 평균의 차이와 아울러 데이터의 수가 몇개 였는지를 알려준다.</p>
 <div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="ch-anova.html#cb1044-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">model.tables</span>(result)</span></code></pre></div>
 <pre><code>Tables of effects
@@ -755,7 +757,7 @@ Fit: aov(formula = response ~ trt, data = cholesterol)
 
 Linear Hypotheses:
                     Estimate Std. Error t value Pr(&gt;|t|)    
-2times - 1time == 0    3.443      1.443   2.385   0.0701 .  
+2times - 1time == 0    3.443      1.443   2.385   0.0699 .  
 4times - 1time == 0    6.593      1.443   4.568   &lt;0.001 ***
 drugD - 1time == 0     9.579      1.443   6.637   &lt;0.001 ***
 drugE - 1time == 0    15.166      1.443  10.507   &lt;0.001 ***
@@ -906,7 +908,8 @@ Bartlett&#39;s K-squared = 6.9273, df = 5, p-value = 0.2261</code></pre>
 <div class="example">
 <p><span id="exm:ancova-diamonds" class="example"><strong>Example 13.5  </strong></span><code>ggplot2</code> 패키지의 <code>diamonds</code> 데이터에서 로그 변환한 다이아몬드 가격(price)에 대한 다이아몬드 투명도(clarity)의 효과를 검정하려고 한다. 로그 변환된 다이아몬드 중량(carat)의 효과를 제외했을 때, 다이아몬드 투명도가 다이아몬드 로그 가격에 영향을 미치는지 유의수준 5%에서 가설검정하시오.</p>
 </div>
-<p><a href="ch-numericDescStat.html#subsubsec-categorynum">8.2.6</a> 절에서 다이아몬드의 가격이 중량에 영향을 많이 받기 때문에 투명도의 효과를 정확하게 확인하기 어려웠다. 공분산 분석을 하면 수치형 변수의 영향력을 제외하고 범주형 변수의 효과를 살펴볼 수 있다.</p>
+<p><a href="ch-numericDescStat.html#subsubsec-categorynum">8.2.6</a> 절에서 다이아몬드의 가격이 중량에 영향을 많이 받기 때문에 투명도의 효과를 정확하게 확인하기 어려웠다.
+공분산 분석을 하면 수치형 변수의 영향력을 제외하고 범주형 변수의 효과를 살펴볼 수 있다.</p>
 <div class="sourceCode" id="cb1094"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1094-1"><a href="ch-anova.html#cb1094-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> result <span class="ot">&lt;-</span> <span class="fu">aov</span>(<span class="fu">log</span>(price) <span class="sc">~</span> <span class="fu">log</span>(carat) <span class="sc">+</span> clarity, <span class="at">data =</span> diamonds)</span>
 <span id="cb1094-2"><a href="ch-anova.html#cb1094-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">anova</span>(result)</span></code></pre></div>
 <pre><code>Analysis of Variance Table
