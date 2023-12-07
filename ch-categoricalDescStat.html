@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-12-06" />
+<meta name="date" content="2023-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -308,7 +308,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#sec-bizstatp"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
@@ -456,7 +456,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ch-categoricalDescStat" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> 범주형 변수에 대한 R 기술통계<a href="ch-categoricalDescStat.html#ch-categoricalDescStat" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><a href="ch-statisics.html#sec-statVariables">1.4</a> 절에서 살펴보았듯이 범주형 변수는 관측대상이 속하는 범주를 나타내는 데이터이다. <code>bizstatp</code> 패키지에 있는 <code>course</code> 데이터의 전공(<code>major</code>), 학년(<code>year</code>), 성별(<code>gender</code>), 분반(<code>class</code>) 열이 범주형 변수이다. 이런 변수들은 한 학생이 어떤 범주에 포함되는지를 나타낸다. 예를 들어 course 데이터의 첫 행을 보면 이 학생은 비 ME 전공, 4학년, 남성(M), 1분반의 범주에 속함을 알 수 있다.</p>
+<p><a href="ch-statisics.html#sec-statVariables">1.4</a> 절에서 살펴보았듯이 범주형 변수는 관측대상이 속하는 범주를 나타내는 데이터이다. <code>bizstatp</code> 패키지에 있는 <code>course</code> 데이터의 전공(<code>major</code>), 학년(<code>year</code>), 성별(<code>gender</code>), 분반(<code>class</code>) 열이 범주형 변수이다. (<code>bizstatp</code> 패키지의 설치 방법과 <code>course</code> 데이터에 대한 설명은 <a href="ch-introDescStat.html#sec-bizstatp">6.3</a> 절을 참조한다.) 이런 변수들은 한 학생이 어떤 범주에 포함되는지를 나타낸다. 예를 들어 course 데이터의 첫 행을 보면 이 학생은 비 ME 전공, 4학년, 남성(M), 1분반의 범주에 속함을 알 수 있다.</p>
 <div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="ch-categoricalDescStat.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)  </span>
 <span id="cb315-2"><a href="ch-categoricalDescStat.html#cb315-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(course)</span></code></pre></div>
 <pre><code>   major year gender class mid final   hw score

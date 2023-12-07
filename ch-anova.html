@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-12-06" />
+<meta name="date" content="2023-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -308,7 +308,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#sec-bizstatp"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
@@ -565,7 +565,7 @@ F = \frac{MST}{MSE} = \frac{SST / (I-1)}{ SSE / (n-I)} \sim F(I-1, n-I)
 일원분류 분산 분석은 반응변수를 나타내는 열이 <code>y</code>, 요인을 나타내는 열이 <code>f</code>라고 하면 다음 형식으로 수식이 입력된다.</p>
 <pre><code>aov(y ~ f, data)</code></pre>
 <p>요인이 둘 이상인 이원분류 분산 분석이나 다른 수치형 변수의 효과를 고려하여 분산 분석을 하는 공분산 분석의 경우 수식의 표현이 좀 더 복잡해 진다. 이에 대해서는 각각의 모형을 다룰 때 설명하도록 한다.</p>
-<p>이 장에서는 <strong>R</strong>에서 분산 분석을 하는 방법을 설명하기 위해 <code>bizstatp</code> 패키지의 <code>course</code> 데이터를 사용할 것이다. 그런데 <code>course</code> 데이터에서 중간과 기말고사를 보지 않은 학생 정보가 있다. 우리는 이 학생의 정보를 제거한 <code>course_omitted</code> 데이터를 만들어 앞으로 이 데이터를 주로 분석에 사용할 것이다.</p>
+<p>이 장에서는 <strong>R</strong>에서 분산 분석을 하는 방법을 설명하기 위해 <code>bizstatp</code> 패키지의 <code>course</code> 데이터를 사용할 것이다. (<code>bizstatp</code> 패키지의 설치 방법과 <code>course</code> 데이터에 대한 설명은 <a href="ch-introDescStat.html#sec-bizstatp">6.3</a> 절을 참조한다.) 그런데 <code>course</code> 데이터에서 중간과 기말고사를 보지 않은 학생 정보가 있다. 우리는 이 학생의 정보를 제거한 <code>course_omitted</code> 데이터를 만들어 앞으로 이 데이터를 주로 분석에 사용할 것이다.</p>
 <div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="ch-anova.html#cb1033-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)</span>
 <span id="cb1033-2"><a href="ch-anova.html#cb1033-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span></code></pre></div>
 <div class="example">
@@ -757,7 +757,7 @@ Fit: aov(formula = response ~ trt, data = cholesterol)
 
 Linear Hypotheses:
                     Estimate Std. Error t value Pr(&gt;|t|)    
-2times - 1time == 0    3.443      1.443   2.385   0.0699 .  
+2times - 1time == 0    3.443      1.443   2.385     0.07 .  
 4times - 1time == 0    6.593      1.443   4.568   &lt;0.001 ***
 drugD - 1time == 0     9.579      1.443   6.637   &lt;0.001 ***
 drugE - 1time == 0    15.166      1.443  10.507   &lt;0.001 ***

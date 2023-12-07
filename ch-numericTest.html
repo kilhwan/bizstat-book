@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-12-06" />
+<meta name="date" content="2023-12-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -308,7 +308,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="6.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-중요성"><i class="fa fa-check"></i><b>6.1</b> 기술통계 기법의 중요성</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#기술통계-기법의-분류"><i class="fa fa-check"></i><b>6.2</b> 기술통계 기법의 분류</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지의-course-데이터"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
+<li class="chapter" data-level="6.3" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#sec-bizstatp"><i class="fa fa-check"></i><b>6.3</b> <code>bizstatp</code> 패키지의 <code>course</code> 데이터</a>
 <ul>
 <li class="chapter" data-level="6.3.1" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#bizstatp-패키지-설치-방법"><i class="fa fa-check"></i><b>6.3.1</b> <code>bizstatp</code> 패키지 설치 방법</a></li>
 <li class="chapter" data-level="6.3.2" data-path="ch-introDescStat.html"><a href="ch-introDescStat.html#course-데이터"><i class="fa fa-check"></i><b>6.3.2</b> <code>course</code> 데이터</a></li>
@@ -460,7 +460,7 @@ div.csl-indent {
 그러므로 수치형 변수에 대한 가설검정을 수행하기 앞서 수치형 변수가 정규분포를 따르는지에 대해 검토해 보아야 한다.
 수치형 변수의 정규성을 검토하는 방법은 <a href="ch-numericDescStat.html#subsubsec-qqplot">8.1.2.3</a> 절에서 설명한 Q-Q 그림을 그려보는 것과 <code>shapiro.test()</code>를 이용하여 정규성을 만족하는지에 대해 가설검정을 하는 것이 있다.
 만약 수치형 변수가 정규성을 만족하지 않으면 분포를 가정하지 않는 비모수적 방법으로 가설검정을 수행하여야 한다.
-Figure @(fig:num-test)는 수치형 변수에 대한 가설검정의 종류와 관련된 가설검정 방법을 요약하여 보여준다.</p>
+Figure <a href="ch-numericTest.html#fig:num-test">12.1</a>은 수치형 변수에 대한 가설검정의 종류와 관련된 가설검정 방법을 요약하여 보여준다.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:num-test"></span>
 <img src="img/num-test.png" alt="수치형 변수에 대한 가설검정" width="100%" />
 <p class="caption">
@@ -904,8 +904,8 @@ mean of x mean of y
 <div id="데이터프레임에서-모평균-차이-검정" class="section level3 hasAnchor" number="12.2.3">
 <h3><span class="header-section-number">12.2.3</span> 데이터프레임에서 모평균 차이 검정<a href="ch-numericTest.html#데이터프레임에서-모평균-차이-검정" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="example">
-<p><span id="exm:t-test-course" class="example"><strong>Example 12.4  </strong></span><code>course</code> 데이터는 어떤 과목의 수강생에 대한 정보이다.
-이 과목은 최종점수(score)의 평균에 성별(gender) 차이가 있는지에 대해 유의수준 5%에서 가설검정하시오.</p>
+<p><span id="exm:t-test-course" class="example"><strong>Example 12.4  </strong></span><code>bizstatp</code> 패키지의 <code>course</code> 데이터는 어떤 과목의 수강생에 대한 정보이다.
+이 과목은 최종점수(score)의 평균에 성별(gender) 차이가 있는지에 대해 유의수준 5%에서 가설검정하시오. (<code>bizstatp</code> 패키지의 설치 방법과 <code>course</code> 데이터에 대한 설명은 <a href="ch-introDescStat.html#sec-bizstatp">6.3</a> 절을 참조한다.)</p>
 </div>
 <p>Example <a href="ch-numericTest.html#exm:t-test-course">12.4</a>처럼 모평군의 차이에 대한 가설 검정은 데이터프레임의 수치형 변수(score)를 범주형 변수(gender)의 값에 따라 두 집단으로 나누어 평균의 차이를 검정하는 경우가 많다.
 이러한 경우 다음처럼 <a href="ch-R-Data-Structure.html#sec-vecFiltering">4.1.4</a> 절에서 배운 벡터의 필터을 사용하여 수치형 변수를 범주형 변수의 값에 따라 두 벡터로 나누어 지금까지 사용한 <code>t.test()</code>와 <code>var.test()</code>를 이용하여 가설검정을 수행할 수 있다.</p>

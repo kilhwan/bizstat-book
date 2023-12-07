@@ -139,7 +139,7 @@ labelsmodification
 ch-introDescStat
 기술통계-기법의-중요성
 기술통계-기법의-분류
-bizstatp-패키지의-course-데이터
+sec-bizstatp
 bizstatp-패키지-설치-방법
 github을-통한-패키지-설치
 course-데이터
