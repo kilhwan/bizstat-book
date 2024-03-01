@@ -65,10 +65,12 @@ sec-statVariables
 ch-intro
 sec-Rintro
 sec-installation
+r을-윈도우즈에-설치할-때-주의-사항
+winget
 r-배포판-내려받기
-설치에-앞서-주의할-사항
 r-설치하기
 sec-RStudio
+winget을-이용한-rstudio-설치
 rstudio-설치
 sec-R-start
 r-콘솔과-프롬프트

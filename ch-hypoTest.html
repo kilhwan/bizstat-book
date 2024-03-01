@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 가설검정이란? | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="경영통계분석실습의 교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 가설검정이란? | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-12-07" />
+<meta name="date" content="2024-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
 <script>
@@ -131,6 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -190,18 +192,20 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II R 기초</b></span></li>
-<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong> 설치 및 시작</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>2.1</b> <strong>R</strong> 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>2.2</b> <strong>R</strong> 설치하기</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
-<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
-<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
+<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r을-윈도우즈에-설치할-때-주의-사항"><i class="fa fa-check"></i><b>2.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#winget"><i class="fa fa-check"></i><b>2.2.2</b> <code>winget</code> 명령어로 설치하기</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
+<li class="chapter" data-level="2.2.4" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.4</b> R 설치하기</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#winget을-이용한-rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.2</b> RStudio 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
 <ul>
@@ -605,7 +609,7 @@ Figure 10.1: 가설검정의 절차
 \text{p-value} = P(N \ge 2) = 0.9892578
 \]</span></p>
 <p>실제 가설검정에서 그러한 결과가 나오는지 <code>binom.test()</code> 함수를 사용하여 확인해 보자. 결과에서 p-value로 표시된 값이 앞에서 계산한 확률값에 수렴하는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="ch-hypoTest.html#cb841-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="ch-hypoTest.html#cb845-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -617,7 +621,7 @@ alternative hypothesis: true probability of success is not equal to 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="ch-hypoTest.html#cb843-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb847-1"><a href="ch-hypoTest.html#cb847-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -629,7 +633,7 @@ alternative hypothesis: true probability of success is less than 0.5
 sample estimates:
 probability of success 
                    0.2 </code></pre>
-<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="ch-hypoTest.html#cb845-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="ch-hypoTest.html#cb849-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">binom.test</span>(<span class="dv">2</span>, <span class="at">n =</span> <span class="dv">10</span>, <span class="at">p =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
 <pre><code>
     Exact binomial test
 

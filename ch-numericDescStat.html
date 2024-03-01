@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 수치형 변수에 대한 R 기술통계 | R을 이용한 통계 분석 (개정판)</title>
   <meta name="description" content="경영통계분석실습의 교재를 위해 제작되었습니다." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 수치형 변수에 대한 R 기술통계 | R을 이용한 통계 분석 (개정판)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="김길환" />
 
 
-<meta name="date" content="2023-12-07" />
+<meta name="date" content="2024-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,8 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BTR0YQD3G1"></script>
 <script>
@@ -131,6 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -190,18 +192,20 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="part"><span><b>II R 기초</b></span></li>
-<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> R 설치 및 시작</a>
+<li class="chapter" data-level="2" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>2</b> <strong>R</strong> 설치 및 시작</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>2.1</b> R 소개</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>2.2</b> R 설치하기</a>
+<li class="chapter" data-level="2.1" data-path="ch-intro.html"><a href="ch-intro.html#sec-Rintro"><i class="fa fa-check"></i><b>2.1</b> <strong>R</strong> 소개</a></li>
+<li class="chapter" data-level="2.2" data-path="ch-intro.html"><a href="ch-intro.html#sec-installation"><i class="fa fa-check"></i><b>2.2</b> <strong>R</strong> 설치하기</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.1</b> R 배포판 내려받기</a></li>
-<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#설치에-앞서-주의할-사항"><i class="fa fa-check"></i><b>2.2.2</b> 설치에 앞서 주의할 사항</a></li>
-<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.3</b> R 설치하기</a></li>
+<li class="chapter" data-level="2.2.1" data-path="ch-intro.html"><a href="ch-intro.html#r을-윈도우즈에-설치할-때-주의-사항"><i class="fa fa-check"></i><b>2.2.1</b> <strong>R</strong>을 윈도우즈에 설치할 때 주의 사항</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch-intro.html"><a href="ch-intro.html#winget"><i class="fa fa-check"></i><b>2.2.2</b> <code>winget</code> 명령어로 설치하기</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ch-intro.html"><a href="ch-intro.html#r-배포판-내려받기"><i class="fa fa-check"></i><b>2.2.3</b> <strong>R</strong> 배포판 내려받기</a></li>
+<li class="chapter" data-level="2.2.4" data-path="ch-intro.html"><a href="ch-intro.html#r-설치하기"><i class="fa fa-check"></i><b>2.2.4</b> R 설치하기</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="ch-intro.html"><a href="ch-intro.html#sec-RStudio"><i class="fa fa-check"></i><b>2.3</b> RStudio</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> RStudio 설치</a></li>
+<li class="chapter" data-level="2.3.1" data-path="ch-intro.html"><a href="ch-intro.html#winget을-이용한-rstudio-설치"><i class="fa fa-check"></i><b>2.3.1</b> <code>winget</code>을 이용한 RStudio 설치</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch-intro.html"><a href="ch-intro.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.2</b> RStudio 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="ch-intro.html"><a href="ch-intro.html#sec-R-start"><i class="fa fa-check"></i><b>2.4</b> RStudio로 R 시작하기</a>
 <ul>
@@ -522,25 +526,25 @@ div.csl-indent {
 <pre><code>mean(수치벡터)
 mean(데이터프레임$수치형변수)</code></pre>
 <p>다음 예에서 예외적인 수치가 들어감에 따라 평균이 크게 바뀌는 것을 관찰할 수 있다.</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="ch-numericDescStat.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">46</span><span class="sc">:</span><span class="dv">55</span> ; y <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="dv">1000</span>) ; z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="sc">-</span><span class="dv">1000</span>)</span>
-<span id="cb496-2"><a href="ch-numericDescStat.html#cb496-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">mean</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="ch-numericDescStat.html#cb500-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">46</span><span class="sc">:</span><span class="dv">55</span> ; y <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="dv">1000</span>) ; z <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="sc">-</span><span class="dv">1000</span>)</span>
+<span id="cb500-2"><a href="ch-numericDescStat.html#cb500-2" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">mean</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>[1] 50.5</code></pre>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="ch-numericDescStat.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">mean</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="ch-numericDescStat.html#cb503-1" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">mean</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>[1] 136.8182</code></pre>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="ch-numericDescStat.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">mean</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="ch-numericDescStat.html#cb506-1" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">mean</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>[1] -45</code></pre>
 <p>다음은 <code>course</code> 데이터에서 총점의 평균을 구한 결과이다.</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="ch-numericDescStat.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)</span>
-<span id="cb505-2"><a href="ch-numericDescStat.html#cb505-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="ch-numericDescStat.html#cb509-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(bizstatp)</span>
+<span id="cb509-2"><a href="ch-numericDescStat.html#cb509-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 71.46089</code></pre>
 <p>그런데 중간고사에 대한 평균을 구해보면 다음과 같은 결과를 볼 수 있다.</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="ch-numericDescStat.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="ch-numericDescStat.html#cb511-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
 <p>이러한 결과가 나온 이유는 한 학생이 중간고사에 불참하여 이 학생의 중간고사 점수가 결측(<code>NA</code>)되었기 때문에 평균을 계산할 수 없다는 뜻에서 <code>NA</code>가 나온 것이다. 평균을 계산할 때 결측치를 제외하고 평균을 구하려면 다음처럼 <code>na.rm</code> 인수를 <code>TRUE</code>로 설정하여 구한다. 앞으로 볼 많은 <strong>R</strong> 통계 함수들도 결측치를 제외하고 계산할 때 동일한 인수를 사용하는 경우가 많다.</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="ch-numericDescStat.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="ch-numericDescStat.html#cb513-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>[1] 61.61364</code></pre>
 </div>
 </div>
@@ -553,22 +557,22 @@ mean(데이터프레임$수치형변수)</code></pre>
 <pre><code>median(수치벡터)
 median(데이터프레임$수치변수)</code></pre>
 <p>다음 예에서 예외적인 수치가 있어도 중위수는 크게 변화하지 않음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="ch-numericDescStat.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">median</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="ch-numericDescStat.html#cb516-1" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">median</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>[1] 50.5</code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="ch-numericDescStat.html#cb515-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">median</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="ch-numericDescStat.html#cb519-1" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">median</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>[1] 51</code></pre>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="ch-numericDescStat.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">median</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="ch-numericDescStat.html#cb522-1" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">median</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>[1] 50</code></pre>
 <p>다음은 course` 데이터에서 총점의 중위수를 구한 결과이다.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="ch-numericDescStat.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="ch-numericDescStat.html#cb525-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 72.6</code></pre>
 <p>평균과 마찬자지로 결측치가 있는 관측을 제외하고 중위수를 구하려면 <code>na.rm</code> 인수를 사용한다.</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="ch-numericDescStat.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="ch-numericDescStat.html#cb527-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="ch-numericDescStat.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="ch-numericDescStat.html#cb529-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">median</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>[1] 59</code></pre>
 </div>
 <div id="퍼진-경향을-보여주는-통계량" class="section level4 hasAnchor" number="8.1.1.2">
@@ -585,18 +589,18 @@ s^2_x = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2
 s_x = \sqrt{s_x^2} = \sqrt{ \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 }.
 \]</span></p>
 <p><strong>R</strong>에서 분산과 표준편차는 <code>var()</code>와 <code>sd()</code> 함수로 구한다.</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="ch-numericDescStat.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">var</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="ch-numericDescStat.html#cb531-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">var</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 220.4966</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="ch-numericDescStat.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="ch-numericDescStat.html#cb533-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 14.84913</code></pre>
 <p>분산과 표준편차는 평균과 비슷한 성질을 가지고 있다. 관측치가 여러 집단으로 나누어져 있으면 각 집단의 분산을 가중 평균하여 전체의 분산을 계산할 수 있다. 그러나 평균과 마찬가지로 분산과 표준편차는 예외적인 값에 크게 영향을 받는다.</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="ch-numericDescStat.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">sd</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="ch-numericDescStat.html#cb535-1" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">sd</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>[1] 3.02765</code></pre>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="ch-numericDescStat.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">sd</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="ch-numericDescStat.html#cb538-1" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">sd</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>[1] 286.2994</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="ch-numericDescStat.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">sd</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="ch-numericDescStat.html#cb541-1" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">sd</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>[1] 316.7507</code></pre>
 <p>표준편차는 관측치의 측정단위로 관측치가 평균에서 평균적으로 얼마나 퍼져 있는가를 측정한다. 그렇기 때문에 측정단위가 다른 데이터의 퍼짐경향을 서로 비교하기가 어렵다. 이를 보완하여 측정단위와 무관하게 퍼진 정도를 비교하는 방법이 변동계수(coefficient of variance)를 사용하는 것이다. 변동계수 <span class="math inline">\(c_{x}\)</span>는 다음처럼 표준편차를 평균으로 나누어 구한다. 그러므로 분자와 분모의 측정단위가 상쇄되어서, 변동계수를 사용하면 평균 대비 표준편차의 상대적 크기를 서로 비교할 수 있다.
@@ -604,11 +608,11 @@ s_x = \sqrt{s_x^2} = \sqrt{ \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 }.
 c_x = s_x / \bar{x}.
 \]</span></p>
 <p>다음은 <code>course</code> 데이터에서 중간고사, 기말고사, 최종평가 점수의 변동계수를 구해본 예이다. 다음 결과에서 중간고사, 기말고사, 최종평가 점수 순으로 퍼짐경향이 줄어들었음을 볼 수 있다. 중간 및 기말고사에 결측치 <code>NA</code>가 있기 때문에 이를 제외하고 표준편차와 평균을 구할 때 <code>na.rm = TRUE</code> 인수를 사용하였다.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="ch-numericDescStat.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T)       <span class="co"># 중간고사의 변동계수</span></span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="ch-numericDescStat.html#cb544-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T)       <span class="co"># 중간고사의 변동계수</span></span></code></pre></div>
 <pre><code>[1] 0.3324946</code></pre>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="ch-numericDescStat.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T)   <span class="co"># 기말고사의 변동계수</span></span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="ch-numericDescStat.html#cb546-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T)   <span class="co"># 기말고사의 변동계수</span></span></code></pre></div>
 <pre><code>[1] 0.2891162</code></pre>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="ch-numericDescStat.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>score) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>score)                     <span class="co"># 총점의 변동계수</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="ch-numericDescStat.html#cb548-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sd</span>(course<span class="sc">$</span>score) <span class="sc">/</span> <span class="fu">mean</span>(course<span class="sc">$</span>score)                     <span class="co"># 총점의 변동계수</span></span></code></pre></div>
 <pre><code>[1] 0.2077938</code></pre>
 </div>
 <div id="분위수quantile와-iqr" class="section level5 unnumbered hasAnchor">
@@ -622,52 +626,52 @@ q분위수 중 가장 작은 수부터, 1-q분위수, 2-q분위수, …, (q-1)-q
 <pre><code>quantile(수치형벡터)
 quantile(데이터프레임$수치형변수)</code></pre>
 <p>다음 예에서 최소, 최대값을 제외하고 사분위수는 극단적 이상치에 영향을 덜 받는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="ch-numericDescStat.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">quantile</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="ch-numericDescStat.html#cb551-1" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">quantile</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>   0%   25%   50%   75%  100% 
 46.00 48.25 50.50 52.75 55.00 </code></pre>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="ch-numericDescStat.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">quantile</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="ch-numericDescStat.html#cb554-1" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">quantile</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>    0%    25%    50%    75%   100% 
   46.0   48.5   51.0   53.5 1000.0 </code></pre>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="ch-numericDescStat.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">quantile</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="ch-numericDescStat.html#cb557-1" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">quantile</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>     0%     25%     50%     75%    100% 
 -1000.0    47.5    50.0    52.5    55.0 </code></pre>
 <p>다음은 <code>course</code> 데이터의 총점과 중간고사 변수에 대한 사분위수를 구한 예이다. 중간고사는 결측치가 있으므로 <code>na.rm</code> 인수로 결측치를 제외하고 사분위수를 구하였다. 사분위수를 확인해보면 분포의 중심이 되는 50% 데이터가 어느 구간에 퍼져 있고, 대칭적인지 비대칭적인지도 파악할 수 있다. 중간고사 데이터를 보면 1사분위수와 3사분위수 사이의 50% 데이터가 약 45점에서 80점 사이에 분포되어 있고, 중위수가 약 60점인 것으로 볼 때 상위 점위의 꼬리가 긴 분포 형태임을 짐작할 수 있다.</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="ch-numericDescStat.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="ch-numericDescStat.html#cb560-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>   0%   25%   50%   75%  100% 
 10.00 61.50 72.60 80.49 95.00 </code></pre>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="ch-numericDescStat.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="ch-numericDescStat.html#cb562-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>mid, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>   0%   25%   50%   75%  100% 
 27.00 45.50 59.00 79.75 97.00 </code></pre>
 <p><code>quantile()</code> 함수의 <code>probs</code> 인수에 [0, 1] 사이의 값을 전달하면, 관측치를 순서로 나열했을 때 해당 순위의 값을 출력한다. 예를 들어 다음처럼 0.5를 전달하면 작은 값부터 시작하여 순위가 50%인 값이, 0.25를 전달하면 순위가 25%인 값이 출력된다.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="ch-numericDescStat.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fl">0.5</span>)   <span class="co"># 중위수</span></span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="ch-numericDescStat.html#cb564-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fl">0.5</span>)   <span class="co"># 중위수</span></span></code></pre></div>
 <pre><code> 50% 
 72.6 </code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="ch-numericDescStat.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fl">0.25</span>)  <span class="co"># 1-사분위수</span></span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="ch-numericDescStat.html#cb566-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fl">0.25</span>)  <span class="co"># 1-사분위수</span></span></code></pre></div>
 <pre><code> 25% 
 61.5 </code></pre>
 <p><code>probs</code>에 다음처럼 여러 값을 입력할 수 있다. 다음은 5분위수와 10분위수를 구한 예이다.</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="ch-numericDescStat.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="ch-numericDescStat.html#cb568-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>))</span></code></pre></div>
 <pre><code>    0%    20%    40%    60%    80%   100% 
 10.000 60.330 66.942 74.526 83.166 95.000 </code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="ch-numericDescStat.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="ch-numericDescStat.html#cb570-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(course<span class="sc">$</span>score, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>))</span></code></pre></div>
 <pre><code>    0%    10%    20%    30%    40%    50%    60%    70%    80%    90%   100% 
 10.000 58.498 60.330 64.412 66.942 72.600 74.526 79.920 83.166 88.984 95.000 </code></pre>
 <p>사분위수를 가지고 관측값의 퍼진경향을 측정하는 통계량이 IQR(interquartile range)이다. IQR은 3사분위수와 1사분위수의 차이로 계산된다. 즉, 중심에 있는 50% 데이터가 서로 얼마나 멀리 퍼져 있는지를 측정한다. 중심에 있는 50% 데이터로 퍼진 정도를 측정하므로, 예외적으로 큰 값이나 작은 값은 IQR에 영향을 크게 주지 못한다.</p>
 <p><strong>R</strong>에서 IQR은 <code>IQR()</code> 함수로 구한다. 다음 예에서 예외적인 값이 IQR에 크게 영향을 주지 않는다는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="ch-numericDescStat.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">IQR</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="ch-numericDescStat.html#cb572-1" tabindex="-1"></a><span class="sc">&gt;</span> x; <span class="fu">IQR</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>[1] 4.5</code></pre>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="ch-numericDescStat.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">IQR</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="ch-numericDescStat.html#cb575-1" tabindex="-1"></a><span class="sc">&gt;</span> y; <span class="fu">IQR</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>[1] 5</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="ch-numericDescStat.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">IQR</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="ch-numericDescStat.html#cb578-1" tabindex="-1"></a><span class="sc">&gt;</span> z; <span class="fu">IQR</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>[1] 5</code></pre>
 <p><code>course</code> 데이터의 중간, 기말, 총점의 IQR을 구해본 결과 변동계수와 마찬가지로 중간, 기말, 총점 순으로 퍼짐경향이 줄어드는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="ch-numericDescStat.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">IQR</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T); <span class="fu">IQR</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T); <span class="fu">IQR</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="ch-numericDescStat.html#cb581-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">IQR</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T); <span class="fu">IQR</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T); <span class="fu">IQR</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 34.25</code></pre>
 <pre><code>[1] 29.5</code></pre>
 <pre><code>[1] 18.99</code></pre>
@@ -682,17 +686,17 @@ quantile(데이터프레임$수치형변수)</code></pre>
 <li>분포가 정규분포를 따를 때의 표준편차의 추정치로 사용할 수 있도록 절대 편차의 중위수에 1.4826이라는 상수를 곱 한다.</li>
 </ul>
 <p>다음은 앞의 설명대로 중앙값 절대 편차를 계산한 예이다.</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="ch-numericDescStat.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="sc">-</span> <span class="fu">median</span>(x) </span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="ch-numericDescStat.html#cb585-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="sc">-</span> <span class="fu">median</span>(x) </span></code></pre></div>
 <pre><code> [1] -4.5 -3.5 -2.5 -1.5 -0.5  0.5  1.5  2.5  3.5  4.5</code></pre>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="ch-numericDescStat.html#cb583-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abs</span>(x <span class="sc">-</span> <span class="fu">median</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="ch-numericDescStat.html#cb587-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abs</span>(x <span class="sc">-</span> <span class="fu">median</span>(x))</span></code></pre></div>
 <pre><code> [1] 4.5 3.5 2.5 1.5 0.5 0.5 1.5 2.5 3.5 4.5</code></pre>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="ch-numericDescStat.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fl">1.4826</span> <span class="sc">*</span> <span class="fu">median</span>(<span class="fu">abs</span>(x <span class="sc">-</span> <span class="fu">median</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="ch-numericDescStat.html#cb589-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fl">1.4826</span> <span class="sc">*</span> <span class="fu">median</span>(<span class="fu">abs</span>(x <span class="sc">-</span> <span class="fu">median</span>(x)))</span></code></pre></div>
 <pre><code>[1] 3.7065</code></pre>
 <p><strong>R</strong>은 이러한 계산을 해서 중앙값 절대 편차를 구해주는 <code>mad()</code>라는 함수를 가지고 있다.</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="ch-numericDescStat.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mad</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="ch-numericDescStat.html#cb591-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mad</span>(x)</span></code></pre></div>
 <pre><code>[1] 3.7065</code></pre>
 <p>다음은 <code>course</code> 데이터의 중간, 기말, 총점의 중위수 절대 편차를 구한 결과이다.</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="ch-numericDescStat.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mad</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T); <span class="fu">mad</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T); <span class="fu">mad</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="ch-numericDescStat.html#cb593-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mad</span>(course<span class="sc">$</span>mid, <span class="at">na.rm=</span>T); <span class="fu">mad</span>(course<span class="sc">$</span>final, <span class="at">na.rm=</span>T); <span class="fu">mad</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 25.2042</code></pre>
 <pre><code>[1] 22.9803</code></pre>
 <pre><code>[1] 13.06171</code></pre>
@@ -700,18 +704,18 @@ quantile(데이터프레임$수치형변수)</code></pre>
 <div id="범위range" class="section level5 unnumbered hasAnchor">
 <h5>범위(range)<a href="ch-numericDescStat.html#범위range" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>수치형 변수의 퍼진 정도를 파악할 때 최소값과 최대값을 사용하여 수치형 변수의 범위를 파악하는 방법을 사용하기도 한다. R에서는 <code>range()</code> 함수를 사용하여 최소값과 최대값을 구할 수 있다. <code>min()</code>과 <code>max()</code> 함수를 사용하면 최소값과 최대값만 각각 구할 수도 있다.</p>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="ch-numericDescStat.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="ch-numericDescStat.html#cb597-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 10 95</code></pre>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="ch-numericDescStat.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">max</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="ch-numericDescStat.html#cb599-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">max</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 95</code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="ch-numericDescStat.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">min</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="ch-numericDescStat.html#cb601-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">min</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 10</code></pre>
 <p>범위는 매우 직관적이고 간편하게 계산할 수 있으나 다음 예처럼 한 두 개의 예외적 데이터가 있으면 크게 그 값이 변하는 약점이 있다.</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="ch-numericDescStat.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ch-numericDescStat.html#cb603-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(x)</span></code></pre></div>
 <pre><code>[1] 46 55</code></pre>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="ch-numericDescStat.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="ch-numericDescStat.html#cb605-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(y)</span></code></pre></div>
 <pre><code>[1]   46 1000</code></pre>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="ch-numericDescStat.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="ch-numericDescStat.html#cb607-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">range</span>(z)</span></code></pre></div>
 <pre><code>[1] -1000    55</code></pre>
 <p>지금까지 배운 중심 경향과 퍼진 정도를 보여주는 통계량을 <code>course</code> 데이터의 <code>score</code> 변수에 적용하여 비교한 결과이다.</p>
 <table>
@@ -752,26 +756,26 @@ Skewness = \frac{1}{n} \sum_{i=1}^{n} \left( \frac{x_i - \bar{x}}{s} \right)^3
 </ul>
 <p><strong>R</strong>의 기본 기능에는 왜도를 계산하는 함수가 없다. 왜도를 계산해 주는 함수를 가진 패키지로는 <code>moments</code>, <code>fBasics</code>, <code>psych</code> 등이 있다. 이 책에서는 <code>psych</code> 패키지를 사용한다. 먼저 <code>psych</code> 패키지는 <code>bizstatp</code> 패키지를 설치하였다면 설치가 이미 되었을 것이다. <code>psych</code>는 <code>ggplot2</code> 패키지와 충돌하는 이름들이 있어서 <code>library()</code> 함수로 <code>psych</code> 패키지를 메모리에 적재하지 않고 다음처럼 <code>::</code> 연산자로 바로 <code>psych</code> 패키지의 <code>skew()</code> 함수를 사용하도록 한다.</p>
 <p>다음 예는 대칭인 경우 오른쪽에 긴 꼬리가 있는 경우, 왼쪽으로 긴 꼬리가 있는 경우의 왜도가 어떻게 계산되는지를 보여준다.</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="ch-numericDescStat.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x; psych<span class="sc">::</span><span class="fu">skew</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="ch-numericDescStat.html#cb609-1" tabindex="-1"></a><span class="sc">&gt;</span> x; psych<span class="sc">::</span><span class="fu">skew</span>(x)</span></code></pre></div>
 <pre><code> [1] 46 47 48 49 50 51 52 53 54 55</code></pre>
 <pre><code>[1] 0</code></pre>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="ch-numericDescStat.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y; psych<span class="sc">::</span><span class="fu">skew</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="ch-numericDescStat.html#cb612-1" tabindex="-1"></a><span class="sc">&gt;</span> y; psych<span class="sc">::</span><span class="fu">skew</span>(y)</span></code></pre></div>
 <pre><code> [1]   46   47   48   49   50   51   52   53   54   55 1000</code></pre>
 <pre><code>[1] 2.466456</code></pre>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="ch-numericDescStat.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> z; psych<span class="sc">::</span><span class="fu">skew</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="ch-numericDescStat.html#cb615-1" tabindex="-1"></a><span class="sc">&gt;</span> z; psych<span class="sc">::</span><span class="fu">skew</span>(z)</span></code></pre></div>
 <pre><code> [1]    46    47    48    49    50    51    52    53    54    55 -1000</code></pre>
 <pre><code>[1] -2.466539</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점, 중간고사, 기말고사의 왜도를 계산한 결과이다. 주의할 점은 <code>psych</code> 패키지의 <code>skew()</code> 함수는 지금까지 본 <strong>R</strong>의 기본 함수와는 달리 결측치가 있을 때 <code>na.rm</code> 인수를 지정하지 않아도 자동으로 결측치를 제외하고 왜도를 계산한다는 점이다.</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="ch-numericDescStat.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="ch-numericDescStat.html#cb618-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] -1.296142</code></pre>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="ch-numericDescStat.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="ch-numericDescStat.html#cb620-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
 <pre><code>[1] 0.2409169</code></pre>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="ch-numericDescStat.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>final)</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="ch-numericDescStat.html#cb622-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course<span class="sc">$</span>final)</span></code></pre></div>
 <pre><code>[1] -0.02417389</code></pre>
 <p>총점은 왼쪽으로 꼬리가 긴 분포이고, 중간과 기말은 비교적 대칭인 분포임을 알 수 있다. 중간과 기말은 시험을 안 본 학생은 제외하고 계산이 되어 비교적 대칭인 분포였고, 총점은 시험을 안 본 학생이 총점에 포함되어 있어서 이 학생에 의해 왼쪽으로 꼬리가 긴 비대칭적인 분포처럼 왜도가 계산 되었다. 뒤에서 그래프를 통해서 이 사실을 다시 확인할 수 있을 것이다.</p>
 <p>이처럼 왜도도 평균과 분산처럼 예외적인 값에 영향을 크게 받는 단점이 있다. 그러므로 왜도는 값만으로 변수의 분포를 단정지으면 안되고, 그래프를 사용하여 분포의 모양도 함께 확인해 보아야 한다. 다음처럼 <code>na.omit()</code> 함수로 결측치가 있는 행은 제외하고 다시 총점의 왜도를 계산해 보면 분포가 크게 비대칭적이지는 않음을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="ch-numericDescStat.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
-<span id="cb620-2"><a href="ch-numericDescStat.html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="ch-numericDescStat.html#cb624-1" tabindex="-1"></a><span class="sc">&gt;</span> course_omitted <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(course)</span>
+<span id="cb624-2"><a href="ch-numericDescStat.html#cb624-2" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">skew</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 0.2385544</code></pre>
 </div>
 <div id="분포의-뾰족함을-보여주는-통계량" class="section level4 hasAnchor" number="8.1.1.4">
@@ -787,21 +791,21 @@ kurtosis =  \frac{1}{n} \sum_{i=1}^{n} \left( \frac{x_i - \bar{x}}{s} \right)^4 
 <li>분포가 정규분포보다 덜 뾰족하면(더 평평하면) 첨도는 음의 값이 된다.</li>
 </ul>
 <p><strong>R</strong>의 기본 기능에는 첨도를 계산하는 함수가 없다. 따라서 첨도의 계산에는 <code>psych</code> 패키지의 <code>kurtosi()</code> 함수를 사용하도록 한다. 다음은 <code>course</code> 데이터의 총점, 중간고사, 기말고사의 첨도를 계산한 결과이다. 왜도를 계산하는 <code>skew()</code>와 마찬가지로 결측치를 자동으로 제외하고 첨도를 계산하는 것을 확인할 수 있다.</p>
-<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="ch-numericDescStat.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ch-numericDescStat.html#cb626-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] 4.29198</code></pre>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="ch-numericDescStat.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="ch-numericDescStat.html#cb628-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>mid)</span></code></pre></div>
 <pre><code>[1] -1.313393</code></pre>
-<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="ch-numericDescStat.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>final)</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="ch-numericDescStat.html#cb630-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course<span class="sc">$</span>final)</span></code></pre></div>
 <pre><code>[1] -0.957484</code></pre>
 <p>중간고사와 기말고사의 분포는 정규분포보다 더 평평한 분포이지만, 총점은 더 뾰족한 분포로 계산되었다. 총점이 매우 뾰족한 분포로 나온 이유는 시험을 안 본 예외적인 학생 때문이다. 이처럼 첨도도 평균, 분산, 왜도처럼 이상치의 영향을 크게 받는다. 시험을 안 본 학생을 제외하고 다시 총점의 첨도를 계산해 보면 정규분포보다 뾰족한 분포가 아니라 평평한 분포를 가지고 있음을 알 수 있다.</p>
-<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="ch-numericDescStat.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="ch-numericDescStat.html#cb632-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">kurtosi</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>[1] -1.122113</code></pre>
 </div>
 <div id="수치-변수의-기술통계량을-한-번에-파악하기" class="section level4 hasAnchor" number="8.1.1.5">
 <h4><span class="header-section-number">8.1.1.5</span> 수치 변수의 기술통계량을 한 번에 파악하기<a href="ch-numericDescStat.html#수치-변수의-기술통계량을-한-번에-파악하기" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>psych</code> 패키지의 <code>describe()</code> 함수는 수치 변수에 대한 다양한 기술통계량을 제공한다.</p>
 <p>다음은 course의 다섯 번째에서 여덟 번째 열에 대하여 <code>psych</code> 패키지의 <code>describe()</code> 함수를 이용하여 다양한 기술통계량을 계산한 예이다. <code>skew()</code>나 <code>kurtosi()</code> 등의 다른 <code>psych</code> 패키지의 함수처럼 결측치는 자동으로 제외하고 통계량을 계산해 준다.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="ch-numericDescStat.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="ch-numericDescStat.html#cb634-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
 <pre><code>      vars  n  mean    sd median trimmed   mad min   max range  skew kurtosis
 mid      1 44 61.61 20.49   59.0   61.03 25.20  27 97.00 70.00  0.24    -1.31
 final    2 44 63.16 18.26   65.5   63.06 22.98  23 95.00 72.00 -0.02    -0.96
@@ -822,13 +826,13 @@ score 2.21</code></pre>
 <p><code>cut()</code> 함수의 기본 문법은 다음과 같다.</p>
 <pre><code>cut(수치 벡터, breaks = 구간을 나누는 점)</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점(<code>score</code>) 열을 <code>cut()</code> 함수를 이용하여 10점 단위의 구간으로 나누어 범주형 변수로 변환한 결과이다.</p>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="ch-numericDescStat.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> course<span class="sc">$</span>score</span></code></pre></div>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="ch-numericDescStat.html#cb637-1" tabindex="-1"></a><span class="sc">&gt;</span> course<span class="sc">$</span>score</span></code></pre></div>
 <pre><code> [1] 73.47 61.50 89.18 78.47 93.88 64.39 72.60 55.54 59.89 66.00 79.99 70.10
 [13] 56.53 53.74 59.89 63.79 71.14 64.99 88.69 70.59 83.79 60.39 88.31 80.00
 [25] 81.10 87.28 93.09 90.58 60.09 66.87 64.50 75.09 66.99 79.64 57.77 95.00
 [37] 73.37 10.00 74.88 61.06 80.49 74.29 59.59 83.01 74.19</code></pre>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="ch-numericDescStat.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>))</span>
-<span id="cb635-2"><a href="ch-numericDescStat.html#cb635-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> grade</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="ch-numericDescStat.html#cb639-1" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>))</span>
+<span id="cb639-2"><a href="ch-numericDescStat.html#cb639-2" tabindex="-1"></a><span class="sc">&gt;</span> grade</span></code></pre></div>
 <pre><code> [1] (70,80]  (60,70]  (80,90]  (70,80]  (90,100] (60,70]  (70,80]  (50,60] 
  [9] (50,60]  (60,70]  (70,80]  (70,80]  (50,60]  (50,60]  (50,60]  (60,70] 
 [17] (70,80]  (60,70]  (80,90]  (70,80]  (80,90]  (60,70]  (80,90]  (70,80] 
@@ -839,7 +843,7 @@ score 2.21</code></pre>
 <p>위 결과에서 볼 수 있듯이 <code>cut()</code> 함수는 첫째 인수로 숫자 벡터를 받고, <code>breaks</code> 인수로 관측값을 나눌 계급을 지정한다. 여기서는 0, 10, …, 90, 100으로 구성된 숫자 벡터를 지정하였으므로, (0,10], (10,20], (20,30], (30,40], (40,50], (50,60], (60,70], (70,80], (80,90], (90,100] 등 10 개의 계급이 만들어진다.
 그러므로 73.47, 61.5 같은 수치값이 (70,80], (60,70] 같은 구간을 나타내는 범주로 변환된 것을 볼 수 있다.</p>
 <p>범주형 변수로 변형되었으니 <code>cut()</code> 함수의 결과를 <code>table()</code> 함수에 전달하면 도수분포표를 구할 수 있다.</p>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="ch-numericDescStat.html#cb637-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="ch-numericDescStat.html#cb641-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
 <pre><code>grade
   (0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80] 
        1        0        0        0        0        7       11       14 
@@ -847,26 +851,26 @@ score 2.21</code></pre>
        8        4 </code></pre>
 <p>그런데 계급을 나누는 표시를 보면 (0,10]처럼 왼쪽은 괄호(<code>(</code>)로, 오른쪽은 대괄호(<code>]</code>)로 구간의 경계가 표시한 것을 볼 수 있다. 괄호는 개구간의 경계를 의미하여 해당 경계가 구간에 포함되지 않음을 의미하며, 대괄호는 폐구간의 경계를 의미하여 해당 경계가 구간에 포함된다는 것을 의미한다. 따라서 0 점은 (0,10] 구간에 포함되지 않지만, 10 점은 (0,10] 구간에 포함된다. 이는 경계가 어는 한 구간에만 포함되도록 하기 위한 것이다.</p>
 <p><code>cut()</code>은 기본적으로 구간의 오른쪽 경계를 포함하고 왼쪽 경계를 포함하지 않도록 한다. 그런데 이렇게 하면 0점을 받은 데이터는 어느 구간에도 포함되지 않는 문제가 발생한다. 만약 <code>breaks</code>로 주어진 첫 번째 경계도 구간에 모두 포함시키려면 다음처럼 <code>include.lowest=TRUE</code>로 설정한다. 첫 번째 구간의 왼쪽 경계가 구간에 포함된 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="ch-numericDescStat.html#cb639-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb639-2"><a href="ch-numericDescStat.html#cb639-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="ch-numericDescStat.html#cb643-1" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb643-2"><a href="ch-numericDescStat.html#cb643-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
 <pre><code>grade
   [0,10]  (10,20]  (20,30]  (30,40]  (40,50]  (50,60]  (60,70]  (70,80] 
        1        0        0        0        0        7       11       14 
  (80,90] (90,100] 
        8        4 </code></pre>
 <p>그런데 앞의 예에서 (80, 90], (90, 100] 등의 구간은 80점과 90점은 포함되지 않는다. 만약 구간의 왼쪽 경계를 포함하고 오른쪽 경계를 포함하지 않도록 하려면 <code>right=FALSE</code>로 설정한다.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="ch-numericDescStat.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>),</span>
-<span id="cb641-2"><a href="ch-numericDescStat.html#cb641-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                     <span class="at">include.lowest =</span> <span class="cn">TRUE</span>, <span class="at">right=</span><span class="cn">FALSE</span>)</span>
-<span id="cb641-3"><a href="ch-numericDescStat.html#cb641-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="ch-numericDescStat.html#cb645-1" tabindex="-1"></a><span class="sc">&gt;</span> grade <span class="ot">&lt;-</span> <span class="fu">cut</span>(course<span class="sc">$</span>score, <span class="at">breaks=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>),</span>
+<span id="cb645-2"><a href="ch-numericDescStat.html#cb645-2" tabindex="-1"></a><span class="sc">+</span>                     <span class="at">include.lowest =</span> <span class="cn">TRUE</span>, <span class="at">right=</span><span class="cn">FALSE</span>)</span>
+<span id="cb645-3"><a href="ch-numericDescStat.html#cb645-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(grade)</span></code></pre></div>
 <pre><code>grade
   [0,10)  [10,20)  [20,30)  [30,40)  [40,50)  [50,60)  [60,70)  [70,80) 
        0        1        0        0        0        7       11       13 
  [80,90) [90,100] 
        9        4 </code></pre>
 <p>다음은 <code>course</code> 데이터의 중간고사 점수를 20 점 간격으로 나누어 도수분포표를 만들어 본 결과이다.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="ch-numericDescStat.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(<span class="fu">cut</span>(course<span class="sc">$</span>mid, </span>
-<span id="cb643-2"><a href="ch-numericDescStat.html#cb643-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">20</span>), </span>
-<span id="cb643-3"><a href="ch-numericDescStat.html#cb643-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>         <span class="at">include.lowest =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="ch-numericDescStat.html#cb647-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(<span class="fu">cut</span>(course<span class="sc">$</span>mid, </span>
+<span id="cb647-2"><a href="ch-numericDescStat.html#cb647-2" tabindex="-1"></a><span class="sc">+</span>         <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">20</span>), </span>
+<span id="cb647-3"><a href="ch-numericDescStat.html#cb647-3" tabindex="-1"></a><span class="sc">+</span>         <span class="at">include.lowest =</span> T))</span></code></pre></div>
 <pre><code>
   [0,20]  (20,40]  (40,60]  (60,80] (80,100] 
        0        7       15       11       11 </code></pre>
@@ -896,23 +900,23 @@ score 2.21</code></pre>
 <p><code>ggplot2</code> 패키지는 수치형 변수에 대한 히스토그램을 그려주는 <code>geom_histogram()</code> 함수를 제공한다. <code>geom_histogram()</code>의 기본적인 문법은 다음과 같다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수)) + geom_histogram()</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점 변수에 대한 히스토그램을 그린 예이다.</p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="ch-numericDescStat.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
-<span id="cb646-2"><a href="ch-numericDescStat.html#cb646-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="ch-numericDescStat.html#cb650-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(ggplot2)</span>
+<span id="cb650-2"><a href="ch-numericDescStat.html#cb650-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-37-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>출력된 메시지에서 확인할 수 있듯이 기본적으로 수치 변수를 30 개의 구간으로 나누어 히스토그램을 그린다. 그러나 자동으로 부여된 구간 수가 수치형 변수를 표현하는 가장 좋은 방식이 아닐 수 있다. 위의 예에서는 45 개의 데이터밖에 없는데 구간이 30 개나 되어 한 구간에 매우 적은 관측 도수밖에 없어서 우연적인 경향이 그래프로 나타날 수 있다. 그러므로 주어진 수치형 변수의 분포를 가장 잘 표현할 수 있도록 구간의 수를 조정해 볼 필요가 있다.</p>
 <p><code>geom_histogram()</code> 함수는 <code>bins</code> 인수로 사용자가 원하는 구간의 수를 입력 받는다. 또는 다은은 15 개와 10개의 구간으로 히스토그램을 그린 예이다. 구간의 수를 조정함에 따라 히스토그램의 모습이 크게 바뀌는 것을 볼 수 있다. 그러므로 히스토그램을 그릴 때는 분포의 모양을 잘 표현할 수 있도록 구간의 수를 잘 조정해야 한다.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="ch-numericDescStat.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="ch-numericDescStat.html#cb652-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-38-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="ch-numericDescStat.html#cb649-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="ch-numericDescStat.html#cb653-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-38-2.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><code>geom_histogram()</code> 함수는 <code>bins</code> 인수로 구간의 수를 지정할 수 있을 뿐 아니라, <code>binwidth</code> 인수를 이용하여 구간의 폭을 지정할 수도 있다. 다음은 구간의 폭이 10이 되돍 하여 총점의 히스토그램을 그린 예이다.</p>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="ch-numericDescStat.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="ch-numericDescStat.html#cb654-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-39-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>그런데 보통 구간의 크기를 지정하면 최소값과 최대값을 기준으로 <code>binwidth</code>의 길이로 구간을 나누므로, 나누어진 경계가 원하는 수치가 아닐 수 있다. 총점처럼 점수의 경우는 정확히 10, 20, …, 90, 100 등이 구간의 경계가 되는 것이 좋을 수 있다. 이처럼 원하는 경계에 따라 구간을 나누어 히스토그램을 그리려면, <code>cut()</code> 함수와 마찬가지로 <code>breaks</code> 인수를 이용하여 구간을 나누는 지점을 지정할 수 있다. <code>cut()</code> 함수와 다른 점은 <code>right</code>가 아니라 <code>closed</code> 인수를 사용하여 구간에 왼쪽 경계를 포함할지 오른쪽 경계를 포함할지를 지정하는 점이 다르다. (막대의 구간을 정확히 확인할 수 있도록 <code>scale_x_continous()</code> 함수로 가로축의 눈금을 조정하였다. 이 함수의 사용법은 R 프로그래밍의 <a href="https://kilhwan.github.io/rprogramming/ch-visualization.html#axes">그래프의 좌표축 조정</a> 절을 참조. )</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="ch-numericDescStat.html#cb651-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> </span>
-<span id="cb651-2"><a href="ch-numericDescStat.html#cb651-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb651-3"><a href="ch-numericDescStat.html#cb651-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">20</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="ch-numericDescStat.html#cb655-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> </span>
+<span id="cb655-2"><a href="ch-numericDescStat.html#cb655-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb655-3"><a href="ch-numericDescStat.html#cb655-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">20</span>))</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-40-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="확률-밀도-그래프" class="section level4 hasAnchor" number="8.1.2.2">
@@ -925,28 +929,28 @@ score 2.21</code></pre>
 <p>그런데 히스토그램은 막대의 간격에 따라 여러 다른 모습의 분포를 보여주므로 분포의 봉우리를 파악하기 어렵다. 이런 경우에는 수치형 변수의 분포에 대한 확률밀도를 추정하여 그래프로 그려보면 분포의 추세를 파악하기 쉽다. <code>ggplot2</code> 패키지의 <code>geom_density()</code> 함수는 수치형 변수에 대해 (추정된) 확률 밀도 그래프를 그려준다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수)) + geom_density()</code></pre>
 <p>다은은 <code>course</code> 데이터의 총점 열의 확률 밀도 그래프를 그린 예이다.</p>
-<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="ch-numericDescStat.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="ch-numericDescStat.html#cb657-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> score)) <span class="sc">+</span> <span class="fu">geom_density</span>()</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-41-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>그런데 확률밀도 함수는 추정된 것이므로 실제 데이터와 잘 부합되는지 확인해 보아야 한다. 따라서 히스토그램과 확률밀도 함수를 같은 좌표평면에 나타내서 서로 부합되는지 확인하는 것이 필요하다.
 그런데 히스토그램은 각 구간의 절대 빈도로 세로축의 축적을 사용하고, 확률 밀도는 함수의 밑의 면적이 1이 되도록 세로축의 축적을 사용한다. 그러므로 두 그래프가 좌표평면에서 같이 표현되려면 히스토그램을 절대 빈도가 아니라 면적이 1이 되도록 상대 빈도로 그래프를 그려야 한다. 다음은 수치형 변수를 상대 빈도로 그래프를 그리는 문법이다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치형변수)) + geom_histogram(aes(y =after_stat(density)))</code></pre>
 <p>다음은 <code>course</code> 데이터에 대한 히스토그램과 함께 추정되는 밀도 함수를 그린 예이다.
 확률밀도 그래프에서 총점이 두 개의 봉우리를 가지는 것으로 나타나는데, 총점이 매우 낮은 예외적인 한 명의 학생과 나머지 학생 그룹에 의해서 이러한 분포가 나타난 것을 확인할 수 있다. <code>geom_vline()</code>으로 분포의 평균(빨간 실선)과 중위수(파란 파선)도 같이 표현하였는데, 예외적으로 낮은 점수의 학생 한 명 때문에 평균이 중위수보다 작은 왼쪽으로 꼬리가 긴 분포의 모양을 가지고 있음을 볼 수 있다.</p>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="ch-numericDescStat.html#cb655-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score)) <span class="sc">+</span> </span>
-<span id="cb655-2"><a href="ch-numericDescStat.html#cb655-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb655-3"><a href="ch-numericDescStat.html#cb655-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb655-4"><a href="ch-numericDescStat.html#cb655-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(course<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb655-5"><a href="ch-numericDescStat.html#cb655-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(course<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="ch-numericDescStat.html#cb659-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(score)) <span class="sc">+</span> </span>
+<span id="cb659-2"><a href="ch-numericDescStat.html#cb659-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb659-3"><a href="ch-numericDescStat.html#cb659-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb659-4"><a href="ch-numericDescStat.html#cb659-4" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(course<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb659-5"><a href="ch-numericDescStat.html#cb659-5" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(course<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-42-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>예외적으로 매우 낮은 점수를 받은 학생은 시험을 치르지 않아 0점 처리된 학생이다. 이 학생을 제외하고 분포를 다시 그려보자. 약간의 비대칭성이 있지만 평균과 중위수가 거의 같은 자리에 있어서 총점이 거의 대칭에 가까운 분포임을 볼 수 있다.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="ch-numericDescStat.html#cb656-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course_omitted, <span class="fu">aes</span>(score)) <span class="sc">+</span> </span>
-<span id="cb656-2"><a href="ch-numericDescStat.html#cb656-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb656-3"><a href="ch-numericDescStat.html#cb656-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span></span>
-<span id="cb656-4"><a href="ch-numericDescStat.html#cb656-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(course_omitted<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb656-5"><a href="ch-numericDescStat.html#cb656-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(course_omitted<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="ch-numericDescStat.html#cb660-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course_omitted, <span class="fu">aes</span>(score)) <span class="sc">+</span> </span>
+<span id="cb660-2"><a href="ch-numericDescStat.html#cb660-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density)), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">100</span>, <span class="at">by=</span><span class="dv">10</span>), <span class="at">closed=</span><span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb660-3"><a href="ch-numericDescStat.html#cb660-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_density</span>() <span class="sc">+</span></span>
+<span id="cb660-4"><a href="ch-numericDescStat.html#cb660-4" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(course_omitted<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb660-5"><a href="ch-numericDescStat.html#cb660-5" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(course_omitted<span class="sc">$</span>score), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-43-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>예외적인 데이터를 제외한 총점의 기술통계량을 살펴보면 왜도가 거의 0에 가까워서 대칭적인 분포이고, 첨도는 0보다 작아서 정규분포보다는 조금 납작한 형태의 분포임을 알 수 있다.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="ch-numericDescStat.html#cb657-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="ch-numericDescStat.html#cb661-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>   vars  n  mean    sd median trimmed   mad   min max range skew kurtosis   se
 X1    1 44 72.86 11.65  72.98   72.49 13.19 53.74  95 41.26 0.24    -1.12 1.76</code></pre>
 </div>
@@ -956,15 +960,15 @@ X1    1 44 72.86 11.65  72.98   72.49 13.19 53.74  95 41.26 0.24    -1.12 1.76</
 <p><code>ggplot2</code> 패키지가 제공하는 <code>geom_qq()</code> 함수는 실측된 변수를 정규분포의 분위수와 비교하는 점을 그려준다. <code>geom_qq_line()</code>은 이론적 분포에 실제 분포가 부합될 때 점들이 위치되어야 할 직선을 그려준다. 다음은 <code>ggplot2</code> 패키지를 이용하여 Q-Q 그림을 그리는 문법이다.</p>
 <pre><code>ggplot(데이터, aes(sample = 수치형변수)) + geom_qq() + geom_qq_line()</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점 변수에 대한 Q-Q 그림을 그린 예이다.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="ch-numericDescStat.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">sample =</span> score)) <span class="sc">+</span> </span>
-<span id="cb660-2"><a href="ch-numericDescStat.html#cb660-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="ch-numericDescStat.html#cb664-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">sample =</span> score)) <span class="sc">+</span> </span>
+<span id="cb664-2"><a href="ch-numericDescStat.html#cb664-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-45-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>총점은 예외적으로 낮은 점수의 한 학생 때문에 정규분포와 차이를 보이고 있다. 예외적인 학생을 제외하고 Q-Q 그래프를 다시 그려보자. Q-Q 그림에서 가로축은 이론적인 정규분포를 세로축은 실제 데이터를 나타낸다. Q-Q 그림에서 실제 데이터가 정규분포에 비해 양 끝이 좀 더 중심에 가깝게 분포되어 있는 것을 확인할 수 있다. 그러므로 총점 분포는 정규분포보다 더 평평한 모양을 가지고 이는 첨도 값에서도 확인할 수 있었다.</p>
-<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="ch-numericDescStat.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course_omitted, <span class="fu">aes</span>(<span class="at">sample =</span> score)) <span class="sc">+</span> </span>
-<span id="cb661-2"><a href="ch-numericDescStat.html#cb661-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="ch-numericDescStat.html#cb665-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course_omitted, <span class="fu">aes</span>(<span class="at">sample =</span> score)) <span class="sc">+</span> </span>
+<span id="cb665-2"><a href="ch-numericDescStat.html#cb665-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_qq</span>() <span class="sc">+</span> <span class="fu">geom_qq_line</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-46-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>이러한 정규분포와의 차이가 통계적으로 유의미한 것인지 분포의 정규성에 대해 가설검정을 해보자. p-값이 크게 나와 실제 데이터와 정규분포와의 차이는 통계적으로 유의미하지 않은 것으로 확인된다.</p>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="ch-numericDescStat.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">shapiro.test</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="ch-numericDescStat.html#cb666-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">shapiro.test</span>(course_omitted<span class="sc">$</span>score)</span></code></pre></div>
 <pre><code>
     Shapiro-Wilk normality test
 
@@ -989,7 +993,7 @@ Figure 8.1: 상자 그림의 의미
 </ul>
 <pre><code>ggplot(데이터, aes(x 또는 y = 수치형변수)) + geom_boxplot()</code></pre>
 <p>다음은 <code>course</code> 데이터의 총점 변수에 대한 상자 그림을 그린 예이다. <code>y</code> 속성에 <code>score</code> 변수를 매핑하였다. 이렇게 한 수치형 변수를 <code>y</code>에 매핑하여 상자 그림을 그릴 때는 그래프의 가로축의 수치는 별다른 의미를 가지지 않는다. 나중에 상자 그래프는 범주형 변수에 따라 수치형 변수의 분포가 어떻게 변하는지를 보기 위해 자주 사용되는데 그 때는 가로축은 범주형 변수의 값을 의미한다.</p>
-<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="ch-numericDescStat.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="ch-numericDescStat.html#cb669-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-48-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>총점은 약간 상단에 치우친(오른쪽에 치우친) 분포의 모습을 보여주고 있고, 최소값이 일반적인 데이터에서 크게 떨어져 있는 이상치임을 확인할 수 있다.</p>
 </div>
@@ -999,16 +1003,16 @@ Figure 8.1: 상자 그림의 의미
 <div id="오른쪽으로-꼬리가-긴-분포를-가지는-수치형-변수의-변환" class="section level4 unnumbered hasAnchor">
 <h4>오른쪽으로 꼬리가 긴 분포를 가지는 수치형 변수의 변환<a href="ch-numericDescStat.html#오른쪽으로-꼬리가-긴-분포를-가지는-수치형-변수의-변환" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><code>ggplot2</code> 패키지가 제공하는 <code>diamonds</code> 데이터에서 다이아몬드의 중량(<code>carat</code>)과 가격(<code>price</code>) 변수의 분포를 확인해 보자. 특히 다이아몬드 가격은 오른쪽으로 매우 꼬리가 긴 분포로 전혀 대칭적이지 않다.</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="ch-numericDescStat.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="ch-numericDescStat.html#cb670-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-49-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="ch-numericDescStat.html#cb668-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>carat)</span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="ch-numericDescStat.html#cb672-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>carat)</span></code></pre></div>
 <pre><code>   vars     n mean   sd median trimmed  mad min  max range skew kurtosis se
 X1    1 53940  0.8 0.47    0.7    0.73 0.47 0.2 5.01  4.81 1.12     1.26  0</code></pre>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="ch-numericDescStat.html#cb670-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="ch-numericDescStat.html#cb674-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-49-2.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="ch-numericDescStat.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>price)</span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="ch-numericDescStat.html#cb676-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>price)</span></code></pre></div>
 <pre><code>   vars     n   mean      sd median trimmed     mad min   max range skew
 X1    1 53940 3932.8 3989.44   2401 3158.99 2475.94 326 18823 18497 1.62
    kurtosis    se
@@ -1025,52 +1029,52 @@ X1     2.18 17.18</code></pre>
 <li>제곱근으로 변환하면, 1, 4, 9, 16 등으로 제곱수로 늘어나는 값을 1, 2, 3, 4 등의 등간격 척도로 변환해 준다. 즉, 만원을 가진 사람에게 3만원을 더해주는 효과와 4만원을 가진 사람에게 5만원을 더해주는 효과가 같다고 간주한다.</li>
 </ul>
 <p><code>ggplot2</code>는 <code>scale_x_log10()</code>과 <code>scale_x_sqrt()</code> 함수를 가지고 있어서 가로축의 값을 자동으로 로그 변환 또는 제곱근 변환을 하여 그래프를 그려준다.</p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="ch-numericDescStat.html#cb674-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="ch-numericDescStat.html#cb678-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-50-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="ch-numericDescStat.html#cb676-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_sqrt</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="ch-numericDescStat.html#cb680-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_sqrt</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-50-2.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>그래프의 결과를 보듯이 제곱근 변환으로는 분포를 충분히 대칭적인 형태로 변환하지 못한다. 반면 로그 변환을 하면 다이아몬드 가격의 분포가 어느 정도 대칭적인 모습으로 변하는 것을 볼 수 있다. 아울러 로그 변환한 변수의 히스토그램을 보면 2 개 이상의 봉우리가 보인다. 확률 밀도 그래프를 그려 분포의 봉우리를 다시 확인해 보자.</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="ch-numericDescStat.html#cb678-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span>  </span>
-<span id="cb678-2"><a href="ch-numericDescStat.html#cb678-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density))) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="ch-numericDescStat.html#cb682-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price)) <span class="sc">+</span>  </span>
+<span id="cb682-2"><a href="ch-numericDescStat.html#cb682-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density))) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-51-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>가격 분포에서 여러 봉우리가 있는 것으로 보아 가격과 관련하여 다이아몬드가 여러 개의 군집으로 나누어 질 수 있음을 알 수 있다. 가격이 왜 이러한 군집된 형태를 보이는가에 대한 탐구는 다음 절로 넘기고, 여기서는 다이아몬드 중량에 대해서도 같은 변환을 한 후 그래프를 그려보자.</p>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="ch-numericDescStat.html#cb680-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="ch-numericDescStat.html#cb684-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-52-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="ch-numericDescStat.html#cb682-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_sqrt</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="ch-numericDescStat.html#cb686-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span> <span class="fu">scale_x_sqrt</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-52-2.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>중량도 제곱근보다는 로그 변환이 더 적절해 보인다. 로그 변환 그래프를 보면 2 개 이상의 봉우리가 보인다. 다시 확률 밀도 그래프를 그려 분포의 봉우리를 확인해 보자.</p>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="ch-numericDescStat.html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span>  </span>
-<span id="cb684-2"><a href="ch-numericDescStat.html#cb684-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density))) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="ch-numericDescStat.html#cb688-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat)) <span class="sc">+</span>  </span>
+<span id="cb688-2"><a href="ch-numericDescStat.html#cb688-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y=</span><span class="fu">after_stat</span>(density))) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-53-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>다이아몬드 중량과 가격 변수를 로그 변환한 후의 기술통계량을 살펴보자. 수치 변수를 밑이 10일 로그로 변환하려면 <code>log10()</code> 함수를 사용한다. (제곱근으로 변환하려면 <code>sqrt()</code> 함수를 사용한다.)
 두 변수 모두 로그 변환 후에 평균과 중위수의 값의 차이가 작고, 왜도도 0에 가까워 대칭적인 분포의 모습을 보인다. 첨도는 두 변수 모두 음의 값으로 정규분포보다는 납작하게 퍼진 분포를 보여준다.</p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="ch-numericDescStat.html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>carat))</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="ch-numericDescStat.html#cb690-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>carat))</span></code></pre></div>
 <pre><code>   vars     n  mean   sd median trimmed  mad  min max range skew kurtosis se
 X1    1 53940 -0.17 0.25  -0.15   -0.18 0.31 -0.7 0.7   1.4  0.1    -1.06  0</code></pre>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="ch-numericDescStat.html#cb688-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>price))</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="ch-numericDescStat.html#cb692-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>price))</span></code></pre></div>
 <pre><code>   vars     n mean   sd median trimmed  mad  min  max range skew kurtosis se
 X1    1 53940 3.38 0.44   3.38    3.37 0.56 2.51 4.27  1.76 0.12     -1.1  0</code></pre>
 <p>로그 변환을 할 때 한 가지 주의 사항은 로그 값은 오직 양의 값에 대해서만 정의된다. 수치 변수가 0의 값을 가지면 로그 변환하면 음의 무한대의 값을 가지므로 제대로된 변환이 되지 않는다. 그러한 경우에는 수치 변수에 1을 더해서 로그 변환한다. 예를 들어 <code>diamond</code>의 <code>y</code> 변수를 로그 변환한다고 가정해 보자. 이 변수는 0으로 측정된 값이 있으므로 로그 변환하면 평균 등이 모두 음의 무한대가 되는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="ch-numericDescStat.html#cb690-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(diamonds<span class="sc">$</span>y)</span></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="ch-numericDescStat.html#cb694-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(diamonds<span class="sc">$</span>y)</span></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   0.000   4.720   5.710   5.735   6.540  58.900 </code></pre>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="ch-numericDescStat.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>y))</span></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="ch-numericDescStat.html#cb696-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>y))</span></code></pre></div>
 <pre><code>   vars     n mean  sd median trimmed  mad  min  max range skew kurtosis  se
 X1    1 53940 -Inf NaN   0.76    0.75 0.11 -Inf 1.77   Inf  NaN      NaN NaN</code></pre>
 <p>이러한 경우 1을 변수에 더한 후 로그 변환을 하면 된다. 물론 이렇게 1이 더해진 수치변수는 해석을 할 때 1이 더해진 수치임을 잊지 말아야 한다.</p>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="ch-numericDescStat.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>y <span class="sc">+</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="ch-numericDescStat.html#cb698-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(<span class="fu">log10</span>(diamonds<span class="sc">$</span>y <span class="sc">+</span> <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>   vars     n mean   sd median trimmed  mad min  max range skew kurtosis se
 X1    1 53940 0.82 0.07   0.83    0.82 0.09   0 1.78  1.78 0.01     1.88  0</code></pre>
 </div>
 <div id="자주-사용되는-변환-방법" class="section level4 unnumbered hasAnchor">
 <h4>자주 사용되는 변환 방법<a href="ch-numericDescStat.html#자주-사용되는-변환-방법" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>지금까지는 오른쪽으로 꼬리가 긴 분포에 대하여 로그 변환과 제곱근 변환을 하는 방법을 살펴보았다. 그러나 이러한 변환 외에도 변수의 역수를 취하거나 제곱을 하는 변환 등도 사용할 수도 있다. 다음 표는 마케팅이나 경영 문제에서 자주 사용되는 수치형 변수의 변환 방법이다. (<span class="citation">(<a href="#ref-chapman2015" role="doc-biblioref">Chapman and Feit 2015</a>, p 102)</span>에서 인용)</p>
+<p>지금까지는 오른쪽으로 꼬리가 긴 분포에 대하여 로그 변환과 제곱근 변환을 하는 방법을 살펴보았다. 그러나 이러한 변환 외에도 변수의 역수를 취하거나 제곱을 하는 변환 등도 사용할 수도 있다. 다음 표는 마케팅이나 경영 문제에서 자주 사용되는 수치형 변수의 변환 방법이다. (<span class="citation">(<a href="#ref-chapman2015">Chapman and Feit 2015</a>, p 102)</span>에서 인용)</p>
 <table>
 <thead>
 <tr class="header">
@@ -1105,9 +1109,9 @@ X1    1 53940 0.82 0.07   0.83    0.82 0.09   0 1.78  1.78 0.01     1.88  0</cod
 데이터$추가할_열_이름 &lt;- sqrt(데이터$수치형변수)  # 제곱근으로 변환 후 열 추가
 #데이터$추가할_열_이름 &lt;- 수치함수(데이터$수치형변수) 결과나 수치 벡터 연산으로 변환 후 저장 </code></pre>
 <p>다음은 <code>diamonds</code> 데이터의 <code>carat</code>과 <code>price</code> 열을 각각 밑이 10인 로그로 변환한 후 <code>carat_log10</code>과 <code>price_log10</code>이라는 열로 <code>diamonds</code> 데이터에 추가한 예이다.</p>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="ch-numericDescStat.html#cb697-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>carat_log10 <span class="ot">&lt;-</span> <span class="fu">log10</span>(diamonds<span class="sc">$</span>carat)</span>
-<span id="cb697-2"><a href="ch-numericDescStat.html#cb697-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>price_log10 <span class="ot">&lt;-</span> <span class="fu">log10</span>(diamonds<span class="sc">$</span>price)</span>
-<span id="cb697-3"><a href="ch-numericDescStat.html#cb697-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="ch-numericDescStat.html#cb701-1" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>carat_log10 <span class="ot">&lt;-</span> <span class="fu">log10</span>(diamonds<span class="sc">$</span>carat)</span>
+<span id="cb701-2"><a href="ch-numericDescStat.html#cb701-2" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>price_log10 <span class="ot">&lt;-</span> <span class="fu">log10</span>(diamonds<span class="sc">$</span>price)</span>
+<span id="cb701-3"><a href="ch-numericDescStat.html#cb701-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(diamonds)</span></code></pre></div>
 <pre><code>     carat               cut        color        clarity          depth      
  Min.   :0.2000   Fair     : 1610   D: 6775   SI1    :13065   Min.   :43.00  
  1st Qu.:0.4000   Good     : 4906   E: 9797   VS2    :12258   1st Qu.:61.00  
@@ -1143,20 +1147,20 @@ x_{\lambda} = \begin{cases}
 \end{cases}
 \]</span></p>
 <p><code>car</code> 패키지의 <code>powerTransform()</code> 함수는 Box-Cox 변환을 수행하여 가장 적합한 <span class="math inline">\(\lambda\)</span> 값을 알려준다. <code>car</code> 패키지가 아직 설치되어 있지 않으면 다음 명령이나 RStudio의 [Package] 탭을 사용하여 <code>car</code> 패키지를 설치한다.</p>
-<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="ch-numericDescStat.html#cb699-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="ch-numericDescStat.html#cb703-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;car&quot;</span>)</span></code></pre></div>
 <p>Box-Cox 변환에서 어떤 <span class="math inline">\(\lambda\)</span> 값이 최적인지 파악하려면 다음 문법처럼 <code>powerTransform()</code> 함수에 Box-Cox 변환을 테스트할 수치형변수를 전달한 후 그 결과를 뒤에서 사용하기 위해 <strong>R</strong> 변수에 할당을 한다.</p>
 <pre><code>결과_저장_변수 &lt;- car::powerTransform(데이터$수치형변수)  # 결과를 변수에 저장
 결과_저장_변수                                           # 결과 출력</code></pre>
 <p>다음은 <code>diamonds</code>의 <code>price</code> 열에 대하여 Box-Cox 변환에서 최적 <span class="math inline">\(\lambda\)</span>를 탐색한 결과이다.</p>
-<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="ch-numericDescStat.html#cb701-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">powerTransform</span>(diamonds<span class="sc">$</span>price)</span>
-<span id="cb701-2"><a href="ch-numericDescStat.html#cb701-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> bc</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="ch-numericDescStat.html#cb705-1" tabindex="-1"></a><span class="sc">&gt;</span> bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">powerTransform</span>(diamonds<span class="sc">$</span>price)</span>
+<span id="cb705-2"><a href="ch-numericDescStat.html#cb705-2" tabindex="-1"></a><span class="sc">&gt;</span> bc</span></code></pre></div>
 <pre><code>Estimated transformation parameter 
 diamonds$price 
    -0.06699008 </code></pre>
 <p>최적의 <span class="math inline">\(\lambda\)</span> 값으로 -0.0669901이 추정되었다. 그런데 일반적으로 제시된 추정 값으로 변환을 하기 앞서 변환을 하지 않는 것(<span class="math inline">\(\lambda = 1\)</span>)과 로그 변환(<span class="math inline">\(\lambda = 0\)</span>)하는 것에 비해 제시된 변환이 통계적으로 확실히 유의미한 변환인지 검정해 볼 필요가 있다.
 왜냐하면 원래 변수나 로그 변환한 변수는 그 의미를 파악하기 쉽지만 원래 변수를 -0.0669901 제곱한 변수의 의미가 무엇인지 해석하기 어렵기 때문이다. 그러므로 변환이 확실하게 유의미하게 좋다고 판단되지 않으면 변환을 하지 않거나 로그 변환 등의 자주 사용되는 변환을 수행하는 것이 좋다.
 제시된 <span class="math inline">\(\lambda\)</span> 값으로 변환하는 것이 유의미한지 정보를 얻으려면 Box-Cox 변환 결과를 <code>summary()</code> 함수에 전달을 하여 상세 변환 결과를 출력한다.</p>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="ch-numericDescStat.html#cb703-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(bc)</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="ch-numericDescStat.html#cb707-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(bc)</span></code></pre></div>
 <pre><code>bcPower Transformation to Normality 
                Est Power Rounded Pwr Wald Lwr Bnd Wald Upr Bnd
 diamonds$price    -0.067       -0.07      -0.0761      -0.0579
@@ -1174,16 +1178,16 @@ LR test, lambda = (1) 53082.28  1 &lt; 2.22e-16</code></pre>
 <pre><code>데이터$추가할_열_이름 &lt;- 
   car::bcPower(데이터$수치형_변수, coef(powerTransfrom_결과_저장_변수))</code></pre>
 <p>다음은 <code>diamonds</code>의 <code>price</code> 열에 대하여 앞에서 찾은 최적 <span class="math inline">\(\lambda\)</span> 값으로 변환을 수행한 후, 변환된 변수에 대하여 히스토그램과 통계 요약을 수행한 결과이다.</p>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="ch-numericDescStat.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>price_bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">bcPower</span>(diamonds<span class="sc">$</span>price, <span class="fu">coef</span>(bc))</span>
-<span id="cb706-2"><a href="ch-numericDescStat.html#cb706-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price_bc)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="ch-numericDescStat.html#cb710-1" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>price_bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">bcPower</span>(diamonds<span class="sc">$</span>price, <span class="fu">coef</span>(bc))</span>
+<span id="cb710-2"><a href="ch-numericDescStat.html#cb710-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> price_bc)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-61-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="ch-numericDescStat.html#cb708-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>price_bc)</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="ch-numericDescStat.html#cb712-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>price_bc)</span></code></pre></div>
 <pre><code>   vars     n mean  sd median trimmed  mad min  max range skew kurtosis se
 X1    1 53940 6.05 0.6   6.07    6.04 0.77 4.8 7.21  2.41 0.03    -1.13  0</code></pre>
 <p>마찬가지 방법으로 <code>diamonds</code> 데이터의 <code>carat</code> 열에 대해 변환을 수행해 보자.</p>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="ch-numericDescStat.html#cb710-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">powerTransform</span>(diamonds<span class="sc">$</span>carat)</span>
-<span id="cb710-2"><a href="ch-numericDescStat.html#cb710-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(bc)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="ch-numericDescStat.html#cb714-1" tabindex="-1"></a><span class="sc">&gt;</span> bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">powerTransform</span>(diamonds<span class="sc">$</span>carat)</span>
+<span id="cb714-2"><a href="ch-numericDescStat.html#cb714-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(bc)</span></code></pre></div>
 <pre><code>bcPower Transformation to Normality 
                Est Power Rounded Pwr Wald Lwr Bnd Wald Upr Bnd
 diamonds$carat   -0.0949       -0.09      -0.1105      -0.0793
@@ -1196,11 +1200,11 @@ LR test, lambda = (0) 143.377  1 &lt; 2.22e-16
 Likelihood ratio test that no transformation is needed
                            LRT df       pval
 LR test, lambda = (1) 20088.35  1 &lt; 2.22e-16</code></pre>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="ch-numericDescStat.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>carat_bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">bcPower</span>(diamonds<span class="sc">$</span>carat, <span class="fu">coef</span>(bc))</span>
-<span id="cb712-2"><a href="ch-numericDescStat.html#cb712-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat_bc)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="ch-numericDescStat.html#cb716-1" tabindex="-1"></a><span class="sc">&gt;</span> diamonds<span class="sc">$</span>carat_bc <span class="ot">&lt;-</span> car<span class="sc">::</span><span class="fu">bcPower</span>(diamonds<span class="sc">$</span>carat, <span class="fu">coef</span>(bc))</span>
+<span id="cb716-2"><a href="ch-numericDescStat.html#cb716-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds, <span class="fu">aes</span>(<span class="at">x =</span> carat_bc)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-62-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="ch-numericDescStat.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>carat_bc)</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="ch-numericDescStat.html#cb718-1" tabindex="-1"></a><span class="sc">&gt;</span> psych<span class="sc">::</span><span class="fu">describe</span>(diamonds<span class="sc">$</span>carat_bc)</span></code></pre></div>
 <pre><code>   vars     n  mean   sd median trimmed  mad   min  max range skew kurtosis se
 X1    1 53940 -0.42 0.61  -0.36   -0.43 0.76 -1.74 1.49  3.23 0.02    -1.11  0</code></pre>
 <p>변환 후 두 변수 모두 어느 정도 대칭적인 분포가 되었다.
@@ -1253,9 +1257,9 @@ Figure 8.2: 피어슨 상관계수 (출처: 위키피디아)
 cor(데이터[수치형_변수_인덱스_벡터])        # 선택된 수치형 변수의 모든 조합에 대해 계산</code></pre>
 <p>다음은 중간고사와 기말고사의 Pearson 상관계수를 구한 예이다.
 중간고사와 기말고사에는 매우 강한 선형 상관성이 있다.</p>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="ch-numericDescStat.html#cb717-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final)</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="ch-numericDescStat.html#cb721-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final)</span></code></pre></div>
 <pre><code>[1] NA</code></pre>
-<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="ch-numericDescStat.html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="ch-numericDescStat.html#cb723-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final, <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
 <pre><code>[1] 0.8348258</code></pre>
 <p>중간과 기말고사에 결측치가 있기 때문에 <code>use</code> 인수로 결측치를 어떻게 처리할지를 지정하지 않으면 결과가 <code>NA</code>로 나온다. <code>use</code>는 다음과 같은 값을 가질 수 있다.</p>
 <ul>
@@ -1266,21 +1270,21 @@ cor(데이터[수치형_변수_인덱스_벡터])        # 선택된 수치형 �
 <li>“pairwise.complete.obs”: 상관계수를 계산할 두 변수에서 <code>NA</code>가 있으면 그 관측은 제외하고 상관계수를 계산한다.</li>
 </ul>
 <p><code>use</code> 인수는 <code>cor()</code> 함수가 데이터 프레임 전체에 작용될 때 그 의미가 잘 들어난다. <code>cor()</code> 함수가 수치형 변수로만 이루어진 데이터 프레임에 적용되면 모든 두 변수 쌍에 대한 상관계수를 계산해 준다.</p>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="ch-numericDescStat.html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="ch-numericDescStat.html#cb725-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
 <pre><code>      mid final       hw    score
 mid     1    NA       NA       NA
 final  NA     1       NA       NA
 hw     NA    NA 1.000000 0.697733
 score  NA    NA 0.697733 1.000000</code></pre>
 <p><code>use</code> 인수의 기본 값이 “everything”이므로 결측치가 있는 중간고사와 기말고사가 상관계수 계산에 사용된 경우에는 <code>NA</code>가 결과로 나왔다. “complete.obs”을 <code>use</code> 인수에 사용하면 중간, 기말, 숙제, 총점 중 하나라도 결측치가 있는 학생과 관련된 데이터 행은 없애고 상관계수를 구한다. 그러기 때문에 모든 변수 조합에 대하여 상관계수가 잘 계산되어 나왔다. 중간과 기말고사는 총점과 높은 상관성이 있지만 숙제는 총점과 약한 상관성만 있다.</p>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="ch-numericDescStat.html#cb723-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="ch-numericDescStat.html#cb727-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</span></code></pre></div>
 <pre><code>            mid     final        hw     score
 mid   1.0000000 0.8348258 0.3128638 0.9571183
 final 0.8348258 1.0000000 0.2843525 0.9472175
 hw    0.3128638 0.2843525 1.0000000 0.4078304
 score 0.9571183 0.9472175 0.4078304 1.0000000</code></pre>
 <p>“complete.obs”은 결측치가 있는 행은 모두 삭제하므로 일관성을 가지고 상관계수를 계산할 수 있는 장점이 있지만, 결측치가 흩뿌려져 있는 경우 상관성 계산에 사용되지 못하는 데이터의 양이 많아져 데이터 손실이 클 수 있다. 상관계수는 결국 두 변수의 관계이므로, 이러한 경우에는 상관계수 계산에 사용되는 변수에 결측치가 없으면 다른 변수에 결측치가 있어도 사용하도록 하는 게 좋다. 이러한 방식으로 상관계수를 계산하려면 <code>use</code> 인수를 “pairwise.complete.obs”으로 설정한다. 결측치가 없는 hw과 score 변수의 상관계수 계산에 mid와 final에 결측치가 있는 행도 사용하였으므로 앞의 결과와는 조금 다른 결과를 볼 수 있다.</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="ch-numericDescStat.html#cb725-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="ch-numericDescStat.html#cb729-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>)</span></code></pre></div>
 <pre><code>            mid     final        hw     score
 mid   1.0000000 0.8348258 0.3128638 0.9571183
 final 0.8348258 1.0000000 0.2843525 0.9472175
@@ -1289,7 +1293,7 @@ score 0.9571183 0.9472175 0.6977330 1.0000000</code></pre>
 <p>Pearson 상관계수는 평균, 분산과 마찬가지로, 산술 계산 상의 좋은 수학적 성질을 가지고 있지만 이상치에 의해 영향을 크게 받는다.
 이러한 문제점을 개선한 상관계수가 Spearman 상관계수이다. Spearman 상관계수는 수치 값이 아니라 각 변수의 관측치의 등수(rank)를 사용하여 상관계수를 계산한다. 따라서 소수의 이상치가 있어도 등수에 큰 변화가 없으므로 이상치의 영향을 덜 받는다.</p>
 <p>Spearman 상관계수를 구하려면, <code>cor()</code> 함수의 <code>method</code> 인수를 “spearman”으로 설정하면 된다. <code>course</code> 데이터는 Pearson과 Spearman 상관계수의 차이가 크지 않다.</p>
-<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="ch-numericDescStat.html#cb727-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="ch-numericDescStat.html#cb731-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>            mid     final        hw     score
 mid   1.0000000 0.8368262 0.3814754 0.9492544
 final 0.8368262 1.0000000 0.2667068 0.9386216
@@ -1297,7 +1301,7 @@ hw    0.3814754 0.2667068 1.0000000 0.4647101
 score 0.9492544 0.9386216 0.4647101 1.0000000</code></pre>
 <p>Kendall 상관계수는 관측치 쌍 <span class="math inline">\((x_i, y_i), (x_j, y_j)\)</span>에 대하여 <span class="math inline">\(x\)</span>와 <span class="math inline">\(y\)</span>가 같은 방향으로 움직이면 1, 반대로 움직이면 -1, 한 변수라도 같은 값이면 0으로 하여 관측치 쌍의 상관계수를 구한 후, 모든 관측치 쌍의 상관계수를 더하여 구한다. 관측치 쌍들 사이에 경향이 동일하게 움직이는가만 계산하기 때문에 이상치에 크게 영향을 받지 않는다.</p>
 <p>Kendall 상관계수를 구하려면, <code>cor()</code> 함수의 <code>method</code> 인수를 “kendall”로 설정하면 된다. <code>course</code> 데이터는 Kendall 상관계수가 Pearson과 Spearman 상관계수보다는 적게 나오는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="ch-numericDescStat.html#cb729-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="ch-numericDescStat.html#cb733-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>], <span class="at">use =</span> <span class="st">&quot;pairwise.complete.obs&quot;</span>, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>            mid     final        hw     score
 mid   1.0000000 0.6494909 0.2758297 0.8160261
 final 0.6494909 1.0000000 0.1835906 0.8051283
@@ -1308,7 +1312,7 @@ score 0.8160261 0.8051283 0.3309720 1.0000000</code></pre>
 <pre><code>cor.test(수치_벡터1, 수치_벡터2, method = &quot;상관계수_종류&quot;)
 cor.test(~ 수치열1 + 수치열2, data = 데이터, method = &quot;상관계수_종류&quot;)</code></pre>
 <p>중간과 기말고사의 Pearson, Spearman, Kendall 상관계수 모두 매우 작은 p-값을 가지므로 통계적으로 유의미하다는 것을 알 수 있다. 단, Spearman과 Kendall 상관계수는 수치 값에 동률이 있으면 정확한 p-값을 구할 수 없어서 경고가 출력되었다.</p>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="ch-numericDescStat.html#cb732-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="ch-numericDescStat.html#cb736-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(course<span class="sc">$</span>mid, course<span class="sc">$</span>final, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>
     Pearson&#39;s product-moment correlation
 
@@ -1320,9 +1324,9 @@ alternative hypothesis: true correlation is not equal to 0
 sample estimates:
       cor 
 0.8348258 </code></pre>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="ch-numericDescStat.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(<span class="sc">~</span> mid <span class="sc">+</span> final, <span class="at">data =</span> course, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
-<pre><code>Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): tie때문에 정확한
-p값을 계산할 수 없습니다</code></pre>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="ch-numericDescStat.html#cb738-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(<span class="sc">~</span> mid <span class="sc">+</span> final, <span class="at">data =</span> course, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): Cannot compute
+exact p-value with ties</code></pre>
 <pre><code>
     Spearman&#39;s rank correlation rho
 
@@ -1332,9 +1336,9 @@ alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
 0.8368262 </code></pre>
-<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="ch-numericDescStat.html#cb737-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(<span class="sc">~</span> mid <span class="sc">+</span> final, <span class="at">data =</span> course, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
-<pre><code>Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): tie때문에 정확한
-p값을 계산할 수 없습니다</code></pre>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="ch-numericDescStat.html#cb741-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor.test</span>(<span class="sc">~</span> mid <span class="sc">+</span> final, <span class="at">data =</span> course, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<pre><code>Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): Cannot compute
+exact p-value with ties</code></pre>
 <pre><code>
     Kendall&#39;s rank correlation tau
 
@@ -1346,13 +1350,13 @@ sample estimates:
 0.6494909 </code></pre>
 <p>데이터에 수치형 변수가 매우 많으면 <code>cor()</code> 함수로 계산된 수치에서 상관성이 높은 변수 쌍이 무엇인지 한 눈에 파악하기가 쉽지 않다. 이러한 경우에는 <code>corrplot</code> 패키지의 <code>corrplot.mixed()</code> 함수를 사용하면 많은 수치형 변수들 간의 상관성을 파악하기 좋다.</p>
 <p><code>corrplot</code> 패키지의 <code>corrplot.mixed()</code> 함수를 사용하려면 먼저 <code>corrplot</code> 패키지를 설치해야 한다.</p>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="ch-numericDescStat.html#cb740-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;corrplot&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="ch-numericDescStat.html#cb744-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;corrplot&quot;</span>)</span></code></pre></div>
 <p><code>corrplot.mixed()</code> 함수의 첫번째 인수는 <code>cor()</code> 함수의 결과를 입력하고, <code>upper</code> 인수는 그래프의 오른쪽 위 삼각형 부분에 두 변수의 상관성을 보여주는 도형을 무엇으로 할 것인가를 지정하는데 <code>"ellipse"</code>로 입력하면 두 변수의 양의 상관성이 높으면 우상향하는 가는 타원을, 음의 상관성이 높으면 우하향하는 가는 타원으로 상관성을 표시하고, 상관성이 없으면 원에 가까운 모양을 표시한다. 그래프의 대각선 영역은 변수 이름을 나타내고, 왼쪽 아래 삼각형 부분에는 두 변수의 상관계수를 표시하는데, 상관계수의 값이 크면 짙은 색으로 상관계수를 표시한다. 그리고 양의 상관성이 높으면 짙은 파란색으로, 음의 상관성이 높으면 짙은 붉은 색으로 상관계수와 타원을 표현한다.</p>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="ch-numericDescStat.html#cb741-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>(<span class="fu">cor</span>(diamonds[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>)]), <span class="at">upper =</span> <span class="st">&quot;ellipse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="ch-numericDescStat.html#cb745-1" tabindex="-1"></a><span class="sc">&gt;</span> corrplot<span class="sc">::</span><span class="fu">corrplot.mixed</span>(<span class="fu">cor</span>(diamonds[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>)]), <span class="at">upper =</span> <span class="st">&quot;ellipse&quot;</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-71-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>그런데 상관계수는 수치형 변수의 상관성을 측정하는데 다음과 같은 한계점을 갖는다.</p>
 <ul>
-<li>상관계수는 두 수치변수의 선형상관성만 측정하지 이차식의 포물선과 같은 비선형적 상관성에 대한 측정은 불가능하다. 그러므로 선형상관성 이외의 상관성이 있는지를 파악하려면 그래프를 그려보거나, 두 변수를 변환하여 상관성을 확인하여야 한다. 또는 최근에 정보이론에 기반을 둔 maximal information coefficient (MIC) <span class="citation">(<a href="#ref-reshef2011detecting" role="doc-biblioref">Reshef et al. 2011</a>)</span> 등을 사용하여 비선형적 상관성을 탐색할 수도 있다.</li>
+<li>상관계수는 두 수치변수의 선형상관성만 측정하지 이차식의 포물선과 같은 비선형적 상관성에 대한 측정은 불가능하다. 그러므로 선형상관성 이외의 상관성이 있는지를 파악하려면 그래프를 그려보거나, 두 변수를 변환하여 상관성을 확인하여야 한다. 또는 최근에 정보이론에 기반을 둔 maximal information coefficient (MIC) <span class="citation">(<a href="#ref-reshef2011detecting">Reshef et al. 2011</a>)</span> 등을 사용하여 비선형적 상관성을 탐색할 수도 있다.</li>
 <li>상관계수는 두 변수의 상관성만 탐색하므로 세 개 이상의 변수가 연관된 상관성을 파악하기 어렵다. 세 개 이상의 변수들의 상관성을 탐색하려면 회귀모형 등을 이용하여 변수들의 관계를 탐색하여야 한다.</li>
 </ul>
 </div>
@@ -1362,45 +1366,45 @@ sample estimates:
 <p><code>ggplot2</code>의 <code>geom_point()</code> 함수를 사용하면 다음의 문법으로 두 변수의 산점도를 그릴 수 있다.</p>
 <pre><code>ggplot(데이터, aes(x = 수치변수1, y = 수치변수2)) + geom_point()</code></pre>
 <p>다음 예는 앞서 상관계수를 구한 중간고사와 기말고사 변수에 대해 산점도를 그린 예이다. 전반적으로 살펴보면 중간고사가 높은 학생이 기말고사 점수도 높은 경향을 보인다.</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="ch-numericDescStat.html#cb743-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="ch-numericDescStat.html#cb747-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <pre><code>Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-72-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>만약 여러 수치형 변수에 대해 산점도를 빠르게 그리고 싶으면 다음처럼 수치형 변수로만 이루어진 데이터 프레임을 만들어 <code>plot()</code> 함수에 전달하면 된다.</p>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="ch-numericDescStat.html#cb745-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="ch-numericDescStat.html#cb749-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(course[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>])</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-73-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>산점도에서 숙제 점수는 대부분 비슷하여 최종평균 점수에 별 영향을 미치지 못함을 파악할 수 있다. 중간과 기말, 중간과 최종, 기말과 최종은 어느 정도 강한 상관관계를 가지고 있음을 확인할 수 있다.</p>
 </div>
 <div id="추세선-그리기" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> 추세선 그리기<a href="ch-numericDescStat.html#추세선-그리기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>두 수치형 변수에 비선형적 상관성이 있으면 산점도만 보고 이를 파악하기 어려운 경우가 많다. 이러한 경우에는 <code>geom_smooth()</code> 함수를 사용하면 두 변수의 변화 추세를 보여주는 선을 그려보면 비선형적 상관성 파악에 도움이 된다. 회색으로 표시된 부분은 추세선의 95% 신뢰구간이며 <code>se=FALSE</code>로 인수를 설정하면 사라진다.</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="ch-numericDescStat.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="ch-numericDescStat.html#cb750-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <pre><code>Warning: Removed 1 rows containing non-finite values (`stat_smooth()`).</code></pre>
 <pre><code>Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-74-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>추세선은 데이터가 적으면 지역 다항 회귀선(loess)을 이용하여, 데이터가 많으면 일반화 가법 모형(gam)을 사용하여 추정한다. <code>method</code> 인수를 사용하면 추세선을 그릴 때 사용할 적합 모형을 지정할 수 있다. <code>method = "lm"</code>으로 설정하면 선형회귀 모형을 사용하여 추세선을 그린다.</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="ch-numericDescStat.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
-<span id="cb750-2"><a href="ch-numericDescStat.html#cb750-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="ch-numericDescStat.html#cb754-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
+<span id="cb754-2"><a href="ch-numericDescStat.html#cb754-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
 <pre><code>`geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-75-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>지역 다항 회귀선으로 추세션을 그릴 때 <code>span</code> 인수를 이용하면 얼마나 지역적으로 추세선을 적합할지를 조정할 수 있다. <code>span</code>이 1에 가까울수록 전체 데이터를 모두 사용하여 추세선을 적합하므로 매우 부드러운 곡선이 적합되고<code>span</code>이 0에 가까울수록 매우 가까운 소수의 데이터만을 사용하여 추세선을 적합하므로 데이터의 변화에 따라 구불구불한 추세선이 만들어진다. 너무 작은 값을 사용하면 추세선이 데이터에 과적합되어서 추세선이 소수의 데이터에 영향을 많이 받게 된다.</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="ch-numericDescStat.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
-<span id="cb752-2"><a href="ch-numericDescStat.html#cb752-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="ch-numericDescStat.html#cb756-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
+<span id="cb756-2"><a href="ch-numericDescStat.html#cb756-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-76-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="ch-numericDescStat.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
-<span id="cb753-2"><a href="ch-numericDescStat.html#cb753-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="fl">0.7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="ch-numericDescStat.html#cb757-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
+<span id="cb757-2"><a href="ch-numericDescStat.html#cb757-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="fl">0.7</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-76-2.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="ch-numericDescStat.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
-<span id="cb754-2"><a href="ch-numericDescStat.html#cb754-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="fl">0.4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="ch-numericDescStat.html#cb758-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(course, <span class="fu">aes</span>(<span class="at">x =</span> mid, <span class="at">y =</span> final)) <span class="sc">+</span> </span>
+<span id="cb758-2"><a href="ch-numericDescStat.html#cb758-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="fl">0.4</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-76-3.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="ggpairs를-이용한-수치형-변수를-한-번에-분석하기" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> <code>ggpairs()</code>를 이용한 수치형 변수를 한 번에 분석하기<a href="ch-numericDescStat.html#ggpairs를-이용한-수치형-변수를-한-번에-분석하기" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>GGally</code> 패키지에서 제공하는 <code>ggpairs()</code> 함수를 사용하면 수치형 변수의 확률 밀도 그래프, 수치형 변수 간의 산점도, 수치형 변수 사이의 상관계수와 가설검정 결과를 한 번에 확인할 수 있어 편리하다.</p>
 <p>먼저 <code>GGally</code> 패키지를 설치한다.</p>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="ch-numericDescStat.html#cb755-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;GGally&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="ch-numericDescStat.html#cb759-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;GGally&quot;</span>)</span></code></pre></div>
 <p><code>ggpairs()</code> 함수의 첫 번째 인수는 데이터, 두번째 인수에는 그래프를 그릴 열의 위치를 지정한다.</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="ch-numericDescStat.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> GGally<span class="sc">::</span><span class="fu">ggpairs</span>(course, <span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="ch-numericDescStat.html#cb760-1" tabindex="-1"></a><span class="sc">&gt;</span> GGally<span class="sc">::</span><span class="fu">ggpairs</span>(course, <span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>)</span></code></pre></div>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-78-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>그래프 행렬의 대각선에는 각 변수의 확률 밀도 그래프가 그려진다. 우상단 삼각형에는 두 변수 간의 상관계수와 가설검정 결과를 보여준다. <code>*</code> 유의수준 10%에서 두 변수의 상관성이 의미있다는 것을 나타내며, <code>**</code>와 <code>***</code>은 각각 유의수준 5%와 1%에서 상관성이 의미있다는 것을 나타낸다. 우하단의 삼각형은 두 변수 간의 산점도를 보여준다.</p>
 <p><code>ggpairs()</code> 함수는 수치형 변수뿐 아니라 범주형 변수에 대해서도 그래프를 그려준다. 관심있는 독자는 <code>course</code> 데이터 전체에 대하여 <code>ggpairs()</code> 함수를 적용해 보기 바란다. (두 번째 인수를 생략하면 전체 열에 대하여 <code>ggpairs()</code> 함수를 적용할 수 있다.)</p>
@@ -1409,24 +1413,24 @@ sample estimates:
 <h3><span class="header-section-number">8.2.5</span> 수치형 변수의 변환<a href="ch-numericDescStat.html#수치형-변수의-변환" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>앞서 살펴보았던 다이아몬드의 가격과 중량이 상관성이 있는지를 산점도를 그려 살펴보자.
 전체 데이터를 대상으로 산점도를 그릴 수도 있지만, 다이아몬드 데이터는 관측치가 매우 많아서 컴퓨터 성능에 따라 산점도를 만들고 표시하는데 시간이 어느 정도 걸릴 수 있다. 그래서 데이터의 10%만 표본 추출하여 산점도를 그려보자. <code>dplyr</code> 패키지는 이러한 역할을 하는 <code>slice_sample()</code> 함수를 가지고 있다. 이 함수의 <code>n</code> 인수에 추출할 행의 수를 설정하면 임의로 <code>n</code> 개의 행을 추출하고, <code>prop</code> 인수에 비율을 설정하면, 전체 데이터에서 <code>prop</code> 만큼의 비율로 행을 임의 추출한다. <code>dplyr</code> 패키지가 설치되어 있지 않다면 먼저 설치를 해야 한다.</p>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="ch-numericDescStat.html#cb757-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="ch-numericDescStat.html#cb761-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <p>다음은 <code>diamonds</code> 데이터에서 10%만 표본 추출한 후, 표본 추출한 데이터를 <code>diamonds_sample</code>이라는 변수에 할당하는 예이다.</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="ch-numericDescStat.html#cb758-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds_sample <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(diamonds, <span class="at">prop =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="ch-numericDescStat.html#cb762-1" tabindex="-1"></a><span class="sc">&gt;</span> diamonds_sample <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">slice_sample</span>(diamonds, <span class="at">prop =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p>전반적으로 보았을 때 중량이 커지면 다이아몬드의 가격도 상승하는 경향이 있다. 그러나 소수의 중량이 큰 관측치로 인해 정확한 관계를 파악하기 어렵다.</p>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="ch-numericDescStat.html#cb759-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
-<span id="cb759-2"><a href="ch-numericDescStat.html#cb759-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="ch-numericDescStat.html#cb763-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
+<span id="cb763-2"><a href="ch-numericDescStat.html#cb763-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-81-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb761-1"><a href="ch-numericDescStat.html#cb761-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(diamonds_sample<span class="sc">$</span>carat, diamonds_sample<span class="sc">$</span>price)</span></code></pre></div>
-<pre><code>[1] 0.9196105</code></pre>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="ch-numericDescStat.html#cb765-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(diamonds_sample<span class="sc">$</span>carat, diamonds_sample<span class="sc">$</span>price)</span></code></pre></div>
+<pre><code>[1] 0.9193904</code></pre>
 <p>두 변수 모두 로그 변환을 하여 산점도를 다시 그려보자. 마지막 몇 데이터를 제외하고는 중량과 가격은 거의 선형에 가까운 관계를 보인다. 이는 로그 변환 후에 상관계수를 구해보면 확실히 알 수 있다. 따라서 다이아몬드의 가격은 중량에 의해 많은 부분을 설명하고 예측할 수 있을 것이라는 것을 예상할 수 있다.</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="ch-numericDescStat.html#cb763-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
-<span id="cb763-2"><a href="ch-numericDescStat.html#cb763-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb763-3"><a href="ch-numericDescStat.html#cb763-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="ch-numericDescStat.html#cb767-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
+<span id="cb767-2"><a href="ch-numericDescStat.html#cb767-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb767-3"><a href="ch-numericDescStat.html#cb767-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-82-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="ch-numericDescStat.html#cb765-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>carat), <span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>price))</span></code></pre></div>
-<pre><code>[1] 0.9650661</code></pre>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="ch-numericDescStat.html#cb769-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>carat), <span class="fu">log10</span>(diamonds_sample<span class="sc">$</span>price))</span></code></pre></div>
+<pre><code>[1] 0.9659195</code></pre>
 </div>
 <div id="subsubsec-categorynum" class="section level3 hasAnchor" number="8.2.6">
 <h3><span class="header-section-number">8.2.6</span> 범주형 변수를 조건으로 수치형 변수의 상관성 탐색<a href="ch-numericDescStat.html#subsubsec-categorynum" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1436,29 +1440,29 @@ sample estimates:
 <li>산점도의 선형 추세선에 잘 들어맞지 않는 중량에 비해 가격이 낮은 다이아몬드들은 그 이유가 무엇일까?</li>
 </ul>
 <p>이 질문에 대한 답이 혹시 다이아몬드의 가공품질(<code>cut</code>)에 있는 것은 아닌지 한번 살펴보자. 그러려면 중량과 가격의 상관관계가 가공품질에 따라 달라지는지 확인해 보아야 한다. 산점도에서 범주형 변수의 값에 따라 두 수치형 변수의 상관성에 차이가 있는지를 살펴보는 가장 쉬운 방법은 산점도의 점을 범주형 변수의 값에 따라 다른 색상 또는 모양으로 그려보는 것이다.</p>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="ch-numericDescStat.html#cb767-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
-<span id="cb767-2"><a href="ch-numericDescStat.html#cb767-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se=</span>F) <span class="sc">+</span></span>
-<span id="cb767-3"><a href="ch-numericDescStat.html#cb767-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="ch-numericDescStat.html#cb771-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
+<span id="cb771-2"><a href="ch-numericDescStat.html#cb771-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se=</span>F) <span class="sc">+</span></span>
+<span id="cb771-3"><a href="ch-numericDescStat.html#cb771-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-83-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>산점도에 나타나는 너무 많은 데이터가 오히려 변수들의 상관 관계를 확인하기 어렵게 만든다. 그래프에서 점을 제외하고 추세선만 그려보자. 가장 낮은 가공 품질인 Fair와 다른 가공품질의 가격 추이가 조금은 다른 것을 볼 수 있다. 그러나 Good에서 Ideal 등급 사이의 추세선은 신뢰구간이 서로 겹쳐 있어서 가공품질이 나머지 가격 변동성을 설명해주는 부분은 그리 크지 않은 것으로 파악된다.</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="ch-numericDescStat.html#cb769-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
-<span id="cb769-2"><a href="ch-numericDescStat.html#cb769-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb769-3"><a href="ch-numericDescStat.html#cb769-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="ch-numericDescStat.html#cb773-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> cut)) <span class="sc">+</span> </span>
+<span id="cb773-2"><a href="ch-numericDescStat.html#cb773-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb773-3"><a href="ch-numericDescStat.html#cb773-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-84-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>이번에 다이아몬드의 투명도(<code>clarity</code>)에 따라 중량과 가격의 상관성을 확인해 보자. 이번에는 점을 흐리게 하여 추세선의 아래 층에 같이 그렸다. 중량이 같은 경우 투명성이 커질수록 가격의 상단에 데이터와 추세선이 위치하는 것을 볼 수 있다. 그리고 투명도에 따른 가격의 차이가 중량을 제외한 가격의 변동성의 대부분을 설명하는 것으로 보인다. 그리고 하나 더 파악할 수 있는 것은 중량이 1 캐럿이 넘어가면 중량과 가격의 로그 변환의 선형성이 비선형적으로 움직이는 것을 볼 수 있다.</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="ch-numericDescStat.html#cb771-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb771-2"><a href="ch-numericDescStat.html#cb771-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb771-3"><a href="ch-numericDescStat.html#cb771-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb771-4"><a href="ch-numericDescStat.html#cb771-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="ch-numericDescStat.html#cb775-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price, <span class="at">color =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb775-2"><a href="ch-numericDescStat.html#cb775-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb775-3"><a href="ch-numericDescStat.html#cb775-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb775-4"><a href="ch-numericDescStat.html#cb775-4" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-85-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>범주형 변수의 값에 따라 두 수치형 변수의 관계를 살펴보기는 측면으로 나누어 그래프를 그려 볼 수도 있다. 이 경우에 각 범주별로 그래프가 분리되어 그려져 각각의 경향을 파악하기는 쉬우나 서로 비교하는 것은 어렵다.</p>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="ch-numericDescStat.html#cb773-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
-<span id="cb773-2"><a href="ch-numericDescStat.html#cb773-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb773-3"><a href="ch-numericDescStat.html#cb773-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
-<span id="cb773-4"><a href="ch-numericDescStat.html#cb773-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> clarity)</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="ch-numericDescStat.html#cb777-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
+<span id="cb777-2"><a href="ch-numericDescStat.html#cb777-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb777-3"><a href="ch-numericDescStat.html#cb777-3" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
+<span id="cb777-4"><a href="ch-numericDescStat.html#cb777-4" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> clarity)</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-86-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>두 수치형 변수의 관계를 범주형 변수에 따라 어떻게 달라지는지 더 자세히 살펴보려면 회귀분석 모형을 사용해야 한다. 관련된 내용은 회귀 분석과 관련된 강의와 <a href="ch-categorical-numeric.html#ch-categorical-numeric">9</a> 장을 참조한다.</p>
@@ -1467,12 +1471,12 @@ sample estimates:
 <h3><span class="header-section-number">8.2.7</span> 수치형 변수를 조건으로 두 수치형 변수의 상관성 분석<a href="ch-numericDescStat.html#수치형-변수를-조건으로-두-수치형-변수의-상관성-분석" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>그러면 다른 수치형 변수의 값에 따라 수치형 변수의 상관성에 차이가 있는지도 분석할 수 있을까? 일반적으로 3개 이상의 수치 변수의 관계는 다중 회귀 모형과 공분산분석을 이용하여 탐구한다. 이에 대해서는 회귀 분석과 공분산분석을 다룰 때 살펴보도록 한다.</p>
 <p>기술통계 방법을 사용하여 이를 살펴보는 방법은 조건이 되는 수치형 변수를 범주형 변수로 변환한 후 앞서 범주형 변수를 조건으로 두 수치형 변수에 대한 상관성 분석을 한 방법을 이용하는 것이다. 예를 들어 다음은 <code>diamonds</code> 데이터의 <code>table</code> 변수를 4분위수로 4 개의 구간으로 나누어 <code>table_cut</code> 열에 저장한 후, 이 열을 기준으로 측면으로 나누어 다이아몬드의 중량과 가격 산점도를 그려 볼 수 있다.</p>
-<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="ch-numericDescStat.html#cb775-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> diamonds_sample<span class="sc">$</span>table_cut <span class="ot">&lt;-</span> </span>
-<span id="cb775-2"><a href="ch-numericDescStat.html#cb775-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cut</span>(diamonds_sample<span class="sc">$</span>table, <span class="at">breaks =</span> <span class="fu">quantile</span>(diamonds_sample<span class="sc">$</span>table), <span class="at">include.lowest =</span> T)</span>
-<span id="cb775-3"><a href="ch-numericDescStat.html#cb775-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
-<span id="cb775-4"><a href="ch-numericDescStat.html#cb775-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
-<span id="cb775-5"><a href="ch-numericDescStat.html#cb775-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
-<span id="cb775-6"><a href="ch-numericDescStat.html#cb775-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> table_cut)</span></code></pre></div>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="ch-numericDescStat.html#cb779-1" tabindex="-1"></a><span class="sc">&gt;</span> diamonds_sample<span class="sc">$</span>table_cut <span class="ot">&lt;-</span> </span>
+<span id="cb779-2"><a href="ch-numericDescStat.html#cb779-2" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">cut</span>(diamonds_sample<span class="sc">$</span>table, <span class="at">breaks =</span> <span class="fu">quantile</span>(diamonds_sample<span class="sc">$</span>table), <span class="at">include.lowest =</span> T)</span>
+<span id="cb779-3"><a href="ch-numericDescStat.html#cb779-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ggplot</span>(diamonds_sample, <span class="fu">aes</span>(<span class="at">x =</span> carat, <span class="at">y =</span> price)) <span class="sc">+</span> </span>
+<span id="cb779-4"><a href="ch-numericDescStat.html#cb779-4" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb779-5"><a href="ch-numericDescStat.html#cb779-5" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
+<span id="cb779-6"><a href="ch-numericDescStat.html#cb779-6" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> table_cut)</span></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula = &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img src="descriptiveStat-numeric_files/figure-html/unnamed-chunk-87-1.png" width="100%" style="display: block; margin: auto;" /></p>
 
